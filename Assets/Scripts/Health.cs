@@ -23,8 +23,10 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        if (!OffSetTakeDamage && !PlayerMovement.isBlocking)
+        if (!OffSetTakeDamage && PlayerMovement.isBlocking)
         {
+            Debug.Log(PlayerMovement.isBlocking);
+            
             OffSetTakeDamage = true;
             currentHealth -= damage;
             slider.value = currentHealth;
@@ -38,11 +40,13 @@ public class Health : MonoBehaviour
             }
         }
 
-        else if (!OffSetTakeDamage && PlayerMovement.isBlocking)
+        else if (!OffSetTakeDamage && !PlayerMovement.isBlocking)
         {
             animator.SetTrigger("Hurt");
 
             Debug.Log("SSSSSSSSSSS");
+            Debug.Log(PlayerMovement.isBlocking);
+
             if (currentHealth <= 0)
             {
                 Die();

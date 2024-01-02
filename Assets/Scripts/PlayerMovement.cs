@@ -232,7 +232,6 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("Block", true);
             isBlocking = true;
-            Debug.Log(isBlocking);
         }
         else
         {
