@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool attacked = false;
 
-    public static bool isBlockingOne = false;
+    public static bool isBlocking = false;
 
     [Header("AttackPoint")]
 
@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         {
             facingRight = false;
         }
+    
         // Inicializace komponent
         attackPoint.SetActive(false);
         rb = this.GetComponent<Rigidbody>();
@@ -83,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
         {
             inputSystemActions.PlayerRight.Jump.started += Jump;
             inputSystemActions.PlayerRight.Attack.started += Attacking;
-
             // Připojení akce pohybu
             move = inputSystemActions.PlayerRight.Move;
             block = inputSystemActions.PlayerRight.Block;
@@ -94,11 +94,9 @@ public class PlayerMovement : MonoBehaviour
         {
             inputSystemActions.PlayerLeft.Jump.started += Jump;
             inputSystemActions.PlayerLeft.Attack.started += Attacking;
-
             // Připojení akce pohybu
             move = inputSystemActions.PlayerLeft.Move;
             block = inputSystemActions.PlayerLeft.Block;
-
 
             inputSystemActions.PlayerLeft.Enable();
         }
@@ -116,7 +114,6 @@ public class PlayerMovement : MonoBehaviour
             // Odpojení akcí skoku a útoku
             inputSystemActions.PlayerRight.Jump.started -= Jump;
             inputSystemActions.PlayerRight.Attack.started -= Attacking;
-
 
             // Zakázání akcí hráče
             inputSystemActions.PlayerRight.Disable();
@@ -146,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight(playerCamera);
         forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
 
-        if (!isBlockingOne)
+        if (!isBlocking)
         {
             rb.AddForce(forceDirection, ForceMode.Impulse);
         }
@@ -168,7 +165,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip(true);
         }
-        
     }
 
     // Metody pro získání směru kamery
@@ -227,7 +223,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("Move", false);
-
         }
     }
 
@@ -236,19 +231,19 @@ public class PlayerMovement : MonoBehaviour
         if (block.IsPressed())
         {
             animator.SetBool("Block", true);
-            isBlockingOne = true;
+            isBlocking = true;
+            Debug.Log(isBlocking);
         }
         else
         {
             animator.SetBool("Block", false);
-            isBlockingOne = false;
-        } 
+            isBlocking = false;
+        }
     }
 
     // Metoda pro otáčení hráče
     private void Flip(bool flipValue)
     {
-
         // Obrácení směru hráče
         facingRight = !facingRight;
         Vector3 theScale = transform.localScale;
@@ -271,14 +266,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attacked()
     {
-        if (!isBlockingOne)
+        if (!isBlocking || !isBlocking && !attacked)
         {
-            // Spuštění animace útoku
-            //attacked = true;
-
             // Aktivace bodu útoku
+            attacked = false;
             attackPoint.SetActive(true);
-            // Zjištění zasažených nepřátel
             Collider[] hitEnemy = Physics.OverlapSphere(attackPoint.transform.position, attackPointSize, enemyMask);
             foreach (Collider enemy in hitEnemy)
             {
@@ -289,10 +281,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 enemy.GetComponent<Health>().TakeDamage(_damage);
             }
-            //StartCoroutine(DelayedActivation());
+            StartCoroutine(DelayedActivation());
         }
     }
-
 
     // Metoda pro vykreslení bodu útoku ve scéně
     private void OnDrawGizmosSelected()
@@ -314,10 +305,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Death");
     }
 
-    /* Coroutine pro odloženou aktivaci
     private IEnumerator DelayedActivation()
     {
         yield return new WaitForSeconds(0.50f);
         attacked = false;
-    }*/
+    }
 }

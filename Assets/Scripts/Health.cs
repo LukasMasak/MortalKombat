@@ -23,14 +23,13 @@ public class Health : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        if (!OffSetTakeDamage && !PlayerMovement.isBlockingOne)
+        if (!OffSetTakeDamage && !PlayerMovement.isBlocking)
         {
             OffSetTakeDamage = true;
             currentHealth -= damage;
             slider.value = currentHealth;
             fill.color = gradient.Evaluate(slider.normalizedValue);
 
-
             animator.SetTrigger("Hurt");
 
             if (currentHealth <= 0)
@@ -38,17 +37,19 @@ public class Health : MonoBehaviour
                 Die();
             }
         }
-        if (!OffSetTakeDamage && PlayerMovement.isBlockingOne)
+
+        else if (!OffSetTakeDamage && PlayerMovement.isBlocking)
         {
             animator.SetTrigger("Hurt");
 
+            Debug.Log("SSSSSSSSSSS");
             if (currentHealth <= 0)
             {
                 Die();
             }
         }
-        StartCoroutine(OffSetTakeDamageTime());
 
+        StartCoroutine(OffSetTakeDamageTime());
     }
 
     public void Die()
@@ -59,7 +60,7 @@ public class Health : MonoBehaviour
     }
     private IEnumerator OffSetTakeDamageTime()
     {
-        yield return new WaitForSeconds(0.20f);
+        yield return new WaitForSeconds(0.50f);
         OffSetTakeDamage = false;
     }
 }
