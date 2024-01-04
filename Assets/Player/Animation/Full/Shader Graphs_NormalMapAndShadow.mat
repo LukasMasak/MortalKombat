@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: fa801f3e701444287b27da442d758583, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Paralax:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ReverseNormalMap:
         m_Texture: {fileID: 2800000, guid: bf511d0492aca48a68381a2510edcc66, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -68,8 +72,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _IsFliped: 0
-    - _NormalStrenght: 0.999
+    - _NormalStrenght: 0.785
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _paralaxStrange: 0
     m_Colors: []
   m_BuildTextureStacks: []
