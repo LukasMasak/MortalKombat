@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
     // Proměnné pro kontrolu stavů hráče
     private bool isGrounded;
     private bool facingRight = true;
-    private bool attacked;
 
     public static bool isBlocking = false;
 
@@ -59,8 +58,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask enemyMask;
     [SerializeField]
-    private int _damage = 20;
+    public int _GivenDamage = 20;
 
+    private bool attacked = false;
     // Inicializace proměnných při probuzení objektu
     private void Awake()
     {
@@ -75,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
         inputSystemActions = new InputSystem();
         animator = this.GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        attacked = false;
     }
 
     // Přiřazení akcí při povolení objektu
@@ -145,10 +144,7 @@ public class PlayerMovement : MonoBehaviour
         forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight(playerCamera);
         forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
         
-        if (!attacked && !isBlocking)
-        {
-            rb.AddForce(forceDirection, ForceMode.Impulse);
-        }
+        rb.AddForce(forceDirection, ForceMode.Impulse);
 
         // Resetování směru síly
         forceDirection = Vector3.zero;
@@ -234,12 +230,10 @@ public class PlayerMovement : MonoBehaviour
         if (block.IsPressed())
         {
             animator.SetBool("Block", true);
-            isBlocking = true;
         }
         else
         {
             animator.SetBool("Block", false);
-            isBlocking = false;
         }
     }
 
@@ -256,41 +250,35 @@ public class PlayerMovement : MonoBehaviour
     // Metoda pro útok
     private void Attacking(InputAction.CallbackContext obj)
     {
-        animator.SetTrigger("Attack");
-        StartCoroutine(AttackingDelayed());
-    }
-
-    private IEnumerator AttackingDelayed()
-    {
-        yield return new WaitForSeconds(0f);
-        Attacked();
-    }
-
-    private void Attacked()
-    {
-        if (!isBlocking || !isBlocking && !attacked)
+        if (!attacked)
         {
-            // Aktivace bodu útoku
+            animator.SetTrigger("Attack");
+            rb.isKinematic = true;
             attacked = true;
+        }
+        
+        
+    }
+
+    public void Attacked()
+    {
+        if (!isBlocking)
+        {
+            attacked = false;
             attackPoint.SetActive(true);
             Collider[] hitEnemy = Physics.OverlapSphere(attackPoint.transform.position, attackPointSize, enemyMask);
             foreach (Collider enemy in hitEnemy)
             {
-                Debug.Log("hit " + enemy.name);
                 if(enemy.gameObject == this)
                 {
                     continue;
                 }
-                enemy.GetComponent<Health>().TakeDamage(_damage);
-            }
-            StartCoroutine(DelayedActivation());
-        }
-    }
+                Debug.Log("hit " + enemy.name);
 
-    private IEnumerator DelayedActivation()
-    {
-        yield return new WaitForSeconds(1f);
-        attacked = false;
+                enemy.GetComponent<Health>().TakeDamage(_GivenDamage);
+            }
+            rb.isKinematic = false;
+        }
     }
 
     // Metoda pro vykreslení bodu útoku ve scéně
@@ -311,5 +299,7 @@ public class PlayerMovement : MonoBehaviour
     public void Die()
     {
         animator.SetTrigger("Death");
+
     }
+
 }
