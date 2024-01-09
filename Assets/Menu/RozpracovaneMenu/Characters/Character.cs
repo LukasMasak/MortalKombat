@@ -10,26 +10,24 @@ public class Character : MonoBehaviour
     public Image BorderOne;
     public Image BorderPlayerTwo;
     public Image BorderBoth;
+    public Image BorderDone;
 
     private bool PlayerOneON;
     private bool PlayerTwoON;
 
+    public GameObject showPlayer;
+    public GameObject[] CharactersPrefabs;
+
     public enum _Character
     {
-        jedna,
-        dva,
-        tri,
-        ctyry
+        Tuan,
+        Ruďoch,
+        Žaba,
+        Týpek
     }
-
+ 
     [SerializeField]
     private _Character charac;
-
-    public _Character GetSelected()
-    {
-        Debug.Log("13");
-        return charac;
-    }
 
     private void Awake()
     {
@@ -80,6 +78,8 @@ public class Character : MonoBehaviour
     }
     public void Deselect(int player)
     {
+        GetUNChoosen();
+
         if(player == 1)
         {
             PlayerOneON = false;
@@ -94,6 +94,7 @@ public class Character : MonoBehaviour
             BorderPlayerTwo.gameObject.SetActive(false);
             BorderOne.gameObject.SetActive(false);
             BorderBoth.gameObject.SetActive(true);
+            
         }
         else if (PlayerOneON)
         {
@@ -115,4 +116,25 @@ public class Character : MonoBehaviour
         }
     }
 
+    public _Character GetChoosen()
+    {
+        
+        //showPlayer = CharactersPrefabs[(int)charac];
+        BorderDone.gameObject.SetActive(true);
+        BorderBoth.gameObject.SetActive(false);
+        BorderOne.gameObject.SetActive(false);
+        BorderPlayerTwo.gameObject.SetActive(false);
+      
+        return charac;
+    }
+
+    public _Character GetUNChoosen()
+    {
+        BorderDone.gameObject.SetActive(false);
+        BorderBoth.gameObject.SetActive(false);
+        BorderOne.gameObject.SetActive(false);
+        BorderPlayerTwo.gameObject.SetActive(false);
+
+        return charac;
+    }
 }

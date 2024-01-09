@@ -13,8 +13,6 @@ public class ChooseChracter : MonoBehaviour
     private int rowCount;
     private int columCount;
 
-    public bool playerRight;
-
     [SerializeField]
     private int PlayerOne = 0;
     [SerializeField]
@@ -47,6 +45,7 @@ public class ChooseChracter : MonoBehaviour
         right,
         down
     }
+
     private void movePlayer(int i, direction d)
     {
         if (i == 1)
@@ -93,6 +92,8 @@ public class ChooseChracter : MonoBehaviour
             characters[PlayerTwo].Selected(2);
         }
     }
+    ////////////////////////////////////////////////////
+    // Tady jsem to oficiálně ztratil, omlouvám se...
 
     private void Update()
     {
@@ -114,7 +115,7 @@ public class ChooseChracter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            var nevim = characters[PlayerOne].GetSelected();
+            var nevim = characters[PlayerOne].GetChoosen();
         }
 
         ////////////////////////////////////////////////////
@@ -138,7 +139,7 @@ public class ChooseChracter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var nevim = characters[PlayerOne].GetSelected();
+            var nevim = characters[PlayerTwo].GetChoosen();
         }
     }
 
