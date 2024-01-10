@@ -76,5 +76,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _paralaxStrange: 0
-    m_Colors: []
+    m_Colors:
+    - _Exposition: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
