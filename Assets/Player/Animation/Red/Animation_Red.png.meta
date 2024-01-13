@@ -1,0 +1,1777 @@
+fileFormatVersion: 2
+guid: cf6caf003c7c9407fa364ce51bbd4aa5
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 450
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Animation_Red_0
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 3189
+        width: 472
+        height: 670
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8513de39088d348ab870f32148250789
+      internalID: 445026803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_1
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 3189
+        width: 477
+        height: 644
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ba5cc7576aa4f5db62d386242dffd8
+      internalID: -1670465926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_2
+      rect:
+        serializedVersion: 2
+        x: 1965
+        y: 3189
+        width: 565
+        height: 579
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1e478ed8156417497db069d0b701b1
+      internalID: 216896410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_3
+      rect:
+        serializedVersion: 2
+        x: 2917
+        y: 3189
+        width: 676
+        height: 557
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f0cf8e144384ebab160a7d718236d2
+      internalID: 1567111646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_4
+      rect:
+        serializedVersion: 2
+        x: 3869
+        y: 3189
+        width: 689
+        height: 544
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5de93e23bc143dc9d932be19582d12
+      internalID: 1197429416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_5
+      rect:
+        serializedVersion: 2
+        x: 4821
+        y: 3189
+        width: 711
+        height: 513
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adbc244d7714b49e880c245667767f25
+      internalID: 88648931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_6
+      rect:
+        serializedVersion: 2
+        x: 5773
+        y: 3189
+        width: 719
+        height: 516
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d5b0ce0d2384d428c14cb2927d2182
+      internalID: 127398755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_7
+      rect:
+        serializedVersion: 2
+        x: 6725
+        y: 3189
+        width: 475
+        height: 626
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384450afeeea5482ea914bac013a6f6d
+      internalID: -645467697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_8
+      rect:
+        serializedVersion: 2
+        x: 7618
+        y: 3189
+        width: 367
+        height: 668
+      alignment: 9
+      pivot: {x: 0.17719154, y: -0.0015978784}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b940a7247c9468c8c6ec49cd4d040b
+      internalID: 474326551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_9
+      rect:
+        serializedVersion: 2
+        x: 8629
+        y: 3189
+        width: 455
+        height: 684
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db3dca6ede2847a5a68cd2711aef9ff
+      internalID: -337423334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_10
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2392
+        width: 384
+        height: 717
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346ec5e54c9b6405d90abec01b192990
+      internalID: -1114313309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_11
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 2392
+        width: 354
+        height: 630
+      alignment: 9
+      pivot: {x: 0.38763273, y: 0.0033823166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae6805991d6a40af8174b18c150ae70
+      internalID: 675432620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_12
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 2392
+        width: 424
+        height: 657
+      alignment: 9
+      pivot: {x: 0.6826065, y: 0.0043246704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ffb06de8b5e847e3a4de9bbd8664e0d
+      internalID: 180541912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_13
+      rect:
+        serializedVersion: 2
+        x: 1851
+        y: 2392
+        width: 362
+        height: 551
+      alignment: 9
+      pivot: {x: 0.707995, y: -0.00257832}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9821d1d9a24ae4d1b9409a10abb0c682
+      internalID: 857221266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_14
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 2392
+        width: 521
+        height: 572
+      alignment: 9
+      pivot: {x: 0.57110864, y: -0.0024909172}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1870cbba823042228bca8c73b368fbe
+      internalID: 603941602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_15
+      rect:
+        serializedVersion: 2
+        x: 3258
+        y: 2392
+        width: 506
+        height: 565
+      alignment: 9
+      pivot: {x: 0.3465248, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd27c74c65fc41ab9eaaf94ff31a5af
+      internalID: -474013912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_16
+      rect:
+        serializedVersion: 2
+        x: 3993
+        y: 2393
+        width: 314
+        height: 528
+      alignment: 9
+      pivot: {x: 0.33491895, y: 0.0032159053}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130e381f8e1d5495583d045d26b24d2e
+      internalID: 349439846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_17
+      rect:
+        serializedVersion: 2
+        x: 4425
+        y: 2392
+        width: 492
+        height: 309
+      alignment: 9
+      pivot: {x: 0.77296805, y: -0.0045027747}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c79e3c2483a545dcadf89b94cdc39f3
+      internalID: 1346098009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_18
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2392
+        width: 424
+        height: 367
+      alignment: 9
+      pivot: {x: 0.8222461, y: -0.0028026279}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ebe1ddb69b94e92b0ff870d0c734f0
+      internalID: 434467992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_19
+      rect:
+        serializedVersion: 2
+        x: 5823
+        y: 2393
+        width: 312
+        height: 288
+      alignment: 9
+      pivot: {x: 0.98186785, y: -0.004948934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24cf6a01836564af7abf1a5338ecbbf3
+      internalID: -1396150598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_20
+      rect:
+        serializedVersion: 2
+        x: 6597
+        y: 2392
+        width: 199
+        height: 202
+      alignment: 9
+      pivot: {x: 0.8518545, y: -0.0022166036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95106a91a7a64484a8170ea746ae7194
+      internalID: 1663786433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_21
+      rect:
+        serializedVersion: 2
+        x: 7281
+        y: 2368
+        width: 186
+        height: 215
+      alignment: 9
+      pivot: {x: 0.77209866, y: 0.0072413245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 220053aec626746acb16e7d0c950fa16
+      internalID: -1589134746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_22
+      rect:
+        serializedVersion: 2
+        x: 7929
+        y: 2368
+        width: 205
+        height: 214
+      alignment: 9
+      pivot: {x: 0.64812785, y: 0.007276303}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8682837a126334895ad0bde62dd463d2
+      internalID: -1996961694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_23
+      rect:
+        serializedVersion: 2
+        x: 8559
+        y: 2375
+        width: 254
+        height: 207
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc30af38798142e49e004a1d47fada4
+      internalID: -40158471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_24
+      rect:
+        serializedVersion: 2
+        x: 9217
+        y: 2370
+        width: 261
+        height: 217
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c56f8176dc744429fd49c3edb8dacd
+      internalID: 1663550656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_25
+      rect:
+        serializedVersion: 2
+        x: 9878
+        y: 2392
+        width: 269
+        height: 195
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1d628d614fc4dfcaad9c24924a084b
+      internalID: 1108776394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_26
+      rect:
+        serializedVersion: 2
+        x: 10534
+        y: 2362
+        width: 290
+        height: 225
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cfada32265342af8ae769160c829b5
+      internalID: -332688656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_27
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 2372
+        width: 312
+        height: 223
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea49b9633adfc4f9c8655d9c538369c4
+      internalID: 2011134828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_28
+      rect:
+        serializedVersion: 2
+        x: 11880
+        y: 2362
+        width: 305
+        height: 213
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e66eb30cbe184d8590e4f4a456ede70
+      internalID: 75617325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_29
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1607
+        width: 546
+        height: 599
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f0c50b605c146368cdf3f37efc8c32
+      internalID: 126211785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_30
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1607
+        width: 371
+        height: 623
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61606af215ec14da3aa6454f8ace8a8c
+      internalID: 591863560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_31
+      rect:
+        serializedVersion: 2
+        x: 2322
+        y: 1607
+        width: 295
+        height: 687
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c25d77402e1794f22b76ce078645d50f
+      internalID: -447849204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_32
+      rect:
+        serializedVersion: 2
+        x: 3274
+        y: 1608
+        width: 412
+        height: 653
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a0e259b534b3460eb9d80fae62d4716
+      internalID: -500334244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_33
+      rect:
+        serializedVersion: 2
+        x: 4266
+        y: 1607
+        width: 560
+        height: 577
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa063e0a1be394cd990b81461c320ff2
+      internalID: -74720554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_34
+      rect:
+        serializedVersion: 2
+        x: 5156
+        y: 1607
+        width: 566
+        height: 649
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71adc9c9b6284a1ea78a94e582fdb8a
+      internalID: 328450908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_35
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 865
+        width: 510
+        height: 670
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f3a49f848da4c28a3ebd49d45dd78d
+      internalID: 1687113467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_36
+      rect:
+        serializedVersion: 2
+        x: 1083
+        y: 865
+        width: 508
+        height: 604
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2c0bf5887d54ec5a61ca4f245c8ac5
+      internalID: 1282696538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_37
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 865
+        width: 440
+        height: 710
+      alignment: 9
+      pivot: {x: 0.2805886, y: 0.00063837616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ca00ed4d8b847a2a4c4c062946348e
+      internalID: -1355893395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_38
+      rect:
+        serializedVersion: 2
+        x: 3073
+        y: 865
+        width: 313
+        height: 614
+      alignment: 9
+      pivot: {x: 0.14792737, y: 0.0008047893}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62efc5310631440a8af1850ba690adac
+      internalID: 417462380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_39
+      rect:
+        serializedVersion: 2
+        x: 4025
+        y: 865
+        width: 314
+        height: 578
+      alignment: 9
+      pivot: {x: 0.14589891, y: 0.0030830146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6196c625a0c4428869e29c6fec1232
+      internalID: 1585427735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_40
+      rect:
+        serializedVersion: 2
+        x: 4977
+        y: 865
+        width: 269
+        height: 654
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe4215f532494cb1a5ac92938416658
+      internalID: 1422407133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_41
+      rect:
+        serializedVersion: 2
+        x: 5863
+        y: 865
+        width: 362
+        height: 597
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a792cb6937947ebb64b8c68e2db0a6
+      internalID: 1927486149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_42
+      rect:
+        serializedVersion: 2
+        x: 6795
+        y: 865
+        width: 462
+        height: 674
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b54ac175c1be44cb0827f9d11bea72cb
+      internalID: -938799414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_43
+      rect:
+        serializedVersion: 2
+        x: 7679
+        y: 865
+        width: 460
+        height: 673
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 405c7323d4dd24a96aeb4068d7468ae3
+      internalID: 555663322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_44
+      rect:
+        serializedVersion: 2
+        x: 8631
+        y: 865
+        width: 347
+        height: 632
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5c895bce43a4db3b233688b724eb28
+      internalID: 1191943130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_45
+      rect:
+        serializedVersion: 2
+        x: 9436
+        y: 865
+        width: 417
+        height: 591
+      alignment: 9
+      pivot: {x: 0.3591853, y: 0.0027096097}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc9769fd937f4726a9d06411aad9dcc
+      internalID: 1520918732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_46
+      rect:
+        serializedVersion: 2
+        x: 10465
+        y: 865
+        width: 340
+        height: 591
+      alignment: 9
+      pivot: {x: 0.21991326, y: 0.0047115837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1b0dbbe8d874b078082adb646e6311
+      internalID: 937199350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_47
+      rect:
+        serializedVersion: 2
+        x: 11487
+        y: 865
+        width: 477
+        height: 676
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec3f65d631d84bb29d294982bd2afd0
+      internalID: -256109790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 57
+        width: 499
+        height: 723
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7a99390d2a947c7883e947d5d2a943
+      internalID: 476164668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_49
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 57
+        width: 493
+        height: 720
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d679a272d4fe14e72964515f877ff6ff
+      internalID: 188992982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_50
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 56
+        width: 498
+        height: 716
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbc76a08295c46c49f24251ed038f95
+      internalID: 1688832316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_51
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 57
+        width: 477
+        height: 716
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207479ce29c72474a892ec333898c7cb
+      internalID: -1309396615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_52
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 56
+        width: 479
+        height: 714
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bfd1af5327845249895e7740c9cf6e
+      internalID: -658243559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_53
+      rect:
+        serializedVersion: 2
+        x: 2790
+        y: 57
+        width: 472
+        height: 708
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731537d0d1ce540dcba65bb15ecd684e
+      internalID: 1794774943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_54
+      rect:
+        serializedVersion: 2
+        x: 3336
+        y: 57
+        width: 488
+        height: 702
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841182a6962d3464ca936c8010bc2195
+      internalID: 829722604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_55
+      rect:
+        serializedVersion: 2
+        x: 3882
+        y: 56
+        width: 533
+        height: 689
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ca3d2a5feba84965af08f4e376d85e2
+      internalID: -666609673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_56
+      rect:
+        serializedVersion: 2
+        x: 4428
+        y: 56
+        width: 546
+        height: 682
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f666822e4bbab4184a4e117ad81ba567
+      internalID: 2137912654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_57
+      rect:
+        serializedVersion: 2
+        x: 4974
+        y: 56
+        width: 529
+        height: 668
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c8dbd35e2484203ac8769d1b142df1
+      internalID: -1285722312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_58
+      rect:
+        serializedVersion: 2
+        x: 5520
+        y: 56
+        width: 521
+        height: 689
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c636466db892b4239b2ac6f7d3576f17
+      internalID: 1052301623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_59
+      rect:
+        serializedVersion: 2
+        x: 6066
+        y: 56
+        width: 495
+        height: 704
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621add6c714ed428a8482f5ca3b1b907
+      internalID: 252134233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_60
+      rect:
+        serializedVersion: 2
+        x: 6612
+        y: 56
+        width: 457
+        height: 702
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca184f40064f4ffda91ab565535a1e5
+      internalID: -145287623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_61
+      rect:
+        serializedVersion: 2
+        x: 7158
+        y: 56
+        width: 413
+        height: 706
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d92c914826544b9bbc17b463530f517
+      internalID: 622962969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_62
+      rect:
+        serializedVersion: 2
+        x: 7704
+        y: 56
+        width: 408
+        height: 701
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a3a1bc8d7d443b8917d1d848ed6e3a
+      internalID: 2035289983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_63
+      rect:
+        serializedVersion: 2
+        x: 8250
+        y: 56
+        width: 406
+        height: 717
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0359cdbe6be442080e38384b383d18
+      internalID: 727472774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_64
+      rect:
+        serializedVersion: 2
+        x: 8796
+        y: 56
+        width: 401
+        height: 724
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cdae6757b3c478f9fdc365a30fa198
+      internalID: -790342635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_65
+      rect:
+        serializedVersion: 2
+        x: 9342
+        y: 56
+        width: 448
+        height: 725
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738ffc0a288d2461aa2ff60961154493
+      internalID: -306818299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_66
+      rect:
+        serializedVersion: 2
+        x: 9888
+        y: 56
+        width: 457
+        height: 729
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99cf30800b0934274812af9ebf6f106e
+      internalID: 993870986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_67
+      rect:
+        serializedVersion: 2
+        x: 10434
+        y: 56
+        width: 480
+        height: 723
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8538d2156da3f49879b9840d46904473
+      internalID: 1486204073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_68
+      rect:
+        serializedVersion: 2
+        x: 5886
+        y: 1594
+        width: 477
+        height: 678
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f401258b7a3f4907b2b881446d78947
+      internalID: -953747558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_69
+      rect:
+        serializedVersion: 2
+        x: 6838
+        y: 1594
+        width: 407
+        height: 678
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f052ed451681462a9da186f3172d02c
+      internalID: 969426559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_70
+      rect:
+        serializedVersion: 2
+        x: 7790
+        y: 1594
+        width: 376
+        height: 691
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7722dea728a4346b30f36da729e6ad
+      internalID: 1563231226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_71
+      rect:
+        serializedVersion: 2
+        x: 8742
+        y: 1594
+        width: 268
+        height: 678
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc5b54049203944c89563a6b5b9c3475
+      internalID: 188893195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_72
+      rect:
+        serializedVersion: 2
+        x: 9694
+        y: 1594
+        width: 268
+        height: 661
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89591d67ce954d1f878228c5f3bef55
+      internalID: 1548059022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_73
+      rect:
+        serializedVersion: 2
+        x: 10646
+        y: 1594
+        width: 333
+        height: 674
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f819d28728d34adab518de982ba53c5
+      internalID: -800739467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Animation_Red_74
+      rect:
+        serializedVersion: 2
+        x: 11598
+        y: 1594
+        width: 486
+        height: 682
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef4bd0f32ae54528a8a8c93ceb4faa4
+      internalID: -760061065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1de017426d3af462aa2eed82183e0496
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Animation_Red_0: 445026803
+      Animation_Red_1: -1670465926
+      Animation_Red_10: -1114313309
+      Animation_Red_11: 675432620
+      Animation_Red_12: 180541912
+      Animation_Red_13: 857221266
+      Animation_Red_14: 603941602
+      Animation_Red_15: -474013912
+      Animation_Red_16: 349439846
+      Animation_Red_17: 1346098009
+      Animation_Red_18: 434467992
+      Animation_Red_19: -1396150598
+      Animation_Red_2: 216896410
+      Animation_Red_20: 1663786433
+      Animation_Red_21: -1589134746
+      Animation_Red_22: -1996961694
+      Animation_Red_23: -40158471
+      Animation_Red_24: 1663550656
+      Animation_Red_25: 1108776394
+      Animation_Red_26: -332688656
+      Animation_Red_27: 2011134828
+      Animation_Red_28: 75617325
+      Animation_Red_29: 126211785
+      Animation_Red_3: 1567111646
+      Animation_Red_30: 591863560
+      Animation_Red_31: -447849204
+      Animation_Red_32: -500334244
+      Animation_Red_33: -74720554
+      Animation_Red_34: 328450908
+      Animation_Red_35: 1687113467
+      Animation_Red_36: 1282696538
+      Animation_Red_37: -1355893395
+      Animation_Red_38: 417462380
+      Animation_Red_39: 1585427735
+      Animation_Red_4: 1197429416
+      Animation_Red_40: 1422407133
+      Animation_Red_41: 1927486149
+      Animation_Red_42: -938799414
+      Animation_Red_43: 555663322
+      Animation_Red_44: 1191943130
+      Animation_Red_45: 1520918732
+      Animation_Red_46: 937199350
+      Animation_Red_47: -256109790
+      Animation_Red_48: 476164668
+      Animation_Red_49: 188992982
+      Animation_Red_5: 88648931
+      Animation_Red_50: 1688832316
+      Animation_Red_51: -1309396615
+      Animation_Red_52: -658243559
+      Animation_Red_53: 1794774943
+      Animation_Red_54: 829722604
+      Animation_Red_55: -666609673
+      Animation_Red_56: 2137912654
+      Animation_Red_57: -1285722312
+      Animation_Red_58: 1052301623
+      Animation_Red_59: 252134233
+      Animation_Red_6: 127398755
+      Animation_Red_60: -145287623
+      Animation_Red_61: 622962969
+      Animation_Red_62: 2035289983
+      Animation_Red_63: 727472774
+      Animation_Red_64: -790342635
+      Animation_Red_65: -306818299
+      Animation_Red_66: 993870986
+      Animation_Red_67: 1486204073
+      Animation_Red_68: -953747558
+      Animation_Red_69: 969426559
+      Animation_Red_7: -645467697
+      Animation_Red_70: 1563231226
+      Animation_Red_71: 188893195
+      Animation_Red_72: 1548059022
+      Animation_Red_73: -800739467
+      Animation_Red_74: -760061065
+      Animation_Red_8: 474326551
+      Animation_Red_9: -337423334
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

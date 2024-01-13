@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     public int _GivenDamage = 20;
 
     private bool attacked = false;
+    private bool attackedReset = false;
     // Inicializace proměnných při probuzení objektu
     private void Awake()
     {
@@ -136,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
     // Hlavní metoda pro pohyb hráče
     private void FixedUpdate()
     {
+        Debug.Log(this.gameObject.name + " is blocking " + attacked);
 
         Move();
         Blocking();
@@ -215,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
         // Výpočet aktuální rychlosti
         float _move = rb.velocity.magnitude / maxSpeed;
         // Nastavení animací pohybu
-        if (_move > 0.1f && isGrounded)
+        if (_move > 0.01f && isGrounded)
         {
             animator.SetBool("Move", true);
         }
@@ -230,10 +232,13 @@ public class PlayerMovement : MonoBehaviour
         if (block.IsPressed())
         {
             animator.SetBool("Block", true);
+            isBlocking = true;
         }
-        else
+        else 
         {
             animator.SetBool("Block", false);
+            isBlocking = false;
+            attacked = false;
         }
     }
 
@@ -250,21 +255,22 @@ public class PlayerMovement : MonoBehaviour
     // Metoda pro útok
     private void Attacking(InputAction.CallbackContext obj)
     {
-        if (!attacked)
+        if (!attacked && !attackedReset)
         {
-            animator.SetTrigger("Attack");
-            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             attacked = true;
+            if (!isBlocking)
+            {
+                attackedReset = true;
+            }
+            animator.SetTrigger("Attack");
         }
-        
-        
     }
 
     public void Attacked()
     {
         if (!isBlocking)
         {
-            attacked = false;
             attackPoint.SetActive(true);
             Collider[] hitEnemy = Physics.OverlapSphere(attackPoint.transform.position, attackPointSize, enemyMask);
             foreach (Collider enemy in hitEnemy)
@@ -277,7 +283,9 @@ public class PlayerMovement : MonoBehaviour
 
                 enemy.GetComponent<Health>().TakeDamage(_GivenDamage);
             }
-            rb.isKinematic = false;
+            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+            attacked = false;
+            attackedReset = false;
         }
     }
 

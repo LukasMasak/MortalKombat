@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public Gradient gradient;
     public Image fill;
     private Rigidbody rb;
+    private Vector3 velocity;
 
     private bool BlockingBool = false;
 
@@ -28,24 +29,23 @@ public class Health : MonoBehaviour
     public void IsBlocking()
     {
         BlockingBool = true;
-        rb.isKinematic = true;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
     }
     public void DeactivateBlocking()
     {
         BlockingBool = false;
-        rb.isKinematic = false;
-
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
     }
     private void Update()
     {
-        Debug.Log(this.gameObject.name + " is blocking " + BlockingBool);
+       // Debug.Log(this.gameObject.name + " is blocking " + BlockingBool);
     }
 
     public void TakeDamage(int damage)
     {
         if (!BlockingBool)
         {
-            Debug.Log(PlayerMovement.isBlocking);
+            //Debug.Log(PlayerMovement.isBlocking);
             
             //OffSetTakeDamage = true;
             currentHealth -= damage;
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
         {
             animator.SetTrigger("Hurt");
 
-            Debug.Log(PlayerMovement.isBlocking);
+            //Debug.Log(PlayerMovement.isBlocking);
 
             if (currentHealth <= 0)
             {

@@ -7,16 +7,22 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     [SerializeField]
-    public Image BorderOne;
+    public Image BorderPlayerOne;
     public Image BorderPlayerTwo;
     public Image BorderBoth;
     public Image BorderDone;
 
+    [Space]
+
     private bool PlayerOneON;
     private bool PlayerTwoON;
-
-    public GameObject showPlayer;
+    [Space]
+    public Image showPlayerLeft;
+    public Image showPlayerRight;
+    [Space]
+    [Space]
     public GameObject[] CharactersPrefabs;
+    public Image[] bg;
 
     public enum _Character
     {
@@ -32,6 +38,9 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         Selected(0);
+        showPlayerLeft = GetComponent<Image>();
+        showPlayerRight = GetComponent<Image>();
+
     }
 
     public void Selected(int player)
@@ -51,28 +60,33 @@ public class Character : MonoBehaviour
                 break;
         }
 
+        //Both
         if (PlayerOneON && PlayerTwoON)
         {
             BorderPlayerTwo.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderBoth.gameObject.SetActive(true);
+
         }
+        //Left
         else if (PlayerOneON)
         {
             BorderBoth.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(true);
+            BorderPlayerOne.gameObject.SetActive(true);
         }
+        //Right
         else if (PlayerTwoON)
         {
             BorderBoth.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(true);
         }
+        //none
         else
         {
             BorderBoth.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(false);
         }
     }
@@ -92,26 +106,25 @@ public class Character : MonoBehaviour
         if (PlayerOneON && PlayerTwoON)
         {
             BorderPlayerTwo.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderBoth.gameObject.SetActive(true);
-            
         }
         else if (PlayerOneON)
         {
             BorderBoth.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(true);
+            BorderPlayerOne.gameObject.SetActive(true);
         }
         else if (PlayerTwoON)
         {
             BorderBoth.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(true);
         }
         else
         {
             BorderBoth.gameObject.SetActive(false);
-            BorderOne.gameObject.SetActive(false);
+            BorderPlayerOne.gameObject.SetActive(false);
             BorderPlayerTwo.gameObject.SetActive(false);
         }
     }
@@ -122,7 +135,7 @@ public class Character : MonoBehaviour
         //showPlayer = CharactersPrefabs[(int)charac];
         BorderDone.gameObject.SetActive(true);
         BorderBoth.gameObject.SetActive(false);
-        BorderOne.gameObject.SetActive(false);
+        BorderPlayerOne.gameObject.SetActive(false);
         BorderPlayerTwo.gameObject.SetActive(false);
       
         return charac;
@@ -132,7 +145,7 @@ public class Character : MonoBehaviour
     {
         BorderDone.gameObject.SetActive(false);
         BorderBoth.gameObject.SetActive(false);
-        BorderOne.gameObject.SetActive(false);
+        BorderPlayerOne.gameObject.SetActive(false);
         BorderPlayerTwo.gameObject.SetActive(false);
 
         return charac;
