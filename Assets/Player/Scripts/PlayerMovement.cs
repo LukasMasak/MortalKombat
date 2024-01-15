@@ -38,15 +38,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Camera")]
 
     // Kamera sledující hráče
-    [SerializeField]
-    private Camera playerCamera;
+    public Camera playerCamera;
     // Animator pro správu animací hráče
     private Animator animator;
     // Proměnné pro kontrolu stavů hráče
     private bool isGrounded;
-    private bool facingRight = true;
+    public bool facingRight = true;
 
-    public static bool isBlocking = false;
+    private bool isBlocking = false;
 
     [Header("AttackPoint")]
 
@@ -55,14 +54,15 @@ public class PlayerMovement : MonoBehaviour
     private GameObject attackPoint;
     [SerializeField]
     private float attackPointSize;
-    [SerializeField]
-    private LayerMask enemyMask;
+    public LayerMask enemyMask;
     [SerializeField]
     public int _GivenDamage = 20;
 
     private bool attacked = false;
-    private bool attackedReset = false;
+
+    private Health health;
     // Inicializace proměnných při probuzení objektu
+
     private void Awake()
     {
         if (playerRight)
@@ -76,10 +76,11 @@ public class PlayerMovement : MonoBehaviour
         inputSystemActions = new InputSystem();
         animator = this.GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        health = GetComponent<Health>();
     }
 
     // Přiřazení akcí při povolení objektu
-    private void OnEnable()
+    public void OnEnable2()
     {
         if (playerRight)
         {
@@ -137,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     // Hlavní metoda pro pohyb hráče
     private void FixedUpdate()
     {
-        Debug.Log(this.gameObject.name + " is blocking " + attacked);
+        //Debug.Log(this.gameObject.name + " is blocking " + attacked);
 
         Move();
         Blocking();
@@ -229,16 +230,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void Blocking()
     {
+        if (attacked)
+        {
+            animator.SetBool("Block", false);
+            isBlocking = false;
+            health.DeactivateBlocking();
+
+            return;
+        }
+
         if (block.IsPressed())
         {
             animator.SetBool("Block", true);
             isBlocking = true;
+            health.IsBlocking();
         }
         else 
         {
             animator.SetBool("Block", false);
             isBlocking = false;
-            attacked = false;
+            health.DeactivateBlocking();
+
         }
     }
 
@@ -255,38 +267,33 @@ public class PlayerMovement : MonoBehaviour
     // Metoda pro útok
     private void Attacking(InputAction.CallbackContext obj)
     {
-        if (!attacked && !attackedReset)
+        Debug.Log(this.gameObject.name + "dawdwdwadawdaw" + isBlocking + attacked);
+        if (!attacked && !isBlocking)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             attacked = true;
-            if (!isBlocking)
-            {
-                attackedReset = true;
-            }
+            
             animator.SetTrigger("Attack");
+            Debug.Log("zautočil");
         }
     }
 
     public void Attacked()
     {
-        if (!isBlocking)
+        attackPoint.SetActive(true);
+        Collider[] hitEnemy = Physics.OverlapSphere(attackPoint.transform.position, attackPointSize, enemyMask);
+        foreach (Collider enemy in hitEnemy)
         {
-            attackPoint.SetActive(true);
-            Collider[] hitEnemy = Physics.OverlapSphere(attackPoint.transform.position, attackPointSize, enemyMask);
-            foreach (Collider enemy in hitEnemy)
+            if(enemy.gameObject == this)
             {
-                if(enemy.gameObject == this)
-                {
-                    continue;
-                }
-                Debug.Log("hit " + enemy.name);
-
-                enemy.GetComponent<Health>().TakeDamage(_GivenDamage);
+                continue;
             }
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-            attacked = false;
-            attackedReset = false;
+            Debug.Log("hit " + enemy.name);
+
+            enemy.GetComponent<Health>().TakeDamage(_GivenDamage);
         }
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+        attacked = false;
     }
 
     // Metoda pro vykreslení bodu útoku ve scéně

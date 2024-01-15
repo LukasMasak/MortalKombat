@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: showPlayerRight
       value: 
       objectReference: {fileID: 2121952666}
+    - target: {fileID: 651086725560699759, guid: ffa9361c64dd04a469d1b83f40f24bd6,
+        type: 3}
+      propertyPath: CharactersPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4199668984171114325, guid: ffa9361c64dd04a469d1b83f40f24bd6,
         type: 3}
       propertyPath: m_Name
@@ -345,6 +350,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerOne: 0
   PlayerTwo: 0
+  bg:
+  - {fileID: 445026803, guid: cf6caf003c7c9407fa364ce51bbd4aa5, type: 3}
+  - {fileID: -128082562, guid: cc62f9291c2ca41a29c866c19d69416d, type: 3}
+  - {fileID: 21300000, guid: 59f80a8c44bc94c648a4c9c94255e68f, type: 3}
+  - {fileID: 21300000, guid: 1f656d0d8d4314c77b8095840d01ab3c, type: 3}
+  showPlayerLeft: {fileID: 1713180415}
+  showPlayerRight: {fileID: 2121952666}
 --- !u!114 &117801778
 MonoBehaviour:
   m_ObjectHideFlags: 0
