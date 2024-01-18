@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 
@@ -21,6 +22,13 @@ public class ChooseChracter : MonoBehaviour
     private int charecterCount;
 
     private List<Character> characters = new();
+    public Sprite[] bg;
+
+    [Space]
+    public Image showPlayerLeft;
+    public Image showPlayerRight;
+
+    private bool selectedOne, selectedTwo;
 
     private void Awake()
     {
@@ -51,7 +59,9 @@ public class ChooseChracter : MonoBehaviour
         if (i == 1)
         {
             characters[PlayerOne].Deselect(1);
-            if(d == direction.up)
+            selectedOne = false;
+
+            if (d == direction.up)
             {
                 PlayerOne = (int)Mathf.Clamp(PlayerOne - columCount, 0, charecterCount - 1);
             }
@@ -67,11 +77,14 @@ public class ChooseChracter : MonoBehaviour
             {
                 PlayerOne = (int)Mathf.Clamp(PlayerOne + 1, 0, charecterCount -1);
             }
+            showPlayerLeft.sprite = bg[PlayerOne];
+            GlobalState.PlayerOne = (Character._Character)PlayerOne;
             characters[PlayerOne].Selected(1);
         }
         else
         {
             characters[PlayerTwo].Deselect(2);
+            selectedTwo = false;
 
             if (d == direction.up)
             {
@@ -89,6 +102,8 @@ public class ChooseChracter : MonoBehaviour
             {
                 PlayerTwo = (int)Mathf.Clamp(PlayerTwo + 1, 0, charecterCount - 1);
             }
+            showPlayerRight.sprite = bg[PlayerTwo];
+            GlobalState.PlayerTwo = (Character._Character)PlayerTwo;
             characters[PlayerTwo].Selected(2);
         }
     }
@@ -116,6 +131,7 @@ public class ChooseChracter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             var nevim = characters[PlayerOne].GetChoosen();
+            selectedOne = true;
         }
 
         ////////////////////////////////////////////////////
@@ -140,6 +156,11 @@ public class ChooseChracter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             var nevim = characters[PlayerTwo].GetChoosen();
+            selectedTwo = true;
+        }
+        if (selectedOne && selectedTwo)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

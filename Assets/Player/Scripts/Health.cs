@@ -28,11 +28,19 @@ public class Health : MonoBehaviour
 
     public void IsBlocking()
     {
+        if(rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
         BlockingBool = true;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
     }
     public void DeactivateBlocking()
     {
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
         BlockingBool = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
     }

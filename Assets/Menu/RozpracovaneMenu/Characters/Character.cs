@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
     [Space]
     [Space]
     public GameObject[] CharactersPrefabs;
-    public Image[] bg;
+
 
     public enum _Character
     {
