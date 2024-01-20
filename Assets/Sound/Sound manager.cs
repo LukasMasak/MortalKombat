@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class Soundmanager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public AudioClip[] PunchSound;
+    public AudioClip JumpStartSound;
+    public AudioClip JumpEndSound;
+    public AudioClip DieSound;
+
+    private AudioSource audioSource;
+
     void Start()
     {
-        
+        // Získání audio zdroje komponenty
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Punch()
     {
-        
+        int randomSound = Random.Range(0, PunchSound.Length);
+        audioSource.PlayOneShot(PunchSound[randomSound]);
+        Debug.Log("soundPlay");
+    }
+    public void JumpStart()
+    {
+        audioSource.PlayOneShot(JumpStartSound);
+
+    }
+    public void JumpEnd()
+    {
+        audioSource.PlayOneShot(JumpEndSound);
+
+    }
+    public void DiePlay()
+    {
+        audioSource.PlayOneShot(DieSound);
+
     }
 }

@@ -1,0 +1,2639 @@
+fileFormatVersion: 2
+guid: b4e6c825b3e434dbea59b4e9873e268e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 450
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3231
+        width: 376
+        height: 648
+      alignment: 9
+      pivot: {x: 0.5182206, y: 0.0031719443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f605cc785b30c4a02a1170347c37ff6b
+      internalID: -984699701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_1
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 3226
+        width: 357
+        height: 646
+      alignment: 9
+      pivot: {x: 0.42707768, y: 0.008484076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbacb86b40874349bf06053af3a06b9
+      internalID: 376151692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_2
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 3231
+        width: 509
+        height: 635
+      alignment: 9
+      pivot: {x: 0.3667515, y: 0.0021576649}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f8b9921267d41b58bbcd047f032abe
+      internalID: -185673741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_8
+      rect:
+        serializedVersion: 2
+        x: 3973
+        y: 3211
+        width: 352
+        height: 663
+      alignment: 9
+      pivot: {x: 0.6498649, y: 0.0154997995}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b10bc50125d24132b0a6884ef8f216f
+      internalID: 1068200787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_9
+      rect:
+        serializedVersion: 2
+        x: 4360
+        y: 3215
+        width: 281
+        height: 659
+      alignment: 9
+      pivot: {x: 0.5658276, y: 0.019752052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165d1c91acf514cb19f5c279afd81fa4
+      internalID: -1234573160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_10
+      rect:
+        serializedVersion: 2
+        x: 4694
+        y: 3209
+        width: 335
+        height: 668
+      alignment: 9
+      pivot: {x: 0.44682983, y: 0.0061535863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b2264876230494dbe5fa4863a5813b
+      internalID: -1117837604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_1
+      rect:
+        serializedVersion: 2
+        x: 8991
+        y: 3209
+        width: 353
+        height: 655
+      alignment: 9
+      pivot: {x: 0.4201764, y: 0.0089631295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b182e758c154cffbce20e98b3349a9
+      internalID: -1515963984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_2
+      rect:
+        serializedVersion: 2
+        x: 9382
+        y: 3214
+        width: 358
+        height: 655
+      alignment: 9
+      pivot: {x: 0.42299068, y: 0.0083265}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13cc132c639fd4766a5440db906daa12
+      internalID: -966232612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_3
+      rect:
+        serializedVersion: 2
+        x: 9756
+        y: 3215
+        width: 357
+        height: 661
+      alignment: 9
+      pivot: {x: 0.43791306, y: 0.0062878216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97380e9313193402d9d1a0874fbc8274
+      internalID: -1260873679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_4
+      rect:
+        serializedVersion: 2
+        x: 10113
+        y: 3196
+        width: 350
+        height: 682
+      alignment: 9
+      pivot: {x: 0.42083985, y: 0.011511123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6adfd061398a14db2a797e7b021f555d
+      internalID: 178353951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_5
+      rect:
+        serializedVersion: 2
+        x: 10488
+        y: 3178
+        width: 352
+        height: 698
+      alignment: 9
+      pivot: {x: 0.41997737, y: 0.012570444}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708b268b08b694518a8ba78c06db8e2a
+      internalID: 903458987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_6
+      rect:
+        serializedVersion: 2
+        x: 10868
+        y: 3206
+        width: 342
+        height: 664
+      alignment: 9
+      pivot: {x: 0.4297903, y: 0.003477533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 688dc31f1b5e94668817e2f7e548391b
+      internalID: -7961119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_7
+      rect:
+        serializedVersion: 2
+        x: 11241
+        y: 3182
+        width: 382
+        height: 689
+      alignment: 9
+      pivot: {x: 0.4685736, y: 0.0013408245}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06af740adb3f6419e88be029a7759fdf
+      internalID: 472520625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_4_
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 3218
+        width: 578
+        height: 620
+      alignment: 9
+      pivot: {x: 0.34710038, y: 0.0033151933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbd05ffe70844909ad397df9219c93a
+      internalID: 1226583717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_5_
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 3229
+        width: 597
+        height: 568
+      alignment: 9
+      pivot: {x: 0.26704812, y: 0.003618697}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5582dce74ff264f14b6ad05d4b6557c2
+      internalID: -1459310619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_6_
+      rect:
+        serializedVersion: 2
+        x: 2468
+        y: 3231
+        width: 758
+        height: 581
+      alignment: 9
+      pivot: {x: 0.3734672, y: -0.0011791026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5332f33f7bd664295a17a46536201045
+      internalID: 770440588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_krcevnica_animation_7_
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 3211
+        width: 733
+        height: 622
+      alignment: 9
+      pivot: {x: 0.2569958, y: 0.012115969}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e117dabfea34c12a3e5ce828aff1ef
+      internalID: -1536567222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_18
+      rect:
+        serializedVersion: 2
+        x: 5502
+        y: 3188
+        width: 348
+        height: 659
+      alignment: 9
+      pivot: {x: 0.4353729, y: 0.01499594}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf46dcb9b120c411ca4f77c4e4780075
+      internalID: 692204374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_19
+      rect:
+        serializedVersion: 2
+        x: 5850
+        y: 3182
+        width: 357
+        height: 657
+      alignment: 9
+      pivot: {x: 0.42459404, y: 0.0124478275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f7f468da9c3458b99e95a1bf412211
+      internalID: -355275429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_20
+      rect:
+        serializedVersion: 2
+        x: 6207
+        y: 3199
+        width: 328
+        height: 630
+      alignment: 9
+      pivot: {x: 0.46052217, y: 0.012440321}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbc5ab5144d44010b93cdc4991acd21
+      internalID: 1025137397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_21
+      rect:
+        serializedVersion: 2
+        x: 6592
+        y: 3203
+        width: 303
+        height: 587
+      alignment: 9
+      pivot: {x: 0.55398166, y: 0.01219081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4e7e726c7db45529f49ba283aad59b
+      internalID: -1542418633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_22
+      rect:
+        serializedVersion: 2
+        x: 6952
+        y: 3213
+        width: 316
+        height: 616
+      alignment: 9
+      pivot: {x: 0.61214864, y: 0.007744727}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ce1efefa98e409fb15d7d90d2e602a
+      internalID: -1743442657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_23
+      rect:
+        serializedVersion: 2
+        x: 7278
+        y: 3207
+        width: 365
+        height: 589
+      alignment: 9
+      pivot: {x: 0.6671113, y: 0.015042213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278194d379351486f998e1f578b90b76
+      internalID: 95278313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_24
+      rect:
+        serializedVersion: 2
+        x: 7653
+        y: 3197
+        width: 342
+        height: 617
+      alignment: 9
+      pivot: {x: 0.64703244, y: 0.013254818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3f5534a332941b8b21e1ec463fd399
+      internalID: -226357216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_25
+      rect:
+        serializedVersion: 2
+        x: 8026
+        y: 3209
+        width: 339
+        height: 613
+      alignment: 9
+      pivot: {x: 0.6439855, y: 0.015110476}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8269fc7b56045dabbf1d74b225c056
+      internalID: -358959126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_0
+      rect:
+        serializedVersion: 2
+        x: 8568
+        y: 3194
+        width: 350
+        height: 640
+      alignment: 9
+      pivot: {x: 0.42284876, y: 0.0072685243}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad685a51a78d242e9bbea82e1b7133f0
+      internalID: -1108015092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_8
+      rect:
+        serializedVersion: 2
+        x: 11645
+        y: 3185
+        width: 422
+        height: 669
+      alignment: 9
+      pivot: {x: 0.5207924, y: 0.00000036493367}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17c4f546ade9a424ba839411df0550fe
+      internalID: -1261718867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_9
+      rect:
+        serializedVersion: 2
+        x: 12124
+        y: 3181
+        width: 429
+        height: 671
+      alignment: 9
+      pivot: {x: 0.5193787, y: 0.0034412548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98faf7f9ee2246f3a62bc3915067ed3
+      internalID: -913604724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_10
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 2544
+        width: 435
+        height: 660
+      alignment: 9
+      pivot: {x: 0.51208305, y: 0.003539669}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a705fec25e747cdaa827df70f69c3a
+      internalID: -1332269515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_11
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 2540
+        width: 429
+        height: 647
+      alignment: 9
+      pivot: {x: 0.50000113, y: 0.004513394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581ea54e3b2e34964bca0c6fbde458a2
+      internalID: 974804797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_12
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 2522
+        width: 410
+        height: 647
+      alignment: 9
+      pivot: {x: 0.48718202, y: 0.0018055841}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2780f4f67acfb4fd3b709b18d2ecc42d
+      internalID: -1577067425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_13
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 2497
+        width: 367
+        height: 676
+      alignment: 9
+      pivot: {x: 0.44590023, y: 0.004319772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2593a001cd9db4dcd8b3173666ae2f34
+      internalID: -1110332495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_14
+      rect:
+        serializedVersion: 2
+        x: 2004
+        y: 2482
+        width: 358
+        height: 687
+      alignment: 9
+      pivot: {x: 0.41681078, y: 0.0017004554}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9440ece5aad41b7aad141458624eff
+      internalID: -42528434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_15
+      rect:
+        serializedVersion: 2
+        x: 2467
+        y: 2464
+        width: 365
+        height: 687
+      alignment: 9
+      pivot: {x: 0.40400657, y: 0.0042506056}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956101b6323d6487d952088dd0b81d0c
+      internalID: -2086775462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_16
+      rect:
+        serializedVersion: 2
+        x: 2890
+        y: 2492
+        width: 359
+        height: 677
+      alignment: 9
+      pivot: {x: 0.4089097, y: 0.003451146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37a48c4474374d48b4a6770a592c101
+      internalID: 1594711719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_17
+      rect:
+        serializedVersion: 2
+        x: 3307
+        y: 2486
+        width: 358
+        height: 665
+      alignment: 9
+      pivot: {x: 0.40376154, y: 0.0035130552}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0f7f24c0e9243908e05983f51558d8
+      internalID: -1038062116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_18
+      rect:
+        serializedVersion: 2
+        x: 3736
+        y: 2488
+        width: 358
+        height: 670
+      alignment: 9
+      pivot: {x: 0.41028583, y: 0.0061016935}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb15e7643943745fca700abf8520b0d0
+      internalID: 2144935275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_19
+      rect:
+        serializedVersion: 2
+        x: 4165
+        y: 2493
+        width: 348
+        height: 662
+      alignment: 9
+      pivot: {x: 0.424489, y: 0.0070572128}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82dee3121d8f144eeb25555da6aa190e
+      internalID: -136949227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_20
+      rect:
+        serializedVersion: 2
+        x: 4571
+        y: 2486
+        width: 345
+        height: 633
+      alignment: 9
+      pivot: {x: 0.42721778, y: 0.0046132165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab4775de796e42f5b1373b8c2501b1e
+      internalID: 488193377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_krcevnica_animation_21
+      rect:
+        serializedVersion: 2
+        x: 4945
+        y: 2482
+        width: 343
+        height: 652
+      alignment: 9
+      pivot: {x: 0.40877682, y: 0.004499751}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5885eb8b37e643c49e810f6111f872e
+      internalID: 968559900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_41
+      rect:
+        serializedVersion: 2
+        x: 6383
+        y: 2412
+        width: 368
+        height: 694
+      alignment: 9
+      pivot: {x: 0.4284177, y: 0.01804917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67db925409a914bce81700e89e9ec6e4
+      internalID: 1830440657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_42
+      rect:
+        serializedVersion: 2
+        x: 6763
+        y: 2432
+        width: 382
+        height: 687
+      alignment: 9
+      pivot: {x: 0.38616017, y: 0.014677933}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df883c3d1436b49e699951195e3fd186
+      internalID: 1411202355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_43
+      rect:
+        serializedVersion: 2
+        x: 7203
+        y: 2432
+        width: 359
+        height: 681
+      alignment: 9
+      pivot: {x: 0.4280227, y: 0.016658206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801a075341fd74826b025e856c580c29
+      internalID: -1071809420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_44
+      rect:
+        serializedVersion: 2
+        x: 7591
+        y: 2409
+        width: 395
+        height: 703
+      alignment: 9
+      pivot: {x: 0.70104086, y: 0.017033584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2a78061bb7745feba4964c2a284fca
+      internalID: 1359844997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_45
+      rect:
+        serializedVersion: 2
+        x: 8026
+        y: 2432
+        width: 425
+        height: 616
+      alignment: 9
+      pivot: {x: 0.7179917, y: 0.023531826}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a64dca024cd46cf9b41be8e562533a
+      internalID: 1172559770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_46
+      rect:
+        serializedVersion: 2
+        x: 8472
+        y: 2432
+        width: 398
+        height: 555
+      alignment: 9
+      pivot: {x: 0.69319254, y: 0.024982404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799ad92f387a94b40ab82896ee311df4
+      internalID: -1596892442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_47
+      rect:
+        serializedVersion: 2
+        x: 8903
+        y: 2428
+        width: 435
+        height: 559
+      alignment: 9
+      pivot: {x: 0.7260192, y: 0.015783975}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9cc001d09ce4c70959efbf7256898a
+      internalID: -607931088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_48
+      rect:
+        serializedVersion: 2
+        x: 9416
+        y: 2446
+        width: 497
+        height: 614
+      alignment: 9
+      pivot: {x: 0.7599602, y: 0.018475957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e1e4a878e5c4bae986704dac618ea7
+      internalID: -79658596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_49
+      rect:
+        serializedVersion: 2
+        x: 9914
+        y: 2372
+        width: 515
+        height: 745
+      alignment: 9
+      pivot: {x: 0.7623369, y: 0.014624842}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c43d1469cfc44f481289c66c91c38f
+      internalID: -1739328536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_50
+      rect:
+        serializedVersion: 2
+        x: 10521
+        y: 2413
+        width: 358
+        height: 699
+      alignment: 9
+      pivot: {x: 0.40261108, y: 0.014028481}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df96ca7503bca4463b1d319a325cf36f
+      internalID: 287751693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_51
+      rect:
+        serializedVersion: 2
+        x: 10928
+        y: 2404
+        width: 339
+        height: 692
+      alignment: 9
+      pivot: {x: 0.44214946, y: 0.0062982636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54aa94a3fd6514e8aa6ca8d7080844e3
+      internalID: 1852271228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_52
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 1631
+        width: 367
+        height: 693
+      alignment: 9
+      pivot: {x: 0.43193936, y: 0.00000017614764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ce2ab926d0349c7a9862926105d884
+      internalID: 17526785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_53
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1647
+        width: 322
+        height: 425
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1315f16a1c402418ea884af95fb21268
+      internalID: 602944463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_54
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 1765
+        width: 646
+        height: 496
+      alignment: 9
+      pivot: {x: 0.68124515, y: 0.02538201}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f768b225fcf4440a9c04ccda0b65cde
+      internalID: 423352337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_55
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 1609
+        width: 512
+        height: 711
+      alignment: 9
+      pivot: {x: 0.6155689, y: 0.01770672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01eb697af7104bc99e1e2dcccb15393
+      internalID: 1026144461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_56
+      rect:
+        serializedVersion: 2
+        x: 2283
+        y: 1503
+        width: 648
+        height: 858
+      alignment: 9
+      pivot: {x: 0.60102826, y: 0.027879125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc4d061e319a43e088bcb0e27904edf
+      internalID: 1136183664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_57
+      rect:
+        serializedVersion: 2
+        x: 2898
+        y: 1518
+        width: 465
+        height: 857
+      alignment: 9
+      pivot: {x: 0.4945843, y: 0.0102832485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4118a11df725d42138c56acf0d0c6c69
+      internalID: -815155748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_58
+      rect:
+        serializedVersion: 2
+        x: 3371
+        y: 1804
+        width: 885
+        height: 432
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8dc7ab8c428d482d9bf2ba9667c8ab1
+      internalID: 183972559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_59
+      rect:
+        serializedVersion: 2
+        x: 4300
+        y: 1769
+        width: 680
+        height: 426
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 789a2fe66e8fc4be298fc75157c5468b
+      internalID: -740764934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_60
+      rect:
+        serializedVersion: 2
+        x: 4980
+        y: 1588
+        width: 491
+        height: 670
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496aa2bdd18ae445f92a9f8f7dfb0750
+      internalID: -196462651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_61
+      rect:
+        serializedVersion: 2
+        x: 5471
+        y: 1544
+        width: 487
+        height: 651
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2747a667c04e34ee881748630d6e4c6b
+      internalID: -1813586146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_62
+      rect:
+        serializedVersion: 2
+        x: 6049
+        y: 1754
+        width: 369
+        height: 499
+      alignment: 9
+      pivot: {x: 0.6200709, y: 0.008879086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f2d5e7208f34d28a2451c361bf59b8
+      internalID: -755069896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_63
+      rect:
+        serializedVersion: 2
+        x: 6509
+        y: 1775
+        width: 381
+        height: 452
+      alignment: 9
+      pivot: {x: 0.61628914, y: 0.019604439}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14c2d282746f4526ac88c4200718d43
+      internalID: -971780715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_64
+      rect:
+        serializedVersion: 2
+        x: 6926
+        y: 1795
+        width: 370
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5359243, y: 0.039383408}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5721d51dc19f4393b74dcaf04f8a7d0
+      internalID: 1309574092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_65
+      rect:
+        serializedVersion: 2
+        x: 7385
+        y: 1703
+        width: 383
+        height: 596
+      alignment: 9
+      pivot: {x: 0.52892077, y: 0.026018795}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13adc0c11a254164841466fc8526033
+      internalID: 1695636934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_66
+      rect:
+        serializedVersion: 2
+        x: 7812
+        y: 1655
+        width: 397
+        height: 629
+      alignment: 9
+      pivot: {x: 0.40513813, y: 0.04930748}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f302b71823e94089853ebf9d934d616
+      internalID: -357902079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_67
+      rect:
+        serializedVersion: 2
+        x: 8242
+        y: 1619
+        width: 352
+        height: 695
+      alignment: 9
+      pivot: {x: 0.44965154, y: 0.02550005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa1afcce9738d43d3bb6ff84624f778d
+      internalID: -1693007590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_68
+      rect:
+        serializedVersion: 2
+        x: 9808
+        y: 1407
+        width: 413
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1fcc8d9d9844d77a7e44ff54860874
+      internalID: -156196305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_69
+      rect:
+        serializedVersion: 2
+        x: 10218
+        y: 1407
+        width: 409
+        height: 695
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f508def276104c20bb657ecd01ac7e5
+      internalID: 1977523525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_70
+      rect:
+        serializedVersion: 2
+        x: 10627
+        y: 1417
+        width: 386
+        height: 649
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7688494fe8234002aeda5b052823af9
+      internalID: 1883835987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_71
+      rect:
+        serializedVersion: 2
+        x: 11013
+        y: 1398
+        width: 299
+        height: 676
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9251bc25c7f4f40c19ea07d3fb2a1fb1
+      internalID: 1271593803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_72
+      rect:
+        serializedVersion: 2
+        x: 11312
+        y: 1407
+        width: 310
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e887959c4e34bfd9ea0ff424e8fe7e
+      internalID: 2001338614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_73
+      rect:
+        serializedVersion: 2
+        x: 11671
+        y: 1405
+        width: 262
+        height: 697
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929e745c590234bcd88bd423e2349eb1
+      internalID: 1099728263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_74
+      rect:
+        serializedVersion: 2
+        x: 11982
+        y: 1401
+        width: 245
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf45812b0d30449d4b4a1020e9e1db47
+      internalID: 107605301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_75
+      rect:
+        serializedVersion: 2
+        x: 12276
+        y: 1417
+        width: 252
+        height: 702
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16a1df158d5c94d8fb3932fca75b8d19
+      internalID: 616655564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_77
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 728
+        width: 428
+        height: 646
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e346670eec4401f9dbbade42020c7e
+      internalID: 1540308037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_78
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 764
+        width: 523
+        height: 604
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6288017e23a4fe3b96cf5027cc92e2
+      internalID: -1905076358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_79
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 728
+        width: 497
+        height: 635
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03213d60f764d40dca5f2a02c4125852
+      internalID: -1876862993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_80
+      rect:
+        serializedVersion: 2
+        x: 1604
+        y: 703
+        width: 483
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0861c9faf0e1c4c86b8bb33de0716c86
+      internalID: 2125535103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_81
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 704
+        width: 388
+        height: 658
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043d665e9c1c945a88b468770d2d1bc3
+      internalID: -1702874487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_82
+      rect:
+        serializedVersion: 2
+        x: 2694
+        y: 703
+        width: 309
+        height: 677
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb3b3340808f45b69fb4b2b7b1882af
+      internalID: 399691324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_83
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 728
+        width: 233
+        height: 686
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8028fd128622942ee919ea80275cda8b
+      internalID: 293376884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_84
+      rect:
+        serializedVersion: 2
+        x: 3496
+        y: 695
+        width: 256
+        height: 719
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7b7abd6bdec45c7901c0466c2c8717
+      internalID: 1045684106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_85
+      rect:
+        serializedVersion: 2
+        x: 3841
+        y: 727
+        width: 297
+        height: 705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ded1b358d80b34b9c838aebedce05c98
+      internalID: -1019348843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_86
+      rect:
+        serializedVersion: 2
+        x: 4268
+        y: 725
+        width: 307
+        height: 682
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28f6bffd1f4c4a42958103420392277
+      internalID: 1144166586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_87
+      rect:
+        serializedVersion: 2
+        x: 4598
+        y: 745
+        width: 379
+        height: 676
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecdd55c14bcb453395801c8514c7df1
+      internalID: 2096477777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_88
+      rect:
+        serializedVersion: 2
+        x: 5020
+        y: 741
+        width: 390
+        height: 673
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a7c25e156654738a4cf265fcf91ee8
+      internalID: 810666967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_89
+      rect:
+        serializedVersion: 2
+        x: 5410
+        y: 745
+        width: 399
+        height: 644
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8371f63fe9f4cd4b824889c82077a3
+      internalID: -1011104810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_90
+      rect:
+        serializedVersion: 2
+        x: 5809
+        y: 741
+        width: 369
+        height: 638
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9128224b71d4c4bbe87d02af706a9caa
+      internalID: -34129197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_91
+      rect:
+        serializedVersion: 2
+        x: 7046
+        y: 730
+        width: 358
+        height: 693
+      alignment: 9
+      pivot: {x: 0.4210853, y: 0.010191462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fff278c84fb04c63948500318c15b21
+      internalID: -465400493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_92
+      rect:
+        serializedVersion: 2
+        x: 7441
+        y: 730
+        width: 356
+        height: 687
+      alignment: 9
+      pivot: {x: 0.5859704, y: 0.005140102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca2ba314b17f49f2ae5cd837338c6f1
+      internalID: -1515326527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_93
+      rect:
+        serializedVersion: 2
+        x: 7862
+        y: 730
+        width: 402
+        height: 680
+      alignment: 9
+      pivot: {x: 0.5292811, y: 0.0051930146}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0672fb0caf1ef4efc89b88637e24d005
+      internalID: -2038173279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_94
+      rect:
+        serializedVersion: 2
+        x: 8287
+        y: 730
+        width: 420
+        height: 698
+      alignment: 9
+      pivot: {x: 0.54764694, y: -0.00000017488584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32074315d790249f0b40f43b7ba4f27e
+      internalID: -742279955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_95
+      rect:
+        serializedVersion: 2
+        x: 8803
+        y: 688
+        width: 512
+        height: 680
+      alignment: 9
+      pivot: {x: 0.6693287, y: 0.002897644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bc921e6bf8f42b6a519f19f1e91526
+      internalID: -1770663882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_96
+      rect:
+        serializedVersion: 2
+        x: 9388
+        y: 712
+        width: 660
+        height: 560
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffdc87bf0816d4e49a9d5d8aa9411cf1
+      internalID: -1859041284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_97
+      rect:
+        serializedVersion: 2
+        x: 10113
+        y: 685
+        width: 776
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3651c54f237c7446badce27a5223af23
+      internalID: 195663479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_98
+      rect:
+        serializedVersion: 2
+        x: 10975
+        y: 657
+        width: 764
+        height: 403
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337af110009e24079831af88cabaed9f
+      internalID: -1490357738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_99
+      rect:
+        serializedVersion: 2
+        x: 11812
+        y: 657
+        width: 758
+        height: 248
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31374ed848c6446bfb67c6d91da3c1a0
+      internalID: 1483969945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_100
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 9
+        width: 724
+        height: 417
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2793fdbd45894cd6b52cdec07a63636
+      internalID: 1842186540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_101
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 12
+        width: 745
+        height: 422
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e5e9f9b257d4ef497bdc5d33d0a8dc
+      internalID: 1635923953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_102
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 5
+        width: 777
+        height: 183
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f06912af9324b01b71d9163cc75ddf
+      internalID: -1333743528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_103
+      rect:
+        serializedVersion: 2
+        x: 2515
+        y: 3
+        width: 762
+        height: 173
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc12566a704c4e7b8b68a998ffeeaae
+      internalID: 1155073228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_104
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 0
+        width: 774
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d496738deeec94796a2ab8455e86ccf5
+      internalID: 417551804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_105
+      rect:
+        serializedVersion: 2
+        x: 4063
+        y: 1
+        width: 806
+        height: 204
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cdf4cb2ded144f2a9b43694498e27a5
+      internalID: -2040858906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_106
+      rect:
+        serializedVersion: 2
+        x: 4897
+        y: 0
+        width: 753
+        height: 238
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f586e22c29fa544908b07789e27cc073
+      internalID: 1478735559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_107
+      rect:
+        serializedVersion: 2
+        x: 5673
+        y: 5
+        width: 748
+        height: 233
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492fe0cba62d34ea9b98a27e65f83228
+      internalID: 1138981173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_108
+      rect:
+        serializedVersion: 2
+        x: 6417
+        y: 0
+        width: 739
+        height: 339
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa93b90eabb64554ae9ef29a9034cef
+      internalID: -1086069195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_109
+      rect:
+        serializedVersion: 2
+        x: 7160
+        y: 0
+        width: 752
+        height: 561
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e945669622f4d528216f3160ff0a23
+      internalID: 1114107225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_110
+      rect:
+        serializedVersion: 2
+        x: 7912
+        y: 0
+        width: 750
+        height: 657
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd387589381234c839a2bef8629aca2e
+      internalID: -867909035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_111
+      rect:
+        serializedVersion: 2
+        x: 8680
+        y: 117
+        width: 806
+        height: 320
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b4a84c2573f432885f7544be67ed5e
+      internalID: -787089544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_112
+      rect:
+        serializedVersion: 2
+        x: 9451
+        y: 0
+        width: 738
+        height: 522
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96b916a949e44b68ad4c4255587b8ba
+      internalID: -1924737497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_113
+      rect:
+        serializedVersion: 2
+        x: 10193
+        y: 12
+        width: 778
+        height: 411
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd8067a650e7461a921009cc4157fc0
+      internalID: 246731305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_114
+      rect:
+        serializedVersion: 2
+        x: 10975
+        y: 12
+        width: 833
+        height: 148
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ce73cb950fc4c23916b5f4fdbe3bb9
+      internalID: -1933099691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: krcevnica_animation_115
+      rect:
+        serializedVersion: 2
+        x: 11812
+        y: 0
+        width: 845
+        height: 172
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304a98f60b2c24005820b3bf35076127
+      internalID: 622404101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 287a887e4850a4e348cc1b50a1884641
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Attack_krcevnica_animation_0: -984699701
+      Attack_krcevnica_animation_1: 376151692
+      Attack_krcevnica_animation_10: -1117837604
+      Attack_krcevnica_animation_2: -185673741
+      Attack_krcevnica_animation_4_: 1226583717
+      Attack_krcevnica_animation_5_: -1459310619
+      Attack_krcevnica_animation_6_: 770440588
+      Attack_krcevnica_animation_7_: -1536567222
+      Attack_krcevnica_animation_8: 1068200787
+      Attack_krcevnica_animation_9: -1234573160
+      Idle_krcevnica_animation_0: -1108015092
+      Idle_krcevnica_animation_1: -1515963984
+      Idle_krcevnica_animation_10: -1332269515
+      Idle_krcevnica_animation_11: 974804797
+      Idle_krcevnica_animation_12: -1577067425
+      Idle_krcevnica_animation_13: -1110332495
+      Idle_krcevnica_animation_14: -42528434
+      Idle_krcevnica_animation_15: -2086775462
+      Idle_krcevnica_animation_16: 1594711719
+      Idle_krcevnica_animation_17: -1038062116
+      Idle_krcevnica_animation_18: 2144935275
+      Idle_krcevnica_animation_19: -136949227
+      Idle_krcevnica_animation_2: -966232612
+      Idle_krcevnica_animation_20: 488193377
+      Idle_krcevnica_animation_21: 968559900
+      Idle_krcevnica_animation_3: -1260873679
+      Idle_krcevnica_animation_4: 178353951
+      Idle_krcevnica_animation_5: 903458987
+      Idle_krcevnica_animation_6: -7961119
+      Idle_krcevnica_animation_7: 472520625
+      Idle_krcevnica_animation_8: -1261718867
+      Idle_krcevnica_animation_9: -913604724
+      krcevnica_animation_100: 1635923953
+      krcevnica_animation_101: -1333743528
+      krcevnica_animation_102: 1155073228
+      krcevnica_animation_103: 417551804
+      krcevnica_animation_104: -2040858906
+      krcevnica_animation_105: 1478735559
+      krcevnica_animation_106: 1138981173
+      krcevnica_animation_107: -1086069195
+      krcevnica_animation_108: 1114107225
+      krcevnica_animation_109: 903458987
+      krcevnica_animation_110: -787089544
+      krcevnica_animation_111: -1924737497
+      krcevnica_animation_112: 246731305
+      krcevnica_animation_113: -1933099691
+      krcevnica_animation_114: 622404101
+      krcevnica_animation_115: 1151402899
+      krcevnica_animation_116: 1846383998
+      krcevnica_animation_117: -7961119
+      krcevnica_animation_18: -355275429
+      krcevnica_animation_19: -185673741
+      krcevnica_animation_20: -1542418633
+      krcevnica_animation_21: -1743442657
+      krcevnica_animation_22: 95278313
+      krcevnica_animation_23: -226357216
+      krcevnica_animation_24: -358959126
+      krcevnica_animation_25: -1108015092
+      krcevnica_animation_3: 974804797
+      krcevnica_animation_41: 1411202355
+      krcevnica_animation_42: -1071809420
+      krcevnica_animation_43: 1359844997
+      krcevnica_animation_44: 1172559770
+      krcevnica_animation_45: -1596892442
+      krcevnica_animation_46: -607931088
+      krcevnica_animation_47: -79658596
+      krcevnica_animation_48: -1739328536
+      krcevnica_animation_49: -1234573160
+      krcevnica_animation_50: 1852271228
+      krcevnica_animation_51: 17526785
+      krcevnica_animation_52: 602944463
+      krcevnica_animation_53: 423352337
+      krcevnica_animation_54: 1026144461
+      krcevnica_animation_55: 1136183664
+      krcevnica_animation_56: -815155748
+      krcevnica_animation_57: 183972559
+      krcevnica_animation_58: -740764934
+      krcevnica_animation_59: -1117837604
+      krcevnica_animation_60: -1813586146
+      krcevnica_animation_61: -755069896
+      krcevnica_animation_62: -971780715
+      krcevnica_animation_63: 1309574092
+      krcevnica_animation_64: 1695636934
+      krcevnica_animation_65: -357902079
+      krcevnica_animation_66: -1693007590
+      krcevnica_animation_67: -156196305
+      krcevnica_animation_68: 1977523525
+      krcevnica_animation_69: -1515963984
+      krcevnica_animation_70: 1271593803
+      krcevnica_animation_71: 2001338614
+      krcevnica_animation_72: 1099728263
+      krcevnica_animation_73: 107605301
+      krcevnica_animation_74: 616655564
+      krcevnica_animation_75: 129585655
+      krcevnica_animation_76: 1540308037
+      krcevnica_animation_77: -1905076358
+      krcevnica_animation_78: -1876862993
+      krcevnica_animation_79: -966232612
+      krcevnica_animation_80: -1702874487
+      krcevnica_animation_81: 399691324
+      krcevnica_animation_82: 293376884
+      krcevnica_animation_83: 1045684106
+      krcevnica_animation_84: -1019348843
+      krcevnica_animation_85: 1144166586
+      krcevnica_animation_86: 2096477777
+      krcevnica_animation_87: 810666967
+      krcevnica_animation_88: -1011104810
+      krcevnica_animation_89: -1260873679
+      krcevnica_animation_90: -465400493
+      krcevnica_animation_91: -1515326527
+      krcevnica_animation_92: -2038173279
+      krcevnica_animation_93: -742279955
+      krcevnica_animation_94: -1770663882
+      krcevnica_animation_95: -1859041284
+      krcevnica_animation_96: 195663479
+      krcevnica_animation_97: -1490357738
+      krcevnica_animation_98: 1483969945
+      krcevnica_animation_99: -984699701
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,5 +8,7 @@ public class GlobalState
     static public Character._Character PlayerOne;
     static public Character._Character PlayerTwo;
 
+    static public Maps._Maps Map;
+
 
 }

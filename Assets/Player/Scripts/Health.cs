@@ -16,9 +16,12 @@ public class Health : MonoBehaviour
 
     private bool BlockingBool = false;
 
+    public PlayerMovement playerMovement;
 
+    
     private void Start()
     {
+        playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -42,37 +45,21 @@ public class Health : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
         BlockingBool = false;
+        playerMovement.attacked = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-    }
-    private void Update()
-    {
-       // Debug.Log(this.gameObject.name + " is blocking " + BlockingBool);
     }
 
     public void TakeDamage(int damage)
     {
-        if (!BlockingBool)
+        if (!BlockingBool && currentHealth > 0)
         {
-            //Debug.Log(PlayerMovement.isBlocking);
-            
-            //OffSetTakeDamage = true;
             currentHealth -= damage;
             slider.value = currentHealth;
             fill.color = gradient.Evaluate(slider.normalizedValue);
 
             animator.SetTrigger("Hurt");
-
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
-        
-        else if (BlockingBool)
-        {
-            animator.SetTrigger("Hurt");
-
-            //Debug.Log(PlayerMovement.isBlocking);
+            playerMovement.attacked = false;
+            playerMovement.isBlocking = false;
 
             if (currentHealth <= 0)
             {
@@ -83,6 +70,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("tataattataatta");
         animator.SetTrigger("Death");
         this.enabled = false;
         this.GetComponent<PlayerMovement>().enabled = false;

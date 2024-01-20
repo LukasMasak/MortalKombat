@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public bool facingRight = true;
 
-    private bool isBlocking = false;
+    public bool isBlocking = false;
 
     [Header("AttackPoint")]
 
@@ -54,11 +54,15 @@ public class PlayerMovement : MonoBehaviour
     private GameObject attackPoint;
     [SerializeField]
     private float attackPointSize;
+
     public LayerMask enemyMask;
     [SerializeField]
     public int _GivenDamage = 20;
 
-    private bool attacked = false;
+    public bool attacked = false;
+    public bool ResetAttacked = false;
+
+
 
     private Health health;
     // Inicializace proměnných při probuzení objektu
@@ -144,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         Blocking();
 
         Vector2 moveInput = move.ReadValue<Vector2>();
+        Debug.Log(moveInput);
         forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight(playerCamera);
         forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
         
@@ -267,14 +272,15 @@ public class PlayerMovement : MonoBehaviour
     // Metoda pro útok
     private void Attacking(InputAction.CallbackContext obj)
     {
-        Debug.Log(this.gameObject.name + "dawdwdwadawdaw" + isBlocking + attacked);
-        if (!attacked && !isBlocking)
+        //Debug.Log(this.gameObject.name + "dawdwdwadawdaw" + isBlocking + attacked);
+        if (!attacked && !isBlocking && !ResetAttacked)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             attacked = true;
+            ResetAttacked = true;
             
             animator.SetTrigger("Attack");
-            Debug.Log("zautočil");
+           // Debug.Log("zautočil");
         }
     }
 
@@ -304,17 +310,12 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.transform.position, attackPointSize);
     }
 
-    // Metoda pro reakci na zranění
-    public void Hurt(InputAction.CallbackContext obj)
+    public void End()
     {
-        animator.SetTrigger("Hurt");
+        _SceneManager.instance.ShowWinUI(playerRight);
     }
-
-    // Metoda pro smrt hráče
-    public void Die()
+    public void ResetAnim()
     {
-        animator.SetTrigger("Death");
-
+        ResetAttacked = false;
     }
-
 }

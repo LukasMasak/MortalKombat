@@ -1462,7 +1462,7 @@ TextureImporter:
         width: 752
         height: 271
       alignment: 9
-      pivot: {x: 0.3177773, y: -0.0000027026638}
+      pivot: {x: 0.43019125, y: 0.067151286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1483,7 +1483,7 @@ TextureImporter:
         width: 752
         height: 230
       alignment: 9
-      pivot: {x: 0.30631807, y: 0}
+      pivot: {x: 0.51786137, y: 0.123109505}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1504,7 +1504,7 @@ TextureImporter:
         width: 757
         height: 312
       alignment: 9
-      pivot: {x: 0.17674588, y: -0.0033491086}
+      pivot: {x: 0.59907806, y: 0.13195644}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1525,7 +1525,7 @@ TextureImporter:
         width: 719
         height: 248
       alignment: 9
-      pivot: {x: 0.33873644, y: 0.000000984438}
+      pivot: {x: 0.7039104, y: 0.2491081}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2504,384 +2504,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuanek_animation_196
-      rect:
-        serializedVersion: 2
-        x: 3140
-        y: 154
-        width: 519
-        height: 608
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c57e5baea30c4ea693e3700554ec6fc
-      internalID: 1446882734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_197
-      rect:
-        serializedVersion: 2
-        x: 3680
-        y: 166
-        width: 481
-        height: 595
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee406acfa5f9e4198af6e8c4982229ed
-      internalID: 191510893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_198
-      rect:
-        serializedVersion: 2
-        x: 4186
-        y: 179
-        width: 500
-        height: 582
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82aa73e7afc6d472f8435a1d3a846ee0
-      internalID: 944399394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_199
-      rect:
-        serializedVersion: 2
-        x: 4697
-        y: 68
-        width: 437
-        height: 687
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46cfe662233d54774b849bb93d6b3c7a
-      internalID: 1864572737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_200
-      rect:
-        serializedVersion: 2
-        x: 5588
-        y: 67
-        width: 537
-        height: 694
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da939a9115b5a44fea481682d26418f7
-      internalID: 1670515123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_201
-      rect:
-        serializedVersion: 2
-        x: 6136
-        y: 75
-        width: 514
-        height: 672
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b628caca315474f888b9cbd547925c56
-      internalID: -188442368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_202
-      rect:
-        serializedVersion: 2
-        x: 6651
-        y: 92
-        width: 494
-        height: 667
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96b31f460f1e843389f7a62119fbddb7
-      internalID: 860942260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_203
-      rect:
-        serializedVersion: 2
-        x: 7153
-        y: 64
-        width: 499
-        height: 686
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3eafaf4a2ec644534a0024259ee36b75
-      internalID: -1282687576
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_204
-      rect:
-        serializedVersion: 2
-        x: 7645
-        y: 0
-        width: 402
-        height: 762
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eecc28257c6794e2bbc37e4827664e13
-      internalID: 1843368476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_205
-      rect:
-        serializedVersion: 2
-        x: 8044
-        y: 96
-        width: 432
-        height: 665
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 997a1716bc3944d4e8063fef98920d87
-      internalID: -1319733807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_206
-      rect:
-        serializedVersion: 2
-        x: 8478
-        y: 99
-        width: 450
-        height: 662
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efa8c3950884a461aa1331cae4e39d4d
-      internalID: 1994739450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_207
-      rect:
-        serializedVersion: 2
-        x: 8933
-        y: 98
-        width: 454
-        height: 663
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05c7b95dfecdb416b8385489f5487293
-      internalID: -379152185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_208
-      rect:
-        serializedVersion: 2
-        x: 9392
-        y: 106
-        width: 464
-        height: 653
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d0676c32de4464326a9a4206a2f84ce3
-      internalID: -93725696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_209
-      rect:
-        serializedVersion: 2
-        x: 9850
-        y: 103
-        width: 472
-        height: 658
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a5914c5eb853459fa5dfb6ad6cc0cf6
-      internalID: -976269151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_210
-      rect:
-        serializedVersion: 2
-        x: 10323
-        y: 105
-        width: 480
-        height: 656
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6f678b994a58490ba63cd8f1c9815fd
-      internalID: -1981940973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_211
-      rect:
-        serializedVersion: 2
-        x: 10805
-        y: 73
-        width: 487
-        height: 689
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71e7052a220d14e35a4f5633589d449a
-      internalID: -1352609259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_212
-      rect:
-        serializedVersion: 2
-        x: 11292
-        y: 0
-        width: 409
-        height: 761
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f87038b7c4a604f8880a3faf2f320fd8
-      internalID: 1488178365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tuanek_animation_214
-      rect:
-        serializedVersion: 2
-        x: 11708
-        y: 151
-        width: 482
-        height: 610
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3d942625a8c0466ea9ba8ef836b992d
-      internalID: 2002519554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Jump_24
       rect:
         serializedVersion: 2
@@ -2966,27 +2588,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tuanek_animation_199_5
-      rect:
-        serializedVersion: 2
-        x: 5138
-        y: 9
-        width: 449
-        height: 745
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8220cb8fb4034175955d8d90c24c885
-      internalID: 268505167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Jump_8
       rect:
         serializedVersion: 2
@@ -3049,6 +2650,1392 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_7
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 3316
+        width: 9
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb4e16a492674880a8efd3f9e942361
+      internalID: 1580535910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_23
+      rect:
+        serializedVersion: 2
+        x: 2689
+        y: 3297
+        width: 8
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac6c1fc0970d946f68c132438335118e
+      internalID: -793209679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_24
+      rect:
+        serializedVersion: 2
+        x: 3597
+        y: 3279
+        width: 9
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b70bfd601be40b5a66e1d6d4e32d48
+      internalID: 148566051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_27
+      rect:
+        serializedVersion: 2
+        x: 8260
+        y: 3269
+        width: 9
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d45f15342a245ae91bf2aadc30dac2
+      internalID: 1629531562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_28
+      rect:
+        serializedVersion: 2
+        x: 10017
+        y: 3267
+        width: 8
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19489df06be2449d92793585add8dfb
+      internalID: -1441260963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_29
+      rect:
+        serializedVersion: 2
+        x: 8701
+        y: 3266
+        width: 7
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d43ab77909246f2ba3fc743b58a29d
+      internalID: 750518423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_30
+      rect:
+        serializedVersion: 2
+        x: 10457
+        y: 3265
+        width: 9
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e425717753f224d098a7f54afaa396fe
+      internalID: 785139876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_31
+      rect:
+        serializedVersion: 2
+        x: 9138
+        y: 3260
+        width: 10
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa425f6a2ca64cedb1ba421b03ac908
+      internalID: 675779959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_32
+      rect:
+        serializedVersion: 2
+        x: 10897
+        y: 3256
+        width: 10
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18d7e7a434d214accb049fdb068bdf2f
+      internalID: -1489299964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_33
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 3160
+        width: 37
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10812705de5a47aeb611390770162cf
+      internalID: 1623905592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_34
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 3154
+        width: 14
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b86bcff83584acfbebc857af128bf1
+      internalID: 321561718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_35
+      rect:
+        serializedVersion: 2
+        x: 7691
+        y: 2782
+        width: 8
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e100525a57e147c485d99615a176a8d
+      internalID: 1544052852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_36
+      rect:
+        serializedVersion: 2
+        x: 7126
+        y: 2769
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1457b30c9203747ba9bce47951f05d4a
+      internalID: -1320094546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_37
+      rect:
+        serializedVersion: 2
+        x: 6601
+        y: 2756
+        width: 6
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21f0d20208cc45208664d66d9bb21c7
+      internalID: 1256936120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_38
+      rect:
+        serializedVersion: 2
+        x: 11305
+        y: 2737
+        width: 11
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff825b09af72b4bf799c01bea4120305
+      internalID: 1257782810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_39
+      rect:
+        serializedVersion: 2
+        x: 6057
+        y: 2730
+        width: 8
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687d6e923a6e6493eb250a5fc92a640b
+      internalID: -973350265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_40
+      rect:
+        serializedVersion: 2
+        x: 5534
+        y: 2688
+        width: 5
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53248cac4d40423b89ced57ee7dc430
+      internalID: -1069448618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_41
+      rect:
+        serializedVersion: 2
+        x: 10077
+        y: 2686
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d9583c32ac74743af9ae52dbfd30a2
+      internalID: 1162637331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_42
+      rect:
+        serializedVersion: 2
+        x: 10690
+        y: 2693
+        width: 10
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f372259c7e3a9476abf08d06eac06914
+      internalID: -444824790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_43
+      rect:
+        serializedVersion: 2
+        x: 3522
+        y: 2682
+        width: 9
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ee4d0b651c64b5fb2ccba16d78c07a
+      internalID: -519901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_44
+      rect:
+        serializedVersion: 2
+        x: 4021
+        y: 2681
+        width: 5
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4bec15c2e1bd4772b0f1bf82f275e70
+      internalID: 51817241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_45
+      rect:
+        serializedVersion: 2
+        x: 5032
+        y: 2682
+        width: 8
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a326821f6b9ff46c9b168f35179496b9
+      internalID: 2085540195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_46
+      rect:
+        serializedVersion: 2
+        x: 8287
+        y: 2684
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d903e28b992645fd9e5a34ca80413f6
+      internalID: -1096649374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_47
+      rect:
+        serializedVersion: 2
+        x: 8877
+        y: 2684
+        width: 7
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abef0a4fc6a044a7a9898552dd5b750
+      internalID: -1362803357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_48
+      rect:
+        serializedVersion: 2
+        x: 9472
+        y: 2679
+        width: 10
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91dde70a54a2140aaa65c0ba7cab1801
+      internalID: 1635551942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_49
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2576
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e18a07151d2fa4f0399363ea804c8dee
+      internalID: 91248831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_50
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 2578
+        width: 10
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62d0efb3d05e4b13869ad25f30d45b2
+      internalID: 810245116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_51
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 2579
+        width: 9
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec227066c07f740b5bc9b5d9cce9a192
+      internalID: -752883049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_52
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 2580
+        width: 10
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905c3d47319b2436e99a8926a8a08da7
+      internalID: -62641590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_53
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 2579
+        width: 9
+        height: 7
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32b0c26c7aff43718f2d57c4bec5c95
+      internalID: 1236778132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_54
+      rect:
+        serializedVersion: 2
+        x: 2553
+        y: 2571
+        width: 8
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46cf3473d0154063a95f197d635be25
+      internalID: 690368951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2217
+        width: 13
+        height: 57
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56802bda273234ef0aef4345d77a2670
+      internalID: 359420246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_56
+      rect:
+        serializedVersion: 2
+        x: 11687
+        y: 2115
+        width: 12
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f4faf22585147fea51970ddc016ff9
+      internalID: -315714618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_57
+      rect:
+        serializedVersion: 2
+        x: 3021
+        y: 2092
+        width: 10
+        height: 6
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8349a2235ce417ea5399dd7ab3c5e0
+      internalID: 1931538061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_58
+      rect:
+        serializedVersion: 2
+        x: 3542
+        y: 1673
+        width: 6
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aecc884f4362a4d44b0d87d73d37edb1
+      internalID: -1992027983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_59
+      rect:
+        serializedVersion: 2
+        x: 4037
+        y: 1670
+        width: 6
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72fd50827aa174f6381eaa196f235ce7
+      internalID: 1040439445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_60
+      rect:
+        serializedVersion: 2
+        x: 4549
+        y: 1663
+        width: 7
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e9a52ec0264b4220a3a084d9efa9d7f
+      internalID: -263574410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_61
+      rect:
+        serializedVersion: 2
+        x: 5596
+        y: 1642
+        width: 8
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8884a56deb77f4bfa8140ba656e1aa12
+      internalID: 1157035425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_62
+      rect:
+        serializedVersion: 2
+        x: 6639
+        y: 1646
+        width: 7
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca55cfb4e732a4a49a452a6a47b55de9
+      internalID: -641181405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_63
+      rect:
+        serializedVersion: 2
+        x: 6118
+        y: 1643
+        width: 6
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072d486fa84444707abd4b436aa6fdac
+      internalID: -1136396169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_64
+      rect:
+        serializedVersion: 2
+        x: 9968
+        y: 1268
+        width: 4
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2def264a422499da05f968b78295a0
+      internalID: 1121420759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_65
+      rect:
+        serializedVersion: 2
+        x: 11123
+        y: 952
+        width: 12
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d870dbbc9930b47aebeac29de2130140
+      internalID: 931732568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_66
+      rect:
+        serializedVersion: 2
+        x: 11638
+        y: 888
+        width: 11
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a37e71b07cc427196b9de372737885
+      internalID: 503983006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_67
+      rect:
+        serializedVersion: 2
+        x: 7281
+        y: 744
+        width: 5
+        height: 4
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6935847aaf284411db949eb98c22ffd4
+      internalID: -690643491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_12
+      rect:
+        serializedVersion: 2
+        x: 8476
+        y: 92
+        width: 320
+        height: 595
+      alignment: 9
+      pivot: {x: 0.13427429, y: -0.00000015387015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc2d02eca9394a1ca16e9e1d38592f1
+      internalID: -1227265416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_17
+      rect:
+        serializedVersion: 2
+        x: 10054
+        y: 93
+        width: 332
+        height: 599
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755e67310a0aa4ba2a47dc0d2e5c26ee
+      internalID: -1218875873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_1
+      rect:
+        serializedVersion: 2
+        x: 3988
+        y: 111
+        width: 456
+        height: 575
+      alignment: 9
+      pivot: {x: 0.1020631, y: 0.0026981386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b079d30e088fd4d85a18dc5368d14974
+      internalID: 1593815976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_2
+      rect:
+        serializedVersion: 2
+        x: 4444
+        y: 111
+        width: 450
+        height: 576
+      alignment: 9
+      pivot: {x: 0.08012587, y: -0.00000007947286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ff3df27d2c644114b09a36fe083639b
+      internalID: -473529292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_3
+      rect:
+        serializedVersion: 2
+        x: 4894
+        y: 113
+        width: 421
+        height: 574
+      alignment: 9
+      pivot: {x: 0.020911427, y: 0.015472478}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4fc093b321941e985e49d9006e8916
+      internalID: -563872237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_4
+      rect:
+        serializedVersion: 2
+        x: 5315
+        y: 118
+        width: 422
+        height: 568
+      alignment: 9
+      pivot: {x: 0.016364364, y: 0.010421646}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e2a2b4aadf74c07bd673591b46666f
+      internalID: 2077178379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_5
+      rect:
+        serializedVersion: 2
+        x: 5736
+        y: 114
+        width: 417
+        height: 572
+      alignment: 9
+      pivot: {x: 0.008172499, y: 0.0120732235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e779db9cf6c9842948453bbb2e0b289e
+      internalID: -2144714553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_7
+      rect:
+        serializedVersion: 2
+        x: 6581
+        y: 125
+        width: 433
+        height: 561
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a164f8c7936e4d8daca0334f65e04ff
+      internalID: 1436429216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_8
+      rect:
+        serializedVersion: 2
+        x: 7014
+        y: 108
+        width: 393
+        height: 578
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4243ed62e01a84aa2b6203670b42e72d
+      internalID: 3652275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_9
+      rect:
+        serializedVersion: 2
+        x: 7406
+        y: 101
+        width: 384
+        height: 585
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe40e732a72784b9ba0c92487f7588b9
+      internalID: 600165431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_10
+      rect:
+        serializedVersion: 2
+        x: 7790
+        y: 93
+        width: 376
+        height: 593
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c793d04c9729643ada239e7bf04538ce
+      internalID: 1429450791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_11
+      rect:
+        serializedVersion: 2
+        x: 8165
+        y: 96
+        width: 312
+        height: 590
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50489120b577c46ac8bebf08cca0666e
+      internalID: -430150374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_13
+      rect:
+        serializedVersion: 2
+        x: 8794
+        y: 96
+        width: 323
+        height: 586
+      alignment: 9
+      pivot: {x: 0.2943565, y: 0.0046798005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787f977149f864803b749e0222431c9d
+      internalID: -983426097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_14
+      rect:
+        serializedVersion: 2
+        x: 9117
+        y: 92
+        width: 323
+        height: 594
+      alignment: 9
+      pivot: {x: 0.28303683, y: 0.0046171197}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610e27a661f19498a837b802cb6ed352
+      internalID: -1446988233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_15
+      rect:
+        serializedVersion: 2
+        x: 9440
+        y: 78
+        width: 283
+        height: 608
+      alignment: 9
+      pivot: {x: 0.034635186, y: -0.00000013803181}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d4b9e335716437cbff14b8725b3271
+      internalID: 994381506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_16
+      rect:
+        serializedVersion: 2
+        x: 9723
+        y: 95
+        width: 331
+        height: 591
+      alignment: 9
+      pivot: {x: 0.036598966, y: 0.0014044154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addd8a0a409cc46b7ad2b740a3e4a1f3
+      internalID: -439948831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_18
+      rect:
+        serializedVersion: 2
+        x: 10384
+        y: 96
+        width: 395
+        height: 588
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2206d770cf569408582a3882eef9f607
+      internalID: -1135402760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19
+      rect:
+        serializedVersion: 2
+        x: 10782
+        y: 110
+        width: 421
+        height: 576
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4c893997256466e84160da900d5dc4
+      internalID: -2139523450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_20
+      rect:
+        serializedVersion: 2
+        x: 11203
+        y: 114
+        width: 430
+        height: 572
+      alignment: 9
+      pivot: {x: 0.04531477, y: 0.00000018673343}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07453c888c88d4581aa7b4513f855f57
+      internalID: 452883887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_88
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 178
+        width: 11
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab2859b024584447b1f445b79ff809d
+      internalID: -1331765297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tuanek_animation_89
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 168
+        width: 11
+        height: 5
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d588d45e9836475a87160d74c742222
+      internalID: -1767871369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_6
+      rect:
+        serializedVersion: 2
+        x: 6153
+        y: 119
+        width: 427
+        height: 560
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 164968e853e8548b99d655a7e6eec144
+      internalID: -572343995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3060,6 +4047,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      19: -2139523450
       End: -128082562
       End_1: -352226014
       End_10: -1296992472
@@ -3234,6 +4222,8 @@ TextureImporter:
       Tuanek_animation_24: 148566051
       Tuanek_animation_25: -988797420
       Tuanek_animation_26: -1954623900
+      Tuanek_animation_27: 1629531562
+      Tuanek_animation_28: -1441260963
       Tuanek_animation_29: 750518423
       Tuanek_animation_3: -702268140
       Tuanek_animation_30: 785139876
@@ -3247,39 +4237,42 @@ TextureImporter:
       Tuanek_animation_38: 1257782810
       Tuanek_animation_39: -973350265
       Tuanek_animation_4: -974535863
+      Tuanek_animation_40: -1069448618
+      Tuanek_animation_41: 1162637331
       Tuanek_animation_42: -444824790
       Tuanek_animation_43: -519901
       Tuanek_animation_44: 51817241
       Tuanek_animation_45: 2085540195
       Tuanek_animation_46: -1096649374
+      Tuanek_animation_47: -1362803357
       Tuanek_animation_48: 1635551942
       Tuanek_animation_49: 91248831
       Tuanek_animation_5: -1271144636
+      Tuanek_animation_50: 810245116
+      Tuanek_animation_51: -752883049
       Tuanek_animation_52: -62641590
+      Tuanek_animation_53: 1236778132
+      Tuanek_animation_54: 690368951
+      Tuanek_animation_55: 359420246
+      Tuanek_animation_56: -315714618
+      Tuanek_animation_57: 1931538061
+      Tuanek_animation_58: -1992027983
+      Tuanek_animation_59: 1040439445
       Tuanek_animation_6: -608491335
+      Tuanek_animation_60: -263574410
+      Tuanek_animation_61: 1157035425
+      Tuanek_animation_62: -641181405
+      Tuanek_animation_63: -1136396169
+      Tuanek_animation_64: 1121420759
+      Tuanek_animation_65: 931732568
+      Tuanek_animation_66: 503983006
+      Tuanek_animation_67: -690643491
+      Tuanek_animation_68: -1915257335
       Tuanek_animation_7: 1580535910
-      Tuanek_animation_70: -1218875873
-      Tuanek_animation_72: -473529292
-      Tuanek_animation_73: -563872237
-      Tuanek_animation_74: 2077178379
-      Tuanek_animation_75: -2144714553
-      Tuanek_animation_76: 1436429216
-      Tuanek_animation_77: 3652275
-      Tuanek_animation_78: 600165431
-      Tuanek_animation_79: 1429450791
       Tuanek_animation_8: 1611458673
-      Tuanek_animation_80: -430150374
-      Tuanek_animation_81: -983426097
-      Tuanek_animation_82: -1446988233
-      Tuanek_animation_83: 994381506
-      Tuanek_animation_84: -439948831
-      Tuanek_animation_85: -1135402760
-      Tuanek_animation_86: -2139523450
-      Tuanek_animation_87: 452883887
       Tuanek_animation_88: -1331765297
       Tuanek_animation_89: -1767871369
       Tuanek_animation_9: 1850609312
-      Tuanek_animation_90: -572343995
       Tuanek_animation_91: 1165785238
       Tuanek_animation_92: -1913038966
       Tuanek_animation_93: 1186142486
@@ -3289,6 +4282,25 @@ TextureImporter:
       Tuanek_animation_97: 1066173025
       Tuanek_animation_98: -942807968
       Tuanek_animation_99: 1623021718
+      Walk_1: 1593815976
+      Walk_10: 1429450791
+      Walk_11: -430150374
+      Walk_12: -1227265416
+      Walk_13: -983426097
+      Walk_14: -1446988233
+      Walk_15: 994381506
+      Walk_16: -439948831
+      Walk_17: -1218875873
+      Walk_18: -1135402760
+      Walk_2: -473529292
+      Walk_20: 452883887
+      Walk_3: -563872237
+      Walk_4: 2077178379
+      Walk_5: -2144714553
+      Walk_6: -572343995
+      Walk_7: 1436429216
+      Walk_8: 3652275
+      Walk_9: 600165431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -29,6 +29,7 @@ public class ChooseChracter : MonoBehaviour
     public Image showPlayerRight;
 
     private bool selectedOne, selectedTwo;
+    public KeyCode key;
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class ChooseChracter : MonoBehaviour
         characters[PlayerOne].Selected(1);
         characters[PlayerTwo].Selected(2);
     }
-
+    
     enum direction
     {
         up,
