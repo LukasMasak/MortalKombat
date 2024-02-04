@@ -8,6 +8,7 @@ public class Soundmanager : MonoBehaviour
     public AudioClip JumpStartSound;
     public AudioClip JumpEndSound;
     public AudioClip DieSound;
+    public AudioClip _randomSound;
 
     private AudioSource audioSource;
 
@@ -36,6 +37,11 @@ public class Soundmanager : MonoBehaviour
     public void DiePlay()
     {
         audioSource.PlayOneShot(DieSound);
+
+    }
+    public void RandomSoundPlay()
+    {
+        audioSource.PlayOneShot(_randomSound);
 
     }
 }

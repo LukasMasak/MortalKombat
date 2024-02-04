@@ -1,0 +1,4207 @@
+fileFormatVersion: 2
+guid: 08458c3220ca94e92aaec6d216b5cea1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PicaFinal_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 4170
+        width: 405
+        height: 557
+      alignment: 9
+      pivot: {x: 0.30220258, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ce8fc878433439abd66982bf1e03bc
+      internalID: -409825694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_1
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 4170
+        width: 404
+        height: 557
+      alignment: 9
+      pivot: {x: 0.29127625, y: 0.0054070354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08f3786cfcae4b9ba2ddfe699555c35
+      internalID: -1171689941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 4170
+        width: 406
+        height: 557
+      alignment: 9
+      pivot: {x: 0.29100767, y: 0.00000087662704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8712409a154844761a1b162dcf09cfd8
+      internalID: 1434684024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_3
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 4170
+        width: 406
+        height: 542
+      alignment: 9
+      pivot: {x: 0.29100782, y: 0.0000009008879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bbfcf57e857446fbb34d367e88dd81
+      internalID: 320650402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_4
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 4173
+        width: 410
+        height: 554
+      alignment: 9
+      pivot: {x: 0.28735113, y: 0.002810702}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b667d831662df4916900c1335c944a0d
+      internalID: -595921726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_5
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 4172
+        width: 407
+        height: 555
+      alignment: 9
+      pivot: {x: 0.29917243, y: 0.0028056377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9ae055aba9f489ea459f5ae9c68df7
+      internalID: -21558531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_6
+      rect:
+        serializedVersion: 2
+        x: 2467
+        y: 4173
+        width: 417
+        height: 554
+      alignment: 9
+      pivot: {x: 0.2946543, y: 0.0000008813741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0393614bbbd64a2d8e1421810ae283a
+      internalID: -1741551558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_7
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 4173
+        width: 418
+        height: 554
+      alignment: 9
+      pivot: {x: 0.2970076, y: 0.0000008813741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91efbddf1e314b279b7cf523b9f5da1
+      internalID: -1882792491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_8
+      rect:
+        serializedVersion: 2
+        x: 3302
+        y: 4149
+        width: 421
+        height: 563
+      alignment: 9
+      pivot: {x: 0.29290727, y: 0.0027657708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a2c1eef08be450c8ca204fcaf817dd
+      internalID: 863344925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_9
+      rect:
+        serializedVersion: 2
+        x: 3723
+        y: 4149
+        width: 418
+        height: 574
+      alignment: 9
+      pivot: {x: 0.30073276, y: 0.0000008506642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313953f44d69847c8b44f4585d152c3a
+      internalID: -975159514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_10
+      rect:
+        serializedVersion: 2
+        x: 4139
+        y: 4144
+        width: 409
+        height: 579
+      alignment: 9
+      pivot: {x: 0.28459394, y: -0.0000008433182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93505e8ceecb04c54b0e4b0f9f9a3281
+      internalID: 1691777670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_11
+      rect:
+        serializedVersion: 2
+        x: 4585
+        y: 4143
+        width: 403
+        height: 581
+      alignment: 9
+      pivot: {x: 0.3031754, y: -0.0000008404152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2228ed6eb7c434e198a3c93a47774436
+      internalID: 1882903936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_12
+      rect:
+        serializedVersion: 2
+        x: 4988
+        y: 4130
+        width: 403
+        height: 582
+      alignment: 9
+      pivot: {x: 0.29242596, y: 0.0022747573}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b37a46bfbb7e4b8b9005600d74117e4
+      internalID: -1813655928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_13
+      rect:
+        serializedVersion: 2
+        x: 5409
+        y: 4128
+        width: 398
+        height: 581
+      alignment: 9
+      pivot: {x: 0.32122895, y: -0.0011480072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d3d7b9d4c3a4715a676dd740cd7eee
+      internalID: -1773041289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_14
+      rect:
+        serializedVersion: 2
+        x: 5827
+        y: 4129
+        width: 389
+        height: 580
+      alignment: 9
+      pivot: {x: 0.28838217, y: -0.002303102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbd94082ed34489384b591585ccd526
+      internalID: 1605027095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_15
+      rect:
+        serializedVersion: 2
+        x: 6252
+        y: 4129
+        width: 369
+        height: 580
+      alignment: 9
+      pivot: {x: 0.25071853, y: -0.0034482758}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530e167bb75034e8a9bc80b15d7824dd
+      internalID: -603487827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_16
+      rect:
+        serializedVersion: 2
+        x: 6658
+        y: 4127
+        width: 396
+        height: 583
+      alignment: 9
+      pivot: {x: 0.27444735, y: -0.0000008346688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7361b24d8ba49b9b035c3d4ecaa2de
+      internalID: 1021521014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_17
+      rect:
+        serializedVersion: 2
+        x: 7054
+        y: 4120
+        width: 411
+        height: 590
+      alignment: 9
+      pivot: {x: 0.253077, y: -0.0011304952}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ad93a0368f64d6db7dbab672e3ad18
+      internalID: 635391715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_18
+      rect:
+        serializedVersion: 2
+        x: 7465
+        y: 4099
+        width: 443
+        height: 613
+      alignment: 9
+      pivot: {x: 0.25026783, y: -0.0036139186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb8b6a37d6814064a401dc641d2c5eb
+      internalID: 618895621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_19
+      rect:
+        serializedVersion: 2
+        x: 7933
+        y: 4100
+        width: 518
+        height: 611
+      alignment: 9
+      pivot: {x: 0.20342004, y: -0.0033060876}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dda78c1864545adaf69cd8eb9f36af
+      internalID: 448892537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_20
+      rect:
+        serializedVersion: 2
+        x: 8464
+        y: 4098
+        width: 573
+        height: 602
+      alignment: 9
+      pivot: {x: 0.24037583, y: -0.0033555143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2534307653613438c95b4aa2127db136
+      internalID: -1302955550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_21
+      rect:
+        serializedVersion: 2
+        x: 9036
+        y: 4099
+        width: 614
+        height: 582
+      alignment: 9
+      pivot: {x: 0.28292, y: -0.00096649484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e82314d848d477eb43be65a3e2d58a
+      internalID: -798822033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_22
+      rect:
+        serializedVersion: 2
+        x: 9650
+        y: 4082
+        width: 639
+        height: 600
+      alignment: 9
+      pivot: {x: 0.28614962, y: 0.0026477051}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7384f3476b30d48acaaa9b810027a971
+      internalID: -733602319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_23
+      rect:
+        serializedVersion: 2
+        x: 10289
+        y: 4080
+        width: 680
+        height: 601
+      alignment: 9
+      pivot: {x: 0.32322496, y: 0.0008140729}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccb8dd0c759394e5f84649287080cc4a
+      internalID: -999460473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_24
+      rect:
+        serializedVersion: 2
+        x: 10969
+        y: 4080
+        width: 660
+        height: 595
+      alignment: 9
+      pivot: {x: 0.32453984, y: 0.0029276358}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d459f60d46d4602b1bdfdc182583d5
+      internalID: 1757817559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_25
+      rect:
+        serializedVersion: 2
+        x: 11666
+        y: 4090
+        width: 506
+        height: 600
+      alignment: 9
+      pivot: {x: 0.37491316, y: -0.0000008138021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6c1c3820daf475f89d64048da151bb
+      internalID: -1199351506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_26
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 3539
+        width: 422
+        height: 604
+      alignment: 9
+      pivot: {x: 0.29874873, y: 0.0026786753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c9ff3146a39461882b7584b1fdb643
+      internalID: -1738259853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_27
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 3522
+        width: 393
+        height: 603
+      alignment: 9
+      pivot: {x: 0.25714266, y: 0.0013417612}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bd8bd7df829477aa2c39510b83b299
+      internalID: 398541543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_28
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 3523
+        width: 390
+        height: 592
+      alignment: 9
+      pivot: {x: 0.24283119, y: 0.0013666926}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859cd974378aa49c98ed8cfe5b826d66
+      internalID: 1464578939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_29
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 3523
+        width: 415
+        height: 587
+      alignment: 9
+      pivot: {x: 0.24078149, y: 0.001378334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b4ac88c14c84256bd6c799a3184764
+      internalID: 791358971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_30
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 3491
+        width: 482
+        height: 589
+      alignment: 9
+      pivot: {x: 0.30030766, y: 0.0013736536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc41cc816339d479d93a721c056bed3e
+      internalID: -1263152376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_32
+      rect:
+        serializedVersion: 2
+        x: 2310
+        y: 3491
+        width: 514
+        height: 589
+      alignment: 9
+      pivot: {x: 0.32678807, y: 0.0027468929}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd311586cc4349199189844c3043fa5
+      internalID: 680058187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_33
+      rect:
+        serializedVersion: 2
+        x: 2824
+        y: 3493
+        width: 544
+        height: 583
+      alignment: 9
+      pivot: {x: 0.35875073, y: -0.0013822116}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74eb60510b1e24ca3bb426d720486d0b
+      internalID: -1675433234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_34
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 3488
+        width: 559
+        height: 588
+      alignment: 9
+      pivot: {x: 0.36832872, y: 0.0013759899}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ee997710d6b4eff95134cc2f74406c
+      internalID: 529764749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_35
+      rect:
+        serializedVersion: 2
+        x: 3977
+        y: 3477
+        width: 548
+        height: 599
+      alignment: 9
+      pivot: {x: 0.37896952, y: 0.0013507212}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e12dd67625ee4a8791be51ad26eca88
+      internalID: 1244331240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_36
+      rect:
+        serializedVersion: 2
+        x: 4539
+        y: 3477
+        width: 576
+        height: 589
+      alignment: 9
+      pivot: {x: 0.39187452, y: 0.0013736536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca507bb126e004e02ac67a07f2035088
+      internalID: -900390213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_37
+      rect:
+        serializedVersion: 2
+        x: 5123
+        y: 3476
+        width: 574
+        height: 590
+      alignment: 9
+      pivot: {x: 0.4013621, y: 0.0027422372}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe3066c633ba494ca242b0039d71a5f
+      internalID: 858956455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_38
+      rect:
+        serializedVersion: 2
+        x: 5706
+        y: 3472
+        width: 566
+        height: 592
+      alignment: 9
+      pivot: {x: 0.39710984, y: 0.0068318136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf37636fb4fb4b6598f1d553867e29e
+      internalID: -32999729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_39
+      rect:
+        serializedVersion: 2
+        x: 6277
+        y: 3477
+        width: 552
+        height: 593
+      alignment: 9
+      pivot: {x: 0.3915697, y: 0.0040923404}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e00b6cd0dc9450682500921577f7d2
+      internalID: -1576192553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_40
+      rect:
+        serializedVersion: 2
+        x: 6856
+        y: 3473
+        width: 557
+        height: 593
+      alignment: 9
+      pivot: {x: 0.38963878, y: 0.0027283642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e66f1a328e284fa7a1f9b0bd5c8136b
+      internalID: -1536993603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_41
+      rect:
+        serializedVersion: 2
+        x: 7413
+        y: 3471
+        width: 559
+        height: 595
+      alignment: 9
+      pivot: {x: 0.35820103, y: 0.0054379757}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c5300f71dc3b4851ad961b47ae0ee89
+      internalID: -133201299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_42
+      rect:
+        serializedVersion: 2
+        x: 7972
+        y: 3471
+        width: 556
+        height: 595
+      alignment: 9
+      pivot: {x: 0.33561432, y: 0.0040785847}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40db0a17cfc5407e890daf979a3d801
+      internalID: 1356405945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_43
+      rect:
+        serializedVersion: 2
+        x: 8565
+        y: 3471
+        width: 541
+        height: 592
+      alignment: 9
+      pivot: {x: 0.31461018, y: 0.004099253}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c39a7b010a144c0804e4e4e341e200
+      internalID: 473297856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_44
+      rect:
+        serializedVersion: 2
+        x: 9106
+        y: 3471
+        width: 521
+        height: 591
+      alignment: 9
+      pivot: {x: 0.2811019, y: 0.0013690052}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d82214901af4dbc97b958d3d57f437
+      internalID: 869329752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_45
+      rect:
+        serializedVersion: 2
+        x: 9664
+        y: 3470
+        width: 522
+        height: 592
+      alignment: 9
+      pivot: {x: 0.30321518, y: 0.0027329728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a445af34cf74943bc9d458cd3a7ad2
+      internalID: 2018156513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_46
+      rect:
+        serializedVersion: 2
+        x: 10289
+        y: 3469
+        width: 526
+        height: 593
+      alignment: 9
+      pivot: {x: 0.32779083, y: 0.0021211004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eeb08e41daaf41cfb9a9853f35d4fa6
+      internalID: -1893263354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_47
+      rect:
+        serializedVersion: 2
+        x: 10918
+        y: 3473
+        width: 543
+        height: 606
+      alignment: 9
+      pivot: {x: 0.34244972, y: 0.002075598}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5778b4af6f21c4b73b61cd0592a900cc
+      internalID: -921085215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_48
+      rect:
+        serializedVersion: 2
+        x: 11564
+        y: 3474
+        width: 523
+        height: 594
+      alignment: 9
+      pivot: {x: 0.326803, y: 0.0021175295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46629a35c3fd4ec289b2b234c6a54ac
+      internalID: -1817929761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-1
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 2898
+        width: 525
+        height: 593
+      alignment: 9
+      pivot: {x: 0.33823267, y: 0.0013643879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352684f8010d34a82a388bffc7b77cb8
+      internalID: 1060077177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2903
+        width: 520
+        height: 588
+      alignment: 9
+      pivot: {x: 0.32889992, y: -0.0013751595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c619ab5227d456e8ec8b523fe9a473
+      internalID: -1459540087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-3
+      rect:
+        serializedVersion: 2
+        x: 2026
+        y: 2866
+        width: 532
+        height: 590
+      alignment: 9
+      pivot: {x: 0.34644243, y: 0.0013713255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77cf74eb9e0a64139b9e90eddc6f6b19
+      internalID: 821950250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-4
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 2855
+        width: 555
+        height: 587
+      alignment: 9
+      pivot: {x: 0.34989133, y: -0.0013775021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e39db0b626cf47268af4cf96545c1bd
+      internalID: -388467776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-5
+      rect:
+        serializedVersion: 2
+        x: 3119
+        y: 2852
+        width: 520
+        height: 569
+      alignment: 9
+      pivot: {x: 0.3049828, y: 0.0028515968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a19cddc26e6e401abf926e2c3428723
+      internalID: -1128230587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-6
+      rect:
+        serializedVersion: 2
+        x: 3642
+        y: 2857
+        width: 499
+        height: 581
+      alignment: 9
+      pivot: {x: 0.32212618, y: 0.0041903104}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e969d52e2a2e40a8980c1a7a9dd7da9
+      internalID: -1852791839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-8
+      rect:
+        serializedVersion: 2
+        x: 4141
+        y: 2857
+        width: 550
+        height: 565
+      alignment: 9
+      pivot: {x: 0.3949858, y: -0.0048106504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1363b5d32edf84d94a05ed1e45ecd383
+      internalID: -1752055393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-9
+      rect:
+        serializedVersion: 2
+        x: 4697
+        y: 2854
+        width: 520
+        height: 561
+      alignment: 9
+      pivot: {x: 0.30100286, y: 0.00000087037654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68349d534b7af4aaa82896945aa88f82
+      internalID: 1275092989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-10
+      rect:
+        serializedVersion: 2
+        x: 5214
+        y: 2854
+        width: 525
+        height: 550
+      alignment: 9
+      pivot: {x: 0.28847656, y: -0.00917658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01af456c459c4242b65721949a49b18
+      internalID: -426732908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-11
+      rect:
+        serializedVersion: 2
+        x: 5749
+        y: 2854
+        width: 543
+        height: 537
+      alignment: 9
+      pivot: {x: 0.31408083, y: 0.0000009092761}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635527eab42f0429daaf95fd1f0b40dd
+      internalID: -896801443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-12
+      rect:
+        serializedVersion: 2
+        x: 6298
+        y: 2787
+        width: 661
+        height: 569
+      alignment: 9
+      pivot: {x: 0.39309004, y: 0.00443658}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26cdd7990adb4310a878ad811b6199e
+      internalID: -1785352878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-13
+      rect:
+        serializedVersion: 2
+        x: 6959
+        y: 2793
+        width: 611
+        height: 563
+      alignment: 9
+      pivot: {x: 0.26455015, y: 0.00000086728465}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874e489f6b3ac4e9581c47423a70411e
+      internalID: 546401300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-14
+      rect:
+        serializedVersion: 2
+        x: 7570
+        y: 2793
+        width: 651
+        height: 575
+      alignment: 9
+      pivot: {x: 0.33717132, y: -0.0043881624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8f9ee47fe0d44dc824d32ec76dc120
+      internalID: -972349495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-15
+      rect:
+        serializedVersion: 2
+        x: 8255
+        y: 2826
+        width: 621
+        height: 542
+      alignment: 9
+      pivot: {x: 0.37807593, y: 0.0000009008879}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beef14676484b424f943d6b58976b7d6
+      internalID: -449669350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_-16
+      rect:
+        serializedVersion: 2
+        x: 8876
+        y: 2817
+        width: 619
+        height: 539
+      alignment: 9
+      pivot: {x: 0.38175863, y: 0.00000090590214}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48bcac4f9eac1471585fce9550dfb862
+      internalID: 150333065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 10422
+        y: 2837
+        width: 626
+        height: 554
+      alignment: 9
+      pivot: {x: 0.22584334, y: 0.0000008813741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279c7987ba7cf4a25b733d623a1a3ba1
+      internalID: 877144155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_2
+      rect:
+        serializedVersion: 2
+        x: 11054
+        y: 2857
+        width: 518
+        height: 554
+      alignment: 9
+      pivot: {x: 0.19791792, y: 0.0000008813741}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c2fb466912b4502a811b8fc58bb6ba
+      internalID: 1828797008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_3
+      rect:
+        serializedVersion: 2
+        x: 11595
+        y: 2851
+        width: 462
+        height: 517
+      alignment: 9
+      pivot: {x: 0.22139433, y: -0.0048804516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2831a3aa880341a1ab78fa974a84e29
+      internalID: 739596963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 2344
+        width: 525
+        height: 481
+      alignment: 9
+      pivot: {x: 0.38486147, y: -0.005244709}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdc6b459b0564747b38a3171ca7bf89
+      internalID: 2101017298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_5
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 2307
+        width: 564
+        height: 518
+      alignment: 9
+      pivot: {x: 0.3199725, y: -0.009743945}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfe37f7bd84e433abe4211788656171
+      internalID: 249984281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 2285
+        width: 570
+        height: 526
+      alignment: 9
+      pivot: {x: 0.38504016, y: 0.00000046414567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f59c79b3c19464a83ec3638e6f5030
+      internalID: -91108191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_7
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 2281
+        width: 511
+        height: 504
+      alignment: 9
+      pivot: {x: 0.41226178, y: 0.00000048440603}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb66e917439744fe9f5ef50aa8a3a45
+      internalID: 981789737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_8
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 2279
+        width: 495
+        height: 508
+      alignment: 9
+      pivot: {x: 0.42684364, y: 0.0033949004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f24e0b244f0400f8d5bfccd8fc20ff
+      internalID: -1541703694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_9
+      rect:
+        serializedVersion: 2
+        x: 2801
+        y: 2279
+        width: 456
+        height: 525
+      alignment: 9
+      pivot: {x: 0.3789898, y: -0.003284505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0cbec04e4df4527bddcb85d282a3c2
+      internalID: -803042426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 3257
+        y: 2279
+        width: 443
+        height: 506
+      alignment: 9
+      pivot: {x: 0.35597578, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395c3341c68d042cbba895f3a4559df7
+      internalID: -1318614306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 3723
+        y: 2279
+        width: 449
+        height: 502
+      alignment: 9
+      pivot: {x: 0.35021946, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18314d5378234765b5421538ca7a593
+      internalID: 1965587459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 4172
+        y: 2283
+        width: 490
+        height: 510
+      alignment: 9
+      pivot: {x: 0.390906, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083395c227f5546f49c216a168055b13
+      internalID: 2132910528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 4662
+        y: 2290
+        width: 562
+        height: 516
+      alignment: 9
+      pivot: {x: 0.39874506, y: 0.0033422662}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0e063b38ea9461692d8babde9489de
+      internalID: 985374901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 5224
+        y: 2294
+        width: 555
+        height: 527
+      alignment: 9
+      pivot: {x: 0.36950573, y: 0.0032725036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05c8ac864bfa4718b79388108b062ca
+      internalID: -136803547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 5789
+        y: 2286
+        width: 563
+        height: 495
+      alignment: 9
+      pivot: {x: 0.26933178, y: 0.003624132}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23751a21c63b4624b8c58935754d9ff
+      internalID: 1763493465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 6386
+        y: 2244
+        width: 482
+        height: 489
+      alignment: 9
+      pivot: {x: 0.1224188, y: 0.0037350021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853ef3360a21e4681b7ec221799159cf
+      internalID: -399898462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 6959
+        y: 2228
+        width: 481
+        height: 505
+      alignment: 9
+      pivot: {x: 0.102916695, y: -0.0037452623}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b120702dde9470b8c3ac81faf173f7
+      internalID: -1462330221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 7451
+        y: 2198
+        width: 457
+        height: 520
+      alignment: 9
+      pivot: {x: 0.1234625, y: 0.0017559344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 717a2c56499654a14b366a7b686666b3
+      internalID: 484289373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 7945
+        y: 2213
+        width: 442
+        height: 520
+      alignment: 9
+      pivot: {x: 0.12249673, y: -0.0034498947}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764337104252240f8a6b33b35d658fe2
+      internalID: -887843926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 8424
+        y: 2228
+        width: 455
+        height: 520
+      alignment: 9
+      pivot: {x: 0.13328254, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c942c43b4a4442d7a9c80e7b60b35f5
+      internalID: -1909699323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 8953
+        y: 2228
+        width: 466
+        height: 520
+      alignment: 9
+      pivot: {x: 0.14578862, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1080f898e9d7c46968a806796aca19f3
+      internalID: 2087258139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 9493
+        y: 2244
+        width: 476
+        height: 520
+      alignment: 9
+      pivot: {x: 0.16453847, y: 0.010351093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73405922a189d4879923252fa7b4eca3
+      internalID: 1065583950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 10060
+        y: 2244
+        width: 491
+        height: 521
+      alignment: 9
+      pivot: {x: 0.17706212, y: -0.00000046860004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca151d85dbad944eb9d668b779f3664a
+      internalID: 1438831241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 10642
+        y: 2228
+        width: 503
+        height: 521
+      alignment: 9
+      pivot: {x: 0.18126398, y: 0.0016902403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0c96c531fca4925a2595f019366131
+      internalID: -2037764977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_25
+      rect:
+        serializedVersion: 2
+        x: 11236
+        y: 2244
+        width: 502
+        height: 521
+      alignment: 9
+      pivot: {x: 0.18062711, y: -0.0033818865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ecb756f445a1439b90ca7bab2570dc5
+      internalID: 1797106032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_26
+      rect:
+        serializedVersion: 2
+        x: 11772
+        y: 2228
+        width: 510
+        height: 521
+      alignment: 9
+      pivot: {x: 0.18563688, y: -0.00000046860004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff63fe52a23f1471a93a7dc3bd1e76d2
+      internalID: 1666820168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_27
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1726
+        width: 514
+        height: 522
+      alignment: 9
+      pivot: {x: 0.19495647, y: 0.0043218033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c88b410d66514d3bbd7d29bde2a0501
+      internalID: -1575081620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_28
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 1723
+        width: 499
+        height: 521
+      alignment: 9
+      pivot: {x: 0.19030786, y: -0.0032476326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10152722810e42bcb4c30549f5ee7b7
+      internalID: 1323345755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_29
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 1748
+        width: 483
+        height: 521
+      alignment: 9
+      pivot: {x: 0.15669456, y: 0.0032476326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5238cd6f29f54a9d9cc3b0daa238de4
+      internalID: 1351605901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_30
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 1733
+        width: 475
+        height: 520
+      alignment: 9
+      pivot: {x: 0.13666375, y: 0.0021690954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d8c629f04ad4deb90ac9f9079c0347
+      internalID: 1195634617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_31
+      rect:
+        serializedVersion: 2
+        x: 2182
+        y: 1723
+        width: 461
+        height: 517
+      alignment: 9
+      pivot: {x: 0.11094894, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6497d7723ab1b4e86a055d2acbe9b425
+      internalID: 1646348703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_32
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 1680
+        width: 445
+        height: 518
+      alignment: 9
+      pivot: {x: 0.10329727, y: 0.0054439115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b5e27a5cd474e9e952cdd364a06bee
+      internalID: -175051330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_33
+      rect:
+        serializedVersion: 2
+        x: 3257
+        y: 1680
+        width: 441
+        height: 510
+      alignment: 9
+      pivot: {x: 0.090746686, y: 0.0055293064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea3570352be5409cbd7e7edefd6b1ef
+      internalID: 578716182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_34
+      rect:
+        serializedVersion: 2
+        x: 3726
+        y: 1683
+        width: 443
+        height: 511
+      alignment: 9
+      pivot: {x: 0.101506285, y: -0.0011036494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dac8c8b62e9846afa7f668cb6e35dee
+      internalID: 1380138785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_35
+      rect:
+        serializedVersion: 2
+        x: 4243
+        y: 1678
+        width: 408
+        height: 512
+      alignment: 9
+      pivot: {x: 0.10740991, y: -0.0011014938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d3f3077c98f4432b0cfc8c9cd0f9f0
+      internalID: 1010043101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_36
+      rect:
+        serializedVersion: 2
+        x: 4725
+        y: 1670
+        width: 369
+        height: 514
+      alignment: 9
+      pivot: {x: 0.12858337, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acfa677f1ec7d4960887cf1ac729d319
+      internalID: 1532416103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_37
+      rect:
+        serializedVersion: 2
+        x: 5168
+        y: 1669
+        width: 363
+        height: 512
+      alignment: 9
+      pivot: {x: 0.11001528, y: 0.00330472}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d822caeb6e64e7e884f5dffa73417f
+      internalID: 30484364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_38
+      rect:
+        serializedVersion: 2
+        x: 5592
+        y: 1670
+        width: 364
+        height: 505
+      alignment: 9
+      pivot: {x: 0.11594533, y: 0.0054520713}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c02847946284fe08752ca8cbd8a295
+      internalID: 138309034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_39
+      rect:
+        serializedVersion: 2
+        x: 6017
+        y: 1681
+        width: 355
+        height: 501
+      alignment: 9
+      pivot: {x: 0.11080821, y: 0.0027038208}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f3765564729488baa2acdd83809dd8
+      internalID: -2086009602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_40
+      rect:
+        serializedVersion: 2
+        x: 6433
+        y: 1670
+        width: 361
+        height: 498
+      alignment: 9
+      pivot: {x: 0.16230279, y: 0.002720109}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a5d576296e046bc8e7977a5d218dd7
+      internalID: 873820398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_41
+      rect:
+        serializedVersion: 2
+        x: 6868
+        y: 1682
+        width: 356
+        height: 493
+      alignment: 9
+      pivot: {x: 0.16136461, y: 0.005495145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f2e12e88bdc47098a44a1d94a9f59c
+      internalID: -53347845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_42
+      rect:
+        serializedVersion: 2
+        x: 7290
+        y: 1675
+        width: 350
+        height: 500
+      alignment: 9
+      pivot: {x: 0.16136439, y: 0.0013547363}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792d57d2a6d414370966e87d936827e8
+      internalID: -1016277760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_43
+      rect:
+        serializedVersion: 2
+        x: 7677
+        y: 1681
+        width: 356
+        height: 504
+      alignment: 9
+      pivot: {x: 0.14424323, y: 0.0026877266}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2028a91d3293e44a38e06ae9a420fc58
+      internalID: 1453235428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_44
+      rect:
+        serializedVersion: 2
+        x: 8094
+        y: 1670
+        width: 354
+        height: 487
+      alignment: 9
+      pivot: {x: 0.13266629, y: 0.008344396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ca44205c7364d658d0102b769d4107
+      internalID: 2140805011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_45
+      rect:
+        serializedVersion: 2
+        x: 8522
+        y: 1683
+        width: 382
+        height: 517
+      alignment: 9
+      pivot: {x: 0.1826402, y: -0.0026196714}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7182583f45b40ee8999c9980d4ace3
+      internalID: 1452429587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_46
+      rect:
+        serializedVersion: 2
+        x: 8953
+        y: 1676
+        width: 375
+        height: 497
+      alignment: 9
+      pivot: {x: 0.15684895, y: 0.0013629138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2edeeb68e4abf4ed598306c52c868e8f
+      internalID: 199991359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_47
+      rect:
+        serializedVersion: 2
+        x: 9367
+        y: 1684
+        width: 369
+        height: 510
+      alignment: 9
+      pivot: {x: 0.1843083, y: 0.00000023935357}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd894fb32fb7e4d08996a0c77842d3f4
+      internalID: 160247745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_48
+      rect:
+        serializedVersion: 2
+        x: 9814
+        y: 1682
+        width: 372
+        height: 511
+      alignment: 9
+      pivot: {x: 0.1832131, y: 0.00000023888515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75d8c9f84d634fd08b94d6f56eca888
+      internalID: -2070765590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_49
+      rect:
+        serializedVersion: 2
+        x: 10214
+        y: 1682
+        width: 370
+        height: 523
+      alignment: 9
+      pivot: {x: 0.1540435, y: -0.0012949256}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556acfefd7566494ebc803a908586669
+      internalID: -1084057446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_50
+      rect:
+        serializedVersion: 2
+        x: 10662
+        y: 1666
+        width: 365
+        height: 524
+      alignment: 9
+      pivot: {x: 0.15858038, y: 0.003877596}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0f112324df04e3e9bc226eee514628
+      internalID: 1131078656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_51
+      rect:
+        serializedVersion: 2
+        x: 11076
+        y: 1668
+        width: 361
+        height: 525
+      alignment: 9
+      pivot: {x: 0.15667471, y: 0.005160435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c4bd0106aef48c29c405f8c1c2e38b
+      internalID: -1382030973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_52
+      rect:
+        serializedVersion: 2
+        x: 11532
+        y: 1668
+        width: 387
+        height: 522
+      alignment: 9
+      pivot: {x: 0.17274053, y: 0.014136761}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e24a38777774eaab800191fbb62901
+      internalID: 1523710570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_53
+      rect:
+        serializedVersion: 2
+        x: 11993
+        y: 1678
+        width: 427
+        height: 526
+      alignment: 9
+      pivot: {x: 0.16691671, y: 0.0051506246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b35a279d14142cab82dbe60ebac06c
+      internalID: -779499450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_58
+      rect:
+        serializedVersion: 2
+        x: 2088
+        y: 1122
+        width: 409
+        height: 562
+      alignment: 9
+      pivot: {x: 0.25982532, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284a4db454cde4850b058a042dc942b2
+      internalID: 1232309077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_54
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1141
+        width: 507
+        height: 528
+      alignment: 9
+      pivot: {x: 0.19588543, y: 0.0023549397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e20b782c499d34f8f89aa5277f07a332
+      internalID: 1016431142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_55
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1112
+        width: 523
+        height: 526
+      alignment: 9
+      pivot: {x: 0.24085137, y: 0.007091682}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14d54e1c0338436182689ddfe3d705a
+      internalID: -140706209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_56
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 1097
+        width: 532
+        height: 522
+      alignment: 9
+      pivot: {x: 0.2686084, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5f40ebf08e74ffe8c2a8c0b6e9afc1
+      internalID: -1019153052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_57
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 1121
+        width: 480
+        height: 533
+      alignment: 9
+      pivot: {x: 0.25390345, y: -0.0023328485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76aa5307b9c294a5b99525a2818912dc
+      internalID: -1685489049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_59
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 1077
+        width: 368
+        height: 606
+      alignment: 9
+      pivot: {x: 0.19927779, y: -0.00205203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438a2e8142dba4af69ca94d0739d61ff
+      internalID: 129247273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_60
+      rect:
+        serializedVersion: 2
+        x: 3041
+        y: 1068
+        width: 338
+        height: 608
+      alignment: 9
+      pivot: {x: 0.16155031, y: -0.0020450794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4125ca56713904ac48ace81ccc27cc6f
+      internalID: 742124315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_61
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 1062
+        width: 337
+        height: 602
+      alignment: 9
+      pivot: {x: 0.14947636, y: 0.002065462}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de248cbe9c21f4e2597aa578f85136cc
+      internalID: -560709922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_62
+      rect:
+        serializedVersion: 2
+        x: 3742
+        y: 1057
+        width: 330
+        height: 598
+      alignment: 9
+      pivot: {x: 0.14204176, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7efb158e1b6c453390fa5417a80c6bb
+      internalID: 1127473960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_63
+      rect:
+        serializedVersion: 2
+        x: 4081
+        y: 1071
+        width: 325
+        height: 572
+      alignment: 9
+      pivot: {x: 0.12888221, y: 0.0021737905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca1b10003dca4331b8c0f76914b3f1a
+      internalID: -1257420731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_64
+      rect:
+        serializedVersion: 2
+        x: 4427
+        y: 1068
+        width: 327
+        height: 549
+      alignment: 9
+      pivot: {x: 0.13875699, y: 0.0000002223503}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f180319d2122b48998bc70411b3d3484
+      internalID: 1558416773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_65
+      rect:
+        serializedVersion: 2
+        x: 4791
+        y: 1077
+        width: 333
+        height: 517
+      alignment: 9
+      pivot: {x: 0.12659681, y: 0.0048100897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bab9107dd224b60a67be891739b543
+      internalID: -1923818654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_66
+      rect:
+        serializedVersion: 2
+        x: 5145
+        y: 1081
+        width: 343
+        height: 483
+      alignment: 9
+      pivot: {x: 0.16285817, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5822caf85acb745ccbb9f51190c30a53
+      internalID: 223901697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_68
+      rect:
+        serializedVersion: 2
+        x: 5832
+        y: 1116
+        width: 334
+        height: 441
+      alignment: 9
+      pivot: {x: 0.15607165, y: 0.002305219}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa487162f48d4690bd7b42723865007
+      internalID: 1539796283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_69
+      rect:
+        serializedVersion: 2
+        x: 6215
+        y: 1121
+        width: 333
+        height: 441
+      alignment: 9
+      pivot: {x: 0.13977455, y: 0.00000027680343}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa39c7e4cc0a4abaab9fb3fe4a8bccd
+      internalID: 554083713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_70
+      rect:
+        serializedVersion: 2
+        x: 6597
+        y: 1119
+        width: 333
+        height: 444
+      alignment: 9
+      pivot: {x: 0.16114748, y: 0.004579286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8159f6e273e4439a85cd74d5113f602
+      internalID: 437870323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_76
+      rect:
+        serializedVersion: 2
+        x: 8922
+        y: 1081
+        width: 368
+        height: 530
+      alignment: 9
+      pivot: {x: 0.17956012, y: 0.0019181161}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b2f153791cd4b6da03555872e9e6b8
+      internalID: -775264068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_77
+      rect:
+        serializedVersion: 2
+        x: 9350
+        y: 1075
+        width: 400
+        height: 552
+      alignment: 9
+      pivot: {x: 0.22044434, y: -0.0018416696}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36068b250255425ab4a492b73bd9552
+      internalID: -70580375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_78
+      rect:
+        serializedVersion: 2
+        x: 9849
+        y: 1102
+        width: 347
+        height: 486
+      alignment: 9
+      pivot: {x: 0.183605, y: 0.0020917729}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4111fea48b647daa886c5a6dc18882
+      internalID: 803172194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_71
+      rect:
+        serializedVersion: 2
+        x: 6979
+        y: 1112
+        width: 335
+        height: 435
+      alignment: 9
+      pivot: {x: 0.10551102, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc28b3787d62b4973b0134e2867c8fb3
+      internalID: -1315500569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_72
+      rect:
+        serializedVersion: 2
+        x: 7371
+        y: 1111
+        width: 335
+        height: 435
+      alignment: 9
+      pivot: {x: 0.14496122, y: 0.0070110452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edea1138726724c49bf0d5924b010e53
+      internalID: -1199782544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_73
+      rect:
+        serializedVersion: 2
+        x: 7755
+        y: 1105
+        width: 336
+        height: 434
+      alignment: 9
+      pivot: {x: 0.15206909, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9569513a967e44d168e35b76dcaa3f6e
+      internalID: -1855804033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_74
+      rect:
+        serializedVersion: 2
+        x: 8124
+        y: 1105
+        width: 336
+        height: 434
+      alignment: 9
+      pivot: {x: 0.13694109, y: 0.009369318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3b248e8e87f4617b866195aea3bfec
+      internalID: -943213468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_75
+      rect:
+        serializedVersion: 2
+        x: 8510
+        y: 1098
+        width: 339
+        height: 449
+      alignment: 9
+      pivot: {x: 0.14615022, y: 0.009056312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2797e3f8c31c4a95b4eb0a12738c59f
+      internalID: -1875646311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_79
+      rect:
+        serializedVersion: 2
+        x: 10277
+        y: 1119
+        width: 365
+        height: 377
+      alignment: 9
+      pivot: {x: 0.25769478, y: 0.008089667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbdef6b692a3f4aab82f95c04cedca62
+      internalID: -447574207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_80
+      rect:
+        serializedVersion: 2
+        x: 10715
+        y: 1119
+        width: 413
+        height: 278
+      alignment: 9
+      pivot: {x: 0.278474, y: 0.10970213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86994f37426f49a4a3785a66eabe7ff
+      internalID: -1044313337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_81
+      rect:
+        serializedVersion: 2
+        x: 11185
+        y: 1136
+        width: 500
+        height: 249
+      alignment: 9
+      pivot: {x: 0.28855664, y: 0.1551396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b9b2ad96bd34255a542f61310aa610
+      internalID: 573594213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_82
+      rect:
+        serializedVersion: 2
+        x: 11738
+        y: 1153
+        width: 586
+        height: 250
+      alignment: 9
+      pivot: {x: 0.34734294, y: 0.14638624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2bfa45eece343c4ab15b0453562e4d
+      internalID: -921915755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_83
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 747
+        width: 625
+        height: 250
+      alignment: 9
+      pivot: {x: 0.3591564, y: 0.1532085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda67462fe1ba4d79a6aad60084023c8
+      internalID: -1960164027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_84
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 747
+        width: 653
+        height: 249
+      alignment: 9
+      pivot: {x: 0.35490513, y: 0.1538238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdd7e04e474744f0ba41e81d5459fb8
+      internalID: -1873787235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_85
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 769
+        width: 678
+        height: 249
+      alignment: 9
+      pivot: {x: 0.36025506, y: 0.15112501}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a845230f73adb4f5095a1abefd754e01
+      internalID: 1946522482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_86
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 769
+        width: 708
+        height: 250
+      alignment: 9
+      pivot: {x: 0.3576343, y: 0.15858422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44535b65ae60f4d70a44a8cf01fe0651
+      internalID: -1961620098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_87
+      rect:
+        serializedVersion: 2
+        x: 2866
+        y: 769
+        width: 708
+        height: 245
+      alignment: 9
+      pivot: {x: 0.36048192, y: 0.13439344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6452cd323fbf4ef39d8616c2019848f
+      internalID: -2061656460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_88
+      rect:
+        serializedVersion: 2
+        x: 3619
+        y: 772
+        width: 667
+        height: 242
+      alignment: 9
+      pivot: {x: 0.34888354, y: 0.12772943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07975f94def5e437dbbb867103dd29a9
+      internalID: -506971260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_89
+      rect:
+        serializedVersion: 2
+        x: 4343
+        y: 776
+        width: 609
+        height: 243
+      alignment: 9
+      pivot: {x: 0.3168368, y: 0.12720379}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511b8ccaf3bcc4799a3a09819b22bb7b
+      internalID: -528363958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_90
+      rect:
+        serializedVersion: 2
+        x: 4996
+        y: 765
+        width: 492
+        height: 250
+      alignment: 9
+      pivot: {x: 0.2801087, y: 0.15052076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9796271353a9f4232a72efeb1591bbce
+      internalID: -1146545125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_91
+      rect:
+        serializedVersion: 2
+        x: 5548
+        y: 782
+        width: 483
+        height: 262
+      alignment: 9
+      pivot: {x: 0.31774879, y: 0.13849692}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e6a45c472424bb19090dad5b27e014
+      internalID: 1765212705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_92
+      rect:
+        serializedVersion: 2
+        x: 6119
+        y: 782
+        width: 466
+        height: 270
+      alignment: 9
+      pivot: {x: 0.29091188, y: 0.14683703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b7396fea96949cabc3b106170fb713
+      internalID: -2055759073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_93
+      rect:
+        serializedVersion: 2
+        x: 6645
+        y: 782
+        width: 460
+        height: 277
+      alignment: 9
+      pivot: {x: 0.30133215, y: 0.11401588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9279a640d20aa4994b22d63de94ab54f
+      internalID: 1556079202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_94
+      rect:
+        serializedVersion: 2
+        x: 7224
+        y: 755
+        width: 427
+        height: 289
+      alignment: 9
+      pivot: {x: 0.28125685, y: 0.11393194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c655807e10bc34aadb0ba878247174f5
+      internalID: 1601729622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_95
+      rect:
+        serializedVersion: 2
+        x: 7725
+        y: 764
+        width: 397
+        height: 295
+      alignment: 9
+      pivot: {x: 0.3341246, y: 0.075169034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e693d0e2d0834d4db4ce7432625fe2e
+      internalID: -6925612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_96
+      rect:
+        serializedVersion: 2
+        x: 8196
+        y: 709
+        width: 423
+        height: 350
+      alignment: 9
+      pivot: {x: 0.25059333, y: 0.026878836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2969a5bce4b4964b514747c614bfa9
+      internalID: -1918530033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_97
+      rect:
+        serializedVersion: 2
+        x: 8673
+        y: 641
+        width: 413
+        height: 385
+      alignment: 9
+      pivot: {x: 0.25269088, y: 0.017453834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58176a5099cf4457fb35c9e1a571b03e
+      internalID: -833689791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_98
+      rect:
+        serializedVersion: 2
+        x: 9141
+        y: 575
+        width: 368
+        height: 451
+      alignment: 9
+      pivot: {x: 0.2265227, y: 0.020286543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103ff83b5bec74d30800c78e189a4836
+      internalID: 874169849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_99
+      rect:
+        serializedVersion: 2
+        x: 9558
+        y: 566
+        width: 357
+        height: 453
+      alignment: 9
+      pivot: {x: 0.20670573, y: 0.024684746}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d58774df841473d8d116bbe00fdc24
+      internalID: -1854141586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_100
+      rect:
+        serializedVersion: 2
+        x: 9936
+        y: 579
+        width: 340
+        height: 436
+      alignment: 9
+      pivot: {x: 0.174101, y: 0.016320884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caff88e6921bc44b898053c830d00a80
+      internalID: 347418230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_101
+      rect:
+        serializedVersion: 2
+        x: 10336
+        y: 589
+        width: 350
+        height: 423
+      alignment: 9
+      pivot: {x: 0.22117187, y: 0.014419592}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eae118ed303444b29bb8fc10b7bc95e
+      internalID: -340067504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_102
+      rect:
+        serializedVersion: 2
+        x: 10774
+        y: 593
+        width: 393
+        height: 433
+      alignment: 9
+      pivot: {x: 0.3085863, y: 0.018782053}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1318a1eeedc244b181ecd0f3dc7cab1
+      internalID: -1656803828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_103
+      rect:
+        serializedVersion: 2
+        x: 11205
+        y: 593
+        width: 424
+        height: 436
+      alignment: 9
+      pivot: {x: 0.37532935, y: 0.020984475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595e9337fb5854c6eaa87e0b1a7fd6e4
+      internalID: -2076167751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_104
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 235
+        width: 450
+        height: 452
+      alignment: 9
+      pivot: {x: 0.4361332, y: 0.0020509567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71dc163a61c6744cf90b9861bf29e833
+      internalID: -1149889995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_105
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 224
+        width: 384
+        height: 491
+      alignment: 9
+      pivot: {x: 0.32134056, y: 0.005664429}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414e89e13d7f6437a86338c61c6e7aa3
+      internalID: -301891284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_106
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 221
+        width: 380
+        height: 488
+      alignment: 9
+      pivot: {x: 0.28774413, y: 0.0075991894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed659e47f25a44f468bfd1a2c2242179
+      internalID: 1762179227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_107
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 182
+        width: 374
+        height: 505
+      alignment: 9
+      pivot: {x: 0.26450744, y: 0.005507486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6216fa9885f4e839a27c9412bbc289
+      internalID: 1136109584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_108
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 173
+        width: 369
+        height: 514
+      alignment: 9
+      pivot: {x: 0.2713666, y: 0.007214676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d7121fb8f2b49f78d097513a8aedbe
+      internalID: 736908043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_109
+      rect:
+        serializedVersion: 2
+        x: 2381
+        y: 173
+        width: 387
+        height: 503
+      alignment: 9
+      pivot: {x: 0.31074747, y: 0.0036861957}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3956485510802444cb37bb591f48112e
+      internalID: -1352693205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_110
+      rect:
+        serializedVersion: 2
+        x: 2839
+        y: 152
+        width: 398
+        height: 504
+      alignment: 9
+      pivot: {x: 0.3299542, y: 0.009197326}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8e359ec99b546d6aa0f623fa1139de
+      internalID: -384748903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_111
+      rect:
+        serializedVersion: 2
+        x: 3308
+        y: 160
+        width: 401
+        height: 496
+      alignment: 9
+      pivot: {x: 0.29654685, y: 0.00000006152737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcdf8b451dd34bc79fd2fe4f3045719
+      internalID: 1600656974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_112
+      rect:
+        serializedVersion: 2
+        x: 3758
+        y: 160
+        width: 394
+        height: 496
+      alignment: 9
+      pivot: {x: 0.27881354, y: 0.00000006152737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf96698c0a32842a2889e70be1a84f35
+      internalID: 1114410744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_113
+      rect:
+        serializedVersion: 2
+        x: 4190
+        y: 146
+        width: 387
+        height: 495
+      alignment: 9
+      pivot: {x: 0.2388793, y: 0.011237312}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e964e6f4d1d748ffa67abecfac370da
+      internalID: 2050737001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_114
+      rect:
+        serializedVersion: 2
+        x: 4665
+        y: 162
+        width: 398
+        height: 492
+      alignment: 9
+      pivot: {x: 0.29035437, y: 0.0037686417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625e3f9f72c8c45dd80c72fb90865f73
+      internalID: 275921105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_115
+      rect:
+        serializedVersion: 2
+        x: 5123
+        y: 152
+        width: 419
+        height: 492
+      alignment: 9
+      pivot: {x: 0.30086166, y: 0.0037686417}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e93b8d4fbe544f2a5e248ad0299188
+      internalID: 96159125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_116
+      rect:
+        serializedVersion: 2
+        x: 5602
+        y: 145
+        width: 444
+        height: 493
+      alignment: 9
+      pivot: {x: 0.31833848, y: 0.007521902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2e9ba43c9654899a355ff68ea8e85c
+      internalID: -399985187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_117
+      rect:
+        serializedVersion: 2
+        x: 6106
+        y: 145
+        width: 460
+        height: 493
+      alignment: 9
+      pivot: {x: 0.332718, y: 0.007521902}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed59bd952e45c499a88b431b29b365c6
+      internalID: -2033581868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_118
+      rect:
+        serializedVersion: 2
+        x: 6596
+        y: 147
+        width: 450
+        height: 492
+      alignment: 9
+      pivot: {x: 0.310459, y: -0.00000027912418}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 329b5e3e854904da6a71a5d479a5de23
+      internalID: -1957628378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_119
+      rect:
+        serializedVersion: 2
+        x: 7105
+        y: 145
+        width: 407
+        height: 492
+      alignment: 9
+      pivot: {x: 0.29498905, y: 0.0037685176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083e409ec1b3841d6b705db021122ab2
+      internalID: 37155456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_120
+      rect:
+        serializedVersion: 2
+        x: 7571
+        y: 145
+        width: 390
+        height: 492
+      alignment: 9
+      pivot: {x: 0.25990334, y: 0.0018841503}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec703ebb58a8c4594b2a0162ffa97a18
+      internalID: -414424712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_121
+      rect:
+        serializedVersion: 2
+        x: 7998
+        y: 144
+        width: 389
+        height: 493
+      alignment: 9
+      pivot: {x: 0.25928363, y: -0.00000012380356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00303ba35eb424e1aa0da0338b5f624c
+      internalID: 803368759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_122
+      rect:
+        serializedVersion: 2
+        x: 8483
+        y: 76
+        width: 380
+        height: 493
+      alignment: 9
+      pivot: {x: 0.27798107, y: -0.00000024760712}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda6543bd199144bc86697c0545a66c2
+      internalID: -1189459790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PicaFinal_Attack_67
+      rect:
+        serializedVersion: 2
+        x: 5490
+        y: 1106
+        width: 333
+        height: 454
+      alignment: 9
+      pivot: {x: 0.16068119, y: -0.0012018817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab34aee5ca9440b5b80a10f25f40780
+      internalID: -72861994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3aca0bed44eb74ad2bc89250472d0fb8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PicaFinal_0: -409825694
+      PicaFinal_1: -1171689941
+      PicaFinal_10: 1691777670
+      PicaFinal_11: 1882903936
+      PicaFinal_12: -1813655928
+      PicaFinal_123: -1765449304
+      PicaFinal_13: -1773041289
+      PicaFinal_14: 1605027095
+      PicaFinal_141: -732428323
+      PicaFinal_15: -603487827
+      PicaFinal_152: 764167946
+      PicaFinal_153: 520115276
+      PicaFinal_16: 1021521014
+      PicaFinal_17: 635391715
+      PicaFinal_175: -881889986
+      PicaFinal_18: 618895621
+      PicaFinal_19: 448892537
+      PicaFinal_2: 1434684024
+      PicaFinal_20: -1302955550
+      PicaFinal_21: -798822033
+      PicaFinal_22: -733602319
+      PicaFinal_23: -999460473
+      PicaFinal_24: 1757817559
+      PicaFinal_25: -1199351506
+      PicaFinal_26: -1738259853
+      PicaFinal_27: 398541543
+      PicaFinal_28: 1464578939
+      PicaFinal_29: 791358971
+      PicaFinal_3: 320650402
+      PicaFinal_30: -1263152376
+      PicaFinal_31: 1032806896
+      PicaFinal_32: 680058187
+      PicaFinal_33: -1675433234
+      PicaFinal_34: 529764749
+      PicaFinal_35: 1244331240
+      PicaFinal_36: -900390213
+      PicaFinal_37: 858956455
+      PicaFinal_38: -32999729
+      PicaFinal_39: -1576192553
+      PicaFinal_4: -595921726
+      PicaFinal_40: -1536993603
+      PicaFinal_41: -133201299
+      PicaFinal_42: 1356405945
+      PicaFinal_43: 473297856
+      PicaFinal_44: 869329752
+      PicaFinal_45: 2018156513
+      PicaFinal_46: -1893263354
+      PicaFinal_47: -921085215
+      PicaFinal_48: -1817929761
+      PicaFinal_49: 1501206375
+      PicaFinal_5: -21558531
+      PicaFinal_6: -1741551558
+      PicaFinal_66: 444917308
+      PicaFinal_7: -1882792491
+      PicaFinal_70: -722956055
+      PicaFinal_8: 863344925
+      PicaFinal_9: -975159514
+      PicaFinal_94: 684276599
+      PicaFinal_Attack_-1: 1060077177
+      PicaFinal_Attack_-10: -426732908
+      PicaFinal_Attack_-11: -896801443
+      PicaFinal_Attack_-12: -1785352878
+      PicaFinal_Attack_-13: 546401300
+      PicaFinal_Attack_-14: -972349495
+      PicaFinal_Attack_-15: -449669350
+      PicaFinal_Attack_-16: 150333065
+      PicaFinal_Attack_-2: -1459540087
+      PicaFinal_Attack_-3: 821950250
+      PicaFinal_Attack_-4: -388467776
+      PicaFinal_Attack_-5: -1128230587
+      PicaFinal_Attack_-6: -1852791839
+      PicaFinal_Attack_-8: -1752055393
+      PicaFinal_Attack_-9: 1275092989
+      PicaFinal_Attack_1: 877144155
+      PicaFinal_Attack_10: -1318614306
+      PicaFinal_Attack_100: 347418230
+      PicaFinal_Attack_101: -340067504
+      PicaFinal_Attack_102: -1656803828
+      PicaFinal_Attack_103: -2076167751
+      PicaFinal_Attack_104: -1149889995
+      PicaFinal_Attack_105: -301891284
+      PicaFinal_Attack_106: 1762179227
+      PicaFinal_Attack_107: 1136109584
+      PicaFinal_Attack_108: 736908043
+      PicaFinal_Attack_109: -1352693205
+      PicaFinal_Attack_11: 1965587459
+      PicaFinal_Attack_110: -384748903
+      PicaFinal_Attack_111: 1600656974
+      PicaFinal_Attack_112: 1114410744
+      PicaFinal_Attack_113: 2050737001
+      PicaFinal_Attack_114: 275921105
+      PicaFinal_Attack_115: 96159125
+      PicaFinal_Attack_116: -399985187
+      PicaFinal_Attack_117: -2033581868
+      PicaFinal_Attack_118: -1957628378
+      PicaFinal_Attack_119: 37155456
+      PicaFinal_Attack_12: 2132910528
+      PicaFinal_Attack_120: -414424712
+      PicaFinal_Attack_121: 803368759
+      PicaFinal_Attack_122: -1189459790
+      PicaFinal_Attack_13: 985374901
+      PicaFinal_Attack_14: -136803547
+      PicaFinal_Attack_15: 1763493465
+      PicaFinal_Attack_16: -399898462
+      PicaFinal_Attack_17: -1462330221
+      PicaFinal_Attack_18: 484289373
+      PicaFinal_Attack_19: -887843926
+      PicaFinal_Attack_2: 1828797008
+      PicaFinal_Attack_20: -1909699323
+      PicaFinal_Attack_21: 2087258139
+      PicaFinal_Attack_22: 1065583950
+      PicaFinal_Attack_23: 1438831241
+      PicaFinal_Attack_24: -2037764977
+      PicaFinal_Attack_25: 1797106032
+      PicaFinal_Attack_26: 1666820168
+      PicaFinal_Attack_27: -1575081620
+      PicaFinal_Attack_28: 1323345755
+      PicaFinal_Attack_29: 1351605901
+      PicaFinal_Attack_3: 739596963
+      PicaFinal_Attack_30: 1195634617
+      PicaFinal_Attack_31: 1646348703
+      PicaFinal_Attack_32: -175051330
+      PicaFinal_Attack_33: 578716182
+      PicaFinal_Attack_34: 1380138785
+      PicaFinal_Attack_35: 1010043101
+      PicaFinal_Attack_36: 1532416103
+      PicaFinal_Attack_37: 30484364
+      PicaFinal_Attack_38: 138309034
+      PicaFinal_Attack_39: -2086009602
+      PicaFinal_Attack_4: 2101017298
+      PicaFinal_Attack_40: 873820398
+      PicaFinal_Attack_41: -53347845
+      PicaFinal_Attack_42: -1016277760
+      PicaFinal_Attack_43: 1453235428
+      PicaFinal_Attack_44: 2140805011
+      PicaFinal_Attack_45: 1452429587
+      PicaFinal_Attack_46: 199991359
+      PicaFinal_Attack_47: 160247745
+      PicaFinal_Attack_48: -2070765590
+      PicaFinal_Attack_49: -1084057446
+      PicaFinal_Attack_5: 249984281
+      PicaFinal_Attack_50: 1131078656
+      PicaFinal_Attack_51: -1382030973
+      PicaFinal_Attack_52: 1523710570
+      PicaFinal_Attack_53: -779499450
+      PicaFinal_Attack_54: 1016431142
+      PicaFinal_Attack_55: -140706209
+      PicaFinal_Attack_56: -1019153052
+      PicaFinal_Attack_57: -1685489049
+      PicaFinal_Attack_58: 1232309077
+      PicaFinal_Attack_59: 129247273
+      PicaFinal_Attack_6: -91108191
+      PicaFinal_Attack_60: 742124315
+      PicaFinal_Attack_61: -560709922
+      PicaFinal_Attack_62: 1127473960
+      PicaFinal_Attack_63: -1257420731
+      PicaFinal_Attack_64: 1558416773
+      PicaFinal_Attack_65: -1923818654
+      PicaFinal_Attack_66: 223901697
+      PicaFinal_Attack_67: -1091135618
+      PicaFinal_Attack_68: 1539796283
+      PicaFinal_Attack_69: 554083713
+      PicaFinal_Attack_7: 981789737
+      PicaFinal_Attack_70: 437870323
+      PicaFinal_Attack_71: -1315500569
+      PicaFinal_Attack_72: -1199782544
+      PicaFinal_Attack_73: -1855804033
+      PicaFinal_Attack_74: -943213468
+      PicaFinal_Attack_75: -1875646311
+      PicaFinal_Attack_76: -775264068
+      PicaFinal_Attack_77: -70580375
+      PicaFinal_Attack_78: 803172194
+      PicaFinal_Attack_79: -447574207
+      PicaFinal_Attack_8: -1541703694
+      PicaFinal_Attack_80: -1044313337
+      PicaFinal_Attack_81: 573594213
+      PicaFinal_Attack_82: -921915755
+      PicaFinal_Attack_83: -1960164027
+      PicaFinal_Attack_84: -1873787235
+      PicaFinal_Attack_85: 1946522482
+      PicaFinal_Attack_86: -1961620098
+      PicaFinal_Attack_87: -2061656460
+      PicaFinal_Attack_88: -506971260
+      PicaFinal_Attack_89: -528363958
+      PicaFinal_Attack_9: -803042426
+      PicaFinal_Attack_90: -1146545125
+      PicaFinal_Attack_91: 1765212705
+      PicaFinal_Attack_92: -2055759073
+      PicaFinal_Attack_93: 1556079202
+      PicaFinal_Attack_94: 1601729622
+      PicaFinal_Attack_95: -6925612
+      PicaFinal_Attack_96: -1918530033
+      PicaFinal_Attack_97: -833689791
+      PicaFinal_Attack_98: 874169849
+      PicaFinal_Attack_99: -1854141586
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

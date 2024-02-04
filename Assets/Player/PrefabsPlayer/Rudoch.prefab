@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2638776492940545953}
   m_Layer: 7
   m_Name: Rudoch
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 445026803, guid: cf6caf003c7c9407fa364ce51bbd4aa5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -164,8 +164,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
-  _GivenDamage: 30
+  _GivenDamage: 25
   attacked: 0
+  ResetAttacked: 0
 --- !u!114 &50630005630879435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,12 +346,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PunchSound:
-  - {fileID: 8300000, guid: c7e1f1f5d985044b0aec2d510bfd824c, type: 3}
-  - {fileID: 8300000, guid: 10d1a39776fb04a51b9aa9e6d6cdc7b2, type: 3}
-  - {fileID: 8300000, guid: 6b70f6ae1ee4c4f2190c8a47af001f01, type: 3}
+  - {fileID: 8300000, guid: ecd9d3c6573c84a3b867e01ef80cad25, type: 3}
+  - {fileID: 8300000, guid: 3ba471d5fb4ea4ce7aee28bc2d83dd3d, type: 3}
+  - {fileID: 8300000, guid: 103bc74f1ba614f94bea21f0d138cc4f, type: 3}
   JumpStartSound: {fileID: 0}
   JumpEndSound: {fileID: 0}
   DieSound: {fileID: 8300000, guid: 20cd0effb664e4fc1b9a460ea94ff097, type: 3}
+  _randomSound: {fileID: 0}
 --- !u!1 &5443734930791736119
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 1040883169298909020}
   m_Layer: 8
   m_Name: Tuanek
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -128082562, guid: cc62f9291c2ca41a29c866c19d69416d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -383,7 +383,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6b70f6ae1ee4c4f2190c8a47af001f01, type: 3}
   JumpStartSound: {fileID: 0}
   JumpEndSound: {fileID: 0}
-  DieSound: {fileID: 8300000, guid: 20cd0effb664e4fc1b9a460ea94ff097, type: 3}
+  DieSound: {fileID: 8300000, guid: 809eef587dd86438a9c00c01f11f1abe, type: 3}
+  _randomSound: {fileID: 0}
 --- !u!114 &1040883169298909020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +413,6 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: PlayerLeft
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

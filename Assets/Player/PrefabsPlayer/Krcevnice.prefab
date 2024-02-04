@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 1253049139486764952}
   m_Layer: 8
   m_Name: Krcevnice
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1108015092, guid: b4e6c825b3e434dbea59b4e9873e268e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRight: 0
-  movementForce: 0.6
+  movementForce: 0.68
   jumpForce: 17
   maxSpeed: 3
   playerCamera: {fileID: 0}
@@ -197,6 +197,7 @@ MonoBehaviour:
     m_Bits: 0
   _GivenDamage: 10
   attacked: 0
+  ResetAttacked: 0
 --- !u!136 &5647845125660490591
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -376,9 +377,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PunchSound:
+  - {fileID: 8300000, guid: a2bbc624f90814243bcb703bb247417b, type: 3}
+  - {fileID: 8300000, guid: 93e9a853ef17c4ff2b76986d1cedb46e, type: 3}
+  - {fileID: 8300000, guid: b7652e0f4f700493d894038b51a23bba, type: 3}
   - {fileID: 8300000, guid: c7e1f1f5d985044b0aec2d510bfd824c, type: 3}
-  - {fileID: 8300000, guid: 10d1a39776fb04a51b9aa9e6d6cdc7b2, type: 3}
   - {fileID: 8300000, guid: 6b70f6ae1ee4c4f2190c8a47af001f01, type: 3}
   JumpStartSound: {fileID: 0}
   JumpEndSound: {fileID: 0}
-  DieSound: {fileID: 8300000, guid: 20cd0effb664e4fc1b9a460ea94ff097, type: 3}
+  DieSound: {fileID: 8300000, guid: b9eb16d7973c242acabe1618d4dcf42d, type: 3}
+  _randomSound: {fileID: 0}

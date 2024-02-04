@@ -7,9 +7,9 @@ public class _SceneManager : MonoBehaviour
     public static _SceneManager instance { get; private set; }
     public  GameObject WinPlayerOneUI;
     public GameObject WinPlayerTwoUI;
+    public GameObject DiePlayerBothUI;
+
     public GameObject reset;
-
-
 
     private void Awake()
     {
@@ -24,6 +24,17 @@ public class _SceneManager : MonoBehaviour
     }
     public void ShowWinUI(bool IsPlayerRight)
     {
+
+
+        bool ifSomebodyDie = WinPlayerOneUI.activeInHierarchy || WinPlayerTwoUI.activeInHierarchy;
+        if (ifSomebodyDie)
+        {
+            WinPlayerOneUI.SetActive(false);
+            WinPlayerTwoUI.SetActive(false);
+            DiePlayerBothUI.SetActive(true);
+            reset.SetActive(true);
+            return;
+        }
         if(IsPlayerRight)
         {
             WinPlayerOneUI.SetActive(true);
@@ -34,6 +45,8 @@ public class _SceneManager : MonoBehaviour
             WinPlayerTwoUI.SetActive(true);
             reset.SetActive(true);
         }
+
     }
+
 
 }

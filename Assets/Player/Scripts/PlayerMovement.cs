@@ -148,7 +148,6 @@ public class PlayerMovement : MonoBehaviour
         Blocking();
 
         Vector2 moveInput = move.ReadValue<Vector2>();
-        Debug.Log(moveInput);
         forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight(playerCamera);
         forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
         

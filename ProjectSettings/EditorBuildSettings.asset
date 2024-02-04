@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/01_Menu.unity
     guid: 517974e7d82b04461840f2f3766f6f2a
   - enabled: 1
+    path: Assets/Scenes/01_Controls.unity
+    guid: 9dcdce3f2e6a04702ad0b752237f46e9
+  - enabled: 1
     path: Assets/Scenes/02_ChooseYourFighter.unity
     guid: ff8e6522a241348b5947f0a383e15693
   - enabled: 1

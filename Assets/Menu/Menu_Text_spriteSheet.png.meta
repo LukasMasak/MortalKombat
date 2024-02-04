@@ -155,9 +155,9 @@ TextureImporter:
       name: Menu_Text_spriteSheet_2
       rect:
         serializedVersion: 2
-        x: 3231
+        x: 3178
         y: 432
-        width: 2697
+        width: 2750
         height: 1756
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -218,9 +218,9 @@ TextureImporter:
       name: Menu_Text_spriteSheet_5
       rect:
         serializedVersion: 2
-        x: 3228
+        x: 3178
         y: 629
-        width: 1033
+        width: 1083
         height: 589
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -265,7 +265,7 @@ TextureImporter:
         width: 250
         height: 538
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,7 +286,7 @@ TextureImporter:
         width: 427
         height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -294,6 +294,48 @@ TextureImporter:
       bones: []
       spriteID: 86cf69f3ca82c4ea6aaf2bd93860374d
       internalID: 548406025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_Text_spriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 2402
+        width: 990
+        height: 501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197092d9a4eba402bbd5fbc4be06a407
+      internalID: 1795505595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_Text_spriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 4315
+        y: 2317
+        width: 1507
+        height: 586
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10add0d41e6d64a9389f09b357b0240f
+      internalID: 1176937222
       vertices: []
       indices: 
       edges: []
@@ -311,6 +353,7 @@ TextureImporter:
     nameFileIdTable:
       Menu_Text_spriteSheet_0: 2032666341
       Menu_Text_spriteSheet_1: 1474863597
+      Menu_Text_spriteSheet_10: 1176937222
       Menu_Text_spriteSheet_2: -689805122
       Menu_Text_spriteSheet_3: 458320596
       Menu_Text_spriteSheet_4: 197055343
@@ -318,6 +361,7 @@ TextureImporter:
       Menu_Text_spriteSheet_6: 804694086
       Menu_Text_spriteSheet_7: -352659866
       Menu_Text_spriteSheet_8: 548406025
+      Menu_Text_spriteSheet_9: 1795505595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

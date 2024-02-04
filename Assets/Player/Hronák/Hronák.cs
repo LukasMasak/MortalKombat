@@ -8,22 +8,34 @@ public class Hronák : MonoBehaviour
     public GameObject attackPoint;
     public float attackPointSize;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    private bool once= false;
+
     public void StartRandom()
     {
-        StartCoroutine(RandomlyTimedFunction());
+        if (!once)
+        {
+            StartCoroutine(RandomlyTimedFunction());
+        }
+        once = true;
+        Debug.Log("onec");
     }
 
     IEnumerator RandomlyTimedFunction()
     {
         while (true)
         {
-            yield return new WaitForSeconds(GetRandomInterval());
+            yield return new WaitForSeconds(45f);
             AttactStart();
         }
     }
     public void AttactStart()
     {
         animator.SetTrigger("Attack");
+        Debug.Log("attack");
 
     }
     public void Attacked()
@@ -36,13 +48,16 @@ public class Hronák : MonoBehaviour
             {
                 continue;
             }
-            Debug.Log("hit " + enemy.name);
-
-            enemy.GetComponent<Health>().TakeDamage(30);
+            if (enemy.tag == "Player")
+            {
+                enemy.GetComponent<Health>().TakeDamage(300);
+            }
         }
     }
-    float GetRandomInterval()
+    private void OnDrawGizmosSelected()
     {
-        return Random.Range(30f, 50f);
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.transform.position, attackPointSize);
     }
 }
