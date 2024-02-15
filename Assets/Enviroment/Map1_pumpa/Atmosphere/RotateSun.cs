@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RotateSun : MonoBehaviour
 {
-    public float rotationSpeed = 50.0f; // Rychlost rotace v stupních za sekundu
+    // Rychlost rotace v stupních za sekundu
+    public float rotationSpeed = 50.0f; 
 
     void Update()
     {

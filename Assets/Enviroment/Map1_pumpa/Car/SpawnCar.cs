@@ -4,34 +4,46 @@ using UnityEngine;
 
 public class SpawnCar : MonoBehaviour
 {
-    [SerializeField] private GameObject[] SpawnAmounthCar;
-    [SerializeField] private Transform EnviromentLayer;
-
+    [SerializeField] private GameObject[] CarsToSpawn;
     [SerializeField] private float speed;
     [SerializeField] private float respawnTime;
-    [SerializeField] private Transform _spawn;
+    [SerializeField] private Transform spawnRightTransform;
+    [SerializeField] private Transform spawnLeftTransform;
 
 
     void Start()
     {
-        StartCoroutine(spawnrate());
+        StartCoroutine(SpawnCars());
     }
 
-    private void SpawnObject()
+    private IEnumerator SpawnCars()
     {
-        Vector3 spawn = new Vector3(_spawn.position.x, _spawn.position.y, _spawn.position.z); 
-        int randomIndex = Random.Range(0, SpawnAmounthCar.Length);
-        GameObject car = SpawnAmounthCar[randomIndex];
-        GameObject spawnedCar = Instantiate(car, spawn, car.transform.rotation);
-        spawnedCar.transform.parent = EnviromentLayer;
-    }
+        bool isGoingRight;
+        Vector3 spawnPosition;
 
-    IEnumerator spawnrate()
-    {
-        while (true)
+        // Start going left or right
+        if (Random.value < 0.5f)
         {
-            yield return new WaitForSeconds(respawnTime);
-            SpawnObject();
+            spawnPosition = spawnRightTransform.position;
+            isGoingRight = false;
         }
+        else
+        {
+            spawnPosition = spawnLeftTransform.position;
+            isGoingRight = true;
+        }
+
+        // Get random car prefab and instantiate it
+        int randomIndex = Random.Range(0, CarsToSpawn.Length);
+        GameObject carPrefab = CarsToSpawn[randomIndex];
+        GameObject spawnedCar = Instantiate(carPrefab, spawnPosition, carPrefab.transform.rotation);
+
+        // set direction and parent
+        spawnedCar.GetComponent<CarMovement>().SetGoesRight(isGoingRight);
+        spawnedCar.transform.parent = transform;
+
+        // Wait for next spawn
+        yield return new WaitForSeconds(respawnTime);
+        StartCoroutine(SpawnCars());
     }
 }

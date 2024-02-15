@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 346507204448038165}
   - component: {fileID: 5920169139725819481}
   - component: {fileID: -3617771402594738957}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Idle_car 1
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  bumpVector: {x: 5, y: 10, z: 0}
+  movesRight: 0
+  damageDone: 10
 --- !u!65 &5920169139725819481
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -115,12 +118,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.4331827, y: 4.370001, z: 0.19999999}
-  m_Center: {x: -0.28643325, y: 0.3816595, z: 0}
+  m_Size: {x: 4.5086293, y: 2.9408455, z: 0.19999999}
+  m_Center: {x: 0.011411619, y: -0.33292308, z: 0}
 --- !u!54 &-3617771402594738957
 Rigidbody:
   m_ObjectHideFlags: 0

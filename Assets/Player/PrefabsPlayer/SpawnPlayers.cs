@@ -36,8 +36,7 @@ public class SpawnPlayers : MonoBehaviour
         var righthealth = Right.GetComponent<Health>();
         var rightMovement = Right.GetComponent<PlayerMovement>();
 
-      
-
+    
         lefthealth.slider = sliderLeft;
         lefthealth.fill = fillLeft;
         leftMovement.playerCamera = cam;
@@ -53,7 +52,9 @@ public class SpawnPlayers : MonoBehaviour
 
         rightMovement.playerRight = true;
         Left.layer = LayerMask.NameToLayer("Player1");
+        Left.tag = "Player1";
         Right.layer = LayerMask.NameToLayer("Player2");
+        Right.tag = "Player2";
 
         rightMovement.enemyMask = LayerMask.GetMask("Player1");
         leftMovement.enemyMask = LayerMask.GetMask("Player2");
