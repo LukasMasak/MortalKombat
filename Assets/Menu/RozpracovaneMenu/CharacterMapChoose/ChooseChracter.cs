@@ -79,7 +79,7 @@ public class ChooseChracter : MonoBehaviour
                 PlayerOne = (int)Mathf.Clamp(PlayerOne + 1, 0, charecterCount -1);
             }
             showPlayerLeft.sprite = bg[PlayerOne];
-            GlobalState.PlayerOne = (Character._Character)PlayerOne;
+            GlobalState.PlayerOne = (GlobalState.Characters)PlayerOne;
             characters[PlayerOne].Selected(1);
         }
         else
@@ -104,7 +104,7 @@ public class ChooseChracter : MonoBehaviour
                 PlayerTwo = (int)Mathf.Clamp(PlayerTwo + 1, 0, charecterCount - 1);
             }
             showPlayerRight.sprite = bg[PlayerTwo];
-            GlobalState.PlayerTwo = (Character._Character)PlayerTwo;
+            GlobalState.PlayerTwo = (GlobalState.Characters)PlayerTwo;
             characters[PlayerTwo].Selected(2);
         }
     }
@@ -131,7 +131,7 @@ public class ChooseChracter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            var nevim = characters[PlayerOne].GetChoosen();
+            characters[PlayerOne].GetChosen();
             selectedOne = true;
         }
 
@@ -156,7 +156,7 @@ public class ChooseChracter : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            var nevim = characters[PlayerTwo].GetChoosen();
+            characters[PlayerTwo].GetChosen();
             selectedTwo = true;
         }
         if (selectedOne && selectedTwo)

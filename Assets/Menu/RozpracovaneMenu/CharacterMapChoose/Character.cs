@@ -16,31 +16,10 @@ public class Character : MonoBehaviour
 
     private bool PlayerOneON;
     private bool PlayerTwoON;
-    [Space]
-    public Image showPlayerLeft;
-    public Image showPlayerRight;
-    [Space]
-    [Space]
-    public GameObject[] CharactersPrefabs;
-
-
-    public enum _Character
-    {
-        Tuan,
-        Ruďoch,
-        Žaba,
-        Týpek
-    }
- 
-    [SerializeField]
-    private _Character charac;
 
     private void Awake()
     {
         Selected(0);
-        showPlayerLeft = GetComponent<Image>();
-        showPlayerRight = GetComponent<Image>();
-
     }
 
     public void Selected(int player)
@@ -92,7 +71,7 @@ public class Character : MonoBehaviour
     }
     public void Deselect(int player)
     {
-        GetUNChoosen();
+        GetUnChosen();
 
         if(player == 1)
         {
@@ -129,25 +108,19 @@ public class Character : MonoBehaviour
         }
     }
 
-    public _Character GetChoosen()
+    public void GetChosen()
     {
-        
-        //showPlayer = CharactersPrefabs[(int)charac];
         BorderDone.gameObject.SetActive(true);
         BorderBoth.gameObject.SetActive(false);
         BorderPlayerOne.gameObject.SetActive(false);
         BorderPlayerTwo.gameObject.SetActive(false);
-      
-        return charac;
     }
 
-    public _Character GetUNChoosen()
+    public void GetUnChosen()
     {
         BorderDone.gameObject.SetActive(false);
         BorderBoth.gameObject.SetActive(false);
         BorderPlayerOne.gameObject.SetActive(false);
         BorderPlayerTwo.gameObject.SetActive(false);
-
-        return charac;
     }
 }

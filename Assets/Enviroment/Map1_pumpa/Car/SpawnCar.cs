@@ -16,6 +16,7 @@ public class SpawnCar : MonoBehaviour
         StartCoroutine(SpawnCars());
     }
 
+    // Spawns a random car either left or right and waits respawnTime seconds
     private IEnumerator SpawnCars()
     {
         bool isGoingRight;

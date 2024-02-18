@@ -17,12 +17,14 @@ public class CarMovement : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(0, Vector3.up);
     }
 
+    // Moves left or right based on the direction
     void Update()
     {
         if (movesRight) transform.position += transform.right * speed * Time.deltaTime;
         else transform.position += -transform.right * speed * Time.deltaTime;
     }
 
+    // Utility method for the spawner to set the right way the car should be moving
     public void SetGoesRight(bool doesMoveRight)
     {
         movesRight = doesMoveRight;
@@ -32,12 +34,11 @@ public class CarMovement : MonoBehaviour
         }
     }
 
+    // Deals damage to playes and bumps them
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided with " + other.name + " tag " + other.tag);
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            Debug.Log("Collided with player " + other.name + " tag " + other.tag);
             other.GetComponent<Health>().TakeDamage(damageDone);
             if (movesRight)
             {
@@ -45,5 +46,4 @@ public class CarMovement : MonoBehaviour
             }
         }
     }
-
 }

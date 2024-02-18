@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CarDestroyWall : MonoBehaviour
 {
+    // A wall that destroys car upon trigger
     private void OnTriggerEnter(Collider col)
     {
-        Debug.Log("name: " + col.name + ", tag: " + col.tag); 
         if (col.CompareTag("Car"))
         {
             Destroy(col.gameObject);
