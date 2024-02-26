@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SpawnMap : MonoBehaviour
 {
-    public GameObject[] _MapPrefs;
+    public GameObject[] _mapPrefabs;
 
     // Spawn the right map based on the GlobalState of the game
     private void Awake()
     {
-        var Map = Instantiate(_MapPrefs[(int)GlobalState.Map]);
+        var Map = Instantiate(_mapPrefabs[(int)GlobalState.Map]);
         Map.transform.position = Vector3.zero;
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpawnCar : MonoBehaviour
 {
-    [SerializeField] private GameObject[] CarsToSpawn;
-    [SerializeField] private float speed;
-    [SerializeField] private float respawnTime;
-    [SerializeField] private Transform spawnRightTransform;
-    [SerializeField] private Transform spawnLeftTransform;
+    [SerializeField] private GameObject[] _carsToSpawn;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _respawnTime;
+    [SerializeField] private Transform _spawnRightTransform;
+    [SerializeField] private Transform _spawnLeftTransform;
 
 
     void Start()
@@ -25,18 +25,18 @@ public class SpawnCar : MonoBehaviour
         // Start going left or right
         if (Random.value < 0.5f)
         {
-            spawnPosition = spawnRightTransform.position;
+            spawnPosition = _spawnRightTransform.position;
             isGoingRight = false;
         }
         else
         {
-            spawnPosition = spawnLeftTransform.position;
+            spawnPosition = _spawnLeftTransform.position;
             isGoingRight = true;
         }
 
         // Get random car prefab and instantiate it
-        int randomIndex = Random.Range(0, CarsToSpawn.Length);
-        GameObject carPrefab = CarsToSpawn[randomIndex];
+        int randomIndex = Random.Range(0, _carsToSpawn.Length);
+        GameObject carPrefab = _carsToSpawn[randomIndex];
         GameObject spawnedCar = Instantiate(carPrefab, spawnPosition, carPrefab.transform.rotation);
 
         // set direction and parent
@@ -44,7 +44,7 @@ public class SpawnCar : MonoBehaviour
         spawnedCar.transform.parent = transform;
 
         // Wait for next spawn
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(_respawnTime);
         StartCoroutine(SpawnCars());
     }
 }

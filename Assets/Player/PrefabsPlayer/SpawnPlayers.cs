@@ -22,8 +22,8 @@ public class SpawnPlayers : MonoBehaviour
 
     private void Awake()
     {
-        var Left = Instantiate(_prefs[(int)GlobalState.PlayerOne], LeftSpawn.transform);
-        var Right = Instantiate(_prefs[(int)GlobalState.PlayerTwo], RightSpawn.transform);
+        var Left = Instantiate(_prefs[(int)GlobalState.Player1Character], LeftSpawn.transform);
+        var Right = Instantiate(_prefs[(int)GlobalState.Player2Character], RightSpawn.transform);
         Vector3 _left = Left.transform.localScale;
         _left.x *= -1;
         Left.transform.localScale = _left;

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5;
-    [SerializeField] private Vector3 bumpVector = new Vector3(5,10,0);
-    [SerializeField] private bool movesRight = false;
-    [SerializeField] private int damageDone = 10;
+    [SerializeField] private float _speed = 5;
+    [SerializeField] private Vector3 _bumpVector = new Vector3(5,10,0);
+    [SerializeField] private bool _movesRight = false;
+    [SerializeField] private int _damageDone = 10;
 
 
     void Start()
@@ -20,15 +20,15 @@ public class CarMovement : MonoBehaviour
     // Moves left or right based on the direction
     void Update()
     {
-        if (movesRight) transform.position += transform.right * speed * Time.deltaTime;
-        else transform.position += -transform.right * speed * Time.deltaTime;
+        if (_movesRight) transform.position += transform.right * _speed * Time.deltaTime;
+        else transform.position += -transform.right * _speed * Time.deltaTime;
     }
 
     // Utility method for the spawner to set the right way the car should be moving
     public void SetGoesRight(bool doesMoveRight)
     {
-        movesRight = doesMoveRight;
-        if (movesRight)
+        _movesRight = doesMoveRight;
+        if (_movesRight)
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -39,10 +39,14 @@ public class CarMovement : MonoBehaviour
     {
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            other.GetComponent<Health>().TakeDamage(damageDone);
-            if (movesRight)
+            other.GetComponent<Health>().TakeDamage(_damageDone);
+            if (_movesRight)
             {
-                other.GetComponent<Rigidbody>().velocity = bumpVector;
+                other.GetComponent<Rigidbody>().velocity = _bumpVector;
+            }
+            else
+            {
+                other.GetComponent<Rigidbody>().velocity = _bumpVector * new Vector2(-1, 1);
             }
         }
     }

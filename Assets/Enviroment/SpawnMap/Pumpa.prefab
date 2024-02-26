@@ -396,14 +396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1221f651a2f4695a5f0f1577afcc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarsToSpawn:
-  - {fileID: 7117470571246000899, guid: 0a07c7a40a66746aabc12d962a5eeb20, type: 3}
-  - {fileID: 7117470571246000899, guid: b6ab6758b2ef045b5b409ab931a0aeec, type: 3}
-  - {fileID: 7117470571246000899, guid: 920bf25e533004a3f884baec6f3937ab, type: 3}
-  speed: 5
-  respawnTime: 40
-  spawnRightTransform: {fileID: 7464939319652150924}
-  spawnLeftTransform: {fileID: 6480688033698886076}
+  _carsToSpawn: []
+  _speed: 5
+  _respawnTime: 10
+  _spawnRightTransform: {fileID: 7464939319652150924}
+  _spawnLeftTransform: {fileID: 6480688033698886076}
 --- !u!1 &1317702173919357862
 GameObject:
   m_ObjectHideFlags: 0
@@ -7333,7 +7330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e7d7eccc1b041b5b8384a785e70b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.2
+  _rotationSpeed: 50
 --- !u!1 &7729388965783457868
 GameObject:
   m_ObjectHideFlags: 0
