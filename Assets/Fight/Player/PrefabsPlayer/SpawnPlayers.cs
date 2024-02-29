@@ -50,7 +50,7 @@ public class SpawnPlayers : MonoBehaviour
 
         //RightSprite.flipX = false;
 
-        rightMovement.playerRight = true;
+        rightMovement.whichPlayer = GlobalState.Player.two;
         Left.layer = LayerMask.NameToLayer("Player1");
         Left.tag = "Player1";
         Right.layer = LayerMask.NameToLayer("Player2");

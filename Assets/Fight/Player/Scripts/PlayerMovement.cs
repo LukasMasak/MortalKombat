@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("ChoosePlayer")]
     // Proměnné pro výběr hráče - levo nebo pravo
-    public bool playerRight;
+    public GlobalState.Player whichPlayer = GlobalState.Player.one;
 
     // Pole pro vstupní akce hráče
     private InputSystem inputSystemActions;
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        if (playerRight)
+        if (whichPlayer == GlobalState.Player.two)
         {
             facingRight = false;
         }
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     // Přiřazení akcí při povolení objektu
     public void OnEnable2()
     {
-        if (playerRight)
+        if (whichPlayer == GlobalState.Player.two)
         {
             inputSystemActions.PlayerRight.Jump.started += Jump;
             inputSystemActions.PlayerRight.Attack.started += Attacking;
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
 
             inputSystemActions.PlayerRight.Enable();
         }
-        else if (!playerRight)
+        else if (whichPlayer == GlobalState.Player.one)
         {
             inputSystemActions.PlayerLeft.Jump.started += Jump;
             inputSystemActions.PlayerLeft.Attack.started += Attacking;
@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
     // Odebrání akcí při zakázání objektu
     private void OnDisable()
     {
-        if (playerRight)
+        if (whichPlayer == GlobalState.Player.two)
         {
             // Odpojení akcí skoku a útoku
             inputSystemActions.PlayerRight.Jump.started -= Jump;
@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
             // Zakázání akcí hráče
             inputSystemActions.PlayerRight.Disable();
         }
-        else if (!playerRight)
+        else if (whichPlayer == GlobalState.Player.one)
         {
             // Odpojení akcí skoku a útoku
             inputSystemActions.PlayerLeft.Jump.started -= Jump;
@@ -311,8 +311,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void End()
     {
-        _SceneManager.instance.ShowWinUI(playerRight);
+        FightManager.Instance.ShowWinUI(whichPlayer);
     }
+
     public void ResetAnim()
     {
         ResetAttacked = false;
