@@ -8,7 +8,7 @@ public class GlobalState
     static public Characters Player1Character;
     static public Characters Player2Character;
 
-    static public Maps._Maps Map;
+    static public Maps Map;
 
     // TODO to be obsolete
     public enum Characters
@@ -17,6 +17,13 @@ public class GlobalState
         Ruďoch,
         Žaba,
         Týpek
+    }
+
+    // All the maps in game
+    public enum Maps
+    {
+        Pumpa,
+        Domek
     }
 
     // Direction enum for easier movement of player choosing

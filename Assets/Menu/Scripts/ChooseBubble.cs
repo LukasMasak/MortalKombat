@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class CharacterBubble : MonoBehaviour
+public class ChooseBubble : MonoBehaviour
 {
     [SerializeField] private Image _borderImage;
     [SerializeField] private Sprite _borderUnSelectedSprite;

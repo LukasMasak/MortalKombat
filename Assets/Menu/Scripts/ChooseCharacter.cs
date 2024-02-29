@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
 
 
 
@@ -20,11 +17,11 @@ public class ChooseCharacter : MonoBehaviour
     // TODO Use loader from GlobalState
     [SerializeField] private Sprite[] _characterPreviews;
 
-    private int columCount;
-    private int characterCount;
+    private int _columCount;
+    private int _characterCount;
 
     // TODO Dynamically create bubbles based on character data
-    private List<CharacterBubble> characterBubbles = new();
+    private List<ChooseBubble> characterBubbles = new();
     private bool _hasChosenPlayer1, _hasChosenPlayer2;
 
 
@@ -32,14 +29,14 @@ public class ChooseCharacter : MonoBehaviour
     private void Start()
     {
         GridLayoutGroup grid = GetComponent<GridLayoutGroup>();
-        columCount = grid.constraintCount;
-        characterCount = transform.childCount;
+        _columCount = grid.constraintCount;
+        _characterCount = transform.childCount;
         //int rowCount = (characterCount + columCount - 1) / columCount;
 
         // Get all character bubbles
-        for(int i = 0; i < characterCount; i++)
+        for(int i = 0; i < _characterCount; i++)
         {
-            characterBubbles.Add(transform.GetChild(i).GetComponent<CharacterBubble>());
+            characterBubbles.Add(transform.GetChild(i).GetComponent<ChooseBubble>());
         }
 
         // Select default choices
@@ -117,19 +114,19 @@ public class ChooseCharacter : MonoBehaviour
 
             if (direction == GlobalState.Direction.up)
             {
-                _player1Choice = Mathf.Clamp(_player1Choice - columCount, 0, characterCount - 1);
+                _player1Choice = Mathf.Clamp(_player1Choice - _columCount, 0, _characterCount - 1);
             }
             else if(direction == GlobalState.Direction.down)
             {
-                _player1Choice = Mathf.Clamp(_player1Choice + columCount, 0, characterCount - 1);
+                _player1Choice = Mathf.Clamp(_player1Choice + _columCount, 0, _characterCount - 1);
             }
             else if(direction == GlobalState.Direction.left)
             {
-                _player1Choice = Mathf.Clamp(_player1Choice - 1, 0, characterCount -1);
+                _player1Choice = Mathf.Clamp(_player1Choice - 1, 0, _characterCount -1);
             }
             else if (direction == GlobalState.Direction.right)
             {
-                _player1Choice = Mathf.Clamp(_player1Choice + 1, 0, characterCount -1);
+                _player1Choice = Mathf.Clamp(_player1Choice + 1, 0, _characterCount -1);
             }
             _playerPreviewLeft.sprite = _characterPreviews[_player1Choice];
             characterBubbles[_player1Choice].SelectByPlayer(GlobalState.Player.one);
@@ -143,19 +140,19 @@ public class ChooseCharacter : MonoBehaviour
 
             if (direction == GlobalState.Direction.up)
             {
-                _player2Choice = Mathf.Clamp(_player2Choice - columCount, 0, characterCount - 1);
+                _player2Choice = Mathf.Clamp(_player2Choice - _columCount, 0, _characterCount - 1);
             }
             else if (direction == GlobalState.Direction.down)
             {
-                _player2Choice = Mathf.Clamp(_player2Choice + columCount, 0, characterCount - 1);
+                _player2Choice = Mathf.Clamp(_player2Choice + _columCount, 0, _characterCount - 1);
             }
             else if (direction == GlobalState.Direction.left)
             {
-                _player2Choice = Mathf.Clamp(_player2Choice - 1, 0, characterCount - 1);
+                _player2Choice = Mathf.Clamp(_player2Choice - 1, 0, _characterCount - 1);
             }
             else if (direction == GlobalState.Direction.right)
             {
-                _player2Choice = Mathf.Clamp(_player2Choice + 1, 0, characterCount - 1);
+                _player2Choice = Mathf.Clamp(_player2Choice + 1, 0, _characterCount - 1);
             }
             _playerPreviewRight.sprite = _characterPreviews[_player2Choice];
             characterBubbles[_player2Choice].SelectByPlayer(GlobalState.Player.two);

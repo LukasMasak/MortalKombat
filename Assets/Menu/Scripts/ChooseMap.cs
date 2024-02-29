@@ -1,192 +1,172 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using TMPro;
-
 
 
 [RequireComponent(typeof(GridLayoutGroup))]
 public class ChooseMap : MonoBehaviour
 {
-    private GridLayoutGroup grid;
-    private int rowCount;
-    private int columCount;
+    [SerializeField] private int _player1Choice = 0;
+    [SerializeField] private int _player2Choice = 0;
+    
+    [SerializeField] private Image _mapPreview;
 
-    public TextMeshProUGUI descriction;
+    // Map previews, last one is the random image
+    [SerializeField] private Sprite[] _mapPreviews;
+    [SerializeField] private string[] _mapDescriptions;
 
-    public string[] descriptions;
+    private int _columCount;
+    private int _mapCount;
 
-    [SerializeField]
-    private int PlayerOne = 0;
-    [SerializeField]
-    private int PlayerTwo = 0;
-
-    private int MapCount;
-
-    private List<Maps> s_mapa = new();
-    public Sprite[] bg;
-
-    [Space]
-    public Image ShowImageMap;
-    public Sprite BGRandom;
-
-    private bool selectedOne, selectedTwo;
+    private List<ChooseBubble> _mapBubbles = new();
+    private bool _hasChosenPlayer1, _hasChosenPlayer2;
 
 
-    private void Awake()
+    // Get all map bubbles and params
+    private void Start()
     {
-        grid = GetComponent<GridLayoutGroup>();
-        columCount = grid.constraintCount;
-        MapCount = transform.childCount;
-        rowCount = (MapCount + columCount - 1) / columCount;
+        GridLayoutGroup grid = GetComponent<GridLayoutGroup>();
+        _columCount = grid.constraintCount;
+        _mapCount = transform.childCount;
 
-        for(int i = 0; i < MapCount; i++)
+        // Get all map bubbles
+        for(int i = 0; i < _mapCount; i++)
         {
-            s_mapa.Add(transform.GetChild(i).GetComponent<Maps>());
+            _mapBubbles.Add(transform.GetChild(i).GetComponent<ChooseBubble>());
         }
 
-        s_mapa[PlayerOne].Selected(1);
-        s_mapa[PlayerTwo].Selected(2);
-
-        ShowImageMap.sprite = bg[0];
-    }
-
-    enum direction
-    {
-        up,
-        left,
-        right,
-        down
-    }
-
-    private void movePlayer(int i, direction d)
-    {
-        if (i == 1)
-        {
-            s_mapa[PlayerOne].Deselect(1);
-            selectedOne = false;
-
-            if (d == direction.up)
-            {
-                PlayerOne = (int)Mathf.Clamp(PlayerOne - columCount, 0, MapCount - 1);
-            }
-            else if(d == direction.down)
-            {
-                PlayerOne = (int)Mathf.Clamp(PlayerOne + columCount, 0, MapCount - 1);
-            }
-            else if(d == direction.left)
-            {
-                PlayerOne = (int)Mathf.Clamp(PlayerOne - 1, 0, MapCount -1);
-            }
-            else if (d == direction.right)
-            {
-                PlayerOne = (int)Mathf.Clamp(PlayerOne + 1, 0, MapCount -1);
-            }
-            s_mapa[PlayerOne].Selected(1);
-        }
-        else
-        {
-            s_mapa[PlayerTwo].Deselect(2);
-            selectedTwo = false;
-
-            if (d == direction.up)
-            {
-                PlayerTwo = (int)Mathf.Clamp(PlayerTwo - columCount, 0, MapCount - 1);
-            }
-            else if (d == direction.down)
-            {
-                PlayerTwo = (int)Mathf.Clamp(PlayerTwo + columCount, 0, MapCount - 1);
-            }
-            else if (d == direction.left)
-            {
-                PlayerTwo = (int)Mathf.Clamp(PlayerTwo - 1, 0, MapCount - 1);
-            }
-            else if (d == direction.right)
-            {
-                PlayerTwo = (int)Mathf.Clamp(PlayerTwo + 1, 0, MapCount - 1);
-            }
-            s_mapa[PlayerTwo].Selected(2);
-        }
-        if (PlayerOne == PlayerTwo)
-        {
-            ShowImageMap.sprite = bg[PlayerTwo];
-            GlobalState.Map = (Maps._Maps)PlayerTwo;
-            descriction.text = descriptions[PlayerTwo];
-        }
-        else
-        {
-            ShowImageMap.sprite = BGRandom;
-            float randomNumber = Random.value;
-            descriction.text = "Random";
-
-            if(randomNumber >= 0.5f)
-            {
-                GlobalState.Map = (Maps._Maps)PlayerOne;
-            }
-            else
-            {
-                GlobalState.Map = (Maps._Maps)PlayerTwo;
-            }
-        }
+        // Select default choices
+        _mapBubbles[_player1Choice].SelectByPlayer(GlobalState.Player.one);
+        _mapBubbles[_player2Choice].SelectByPlayer(GlobalState.Player.two);
+        _mapPreview.sprite = _mapPreviews[_player1Choice];
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        // Player 1 input
+        if (Input.GetButtonDown("Player1Up"))
         {
-            movePlayer(1, direction.up);
+            MovePlayer(GlobalState.Player.one, GlobalState.Direction.up);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetButtonDown("Player1Down"))
         {
-            movePlayer(1, direction.down);
+            MovePlayer(GlobalState.Player.one, GlobalState.Direction.down);
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetButtonDown("Player1Right"))
         {
-            movePlayer(1, direction.left);
+            MovePlayer(GlobalState.Player.one, GlobalState.Direction.right);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetButtonDown("Player1Left"))
         {
-            movePlayer(1, direction.right);
+            MovePlayer(GlobalState.Player.one, GlobalState.Direction.left);
         }
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetButtonDown("Player1Accept"))
         {
-            var nevim = s_mapa[PlayerOne].GetChoosen();
-            selectedOne = true;
+            _mapBubbles[_player1Choice].GetChosen();
+            _hasChosenPlayer1 = true;
         }
 
-        ////////////////////////////////////////////////////
+        // Player 2 input
+        if (Input.GetButtonDown("Player2Up"))
+        {
+            MovePlayer(GlobalState.Player.two, GlobalState.Direction.up);
+        }
+        if (Input.GetButtonDown("Player2Down"))
+        {
+            MovePlayer(GlobalState.Player.two, GlobalState.Direction.down);
+        }
+        if (Input.GetButtonDown("Player2Right"))
+        {
+            MovePlayer(GlobalState.Player.two, GlobalState.Direction.right);
+        }
+        if (Input.GetButtonDown("Player2Left"))
+        {
+            MovePlayer(GlobalState.Player.two, GlobalState.Direction.left);
+        }
+        if (Input.GetButtonDown("Player2Accept"))
+        {
+            _mapBubbles[_player2Choice].GetChosen();
+            _hasChosenPlayer2 = true;
+        }
 
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        // Continue to next scene
+        if (_hasChosenPlayer1 && _hasChosenPlayer2)
         {
-            movePlayer(2, direction.up);
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            movePlayer(2, direction.down);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            movePlayer(2, direction.left);
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            movePlayer(2, direction.right);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            var nevim = s_mapa[PlayerTwo].GetChoosen();
-            selectedTwo = true;
-        }
-        if (selectedOne && selectedTwo)
-        {
+            // Set the map to be loaded based on player choices
+            if (_player1Choice != _player2Choice)
+            {
+                GlobalState.Map = (Random.value > 0.5) ? (GlobalState.Maps)_player1Choice : (GlobalState.Maps)_player2Choice;
+            }
+            else
+            {
+                GlobalState.Map = (GlobalState.Maps)_player1Choice;
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
+    // Moves the player selection of a given player in a given direction 
+    private void MovePlayer(GlobalState.Player player, GlobalState.Direction direction)
+    {
+        // Player one selection
+        if (player == GlobalState.Player.one)
+        {
+            _mapBubbles[_player1Choice].Deselect(GlobalState.Player.one);
+            _hasChosenPlayer1 = false;
 
+            if (direction == GlobalState.Direction.up)
+            {
+                _player1Choice = Mathf.Clamp(_player1Choice - _columCount, 0, _mapCount - 1);
+            }
+            else if(direction == GlobalState.Direction.down)
+            {
+                _player1Choice = Mathf.Clamp(_player1Choice + _columCount, 0, _mapCount - 1);
+            }
+            else if(direction == GlobalState.Direction.left)
+            {
+                _player1Choice = Mathf.Clamp(_player1Choice - 1, 0, _mapCount -1);
+            }
+            else if (direction == GlobalState.Direction.right)
+            {
+                _player1Choice = Mathf.Clamp(_player1Choice + 1, 0, _mapCount -1);
+            }
+            _mapBubbles[_player1Choice].SelectByPlayer(GlobalState.Player.one);
+        }
+        
+        // Player two selection
+        if (player == GlobalState.Player.two)
+        {
+            _mapBubbles[_player2Choice].Deselect(GlobalState.Player.two);
+            _hasChosenPlayer2 = false;
 
+            if (direction == GlobalState.Direction.up)
+            {
+                _player2Choice = Mathf.Clamp(_player2Choice - _columCount, 0, _mapCount - 1);
+            }
+            else if (direction == GlobalState.Direction.down)
+            {
+                _player2Choice = Mathf.Clamp(_player2Choice + _columCount, 0, _mapCount - 1);
+            }
+            else if (direction == GlobalState.Direction.left)
+            {
+                _player2Choice = Mathf.Clamp(_player2Choice - 1, 0, _mapCount - 1);
+            }
+            else if (direction == GlobalState.Direction.right)
+            {
+                _player2Choice = Mathf.Clamp(_player2Choice + 1, 0, _mapCount - 1);
+            }
+            _mapBubbles[_player2Choice].SelectByPlayer(GlobalState.Player.two);
+        }
+
+        // Change the map preview
+        if (_player1Choice != _player2Choice)
+        {
+            _mapPreview.sprite = _mapPreviews[_mapCount];
+        }
+        else
+        {
+            _mapPreview.sprite = _mapPreviews[_player1Choice];
+        }
+    }
 }
