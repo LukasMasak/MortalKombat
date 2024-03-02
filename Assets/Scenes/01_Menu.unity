@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19356084, g: 0.0533019, b: 0.0014599212, a: 1}
+  m_IndirectSpecularColor: {r: 0.1935615, g: 0.053302154, b: 0.0014599201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -555,37 +555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &753451865
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 753451866}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &753451866
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753451865}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1014.9384, y: 508.62842, z: -51.249985}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &847263896
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +566,7 @@ GameObject:
   - component: {fileID: 847263898}
   - component: {fileID: 847263897}
   m_Layer: 10
-  m_Name: Menu_Text_spriteSheet_0
+  m_Name: PressText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +893,7 @@ GameObject:
   - component: {fileID: 1412907850}
   - component: {fileID: 1412907849}
   m_Layer: 0
-  m_Name: Black (1)
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1399,7 +1368,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 436491446}
   - {fileID: 1562832778}
-  - {fileID: 753451866}
   - {fileID: 498445722}
   - {fileID: 557481670}
   - {fileID: 847263898}
