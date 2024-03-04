@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(GridLayoutGroup))]
 public class ChooseCharacter : MonoBehaviour
 {
+    [SerializeField] private Animator _fadeInOutAnimator;
     [SerializeField] private int _player1Choice = 0;
     [SerializeField] private int _player2Choice = 1;
     
@@ -99,7 +100,7 @@ public class ChooseCharacter : MonoBehaviour
         // Continue to next scene
         if (_hasChosenPlayer1 && _hasChosenPlayer2)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            _fadeInOutAnimator.SetTrigger("StartEndMenu");
         }
     }
 
