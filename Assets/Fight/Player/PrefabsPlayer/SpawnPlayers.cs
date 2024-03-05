@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    public GameObject[] _prefs;
+    [SerializeField] private GameObject[] _prefs;
     
-    public GameObject LeftSpawn;
-    public GameObject RightSpawn;
+    [SerializeField] private GameObject LeftSpawn;
+    [SerializeField] private GameObject RightSpawn;
     [Space]
-    public Camera cam;
-    public Slider sliderLeft;
-    public Image fillLeft;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Slider sliderLeft;
+    [SerializeField] private Image fillLeft;
 
-    public Slider sliderRight;
-    public Image fillRight;
+    [SerializeField] private Slider sliderRight;
+    [SerializeField] private Image fillRight;
 
-    public MultipleTargetCamera targetCam;
+    [SerializeField] private MultipleTargetCamera targetCam;
 
 
     private void Awake()
