@@ -31,19 +31,13 @@ public class Health : MonoBehaviour
 
     public void IsBlocking()
     {
-        if(rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-        }
+        CheckReferences();
         BlockingBool = true;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
     }
     public void DeactivateBlocking()
     {
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-        }
+        CheckReferences();
         BlockingBool = false;
         playerMovement.attacked = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
@@ -66,6 +60,13 @@ public class Health : MonoBehaviour
                 Die();
             }
         }
+    }
+
+    private void CheckReferences()
+    {
+        if (rb == null) rb = GetComponent<Rigidbody>();
+        if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
+        if (animator == null) animator = GetComponent<Animator>();
     }
 
     public void Die()

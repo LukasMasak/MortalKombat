@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour
 {
@@ -66,5 +67,9 @@ public class FightManager : MonoBehaviour
 
     }
 
-
+    // Used to for the Back button
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

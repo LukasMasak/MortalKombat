@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0047466215, g: 0.0010720907, b: 0.0000027345568,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.004746623, g: 0.0010720879, b: 0.0000027345386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118855665}
   m_Layer: 0
-  m_Name: Left
+  m_Name: LeftSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,7 +246,10 @@ Transform:
   m_LocalPosition: {x: -3.3508751, y: 0.22983058, z: 0.04706346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 318055406}
+  - {fileID: 1591607195}
+  - {fileID: 586241377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &171539586
@@ -274,7 +276,7 @@ GameObject:
   - component: {fileID: 250488424}
   - component: {fileID: 250488423}
   m_Layer: 5
-  m_Name: HealthBarFill
+  m_Name: HealthBarFillLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -504,12 +506,12 @@ Transform:
   m_GameObject: {fileID: 318055404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.563, y: -207.9946, z: 0.41464353}
-  m_LocalScale: {x: 0.045634624, y: 0.045634624, z: 0.045634624}
+  m_LocalPosition: {x: 4, y: 1, z: 0.948081}
+  m_LocalScale: {x: 0.1095231, y: 0.1095231, z: 0.1095231}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 894602148}
-  m_Father: {fileID: 416643771}
+  m_Father: {fileID: 171539585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
@@ -654,9 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6237514d433204d26a7a56688668e6a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
+  targets: []
   offset: {x: 0, y: 1.93, z: -9}
   smoothTime: 0.1
   maxZoom: 20
@@ -770,11 +770,11 @@ Transform:
   m_GameObject: {fileID: 376743376}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: -208.8632, z: -4.007707}
-  m_LocalScale: {x: 0.7707129, y: 0.7707129, z: 0.7707129}
+  m_LocalPosition: {x: 0, y: 0, z: -6}
+  m_LocalScale: {x: 1.8497111, y: 1.8497111, z: 1.8497111}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 416643771}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416643767
 GameObject:
@@ -789,7 +789,7 @@ GameObject:
   - component: {fileID: 416643769}
   - component: {fileID: 416643768}
   m_Layer: 5
-  m_Name: PlayerUI
+  m_Name: CanvasPlayerUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,11 +872,6 @@ RectTransform:
   m_Children:
   - {fileID: 932300937}
   - {fileID: 889882398}
-  - {fileID: 318055406}
-  - {fileID: 1591607195}
-  - {fileID: 586241377}
-  - {fileID: 376743379}
-  - {fileID: 948301399}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1047,8 +1042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapPrefabs:
-  - {fileID: 4323399984311432496, guid: 16da5046442da46c1b56691c4c7055e3, type: 3}
-  - {fileID: 524278358391544648, guid: 43575658201c24186a17e07695b0f8a2, type: 3}
+  - {fileID: 9192014409890782765, guid: d7280a1d3b2154f9fa97a47fa4736ca7, type: 3}
+  - {fileID: 6087433050740662053, guid: 16e2c700682f29945b4076d22c140976, type: 3}
 --- !u!1 &586241375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,13 +1122,13 @@ Transform:
   m_GameObject: {fileID: 586241375}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.58383, y: -207.94452, z: 0.5996146}
-  m_LocalScale: {x: 0.045634624, y: 0.045634624, z: 0.045634624}
+  m_LocalPosition: {x: 4, y: 1, z: 0.948081}
+  m_LocalScale: {x: 0.1095231, y: 0.1095231, z: 0.1095231}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1016281281}
   - {fileID: 1091045244}
-  m_Father: {fileID: 416643771}
+  m_Father: {fileID: 171539585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &660749088
 GameObject:
@@ -1147,7 +1142,7 @@ GameObject:
   - component: {fileID: 660749091}
   - component: {fileID: 660749090}
   m_Layer: 5
-  m_Name: HealthBarFill
+  m_Name: HealthBarFillRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,7 +1164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.199997, y: 1.2999992}
+  m_AnchoredPosition: {x: -1.2000275, y: 1.2999992}
   m_SizeDelta: {x: 20.8772, y: -15.178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660749090
@@ -1221,7 +1216,7 @@ GameObject:
   - component: {fileID: 746985859}
   - component: {fileID: 746985860}
   m_Layer: 5
-  m_Name: HealthBar
+  m_Name: HealthBarLeftSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1328,19 +1323,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32216a4ed617046c389d24a7c6c51a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefs:
+  _playerPrefabs:
   - {fileID: 3869327454628122331, guid: c8e4e8db80f7c435ebce9cba06135652, type: 3}
   - {fileID: 7338588057921598052, guid: 0fc1f602a0c0c490c9f7606a8324d13f, type: 3}
   - {fileID: 7338588057921598052, guid: 7cd7654fbaf3f4c1696593c1b7560cd8, type: 3}
   - {fileID: 3869327454628122331, guid: dad17dff86b9a4941a109ba692b935fc, type: 3}
-  LeftSpawn: {fileID: 118855664}
-  RightSpawn: {fileID: 1007820114}
-  cam: {fileID: 330585545}
-  sliderLeft: {fileID: 746985860}
-  fillLeft: {fileID: 250488423}
-  sliderRight: {fileID: 1456529824}
-  fillRight: {fileID: 660749090}
-  targetCam: {fileID: 330585548}
+  _leftSpawnTransform: {fileID: 118855665}
+  _rightSpawnTransform: {fileID: 1007820115}
+  _sliderLeft: {fileID: 746985860}
+  _fillLeft: {fileID: 250488423}
+  _sliderRight: {fileID: 1456529824}
+  _fillRight: {fileID: 660749090}
 --- !u!4 &831177268
 Transform:
   m_ObjectHideFlags: 0
@@ -1433,9 +1426,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889882397}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.53449607, y: 1.1774962, z: 0.98975253}
+  m_LocalScale: {x: 0.53449607, y: 1.1774961, z: 0.98975253}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 416643771}
@@ -1489,9 +1482,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 171539586}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: FirtsScene
+      - m_Target: {fileID: 171539584}
+        m_TargetAssemblyTypeName: FightManager, Assembly-CSharp
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1796,11 +1789,11 @@ Transform:
   m_GameObject: {fileID: 948301396}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -400, y: -207.71484, z: -4.007707}
-  m_LocalScale: {x: 0.019092903, y: 0.019092903, z: 0.019092903}
+  m_LocalPosition: {x: 0, y: 1.7298306, z: -5.9529366}
+  m_LocalScale: {x: 0.045822967, y: 0.045822967, z: 0.045822967}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 416643771}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &948301400
 AudioSource:
@@ -1927,7 +1920,7 @@ GameObject:
   - component: {fileID: 997763310}
   - component: {fileID: 997763309}
   m_Layer: 5
-  m_Name: HealthBarBortherLeft
+  m_Name: HealthBarBorderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2000,7 +1993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1007820115}
   m_Layer: 0
-  m_Name: Right
+  m_Name: RightSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2234,7 +2227,7 @@ GameObject:
   - component: {fileID: 1456529823}
   - component: {fileID: 1456529824}
   m_Layer: 5
-  m_Name: HealthBarRIght
+  m_Name: HealthBarRightSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2390,12 +2383,12 @@ Transform:
   m_GameObject: {fileID: 1591607193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.58383, y: -207.94452, z: 0.5996146}
-  m_LocalScale: {x: 0.045634624, y: 0.045634624, z: 0.045634624}
+  m_LocalPosition: {x: 4, y: 1, z: 0.948081}
+  m_LocalScale: {x: 0.1095231, y: 0.1095231, z: 0.1095231}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 419952328}
-  m_Father: {fileID: 416643771}
+  m_Father: {fileID: 171539585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735218772
 GameObject:
@@ -2537,7 +2530,7 @@ GameObject:
   - component: {fileID: 1842731582}
   - component: {fileID: 1842731581}
   m_Layer: 5
-  m_Name: HealthBarBortherLeft
+  m_Name: HealthBarBorderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2606,9 +2599,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 832575519}
   - {fileID: 299611531}
+  - {fileID: 1735218773}
   - {fileID: 330585546}
   - {fileID: 416643771}
+  - {fileID: 376743379}
+  - {fileID: 948301399}
   - {fileID: 171539585}
-  - {fileID: 1735218773}
-  - {fileID: 560879101}
   - {fileID: 831177268}
+  - {fileID: 560879101}

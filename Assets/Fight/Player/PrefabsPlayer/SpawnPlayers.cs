@@ -5,64 +5,64 @@ using UnityEngine.UI;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _prefs;
+    // TODO obselete
+    [SerializeField] private GameObject[] _playerPrefabs;
     
-    [SerializeField] private GameObject LeftSpawn;
-    [SerializeField] private GameObject RightSpawn;
-    [Space]
-    [SerializeField] private Camera cam;
-    [SerializeField] private Slider sliderLeft;
-    [SerializeField] private Image fillLeft;
+    // The spawn points of the players
+    [SerializeField] private Transform _leftSpawnTransform;
+    [SerializeField] private Transform _rightSpawnTransform;
 
-    [SerializeField] private Slider sliderRight;
-    [SerializeField] private Image fillRight;
+    // UI pass references
+    [SerializeField] private Slider _sliderLeft;
+    [SerializeField] private Image _fillLeft;
 
-    [SerializeField] private MultipleTargetCamera targetCam;
+    [SerializeField] private Slider _sliderRight;
+    [SerializeField] private Image _fillRight;
 
-
-    private void Awake()
+    private void Start()
     {
-        var Left = Instantiate(_prefs[(int)GlobalState.Player1Character], LeftSpawn.transform);
-        var Right = Instantiate(_prefs[(int)GlobalState.Player2Character], RightSpawn.transform);
-        Vector3 _left = Left.transform.localScale;
-        _left.x *= -1;
-        Left.transform.localScale = _left;
+        // Create two player instances form prefabs
+        var leftPlayer = Instantiate(_playerPrefabs[(int)GlobalState.Player1Character], _leftSpawnTransform);
+        var rightPlayer = Instantiate(_playerPrefabs[(int)GlobalState.Player2Character], _rightSpawnTransform);
+        
+        // Flip the left player
+        Vector3 _leftScale = leftPlayer.transform.localScale;
+        _leftScale.x *= -1;
+        leftPlayer.transform.localScale = _leftScale;
 
-        var LeftSprite = Left.GetComponent<SpriteRenderer>();
-        var lefthealth = Left.GetComponent<Health>();
-        var leftMovement = Left.GetComponent<PlayerMovement>();
+        // Get necessary components
+        var lefthealth = leftPlayer.GetComponent<Health>();
+        var leftMovement = leftPlayer.GetComponent<PlayerMovement>();
+        var righthealth = rightPlayer.GetComponent<Health>();
+        var rightMovement = rightPlayer.GetComponent<PlayerMovement>();
 
-        var RightSprite = Right.GetComponent<SpriteRenderer>();
-        var righthealth = Right.GetComponent<Health>();
-        var rightMovement = Right.GetComponent<PlayerMovement>();
+        // Set the health bar references
+        lefthealth.slider = _sliderLeft;
+        lefthealth.fill = _fillLeft;
+        righthealth.slider = _sliderRight;
+        righthealth.fill = _fillRight;
 
-    
-        lefthealth.slider = sliderLeft;
-        lefthealth.fill = fillLeft;
-        leftMovement.playerCamera = cam;
-
-        righthealth.slider = sliderRight;
-        righthealth.fill = fillRight;
-        rightMovement.playerCamera = cam;
-
-        targetCam.targets[0] = Left.transform;
-        targetCam.targets[1] = Right.transform;
-
-        //RightSprite.flipX = false;
-
+        // Set which player each one is and which way they are facing
+        leftMovement.whichPlayer = GlobalState.Player.one;
+        leftMovement.facingRight = true;
         rightMovement.whichPlayer = GlobalState.Player.two;
-        Left.layer = LayerMask.NameToLayer("Player1");
-        Left.tag = "Player1";
-        Right.layer = LayerMask.NameToLayer("Player2");
-        Right.tag = "Player2";
+        rightMovement.facingRight = false;
 
+        // Set the tags and layers of players
+        leftPlayer.layer = LayerMask.NameToLayer("Player1");
+        leftPlayer.tag = "Player1";
+        rightPlayer.layer = LayerMask.NameToLayer("Player2");
+        rightPlayer.tag = "Player2";
+
+        // Set the enemy tags of players
         rightMovement.enemyMask = LayerMask.GetMask("Player1");
         leftMovement.enemyMask = LayerMask.GetMask("Player2");
 
-        leftMovement.OnEnable2();
-        rightMovement.OnEnable2();
+        // Set targets to MultipleTargetCamera
+        MultipleTargetCamera multipleTargetCamera = Camera.main.GetComponent<MultipleTargetCamera>();
+        multipleTargetCamera.targets.Add(leftPlayer.transform);
+        multipleTargetCamera.targets.Add(rightPlayer.transform);
 
-        rightMovement.facingRight = false;
 
     }
 

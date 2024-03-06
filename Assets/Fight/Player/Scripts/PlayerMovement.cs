@@ -37,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Camera")]
 
-    // Kamera sledující hráče
-    public Camera playerCamera;
     // Animator pro správu animací hráče
     private Animator animator;
     // Proměnné pro kontrolu stavů hráče
@@ -67,20 +65,16 @@ public class PlayerMovement : MonoBehaviour
     private Health health;
     // Inicializace proměnných při probuzení objektu
 
-    private void Awake()
+    private void Start()
     {
-        if (whichPlayer == GlobalState.Player.two)
-        {
-            facingRight = false;
-        }
-    
         // Inicializace komponent
         attackPoint.SetActive(false);
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         inputSystemActions = new InputSystem();
-        animator = this.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         health = GetComponent<Health>();
+        OnEnable2();
     }
 
     // Přiřazení akcí při povolení objektu
@@ -148,8 +142,8 @@ public class PlayerMovement : MonoBehaviour
         Blocking();
 
         Vector2 moveInput = move.ReadValue<Vector2>();
-        forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight(playerCamera);
-        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
+        forceDirection += move.ReadValue<Vector2>().x * movementForce * GetCameraRight();
+        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward() * movementForce;
         
         rb.AddForce(forceDirection, ForceMode.Impulse);
 
@@ -174,16 +168,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Metody pro získání směru kamery
-    private Vector3 GetCameraForward(Camera playerCamera)
+    private Vector3 GetCameraForward()
     {
-        Vector3 forward = playerCamera.transform.forward;
+        Vector3 forward = Camera.main.transform.forward;
         forward.y = 0;
         return forward.normalized;
     }
 
-    private Vector3 GetCameraRight(Camera playerCamera)
+    private Vector3 GetCameraRight()
     {
-        Vector3 right = playerCamera.transform.right;
+        Vector3 right = Camera.main.transform.right;
         right.y = 0;
         return right.normalized;
     }

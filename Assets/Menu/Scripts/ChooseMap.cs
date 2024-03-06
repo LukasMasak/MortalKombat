@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(GridLayoutGroup))]
 public class ChooseMap : MonoBehaviour
 {
+    [SerializeField] private Animator _fadeInOutAnimator;
     [SerializeField] private int _player1Choice = 0;
     [SerializeField] private int _player2Choice = 0;
     
@@ -102,7 +103,7 @@ public class ChooseMap : MonoBehaviour
             {
                 GlobalState.Map = (GlobalState.Maps)_player1Choice;
             }
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            _fadeInOutAnimator.SetTrigger("StartEndMenu");
         }
     }
 

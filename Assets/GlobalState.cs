@@ -13,8 +13,8 @@ public class GlobalState
     // TODO to be obsolete
     public enum Characters
     {
-        Tuan,
         Ruďoch,
+        Tuan,
         Žaba,
         Týpek
     }
