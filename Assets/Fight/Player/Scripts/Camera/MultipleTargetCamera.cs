@@ -19,7 +19,7 @@ public class MultipleTargetCamera : MonoBehaviour
 
     private void Start()
     {
-        cam = GetComponent<Camera>();
+        cam = Camera.main;
     }
 
     private void LateUpdate()
