@@ -42,15 +42,7 @@ public class EventController : MonoBehaviour
     {
         Debug.Log("Pressed button " + name);
 
-        //Get the path of the Game data folder
-        string m_Path = Application.dataPath;
-
-        //Output the Game data path to the console
-        Debug.Log("dataPath : " + m_Path);
-        m_Path += "/Characters";
-        Debug.Log("dataPath : " + m_Path);
-        Directory.CreateDirectory(m_Path);
-        Debug.Log("exists : " + Directory.Exists(m_Path));
+        CharacterLoader.CreateFreshCharacter("Testing1");
 
     }
 
