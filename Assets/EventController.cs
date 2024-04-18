@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -7,11 +8,11 @@ using UnityEngine.SceneManagement;
 public class EventController : MonoBehaviour
 {
     [SerializeField] private float _operationDelay = 0;
+    
 
     // Used in map and character choosing
     public void NextScene()
     {
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -40,6 +41,17 @@ public class EventController : MonoBehaviour
     public void DebugPrint()
     {
         Debug.Log("Pressed button " + name);
+
+        //Get the path of the Game data folder
+        string m_Path = Application.dataPath;
+
+        //Output the Game data path to the console
+        Debug.Log("dataPath : " + m_Path);
+        m_Path += "/Characters";
+        Debug.Log("dataPath : " + m_Path);
+        Directory.CreateDirectory(m_Path);
+        Debug.Log("exists : " + Directory.Exists(m_Path));
+
     }
 
     /*private IEnumerator DelayCoroutine(UnityEvent eventToCall)
