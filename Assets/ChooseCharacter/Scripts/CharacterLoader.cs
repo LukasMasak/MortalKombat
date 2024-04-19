@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 public static class CharacterLoader
 {
@@ -47,6 +48,10 @@ public static class CharacterLoader
 
         // Load config
         string[] configFileLines = File.ReadAllLines(basePath + CONFIG_FILE);
+        if (TryParseLinesFromConfig(ref configFileLines, ref characterData))
+        {
+
+        }
         
         // TODO call parse and check validity, determine null CharacterData (bool valid in data)
 
@@ -113,25 +118,108 @@ public static class CharacterLoader
     }
 
     // Parse data from config file
-    private static bool ParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
+    private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
     {
         string errorString = "";
 
         foreach (string line in configLines)
         {
             bool foundConfig = false;
+            
+            // Parse the speed
             if (line.StartsWith(CONFIG_SPD_NAME))
             {
-                if (float.TryParse(line.Substring(CONFIG_SPD_NAME.Length), out float readSpeed))
-                {
+                foundConfig = true;
 
+                if (float.TryParse(line.Substring(CONFIG_SPD_NAME.Length), out float value))
+                {
+                    data.speed = value;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of speed from config file!";
+                    errorString = "Could not parse float value of speed from config file!\n Line found= " + line;
                     break;
                 }
             }
+            
+            // Parse the jump
+            if (line.StartsWith(CONFIG_JMP_NAME))
+            {
+                foundConfig = true;
+
+                if (float.TryParse(line.Substring(CONFIG_JMP_NAME.Length), out float value))
+                {
+                    data.jump = value;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of jump from config file!\n Line found= " + line;
+                    break;
+                }
+            }
+
+            // Parse the health
+            if (line.StartsWith(CONFIG_HP_NAME))
+            {
+                foundConfig = true;
+
+                if (uint.TryParse(line.Substring(CONFIG_HP_NAME.Length), out uint value))
+                {
+                    data.health = value;
+                }
+                else
+                {
+                    errorString = "Could not parse uint value of health from config file!\n Line found= " + line;
+                    break;
+                }
+            }
+
+            // Parse the damage
+            if (line.StartsWith(CONFIG_DMG_NAME))
+            {
+                foundConfig = true;
+
+                if (uint.TryParse(line.Substring(CONFIG_DMG_NAME.Length), out uint value))
+                {
+                    data.damage = value;
+                }
+                else
+                {
+                    errorString = "Could not parse uint value of damage from config file!\n Line found= " + line;
+                    break;
+                }
+            }
+
+            // Parse the attack point offset
+            if (line.StartsWith(CONFIG_ATK_POINT_NAME))
+            {
+                foundConfig = true;
+                int commaIdx = line.IndexOf(',');
+                float x, y;
+                if (float.TryParse(line.Substring(CONFIG_ATK_POINT_NAME.Length, commaIdx), out float valueX))
+                {
+                    x = valueX;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of attack point offset X from config file!\n Line found= " + line;
+                    break;
+                }
+                if (float.TryParse(line.Substring(commaIdx + 1), out float valueY))
+                {
+                    y = valueY;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of attack point offset X from config file!\n Line found= " + line;
+                    break;
+                }
+
+                data.attackPointOffset = new Vector2(x, y);
+            }
+
+            // PARSE ATTACK FRAME
+            // PARSE ATTACK SIZE
         }
 
         if (errorString.Length > 0)
