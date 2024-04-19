@@ -4,6 +4,8 @@ using UnityEngine;
 
 public struct CharacterData
 {
+    public bool isValid;
+
     // --------------Character-Stats---------------------------
     public string name;
     public float speed;
@@ -17,11 +19,11 @@ public struct CharacterData
     // --------------Character-Sprites/Animations--------------
     public Sprite preview;
     public Sprite bubbleIcon;
-    public Animation attackAnim;
-    public Animation moveAnim;
-    public Animation blockAnim;
-    public Animation jumpAnim;
-    public Animation idleAnim;
-    public Animation deathAnim;
-    public Animation hurtAnim;
+    public AnimationClip idleAnim;
+    public AnimationClip attackAnim;
+    public AnimationClip moveAnim;
+    public AnimationClip blockAnim;
+    public AnimationClip jumpAnim;
+    public AnimationClip deathAnim;
+    public AnimationClip hurtAnim;
 }

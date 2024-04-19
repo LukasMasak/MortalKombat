@@ -4,11 +4,13 @@ using UnityEngine;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using UnityEditor;
 
 public static class CharacterLoader
 {
     // --------------File-Saving-Constants--------------------
     private const string CHARACTER_FOLDER = "/Characters";
+    private const string IDLE_ANIM_FOLDER = "/IdleAnim";
     private const string ATTACK_ANIM_FOLDER = "/AttackAnim";
     private const string WALK_ANIM_FOLDER = "/WalkAnim";
     private const string BLOCK_ANIM_FOLDER = "/BlockAnim";
@@ -29,7 +31,16 @@ public static class CharacterLoader
 
 
     // ---------------Animation-Constants----------------------
-    private const float FRAME_DELAY = 1f / 24f;
+    private const float FRAMERATE = 24f;
+    private const float FRAME_DELAY = 1f / FRAMERATE;
+    private const string IDLE_ANIM_NAME = "Idle";
+    private const string ATTACK_ANIM_NAME = "Attack";
+    private const string MOVE_ANIM_NAME = "Move";
+    private const string BLOCK_ANIM_NAME = "Block";
+    private const string JUMP_ANIM_NAME = "Jump";
+    private const string HURT_ANIM_NAME = "Hurt";
+    private const string DEATH_ANIM_NAME = "Death";
+
 
     
     // Loads CharacterData from the character folder using the name of the character
@@ -37,7 +48,7 @@ public static class CharacterLoader
     public static CharacterData LoadFromFile(string characterName)
     {
         CharacterData characterData = new CharacterData{name = characterName};
-        string basePath = Application.dataPath + "/" + CHARACTER_FOLDER + "/" + characterName;
+        string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + characterName;
 
         // Check if the character exists and if not create it
         if (!Directory.Exists(basePath)) 
@@ -48,12 +59,24 @@ public static class CharacterLoader
 
         // Load config
         string[] configFileLines = File.ReadAllLines(basePath + CONFIG_FILE);
-        if (TryParseLinesFromConfig(ref configFileLines, ref characterData))
-        {
 
+        // Check for corruprion in config file
+        if (!TryParseLinesFromConfig(ref configFileLines, ref characterData))
+        {
+            characterData.isValid = false;
+            return characterData;
         }
+        characterData.isValid = true;
         
-        // TODO call parse and check validity, determine null CharacterData (bool valid in data)
+        // Check if animation folders exist
+        if (!CheckAnimationFolders(characterName))
+        {
+            characterData.isValid = false;
+            return characterData;
+        }
+
+        // Load sprites for the animations
+        LoadAllAnimations(ref characterData);
 
         return characterData;
     }
@@ -66,6 +89,7 @@ public static class CharacterLoader
 
         // Create all directories
         Directory.CreateDirectory(basePath);
+        Directory.CreateDirectory(basePath + IDLE_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + ATTACK_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + WALK_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + BLOCK_ANIM_FOLDER);
@@ -118,117 +142,227 @@ public static class CharacterLoader
     }
 
     // Parse data from config file
+    // Returns if config was valid
     private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
     {
         string errorString = "";
 
         foreach (string line in configLines)
         {
-            bool foundConfig = false;
-            
             // Parse the speed
             if (line.StartsWith(CONFIG_SPD_NAME))
             {
-                foundConfig = true;
-
-                if (float.TryParse(line.Substring(CONFIG_SPD_NAME.Length), out float value))
+                string valueSubstring = line.Substring(CONFIG_SPD_NAME.Length + 1);
+                if (float.TryParse(valueSubstring, out float value))
                 {
                     data.speed = value;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of speed from config file!\n Line found= " + line;
+                    errorString = "Could not parse float value of speed from config file! Value found = " + valueSubstring;
                     break;
                 }
             }
             
             // Parse the jump
-            if (line.StartsWith(CONFIG_JMP_NAME))
+            else if (line.StartsWith(CONFIG_JMP_NAME))
             {
-                foundConfig = true;
-
-                if (float.TryParse(line.Substring(CONFIG_JMP_NAME.Length), out float value))
+                string valueSubstring = line.Substring(CONFIG_JMP_NAME.Length + 1);
+                if (float.TryParse(valueSubstring, out float value))
                 {
                     data.jump = value;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of jump from config file!\n Line found= " + line;
+                    errorString = "Could not parse float value of jump from config file! Value found = " + valueSubstring;
                     break;
                 }
             }
 
             // Parse the health
-            if (line.StartsWith(CONFIG_HP_NAME))
+            else if (line.StartsWith(CONFIG_HP_NAME))
             {
-                foundConfig = true;
-
-                if (uint.TryParse(line.Substring(CONFIG_HP_NAME.Length), out uint value))
+                string valueSubstring = line.Substring(CONFIG_HP_NAME.Length + 1);
+                if (uint.TryParse(valueSubstring, out uint value))
                 {
                     data.health = value;
                 }
                 else
                 {
-                    errorString = "Could not parse uint value of health from config file!\n Line found= " + line;
+                    errorString = "Could not parse uint value of health from config file! Value found= " + valueSubstring;
                     break;
                 }
             }
 
             // Parse the damage
-            if (line.StartsWith(CONFIG_DMG_NAME))
+            else if (line.StartsWith(CONFIG_DMG_NAME))
             {
-                foundConfig = true;
-
-                if (uint.TryParse(line.Substring(CONFIG_DMG_NAME.Length), out uint value))
+                string valueSubstring = line.Substring(CONFIG_DMG_NAME.Length + 1);
+                if (uint.TryParse(valueSubstring, out uint value))
                 {
                     data.damage = value;
                 }
                 else
                 {
-                    errorString = "Could not parse uint value of damage from config file!\n Line found= " + line;
+                    errorString = "Could not parse uint value of damage from config file! Value found= " + valueSubstring;
                     break;
                 }
             }
 
             // Parse the attack point offset
-            if (line.StartsWith(CONFIG_ATK_POINT_NAME))
+            else if (line.StartsWith(CONFIG_ATK_POINT_NAME))
             {
-                foundConfig = true;
                 int commaIdx = line.IndexOf(',');
+                string valueSubstringX = line.Substring(CONFIG_ATK_POINT_NAME.Length + 1, commaIdx - CONFIG_ATK_POINT_NAME.Length);
                 float x, y;
-                if (float.TryParse(line.Substring(CONFIG_ATK_POINT_NAME.Length, commaIdx), out float valueX))
+                if (float.TryParse(valueSubstringX, out float valueX))
                 {
                     x = valueX;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of attack point offset X from config file!\n Line found= " + line;
+                    errorString = "Could not parse float value of attack point offset X from config file! Value found= " + valueSubstringX;
                     break;
                 }
-                if (float.TryParse(line.Substring(commaIdx + 1), out float valueY))
+
+                string valueSubstringY = line.Substring(commaIdx);
+                if (float.TryParse(valueSubstringY, out float valueY))
                 {
                     y = valueY;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of attack point offset X from config file!\n Line found= " + line;
+                    errorString = "Could not parse float value of attack point offset X from config file! Value found= " + valueSubstringY;
                     break;
                 }
 
                 data.attackPointOffset = new Vector2(x, y);
             }
 
-            // PARSE ATTACK FRAME
-            // PARSE ATTACK SIZE
+            // Parse attack frame
+            else if (line.StartsWith(CONFIG_ATK_FRAME_NAME))
+            {
+                string valueSubstring = line.Substring(CONFIG_ATK_FRAME_NAME.Length + 1);
+                if (uint.TryParse(valueSubstring, out uint value))
+                {
+                    data.attackFrameIdx = value;
+                }
+                else
+                {
+                    errorString = "Could not parse uint value of attack frame from config file! Value found= " + valueSubstring;
+                    break;
+                }
+            }
+            
+            // Parse the attack point size
+            else if (line.StartsWith(CONFIG_ATK_SIZE_NAME))
+            {
+                string valueSubstring = line.Substring(CONFIG_ATK_SIZE_NAME.Length + 1);
+                if (float.TryParse(valueSubstring, out float value))
+                {
+                    data.jump = value;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of attack point size from config file! Value found= " + valueSubstring;
+                    break;
+                }
+            }
+
+            // Unknown 
+            else 
+            {
+                errorString = "Unknown config setting! Name found= " + line;
+                break;
+            }
         }
 
         if (errorString.Length > 0)
         {
-            Debug.LogError("\""+ data.name + "\" character ERROR: " + errorString);
+            Debug.LogError("\""+ data.name + "\" character ERROR: " + "\n" + errorString);
             Debug.LogError("----> Character will not be loaded!");
             return false;
         }
 
         return true;
+    }
+
+    // Check if all folders exist
+    private static bool CheckAnimationFolders(string characterName)
+    {
+        string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + characterName;
+        string errorString = "";
+
+        if (!Directory.Exists(basePath + IDLE_ANIM_FOLDER))
+        {
+            errorString = "Folder for Idle Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + ATTACK_ANIM_FOLDER))
+        {
+            errorString = "Folder for Attack Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + WALK_ANIM_FOLDER))
+        {
+            errorString = "Folder for Walk Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + BLOCK_ANIM_FOLDER))
+        {
+            errorString = "Folder for Block Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + JUMP_ANIM_FOLDER))
+        {
+            errorString = "Folder for Jump Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + HURT_ANIM_FOLDER))
+        {
+            errorString = "Folder for Hurt Animation does not exist!";
+        }
+        else if (!Directory.Exists(basePath + DEATH_ANIM_FOLDER))
+        {
+            errorString = "Folder for Death Animation does not exist!";
+        }
+
+        if (errorString.Length > 0)
+        {
+            Debug.LogError("\""+ characterName + "\" character ERROR: " + "\n" + errorString);
+            Debug.LogError("----> Character will not be loaded!");
+            return false;
+        }
+
+        return true;
+    }
+
+    // Loads all animations for the character
+    private static void LoadAllAnimations(ref CharacterData data)
+    {
+        string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + data.name;
+
+        // Idle Animation
+        data.idleAnim = LoadAnimationFromPath(basePath + IDLE_ANIM_FOLDER, IDLE_ANIM_NAME);
+    }
+
+    private static AnimationClip LoadAnimationFromPath(string path, string animName)
+    {
+        AnimationClip animationClip = new AnimationClip();
+        animationClip.name = animName;
+        animationClip.frameRate = FRAMERATE;
+
+        // LOAD ALL SPRITES
+        Sprite[] sprites = Resources.LoadAll<Sprite>(path);
+
+        EditorCurveBinding spriteBinding = new EditorCurveBinding();
+        spriteBinding.type = typeof(SpriteRenderer);
+        spriteBinding.path = "";
+        spriteBinding.propertyName = "Sprite"; 
+
+        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Length];
+        for(int i = 0; i < (sprites.Length); i++) {
+            spriteKeyFrames[i] = new ObjectReferenceKeyframe();
+            spriteKeyFrames[i].time = FRAME_DELAY * i;
+            spriteKeyFrames[i].value = sprites[i];
+        }
+        AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
+
+        return animationClip;
     }
 }
