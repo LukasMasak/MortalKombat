@@ -41,24 +41,29 @@ public static class CharacterLoader
     private const string HURT_ANIM_NAME = "Hurt";
     private const string DEATH_ANIM_NAME = "Death";
 
+    // Loads all characters in the Characters folder
+    public static void LoadAllCharacters(List<CharacterData> characters)
+    {
+        string basePath = Application.dataPath + CHARACTER_FOLDER;
+        string[] allPossibleCharacters = Directory.GetDirectories(basePath);
+
+        foreach (string folderPath in allPossibleCharacters)
+        {
+            CharacterData loadedCharacter = LoadFromFile(folderPath);
+            if (loadedCharacter.isValid) characters.Add(loadedCharacter);
+        }
+    }
 
     
     // Loads CharacterData from the character folder using the name of the character
     // When the character is not present, creates a new one by that name
-    public static CharacterData LoadFromFile(string characterName)
+    public static CharacterData LoadFromFile(string characterFolderPath)
     {
+        string characterName = characterFolderPath.Substring(characterFolderPath.LastIndexOf("/") + 1);
         CharacterData characterData = new CharacterData{name = characterName};
-        string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + characterName;
-
-        // Check if the character exists and if not create it
-        if (!Directory.Exists(basePath)) 
-        {
-            Debug.Log("Character \"" + characterName + "\" not found, creating a new character...");
-            return CreateFreshCharacter(characterName);
-        }
 
         // Load config
-        string[] configFileLines = File.ReadAllLines(basePath + CONFIG_FILE);
+        string[] configFileLines = File.ReadAllLines(characterFolderPath + CONFIG_FILE);
 
         // Check for corruprion in config file
         if (!TryParseLinesFromConfig(ref configFileLines, ref characterData))
@@ -337,8 +342,11 @@ public static class CharacterLoader
     {
         string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + data.name;
 
-        // Idle Animation
+        
         data.idleAnim = LoadAnimationFromPath(basePath + IDLE_ANIM_FOLDER, IDLE_ANIM_NAME);
+        data.attackAnim = LoadAnimationFromPath(basePath + ATTACK_ANIM_FOLDER, ATTACK_ANIM_NAME);
+
+        // TODO -----------------------------------
     }
 
     private static AnimationClip LoadAnimationFromPath(string path, string animName)
@@ -346,23 +354,41 @@ public static class CharacterLoader
         AnimationClip animationClip = new AnimationClip();
         animationClip.name = animName;
         animationClip.frameRate = FRAMERATE;
+        
+        // Load all found sprites
+        List<Sprite> sprites = new List<Sprite>();
+        foreach (string file in Directory.GetFiles(path))
+        {
+            if (file.EndsWith(".png")
+             || file.EndsWith(".jpg")
+             || file.EndsWith(".jpeg")) 
+            {
+                sprites.Add(LoadSprite(file));
+            }
+        }
 
-        // LOAD ALL SPRITES
-        Sprite[] sprites = Resources.LoadAll<Sprite>(path);
-
+        // Create an animation curve of the found sprites
         EditorCurveBinding spriteBinding = new EditorCurveBinding();
         spriteBinding.type = typeof(SpriteRenderer);
         spriteBinding.path = "";
-        spriteBinding.propertyName = "Sprite"; 
+        spriteBinding.propertyName = "m_Sprite"; 
 
-        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Length];
-        for(int i = 0; i < (sprites.Length); i++) {
+        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Count];
+        for(int i = 0; i < (sprites.Count); i++) {
             spriteKeyFrames[i] = new ObjectReferenceKeyframe();
-            spriteKeyFrames[i].time = FRAME_DELAY * i;
+            spriteKeyFrames[i].time = i * FRAME_DELAY;
             spriteKeyFrames[i].value = sprites[i];
         }
         AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
 
         return animationClip;
+    }
+
+    private static Sprite LoadSprite(string path)
+    {
+        byte[] fileData = File.ReadAllBytes(path);
+        Texture2D tex = new Texture2D(2, 2);
+        tex.LoadImage(fileData);
+        return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
     }
 }

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5647845125660490591}
   - component: {fileID: 3022519993665421388}
   - component: {fileID: 2189515712695973059}
+  - component: {fileID: 7772971208455551118}
   m_Layer: 8
   m_Name: CharacterPreview
   m_TagString: Player
@@ -85,10 +86,10 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a41009031ad34c97ab474431eca307b, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,13 +109,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -128082562, guid: cc62f9291c2ca41a29c866c19d69416d, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: f6a7ef17fbece7c408ed17c4077e97e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.5}
+  m_DrawMode: 1
+  m_Size: {x: 12, y: 12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -130,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 7338588057921598052}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 796deb3aa70d4824cb337336cc52794e, type: 2}
+  m_Controller: {fileID: 9100000, guid: d018986eed86085408c70cd473d86ecc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -280,3 +281,16 @@ MonoBehaviour:
   JumpEndSound: {fileID: 0}
   DieSound: {fileID: 8300000, guid: 809eef587dd86438a9c00c01f11f1abe, type: 3}
   _randomSound: {fileID: 0}
+--- !u!114 &7772971208455551118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7338588057921598052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf110cc680957b24ab32fe051e8e4a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  callStart: 0

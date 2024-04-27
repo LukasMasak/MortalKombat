@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-
-public class SpriteAnimation : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
-    private List<Sprite> _animationFrames;
-    private float _framerate;
-    private SpriteRenderer _spriteRenderer;
+    [SerializeField] private TextMeshPro _characterLabel;
 
 
-    private int _currentFrame;
-    private bool _isPlaying = false;
+    private List<CharacterData> _allCharacters = new List<CharacterData>();
 
     // Start is called before the first frame update
     void Start()
     {
+        CharacterLoader.LoadAllCharacters(_allCharacters);
         
     }
 
