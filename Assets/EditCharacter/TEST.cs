@@ -11,7 +11,7 @@ public class TEST : MonoBehaviour
     void Start()
     {
         Animator animator = GetComponent<Animator>();
-        CharacterData data = CharacterLoader.LoadFromFile("Testing1");
+        CharacterData data = CharacterLoader.LoadFromFolder(Application.dataPath + "/Characters/Testing1");
 
         AnimatorOverrideController overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideController;

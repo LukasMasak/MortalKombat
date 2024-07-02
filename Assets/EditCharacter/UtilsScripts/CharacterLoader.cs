@@ -49,7 +49,7 @@ public static class CharacterLoader
 
         foreach (string folderPath in allPossibleCharacters)
         {
-            CharacterData loadedCharacter = LoadFromFile(folderPath);
+            CharacterData loadedCharacter = LoadFromFolder(folderPath);
             if (loadedCharacter.isValid) characters.Add(loadedCharacter);
         }
     }
@@ -57,7 +57,7 @@ public static class CharacterLoader
     
     // Loads CharacterData from the character folder using the name of the character
     // When the character is not present, creates a new one by that name
-    public static CharacterData LoadFromFile(string characterFolderPath)
+    public static CharacterData LoadFromFolder(string characterFolderPath)
     {
         string characterName = characterFolderPath.Substring(characterFolderPath.LastIndexOf("/") + 1);
         CharacterData characterData = new CharacterData{name = characterName};
@@ -65,7 +65,7 @@ public static class CharacterLoader
         // Load config
         string[] configFileLines = File.ReadAllLines(characterFolderPath + CONFIG_FILE);
 
-        // Check for corruprion in config file
+        // Check for corruption in config file
         if (!TryParseLinesFromConfig(ref configFileLines, ref characterData))
         {
             characterData.isValid = false;
@@ -74,7 +74,7 @@ public static class CharacterLoader
         characterData.isValid = true;
         
         // Check if animation folders exist
-        if (!CheckAnimationFolders(characterName))
+        if (!DoAnimationFoldersExist(characterName))
         {
             characterData.isValid = false;
             return characterData;
@@ -146,8 +146,7 @@ public static class CharacterLoader
         return configString;
     }
 
-    // Parse data from config file
-    // Returns if config was valid
+    // Parse data from config file and returns if config was valid
     private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
     {
         string errorString = "";
@@ -293,7 +292,7 @@ public static class CharacterLoader
     }
 
     // Check if all folders exist
-    private static bool CheckAnimationFolders(string characterName)
+    private static bool DoAnimationFoldersExist(string characterName)
     {
         string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + characterName;
         string errorString = "";
@@ -349,6 +348,7 @@ public static class CharacterLoader
         // TODO -----------------------------------
     }
 
+    // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
     private static AnimationClip LoadAnimationFromPath(string path, string animName)
     {
         AnimationClip animationClip = new AnimationClip();
@@ -365,6 +365,10 @@ public static class CharacterLoader
             {
                 sprites.Add(LoadSprite(file));
             }
+            else if (!file.EndsWith(".meta"))
+            {
+                Debug.LogWarning("Unknown sprite file type found " + file + " in directory " + path);
+            }
         }
 
         // Create an animation curve of the found sprites
@@ -373,6 +377,7 @@ public static class CharacterLoader
         spriteBinding.path = "";
         spriteBinding.propertyName = "m_Sprite"; 
 
+        // Setup the animation keys from the sprites
         ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Count];
         for(int i = 0; i < (sprites.Count); i++) {
             spriteKeyFrames[i] = new ObjectReferenceKeyframe();
@@ -384,6 +389,7 @@ public static class CharacterLoader
         return animationClip;
     }
 
+    // Load a single sprite from a file (no integrity checks are done)
     private static Sprite LoadSprite(string path)
     {
         byte[] fileData = File.ReadAllBytes(path);
