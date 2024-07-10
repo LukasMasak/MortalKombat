@@ -17,9 +17,11 @@ public static class CharacterLoader
     private const string JUMP_ANIM_FOLDER = "/JumpAnim";
     private const string HURT_ANIM_FOLDER = "/HurtAnim";
     private const string DEATH_ANIM_FOLDER = "/DeathAnim";
+
     private const string README_FILE = "/README.txt";
     private const string README_CONTENT =
      "Folder anim, yes, dont touch config, no no";
+
     private const string CONFIG_FILE = "/config.txt";
     private const string CONFIG_HP_NAME = "health";
     private const string CONFIG_DMG_NAME = "damage";
@@ -29,17 +31,23 @@ public static class CharacterLoader
     private const string CONFIG_ATK_POINT_NAME = "attackDistance";
     private const string CONFIG_ATK_SIZE_NAME = "attackPointSize";
 
+    private const string BUBBLE_ICON_FILE = "/icon";
+    private const string PREVIEW_FILE = "/preview";
+
+    private static readonly string[] SPRITE_FILE_TYPES = {".jpg", ".jpeg", ".png"};
+
 
     // ---------------Animation-Constants----------------------
     private const float FRAMERATE = 24f;
     private const float FRAME_DELAY = 1f / FRAMERATE;
     private const string IDLE_ANIM_NAME = "Idle";
     private const string ATTACK_ANIM_NAME = "Attack";
-    private const string MOVE_ANIM_NAME = "Move";
+    private const string WALK_ANIM_NAME = "Move";
     private const string BLOCK_ANIM_NAME = "Block";
     private const string JUMP_ANIM_NAME = "Jump";
     private const string HURT_ANIM_NAME = "Hurt";
     private const string DEATH_ANIM_NAME = "Death";
+
 
     // Loads all characters in the Characters folder
     public static void LoadAllCharacters(List<CharacterData> characters)
@@ -50,7 +58,11 @@ public static class CharacterLoader
         foreach (string folderPath in allPossibleCharacters)
         {
             CharacterData loadedCharacter = LoadFromFolder(folderPath);
-            if (loadedCharacter.isValid) characters.Add(loadedCharacter);
+            if (loadedCharacter.isValid) 
+            {
+                Debug.Log("Character " + loadedCharacter.name + " successfully loaded!");
+                characters.Add(loadedCharacter);
+            }
         }
     }
 
@@ -59,7 +71,12 @@ public static class CharacterLoader
     // When the character is not present, creates a new one by that name
     public static CharacterData LoadFromFolder(string characterFolderPath)
     {
-        string characterName = characterFolderPath.Substring(characterFolderPath.LastIndexOf("/") + 1);
+        // Find max index of last index of for \ and /
+        int backslashIdx = characterFolderPath.LastIndexOf("\\");
+        int frontslashIdx = characterFolderPath.LastIndexOf("/");
+        int usedIdx = backslashIdx < frontslashIdx ? frontslashIdx : backslashIdx;
+
+        string characterName = characterFolderPath.Substring(usedIdx + 1);
         CharacterData characterData = new CharacterData{name = characterName};
 
         // Load config
@@ -82,6 +99,9 @@ public static class CharacterLoader
 
         // Load sprites for the animations
         LoadAllAnimations(ref characterData);
+
+        // Load Bubble Icon and Preview
+        LoadBubbleIconAndPreview(ref characterData);
 
         return characterData;
     }
@@ -291,7 +311,7 @@ public static class CharacterLoader
         return true;
     }
 
-    // Check if all folders exist
+    // Check if all folders for a character exist
     private static bool DoAnimationFoldersExist(string characterName)
     {
         string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + characterName;
@@ -299,7 +319,7 @@ public static class CharacterLoader
 
         if (!Directory.Exists(basePath + IDLE_ANIM_FOLDER))
         {
-            errorString = "Folder for Idle Animation does not exist!";
+            errorString = "Folder for Idle Animation does not exist! " + basePath + IDLE_ANIM_FOLDER;
         }
         else if (!Directory.Exists(basePath + ATTACK_ANIM_FOLDER))
         {
@@ -344,8 +364,11 @@ public static class CharacterLoader
         
         data.idleAnim = LoadAnimationFromPath(basePath + IDLE_ANIM_FOLDER, IDLE_ANIM_NAME);
         data.attackAnim = LoadAnimationFromPath(basePath + ATTACK_ANIM_FOLDER, ATTACK_ANIM_NAME);
-
-        // TODO -----------------------------------
+        data.walkAnim  = LoadAnimationFromPath(basePath + WALK_ANIM_FOLDER, WALK_ANIM_NAME);
+        data.blockAnim = LoadAnimationFromPath(basePath + BLOCK_ANIM_FOLDER, BLOCK_ANIM_NAME);
+        data.jumpAnim = LoadAnimationFromPath(basePath + JUMP_ANIM_FOLDER, JUMP_ANIM_NAME);
+        data.deathAnim = LoadAnimationFromPath(basePath + DEATH_ANIM_FOLDER, DEATH_ANIM_NAME);
+        data.hurtAnim = LoadAnimationFromPath(basePath + HURT_ANIM_FOLDER, HURT_ANIM_NAME);
     }
 
     // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
@@ -387,6 +410,48 @@ public static class CharacterLoader
         AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
 
         return animationClip;
+    }
+
+    // Loads the bubble icon and preview icon of the character
+    private static void LoadBubbleIconAndPreview(ref CharacterData data)
+    {
+        string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + data.name;
+
+        // Icon loading checks for all accepted filetypes
+        bool iconLoaded = false;
+        string iconPath = basePath + BUBBLE_ICON_FILE;
+        foreach (string fileType in SPRITE_FILE_TYPES)
+        {
+            if (File.Exists(iconPath + fileType))
+            {
+                data.bubbleIcon = LoadSprite(iconPath + fileType);
+                iconLoaded = true;
+                break;
+            }
+        }
+        if (!iconLoaded)
+        {
+            data.isValid = false;
+            Debug.LogError("Character bubble icon could not be loaded! Must have name \"icon\" and filetype " + string.Join(", ", SPRITE_FILE_TYPES));
+        }
+
+        // Preview loading checks for all accepted filetypes
+        bool previewLoaded = false;
+        string previewPath = basePath + PREVIEW_FILE;
+        foreach (string fileType in SPRITE_FILE_TYPES)
+        {
+            if (File.Exists(previewPath + fileType))
+            {
+                data.preview = LoadSprite(previewPath + fileType);
+                previewLoaded = true;
+                break;
+            }
+        }
+        if (!previewLoaded)
+        {
+            data.isValid = false;
+            Debug.LogError("Character preview sprite could not be loaded! Must have name \"preview\" and filetype " + string.Join(", ", SPRITE_FILE_TYPES));
+        }
     }
 
     // Load a single sprite from a file (no integrity checks are done)

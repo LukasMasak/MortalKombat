@@ -3,5 +3,5 @@ jump=4
 health=100
 damage=20
 attackDistance=1,0
-attackFrame=0
+attackFrame=2
 attackPointSize=1

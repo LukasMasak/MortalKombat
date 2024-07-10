@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalState
 {
-    
+    static public List<CharacterData> AllCharacters = new List<CharacterData>();
     static public Characters Player1Character;
     static public Characters Player2Character;
 
@@ -43,7 +43,7 @@ public class GlobalState
         none
     }
 
-    // TODO implement
+    // TODO remove and replace
     public static List<string> GetCharacterList()
     {
         return new List<string>();

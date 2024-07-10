@@ -18,18 +18,31 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider _atkFrameSlider;
 
 
-    private List<CharacterData> _allCharacters = new List<CharacterData>();
+    private CharacterData _selectedCharacter;
 
     // Start is called before the first frame update
     void Start()
     {
-        CharacterLoader.LoadAllCharacters(_allCharacters);
+        ReloadAllCharacters();
         
+        _selectedCharacter = GlobalState.AllCharacters[0];
+        UpdateUIWithSelectedCharacter();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateUIWithSelectedCharacter()
     {
-        
+        _characterLabel.text = _selectedCharacter.name;
+        _hpSlider.value = _selectedCharacter.health;
+        _spdSlider.value = _selectedCharacter.speed;
+        _dmglider.value = _selectedCharacter.damage;
+        _atkSizeSlider.value = _selectedCharacter.attackSize;
+        _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
+        _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
+        _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
+    }
+
+    public void ReloadAllCharacters()
+    {
+        CharacterLoader.LoadAllCharacters(GlobalState.AllCharacters);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using TMPro;
 
 public class TEST : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class TEST : MonoBehaviour
         Animator animator = GetComponent<Animator>();
         CharacterData data = CharacterLoader.LoadFromFolder(Application.dataPath + "/Characters/Testing1");
 
-        AnimatorOverrideController overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+    
+        GetComponent<SpriteRenderer>().sprite = data.bubbleIcon;
+        /*AnimatorOverrideController overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
         animator.runtimeAnimatorController = overrideController;
 
-        overrideController["EmptyClip"] = data.idleAnim;
+        overrideController["EmptyClip"] = data.idleAnim;*/
         //Debug.Log(data.idleAnim.);
     }
 
@@ -28,5 +31,10 @@ public class TEST : MonoBehaviour
             callStart = false;
             Start();
         }
+    }
+
+    public void SetTest(TMP_Dropdown dropdown)
+    {
+        Debug.Log(dropdown.value);
     }
 }

@@ -21,7 +21,7 @@ public struct CharacterData
     public Sprite bubbleIcon;
     public AnimationClip idleAnim;
     public AnimationClip attackAnim;
-    public AnimationClip moveAnim;
+    public AnimationClip walkAnim;
     public AnimationClip blockAnim;
     public AnimationClip jumpAnim;
     public AnimationClip deathAnim;
