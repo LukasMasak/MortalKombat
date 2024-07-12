@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19356841, g: 0.05330256, b: 0.0014599939, a: 1}
+  m_IndirectSpecularColor: {r: 0.1935615, g: 0.053302154, b: 0.0014599201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 268743999}
   - component: {fileID: 268743998}
   m_Layer: 5
-  m_Name: Back
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _operationDelay: 1.04
+  _operationDelay: 1
 --- !u!114 &268743999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,12 +5005,12 @@ RectTransform:
   - {fileID: 1089885422}
   - {fileID: 117839021}
   - {fileID: 1388850231}
-  - {fileID: 268743997}
-  - {fileID: 1349963289}
+  - {fileID: 2143414980}
   - {fileID: 1844424579}
   - {fileID: 416308839}
   - {fileID: 697857770}
-  - {fileID: 2143414980}
+  - {fileID: 268743997}
+  - {fileID: 1349963289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6152,7 +6152,7 @@ GameObject:
   - component: {fileID: 1349963292}
   - component: {fileID: 1349963291}
   m_Layer: 5
-  m_Name: Save
+  m_Name: SaveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6221,7 +6221,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1349963292}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963786811}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: SaveCharacterChanges
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1349963292
 MonoBehaviour:
   m_ObjectHideFlags: 0
