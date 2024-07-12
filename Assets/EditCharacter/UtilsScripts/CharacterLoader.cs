@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
+using System.Linq;
 
 public static class CharacterLoader
 {
@@ -380,7 +381,28 @@ public static class CharacterLoader
         
         // Load all found sprites
         List<Sprite> sprites = new List<Sprite>();
-        foreach (string file in Directory.GetFiles(path))
+        List<string> allFiles = Directory.GetFiles(path).ToList();
+
+        // Sort all frames by the number at the end
+        allFiles.Sort((a,b) => {
+            string aFileNameOnly = a.Substring(a.LastIndexOf("\\") + 1).Split('.')[0];
+            string bFileNameOnly = b.Substring(b.LastIndexOf("\\") + 1).Split('.')[0];
+
+            if (!int.TryParse(aFileNameOnly.Substring(aFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int aNum))
+            {
+                Debug.LogError("Could not parse animation frame number of file: " + a + "\n" + "Animation will likely be incorrect!");
+            }
+
+            if (!int.TryParse(bFileNameOnly.Substring(aFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int bNum))
+            {
+                Debug.LogError("Could not parse animation frame number of file: " + b + "\n" + "Animation will likely be incorrect!");
+            }
+
+            return aNum.CompareTo(bNum);
+        });
+        
+        // Add all sprites to an array
+        foreach (string file in allFiles)
         {
             if (file.EndsWith(".png")
              || file.EndsWith(".jpg")

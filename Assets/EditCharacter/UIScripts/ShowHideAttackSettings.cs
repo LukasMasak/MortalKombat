@@ -13,15 +13,9 @@ public class ShowHideAttackSettings : MonoBehaviour
         GetComponent<TMP_Dropdown>().onValueChanged.AddListener(SetVisibility);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SetVisibility(int value)
     {
-        if (value == 0) _attackSetting.SetActive(true);
+        if (value == 1) _attackSetting.SetActive(true);
         else            _attackSetting.SetActive(false);
     }
 }

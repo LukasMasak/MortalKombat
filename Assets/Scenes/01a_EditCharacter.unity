@@ -1319,9 +1319,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7772971208983340520}
-        m_TargetAssemblyTypeName: TEST, Assembly-CSharp
-        m_MethodName: SetTest
+      - m_Target: {fileID: 963786811}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: SwitchAnimationDropdown
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 234689934}
@@ -2226,7 +2226,6 @@ GameObject:
   - component: {fileID: 416308839}
   - component: {fileID: 416308842}
   - component: {fileID: 416308841}
-  - component: {fileID: 416308843}
   m_Layer: 5
   m_Name: FolderButton
   m_TagString: Untagged
@@ -2295,19 +2294,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416308838}
   m_CullTransparentMesh: 1
---- !u!114 &416308843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416308838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _operationDelay: 0
 --- !u!1 &436491444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,9 +3554,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 963786806}
-        m_TargetAssemblyTypeName: EventController, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 963786811}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ReloadAllCharacters
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5038,6 +5024,7 @@ MonoBehaviour:
   _atkXSlider: {fileID: 1948901192}
   _atkYSlider: {fileID: 2038733208}
   _atkFrameSlider: {fileID: 654156518}
+  _previewAnimator: {fileID: 8610575885535300240}
 --- !u!1 &974996066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8331,7 +8318,7 @@ GameObject:
   - component: {fileID: 1805376504}
   - component: {fileID: 1805376503}
   m_Layer: 5
-  m_Name: AnimationDropdown
+  m_Name: CharacterDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
