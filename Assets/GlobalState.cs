@@ -43,9 +43,13 @@ public class GlobalState
         none
     }
 
-    // TODO remove and replace
-    public static List<string> GetCharacterList()
+    // Returns the index of the character in the AllCharacters list or -1
+    public static int GetCharacterIndexFromName(string name)
     {
-        return new List<string>();
+        for (int i = 0; i < AllCharacters.Count; i++)
+        {
+            if (AllCharacters[i].name == name) return i;
+        }
+        return -1;
     }
 }

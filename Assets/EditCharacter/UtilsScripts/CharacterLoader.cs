@@ -37,6 +37,47 @@ public static class CharacterLoader
 
     private static readonly string[] SPRITE_FILE_TYPES = {".jpg", ".jpeg", ".png"};
 
+    private static readonly float[] ICON_SPRITE =
+    {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     1,1,1,0, 1,1,1,0, 1,1,1,0, 1,0,0,1,
+     0,1,0,0, 1,0,0,0, 1,0,1,0, 1,0,1,1,
+     0,1,0,0, 1,0,0,0, 1,0,1,0, 1,1,0,1,
+     
+     0,1,0,0, 1,0,0,0, 1,0,1,0, 1,0,0,1,
+     1,1,1,0, 1,1,1,0, 1,1,1,0, 1,0,0,1,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,};
+
+    private static readonly float[] PREVIEW_SPRITE =
+    {
+     0,0,0,0, 1,1,0,0, 0,1,1,0, 0,0,0,0,
+     0,0,0,0, 0,1,0,0, 0,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,1,0,0, 0,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,1,0, 0,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,1,0, 0,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,1, 1,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,1, 1,0,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,1, 1,0,0,0, 0,0,0,0,
+     0,0,1,1, 1,1,1,1, 1,1,1,1, 1,1,0,0,
+     0,0,1,0, 1,1,0,1, 1,0,1,1, 0,0,0,0,
+     0,0,1,0, 0,0,0,1, 1,0,0,0, 0,0,0,0,
+     0,0,0,1, 0,0,1,1, 1,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,1,1,1, 1,1,1,0, 0,0,0,0,
+     0,0,0,0, 0,1,1,1, 1,1,1,0, 0,0,0,0,
+     0,0,0,0, 0,0,1,1, 1,1,0,0, 0,0,0,0,
+     0,0,0,0, 0,0,0,1, 1,0,0,0, 0,0,0,0,
+    };
+
 
     // ---------------Animation-Constants----------------------
     private const float FRAMERATE = 24f;
@@ -108,10 +149,23 @@ public static class CharacterLoader
     }
 
     // Creates a fresh character from name with default values
-    public static CharacterData CreateFreshCharacter(string name)
+    // Return an index in the AllCharacters List in Global State
+    public static int CreateFreshCharacter(string name)
     {
         CharacterData characterData = GetDefaultCharacterData(name);
         string basePath = Application.dataPath  + CHARACTER_FOLDER + "/" + name;
+
+        if (Directory.Exists(basePath))
+        {
+            Debug.LogWarning("Character of this name already exists!");   
+            int idx = GlobalState.GetCharacterIndexFromName(name);
+            if (idx == -1) 
+            {
+                Debug.LogError("Characters folder exists but character is not loaded correctly! -> Wrong character data");
+                idx = 0;
+            }
+            return idx;
+        }
 
         // Create all directories
         Directory.CreateDirectory(basePath);
@@ -133,7 +187,24 @@ public static class CharacterLoader
         byte[] configContentBytes = new UTF8Encoding(true).GetBytes(GenerateConfigString(characterData));
         configFile.Write(configContentBytes, 0, configContentBytes.Length);
 
-        return characterData;
+        // Create a temp icon
+        Texture2D tempIcon = new Texture2D(16, 16, TextureFormat.RFloat, false);
+        tempIcon.SetPixelData(ICON_SPRITE, 0);
+        SaveTextureAsPNG(tempIcon, basePath + BUBBLE_ICON_FILE + ".png");
+
+        // Create a preview icon
+        Texture2D tempPreview = new Texture2D(16, 16, TextureFormat.RFloat, false);
+        tempPreview.SetPixelData(PREVIEW_SPRITE, 0);
+        SaveTextureAsPNG(tempPreview, basePath + PREVIEW_FILE + ".png");
+
+        GlobalState.AllCharacters.Add(characterData);
+        return GlobalState.AllCharacters.Count - 1;
+    }
+
+    private static void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
+    {
+        byte[] _bytes =_texture.EncodeToPNG();
+        File.WriteAllBytes(_fullPath, _bytes);
     }
 
     // Creates a default instance of CharacterData

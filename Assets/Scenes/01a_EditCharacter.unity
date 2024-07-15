@@ -3468,7 +3468,6 @@ GameObject:
   - component: {fileID: 697857774}
   - component: {fileID: 697857773}
   - component: {fileID: 697857772}
-  - component: {fileID: 697857771}
   m_Layer: 5
   m_Name: ReloadButton
   m_TagString: Untagged
@@ -3497,19 +3496,6 @@ RectTransform:
   m_AnchoredPosition: {x: -513.40027, y: -385.05014}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &697857771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697857769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _operationDelay: 0
 --- !u!114 &697857772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5025,6 +5011,7 @@ MonoBehaviour:
   _atkYSlider: {fileID: 2038733208}
   _atkFrameSlider: {fileID: 654156518}
   _previewAnimator: {fileID: 8610575885535300240}
+  _characterSelectDropdown: {fileID: 1805376503}
 --- !u!1 &974996066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8396,11 +8383,21 @@ MonoBehaviour:
     m_Options:
     - m_Text: + Add New Character
       m_Image: {fileID: 0}
-    - m_Text: Tuanek
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 963786811}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: SwitchCharacterDropdown
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1805376503}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0
 --- !u!114 &1805376504
 MonoBehaviour:
