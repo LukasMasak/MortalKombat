@@ -20,6 +20,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Animator _previewAnimator;
 
     [SerializeField] private TMP_Dropdown _characterSelectDropdown;
+    [SerializeField] private TMP_Dropdown _animationSelectDropdown;
+    [SerializeField] private TMP_InputField _characterNameInput;
 
     public enum AnimationIndexes {
         Idle = 0,
@@ -28,7 +30,9 @@ public class MenuManager : MonoBehaviour
         Block,
         Jump,
         Hit,
-        Death
+        Death,
+        Icon,
+        Preview
     }
 
 
@@ -75,7 +79,7 @@ public class MenuManager : MonoBehaviour
             _characterSelectDropdown.options[0].text
         };
 
-        _characterSelectDropdown.options = new List<TMP_Dropdown.OptionData>();
+        _characterSelectDropdown.ClearOptions();
 
         // Gather all character names
         foreach (CharacterData character in GlobalState.AllCharacters)
@@ -85,21 +89,41 @@ public class MenuManager : MonoBehaviour
         _characterSelectDropdown.AddOptions(characterNames);
     }
 
-    // Callback for selecting characters in dropdown
-    public void SwitchCharacterDropdown(TMP_Dropdown dropdown)
+    // Toggle for character dropdown selection
+    bool isSelectionValid = true;
+    public void CharacterDropdownToggle()
     {
-        int characterIdx;
-        Debug.Log(dropdown.value + " sdasdasdad");
-        // Create a new character
-        if (dropdown.value == 0) 
+        if (_characterSelectDropdown.IsExpanded)
         {
-            characterIdx = CharacterLoader.CreateFreshCharacter("Test of a button");
+            _characterSelectDropdown.Hide();
+            isSelectionValid = false;
+        }
+        else
+        {
+            _characterSelectDropdown.Show();
+            isSelectionValid = true;
+        }
+    }
+
+    // Callback for selecting characters in dropdown
+    public void SwitchCharacterDropdown()
+    {
+        if (!isSelectionValid) return;
+        
+        int characterIdx;
+
+        // Create a new character
+        if (_characterSelectDropdown.value == 0) 
+        {
+            if (_characterNameInput.text.Length < 1) return;
+
+            characterIdx = CharacterLoader.CreateFreshCharacter(_characterNameInput.text);
             UpdateCharacterSelectDropdownOptions();
         }
         // Switch to a new character
         else 
         {
-            characterIdx = dropdown.value - 1; // first option is Add character
+            characterIdx = _characterSelectDropdown.value - 1; // first option is Add character
         }
 
         _selectedCharacter = GlobalState.AllCharacters[characterIdx];
@@ -108,9 +132,9 @@ public class MenuManager : MonoBehaviour
     }
 
     // Callback for selecting animation in dropdown
-    public void SwitchAnimationDropdown(TMP_Dropdown dropdown)
+    public void SwitchAnimationDropdown()
     {
-        SwitchPreviewAnimation(dropdown.value);
+        SwitchPreviewAnimation(_animationSelectDropdown.value);
     }
 
     // Switch the preview animation based on given animation index
@@ -121,31 +145,50 @@ public class MenuManager : MonoBehaviour
 
         if (idx == (int)AnimationIndexes.Idle)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.idleAnim;
         }
         else if (idx == (int)AnimationIndexes.Attack)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.attackAnim;
         }
         else if (idx == (int)AnimationIndexes.Move)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.walkAnim;
         }
         else if (idx == (int)AnimationIndexes.Block)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.blockAnim;
         }
         else if (idx == (int)AnimationIndexes.Jump)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.jumpAnim;
         }
         else if (idx == (int)AnimationIndexes.Hit)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.hurtAnim;
         }
         else if (idx == (int)AnimationIndexes.Death)
         {
+            _previewAnimator.enabled = true;
             overrideController["EmptyClip"] = _selectedCharacter.deathAnim;
         }
+        else if (idx == (int)AnimationIndexes.Icon)
+        {
+            _previewAnimator.enabled = false;
+            _previewAnimator.GetComponent<SpriteRenderer>().sprite = _selectedCharacter.bubbleIcon;
+        }
+        else if (idx == (int)AnimationIndexes.Preview)
+        {
+            _previewAnimator.enabled = false;
+            _previewAnimator.GetComponent<SpriteRenderer>().sprite = _selectedCharacter.preview;
+        }
+
+        _animationSelectDropdown.value = idx;
     }
 }

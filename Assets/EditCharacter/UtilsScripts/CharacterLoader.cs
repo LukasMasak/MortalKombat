@@ -97,6 +97,8 @@ public static class CharacterLoader
         string basePath = Application.dataPath + CHARACTER_FOLDER;
         string[] allPossibleCharacters = Directory.GetDirectories(basePath);
 
+        GlobalState.AllCharacters.Clear();
+
         foreach (string folderPath in allPossibleCharacters)
         {
             CharacterData loadedCharacter = LoadFromFolder(folderPath);
@@ -157,7 +159,7 @@ public static class CharacterLoader
 
         if (Directory.Exists(basePath))
         {
-            Debug.LogWarning("Character of this name already exists!");   
+            Debug.LogWarning("Character of name " + name + " already exists!");   
             int idx = GlobalState.GetCharacterIndexFromName(name);
             if (idx == -1) 
             {
