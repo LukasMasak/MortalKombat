@@ -113,7 +113,7 @@ public static class CharacterLoader
     
     // Loads CharacterData from the character folder using the name of the character
     // When the character is not present, creates a new one by that name
-    public static CharacterData LoadFromFolder(string characterFolderPath)
+    private static CharacterData LoadFromFolder(string characterFolderPath)
     {
         // Find max index of last index of for \ and /
         int backslashIdx = characterFolderPath.LastIndexOf("\\");
@@ -150,6 +150,7 @@ public static class CharacterLoader
         return characterData;
     }
 
+
     // Creates a fresh character from name with default values
     // Return an index in the AllCharacters List in Global State
     public static int CreateFreshCharacter(string name)
@@ -170,7 +171,14 @@ public static class CharacterLoader
         }
 
         // Create all directories
-        Directory.CreateDirectory(basePath);
+        try{
+            Directory.CreateDirectory(basePath);
+        }
+        catch (IOException e)
+        {
+            Debug.LogWarning("Invalid directory name! Use valid characters. Full error: " + e.ToString());
+            return 0;
+        }
         Directory.CreateDirectory(basePath + IDLE_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + ATTACK_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + WALK_ANIM_FOLDER);
@@ -178,36 +186,67 @@ public static class CharacterLoader
         Directory.CreateDirectory(basePath + JUMP_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + HURT_ANIM_FOLDER);
         Directory.CreateDirectory(basePath + DEATH_ANIM_FOLDER);
+        
 
         // Create the README file
         FileStream readmeFile = File.Create(basePath + README_FILE);
         byte[] readmeContentBytes = new UTF8Encoding(true).GetBytes(README_CONTENT);
         readmeFile.Write(readmeContentBytes, 0, readmeContentBytes.Length);
+        readmeFile.Close();
 
         // Create the Config file
         FileStream configFile = File.Create(basePath + CONFIG_FILE);
         byte[] configContentBytes = new UTF8Encoding(true).GetBytes(GenerateConfigString(characterData));
         configFile.Write(configContentBytes, 0, configContentBytes.Length);
+        configFile.Close();
 
         // Create a temp icon
         Texture2D tempIcon = new Texture2D(16, 16, TextureFormat.RFloat, false);
         tempIcon.SetPixelData(ICON_SPRITE, 0);
+        tempIcon.filterMode = FilterMode.Point;
         SaveTextureAsPNG(tempIcon, basePath + BUBBLE_ICON_FILE + ".png");
+        characterData.bubbleIcon = LoadSprite(basePath + BUBBLE_ICON_FILE + ".png");
 
         // Create a preview icon
         Texture2D tempPreview = new Texture2D(16, 16, TextureFormat.RFloat, false);
         tempPreview.SetPixelData(PREVIEW_SPRITE, 0);
+        tempPreview.filterMode = FilterMode.Point;
         SaveTextureAsPNG(tempPreview, basePath + PREVIEW_FILE + ".png");
+        characterData.preview = LoadSprite(basePath + PREVIEW_FILE + ".png");
 
         GlobalState.AllCharacters.Add(characterData);
+        AssetDatabase.ImportAsset("Assets" + CHARACTER_FOLDER + "/" + name, ImportAssetOptions.ImportRecursive);
+
         return GlobalState.AllCharacters.Count - 1;
     }
 
+
+    // Completelly deletes a character folder with all files 
+    public static void DeleteCharacterFolder(string characterName)
+    {
+        string path = Application.dataPath  + CHARACTER_FOLDER + "/" + characterName;
+        
+        // Delete the meta file
+        if (File.Exists(path + ".meta")) {
+            File.Delete(path + ".meta");
+        }
+        
+        // Delete the folder
+        if (Directory.Exists(path)) {
+            Directory.Delete(path, true);
+        }
+
+        Debug.Log("Deleted character " + characterName +". In path " + path);
+    }
+
+
+    // Saves a given texture a given full path
     private static void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
     {
         byte[] _bytes =_texture.EncodeToPNG();
         File.WriteAllBytes(_fullPath, _bytes);
     }
+
 
     // Creates a default instance of CharacterData
     private static CharacterData GetDefaultCharacterData(string characterName)
@@ -225,6 +264,7 @@ public static class CharacterLoader
         };
     }
 
+
     // Generates the config string from CharacterData
     private static string GenerateConfigString(CharacterData data)
     {
@@ -239,6 +279,7 @@ public static class CharacterLoader
         configString += CONFIG_ATK_SIZE_NAME + "=" + data.attackSize + "\n";
         return configString;
     }
+
 
     // Parse data from config file and returns if config was valid
     private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
@@ -385,6 +426,7 @@ public static class CharacterLoader
         return true;
     }
 
+
     // Check if all folders for a character exist
     private static bool DoAnimationFoldersExist(string characterName)
     {
@@ -430,12 +472,12 @@ public static class CharacterLoader
         return true;
     }
 
+
     // Loads all animations for the character
     private static void LoadAllAnimations(ref CharacterData data)
     {
         string basePath = Application.dataPath + CHARACTER_FOLDER + "/" + data.name;
 
-        
         data.idleAnim = LoadAnimationFromPath(basePath + IDLE_ANIM_FOLDER, IDLE_ANIM_NAME);
         data.attackAnim = LoadAnimationFromPath(basePath + ATTACK_ANIM_FOLDER, ATTACK_ANIM_NAME);
         data.walkAnim  = LoadAnimationFromPath(basePath + WALK_ANIM_FOLDER, WALK_ANIM_NAME);
@@ -444,6 +486,7 @@ public static class CharacterLoader
         data.deathAnim = LoadAnimationFromPath(basePath + DEATH_ANIM_FOLDER, DEATH_ANIM_NAME);
         data.hurtAnim = LoadAnimationFromPath(basePath + HURT_ANIM_FOLDER, HURT_ANIM_NAME);
     }
+
 
     // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
     private static AnimationClip LoadAnimationFromPath(string path, string animName)
@@ -507,6 +550,7 @@ public static class CharacterLoader
         return animationClip;
     }
 
+
     // Loads the bubble icon and preview icon of the character
     private static void LoadBubbleIconAndPreview(ref CharacterData data)
     {
@@ -549,12 +593,19 @@ public static class CharacterLoader
         }
     }
 
+
     // Load a single sprite from a file (no integrity checks are done)
     private static Sprite LoadSprite(string path)
     {
         byte[] fileData = File.ReadAllBytes(path);
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(fileData);
+
+        // Case of default icon and preview
+        if (tex.width == 16)
+        {
+            tex.filterMode = FilterMode.Point;
+        }
         return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
     }
 }

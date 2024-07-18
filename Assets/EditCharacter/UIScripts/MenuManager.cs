@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +21,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Animator _previewAnimator;
 
-    [SerializeField] private TMP_Dropdown _characterSelectDropdown;
+    //[SerializeField] private TMP_Dropdown _characterSelectDropdown;
     [SerializeField] private TMP_Dropdown _animationSelectDropdown;
     [SerializeField] private TMP_InputField _characterNameInput;
 
@@ -35,9 +37,8 @@ public class MenuManager : MonoBehaviour
         Preview
     }
 
-
     private CharacterData _selectedCharacter;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -63,73 +64,39 @@ public class MenuManager : MonoBehaviour
         _selectedCharacter = GlobalState.AllCharacters[0];
         UpdateStatsWithSelectedCharacter();
         SwitchPreviewAnimation(0);
-        UpdateCharacterSelectDropdownOptions();
     }
 
     public void SaveCharacterChanges()
     {
         // TODO
+        AssetDatabase.Refresh();
     }
 
-    public void UpdateCharacterSelectDropdownOptions()
+
+    // Callback for selecting characters in CharacterSelectMenu
+    public void SwitchCharacterToIdx(int idx)
     {
-        // Add the first option which is the add charater option
-        List<string> characterNames = new List<string>
-        {
-            _characterSelectDropdown.options[0].text
-        };
-
-        _characterSelectDropdown.ClearOptions();
-
-        // Gather all character names
-        foreach (CharacterData character in GlobalState.AllCharacters)
-        {
-            characterNames.Add(character.name);
-        }
-        _characterSelectDropdown.AddOptions(characterNames);
-    }
-
-    // Toggle for character dropdown selection
-    bool isSelectionValid = true;
-    public void CharacterDropdownToggle()
-    {
-        if (_characterSelectDropdown.IsExpanded)
-        {
-            _characterSelectDropdown.Hide();
-            isSelectionValid = false;
-        }
-        else
-        {
-            _characterSelectDropdown.Show();
-            isSelectionValid = true;
-        }
-    }
-
-    // Callback for selecting characters in dropdown
-    public void SwitchCharacterDropdown()
-    {
-        if (!isSelectionValid) return;
-        
         int characterIdx;
 
         // Create a new character
-        if (_characterSelectDropdown.value == 0) 
+        if (idx == 0) 
         {
             if (_characterNameInput.text.Length < 1) return;
 
             characterIdx = CharacterLoader.CreateFreshCharacter(_characterNameInput.text);
-            UpdateCharacterSelectDropdownOptions();
+            _characterNameInput.text = "";
         }
         // Switch to a new character
         else 
         {
-            characterIdx = _characterSelectDropdown.value - 1; // first option is Add character
+            characterIdx = idx - 1; // first option is Add character
         }
 
         _selectedCharacter = GlobalState.AllCharacters[characterIdx];
         UpdateStatsWithSelectedCharacter();
         SwitchPreviewAnimation(0);
     }
+
 
     // Callback for selecting animation in dropdown
     public void SwitchAnimationDropdown()
