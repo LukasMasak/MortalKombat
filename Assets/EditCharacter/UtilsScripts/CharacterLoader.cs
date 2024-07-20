@@ -110,46 +110,6 @@ public static class CharacterLoader
         }
     }
 
-    
-    // Loads CharacterData from the character folder using the name of the character
-    // When the character is not present, creates a new one by that name
-    private static CharacterData LoadFromFolder(string characterFolderPath)
-    {
-        // Find max index of last index of for \ and /
-        int backslashIdx = characterFolderPath.LastIndexOf("\\");
-        int frontslashIdx = characterFolderPath.LastIndexOf("/");
-        int usedIdx = backslashIdx < frontslashIdx ? frontslashIdx : backslashIdx;
-
-        string characterName = characterFolderPath.Substring(usedIdx + 1);
-        CharacterData characterData = new CharacterData{name = characterName};
-
-        // Load config
-        string[] configFileLines = File.ReadAllLines(characterFolderPath + CONFIG_FILE);
-
-        // Check for corruption in config file
-        if (!TryParseLinesFromConfig(ref configFileLines, ref characterData))
-        {
-            characterData.isValid = false;
-            return characterData;
-        }
-        characterData.isValid = true;
-        
-        // Check if animation folders exist
-        if (!DoAnimationFoldersExist(characterName))
-        {
-            characterData.isValid = false;
-            return characterData;
-        }
-
-        // Load sprites for the animations
-        LoadAllAnimations(ref characterData);
-
-        // Load Bubble Icon and Preview
-        LoadBubbleIconAndPreview(ref characterData);
-
-        return characterData;
-    }
-
 
     // Creates a fresh character from name with default values
     // Return an index in the AllCharacters List in Global State
@@ -240,6 +200,63 @@ public static class CharacterLoader
     }
 
 
+    // Saves a config of a character
+    public static void SaveConfigOfCharacter(CharacterData data)
+    {
+        string basePath = Application.dataPath  + CHARACTER_FOLDER + "/" + data.name;
+
+        if (File.Exists(basePath + CONFIG_FILE))
+        {
+            File.Delete(basePath + CONFIG_FILE);
+        }
+       
+        FileStream configFile = File.Create(basePath + CONFIG_FILE);
+        byte[] configContentBytes = new UTF8Encoding(true).GetBytes(GenerateConfigString(data));
+        configFile.Write(configContentBytes, 0, configContentBytes.Length);
+        configFile.Close();
+    }
+
+
+    // Loads CharacterData from the character folder using the name of the character
+    // When the character is not present, creates a new one by that name
+    private static CharacterData LoadFromFolder(string characterFolderPath)
+    {
+        // Find max index of last index of for \ and /
+        int backslashIdx = characterFolderPath.LastIndexOf("\\");
+        int frontslashIdx = characterFolderPath.LastIndexOf("/");
+        int usedIdx = backslashIdx < frontslashIdx ? frontslashIdx : backslashIdx;
+
+        string characterName = characterFolderPath.Substring(usedIdx + 1);
+        CharacterData characterData = new CharacterData{name = characterName};
+
+        // Load config
+        string[] configFileLines = File.ReadAllLines(characterFolderPath + CONFIG_FILE);
+
+        // Check for corruption in config file
+        if (!TryParseLinesFromConfig(ref configFileLines, ref characterData))
+        {
+            characterData.isValid = false;
+            return characterData;
+        }
+        characterData.isValid = true;
+        
+        // Check if animation folders exist
+        if (!DoAnimationFoldersExist(characterName))
+        {
+            characterData.isValid = false;
+            return characterData;
+        }
+
+        // Load sprites for the animations
+        LoadAllAnimations(ref characterData);
+
+        // Load Bubble Icon and Preview
+        LoadBubbleIconAndPreview(ref characterData);
+
+        return characterData;
+    }
+
+
     // Saves a given texture a given full path
     private static void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
     {
@@ -255,7 +272,7 @@ public static class CharacterLoader
         {
             name = characterName,
             speed = 5,
-            jump = 4,
+            jump = 2,
             health = 100,
             damage = 20,
             attackPointOffset = new Vector2(1,0),

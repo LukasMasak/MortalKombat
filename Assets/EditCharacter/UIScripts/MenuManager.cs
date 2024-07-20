@@ -12,7 +12,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _characterLabel;
     [SerializeField] private Slider _hpSlider;
     [SerializeField] private Slider _spdSlider;
-    [SerializeField] private Slider _dmglider;
+    [SerializeField] private Slider _dmgSlider;
+    [SerializeField] private Slider _jmpSlider;
 
     [SerializeField] private Slider _atkSizeSlider;
     [SerializeField] private Slider _atkXSlider;
@@ -21,7 +22,6 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Animator _previewAnimator;
 
-    //[SerializeField] private TMP_Dropdown _characterSelectDropdown;
     [SerializeField] private TMP_Dropdown _animationSelectDropdown;
     [SerializeField] private TMP_InputField _characterNameInput;
 
@@ -46,18 +46,23 @@ public class MenuManager : MonoBehaviour
         ReloadAllCharacters();
     }
 
+
+    // Updates the UI with the loaded stats
     private void UpdateStatsWithSelectedCharacter()
     {
         _characterLabel.text = _selectedCharacter.name;
         _hpSlider.value = _selectedCharacter.health;
         _spdSlider.value = _selectedCharacter.speed;
-        _dmglider.value = _selectedCharacter.damage;
+        _dmgSlider.value = _selectedCharacter.damage;
+        _jmpSlider.value = _selectedCharacter.jump;
         _atkSizeSlider.value = _selectedCharacter.attackSize;
         _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
         _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
     }
 
+
+    // Reloads all characters
     public void ReloadAllCharacters()
     {
         CharacterLoader.LoadAllCharacters(GlobalState.AllCharacters);
@@ -66,10 +71,23 @@ public class MenuManager : MonoBehaviour
         SwitchPreviewAnimation(0);
     }
 
+
+    // Saves all changes made in the UI elements
     public void SaveCharacterChanges()
     {
-        // TODO
-        AssetDatabase.Refresh();
+        int charIdx = GlobalState.AllCharacters.IndexOf(_selectedCharacter);
+
+        _selectedCharacter.health = (uint)_hpSlider.value;
+        _selectedCharacter.speed = _spdSlider.value;
+        _selectedCharacter.damage = (uint)_dmgSlider.value;
+        _selectedCharacter.jump = _jmpSlider.value;
+        _selectedCharacter.attackSize = _atkSizeSlider.value;
+        _selectedCharacter.attackPointOffset.x = _atkXSlider.value;
+        _selectedCharacter.attackPointOffset.y = _atkYSlider.value;
+        _selectedCharacter.attackFrameIdx = (uint)_atkFrameSlider.value;
+
+        GlobalState.AllCharacters[charIdx] = _selectedCharacter;
+        CharacterLoader.SaveConfigOfCharacter(_selectedCharacter);
     }
 
 
@@ -103,6 +121,7 @@ public class MenuManager : MonoBehaviour
     {
         SwitchPreviewAnimation(_animationSelectDropdown.value);
     }
+
 
     // Switch the preview animation based on given animation index
     private void SwitchPreviewAnimation(int idx)
