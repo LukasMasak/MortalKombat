@@ -10,6 +10,7 @@ public class CharacterListManager : MonoBehaviour
     [SerializeField] private GameObject _characterSelectMenu;
     [SerializeField] private RectTransform _contentTransform;
     [SerializeField] private GameObject _itemPrefab;
+    [SerializeField] private GameObject _deleteConfirmationPrefab;
 
     [SerializeField] private string _addCharacterText = "+ Add Character";
 
@@ -65,7 +66,7 @@ public class CharacterListManager : MonoBehaviour
             Button characterDeleteButton = characterItem.GetChild(0).GetComponent<Button>();
             Button characterTextButton = characterItem.GetChild(1).GetComponent<Button>();
             characterTextButton.GetComponent<Button>().onClick.AddListener(delegate{_menuManager.SwitchCharacterToIdx(characterItem.GetSiblingIndex()); ToggleCharacterSelect();});
-            characterDeleteButton.GetComponent<Button>().onClick.AddListener(delegate{DeleteCharacter(characterItem.GetSiblingIndex() - 1);});
+            characterDeleteButton.GetComponent<Button>().onClick.AddListener(delegate{AskToDeleteACharacter(characterItem.GetSiblingIndex() - 1);});
 
             characterIdx += 1;
         }
@@ -95,7 +96,7 @@ public class CharacterListManager : MonoBehaviour
 
 
     // Deletes the selected character
-    public void DeleteCharacter(int idx)
+    public void AskToDeleteACharacter(int idx)
     {
         if (idx >= GlobalState.AllCharacters.Count)
         {
@@ -103,8 +104,9 @@ public class CharacterListManager : MonoBehaviour
             return;
         }
 
-        CharacterLoader.DeleteCharacterFolder(GlobalState.AllCharacters[idx].name);
-        GlobalState.AllCharacters.Remove(GlobalState.AllCharacters[idx]);
-        RefreshCharactersMenu();
+        // Create a confirm box
+        GameObject deleteConfirmationInstance = Instantiate(_deleteConfirmationPrefab, transform.parent);
+        ConfirmDeletionBox confirmDeletionBox = deleteConfirmationInstance.GetComponent<ConfirmDeletionBox>();
+        confirmDeletionBox.Initialize(this, GlobalState.AllCharacters[idx]);
     }
 }

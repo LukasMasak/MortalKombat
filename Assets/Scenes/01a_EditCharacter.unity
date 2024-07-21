@@ -2551,6 +2551,8 @@ MonoBehaviour:
   _contentTransform: {fileID: 793477936}
   _itemPrefab: {fileID: 867241904850958322, guid: b07d54e56996bcf4897f323f7bbea1e3,
     type: 3}
+  _deleteConfirmationPrefab: {fileID: 921759383378411967, guid: a81d4e297fc2cc14aa5ebeb8eeb41d2b,
+    type: 3}
   _addCharacterText: + Add Character
 --- !u!1 &436491444
 GameObject:

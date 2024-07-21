@@ -175,7 +175,6 @@ public static class CharacterLoader
         characterData.preview = LoadSprite(basePath + PREVIEW_FILE + ".png");
 
         GlobalState.AllCharacters.Add(characterData);
-        AssetDatabase.ImportAsset("Assets" + CHARACTER_FOLDER + "/" + name, ImportAssetOptions.ImportRecursive);
 
         return GlobalState.AllCharacters.Count - 1;
     }
