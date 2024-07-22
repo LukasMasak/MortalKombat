@@ -771,10 +771,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114029825}
-        m_TargetAssemblyTypeName: EventController, Assembly-CSharp
-        m_MethodName: DebugPrint
-        m_Mode: 1
+      - m_Target: {fileID: 8610575885535300240}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5142,7 +5142,6 @@ GameObject:
   - component: {fileID: 868895518}
   - component: {fileID: 868895517}
   - component: {fileID: 868895516}
-  - component: {fileID: 868895515}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -5170,19 +5169,6 @@ RectTransform:
   m_AnchoredPosition: {x: -93.34548, y: -385.05014}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &868895515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 868895513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _operationDelay: 0
 --- !u!114 &868895516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5227,10 +5213,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 868895515}
-        m_TargetAssemblyTypeName: EventController, Assembly-CSharp
-        m_MethodName: DebugPrint
-        m_Mode: 1
+      - m_Target: {fileID: 8610575885535300240}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: set_speed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10076,7 +10062,6 @@ GameObject:
   - component: {fileID: 1950514838}
   - component: {fileID: 1950514837}
   - component: {fileID: 1950514836}
-  - component: {fileID: 1950514835}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -10104,19 +10089,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.5474735e-13, y: -385.05014}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1950514835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950514833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _operationDelay: 0
 --- !u!114 &1950514836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10161,17 +10133,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1950514835}
-        m_TargetAssemblyTypeName: EventController, Assembly-CSharp
-        m_MethodName: DebugPrint
-        m_Mode: 1
+      - m_Target: {fileID: 8610575885535300240}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: set_speed
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1950514837
 MonoBehaviour:
