@@ -80,15 +80,15 @@ public static class CharacterLoader
 
 
     // ---------------Animation-Constants----------------------
-    private const float FRAMERATE = 24f;
-    private const float FRAME_DELAY = 1f / FRAMERATE;
-    private const string IDLE_ANIM_NAME = "Idle";
-    private const string ATTACK_ANIM_NAME = "Attack";
-    private const string WALK_ANIM_NAME = "Move";
-    private const string BLOCK_ANIM_NAME = "Block";
-    private const string JUMP_ANIM_NAME = "Jump";
-    private const string HURT_ANIM_NAME = "Hurt";
-    private const string DEATH_ANIM_NAME = "Death";
+    public const float FRAMERATE = 24f;
+    public const float FRAME_DELAY = 1f / FRAMERATE;
+    public const string IDLE_ANIM_NAME = "Idle";
+    public const string ATTACK_ANIM_NAME = "Attack";
+    public const string WALK_ANIM_NAME = "Move";
+    public const string BLOCK_ANIM_NAME = "Block";
+    public const string JUMP_ANIM_NAME = "Jump";
+    public const string HURT_ANIM_NAME = "Hurt";
+    public const string DEATH_ANIM_NAME = "Death";
 
 
     // Loads all characters in the Characters folder
@@ -290,7 +290,7 @@ public static class CharacterLoader
         configString += CONFIG_HP_NAME + "=" + data.health + "\n";
         configString += CONFIG_DMG_NAME + "=" + data.damage + "\n";
         configString += CONFIG_ATK_POINT_NAME + "=" + data.attackPointOffset.x
-                                             + "," + data.attackPointOffset.y + "\n";
+                                             + "|" + data.attackPointOffset.y + "\n";
         configString += CONFIG_ATK_FRAME_NAME + "=" + data.attackFrameIdx + "\n";
         configString += CONFIG_ATK_SIZE_NAME + "=" + data.attackSize + "\n";
         return configString;
@@ -367,8 +367,8 @@ public static class CharacterLoader
             // Parse the attack point offset
             else if (line.StartsWith(CONFIG_ATK_POINT_NAME))
             {
-                int commaIdx = line.IndexOf(',');
-                string valueSubstringX = line.Substring(CONFIG_ATK_POINT_NAME.Length + 1, commaIdx - CONFIG_ATK_POINT_NAME.Length);
+                int separatorIdx = line.IndexOf('|');
+                string valueSubstringX = line.Substring(CONFIG_ATK_POINT_NAME.Length + 1, separatorIdx - CONFIG_ATK_POINT_NAME.Length - 1);
                 float x, y;
                 if (float.TryParse(valueSubstringX, out float valueX))
                 {
@@ -380,14 +380,14 @@ public static class CharacterLoader
                     break;
                 }
 
-                string valueSubstringY = line.Substring(commaIdx);
+                string valueSubstringY = line.Substring(separatorIdx + 1);
                 if (float.TryParse(valueSubstringY, out float valueY))
                 {
                     y = valueY;
                 }
                 else
                 {
-                    errorString = "Could not parse float value of attack point offset X from config file! Value found= " + valueSubstringY;
+                    errorString = "Could not parse float value of attack point offset Y from config file! Value found= " + valueSubstringY;
                     break;
                 }
 
@@ -415,7 +415,7 @@ public static class CharacterLoader
                 string valueSubstring = line.Substring(CONFIG_ATK_SIZE_NAME.Length + 1);
                 if (float.TryParse(valueSubstring, out float value))
                 {
-                    data.jump = value;
+                    data.attackSize = value;
                 }
                 else
                 {
