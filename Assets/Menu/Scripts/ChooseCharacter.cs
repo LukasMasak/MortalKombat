@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 
 
 [RequireComponent(typeof(GridLayoutGroup))]
 public class ChooseCharacter : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _BothCharactersChosen;
     [SerializeField] private Animator _fadeInOutAnimator;
     [SerializeField] private int _player1Choice = 0;
     [SerializeField] private int _player2Choice = 1;
@@ -100,7 +102,7 @@ public class ChooseCharacter : MonoBehaviour
         // Continue to next scene
         if (_hasChosenPlayer1 && _hasChosenPlayer2)
         {
-            _fadeInOutAnimator.SetTrigger("StartEndMenu");
+            _BothCharactersChosen.Invoke();
         }
     }
 
