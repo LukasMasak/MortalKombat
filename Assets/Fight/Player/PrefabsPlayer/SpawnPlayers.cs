@@ -32,9 +32,9 @@ public class SpawnPlayers : MonoBehaviour
 
         // Get necessary components
         var lefthealth = leftPlayer.GetComponent<Health>();
-        var leftMovement = leftPlayer.GetComponent<PlayerMovement>();
+        var leftMovement = leftPlayer.GetComponent<PlayerController>();
         var righthealth = rightPlayer.GetComponent<Health>();
-        var rightMovement = rightPlayer.GetComponent<PlayerMovement>();
+        var rightMovement = rightPlayer.GetComponent<PlayerController>();
 
         // Set the health bar references
         lefthealth.slider = _sliderLeft;
@@ -42,11 +42,9 @@ public class SpawnPlayers : MonoBehaviour
         righthealth.slider = _sliderRight;
         righthealth.fill = _fillRight;
 
-        // Set which player each one is and which way they are facing
-        leftMovement.whichPlayer = GlobalState.Player.one;
-        leftMovement.facingRight = true;
-        rightMovement.whichPlayer = GlobalState.Player.two;
-        rightMovement.facingRight = false;
+        // Initialize the characters
+        leftMovement.Initialize(GlobalState.Player.one, true, LayerMask.GetMask("Player2"));
+        rightMovement.Initialize(GlobalState.Player.two, false, LayerMask.GetMask("Player1"));
 
         // Set the tags and layers of players
         leftPlayer.layer = LayerMask.NameToLayer("Player1");
@@ -54,9 +52,6 @@ public class SpawnPlayers : MonoBehaviour
         rightPlayer.layer = LayerMask.NameToLayer("Player2");
         rightPlayer.tag = "Player2";
 
-        // Set the enemy tags of players
-        rightMovement.enemyMask = LayerMask.GetMask("Player1");
-        leftMovement.enemyMask = LayerMask.GetMask("Player2");
 
         // Set targets to MultipleTargetCamera
         MultipleTargetCamera multipleTargetCamera = Camera.main.GetComponent<MultipleTargetCamera>();

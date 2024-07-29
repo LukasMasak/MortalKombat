@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f045738086f24436b9ce467cd987bf88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _operationDelay: 1.05
 --- !u!1 &436491444
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +975,6 @@ GameObject:
   - component: {fileID: 1722313861}
   - component: {fileID: 1722313860}
   - component: {fileID: 1722313859}
-  - component: {fileID: 1722313862}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1069,6 +1069,18 @@ MonoBehaviour:
           m_StringArgument: StartEndMenu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 135318844}
+        m_TargetAssemblyTypeName: EventController, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1722313860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,27 +1119,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722313857}
   m_CullTransparentMesh: 1
---- !u!95 &1722313862
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722313857}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e29e93a2e0b634fe5acbdcf684570809, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1723770952
 GameObject:
   m_ObjectHideFlags: 0

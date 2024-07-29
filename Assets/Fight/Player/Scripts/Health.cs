@@ -16,12 +16,12 @@ public class Health : MonoBehaviour
 
     private bool BlockingBool = false;
 
-    public PlayerMovement playerMovement;
+    public PlayerController playerMovement;
 
     
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
     {
         CheckReferences();
         BlockingBool = false;
-        playerMovement.attacked = false;
+        playerMovement.isAttacking = false;
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
     }
 
@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
             fill.color = gradient.Evaluate(slider.normalizedValue);
 
             animator.SetTrigger("Hurt");
-            playerMovement.attacked = false;
+            playerMovement.isAttacking = false;
             playerMovement.isBlocking = false;
 
             if (currentHealth <= 0)
@@ -65,16 +65,16 @@ public class Health : MonoBehaviour
     private void CheckReferences()
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
-        if (playerMovement == null) playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement == null) playerMovement = GetComponent<PlayerController>();
         if (animator == null) animator = GetComponent<Animator>();
     }
 
     public void Die()
     {
-        Debug.Log("tataattataatta");
         animator.SetTrigger("Death");
         this.enabled = false;
-        this.GetComponent<PlayerMovement>().enabled = false;
+        this.GetComponent<PlayerController>().enabled = false;
+        // TODO FightManager.Instance.ShowWinUI(_whichPlayer);
     }
     
 }
