@@ -11,6 +11,7 @@ public class ToggleAnimatorPreview : MonoBehaviour
     [SerializeField] private GameObject _playOffGraphic;
 
 
+    // Toggles the animations on/off and changes the button graphic
     public void TogglePlay()
     {
         _playOnGraphic.SetActive(_playToggle.isOn);
@@ -26,6 +27,8 @@ public class ToggleAnimatorPreview : MonoBehaviour
         }
     }
 
+
+    // Moves the animation one frame forward
     public void NextFrame()
     {
         float normalizedTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
@@ -35,6 +38,7 @@ public class ToggleAnimatorPreview : MonoBehaviour
     }
 
 
+    // Moves the animation one frame backwards
     public void PrevFrame()
     {
         float normalizedTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;

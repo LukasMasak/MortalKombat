@@ -21,12 +21,11 @@ public class AttackPointManager : MonoBehaviour
     void Start()
     {
         _attackPointSpriteRenderer = GetComponent<SpriteRenderer>();
-        OnCoordSliderChange();
-        OnSizeSliderChange();
+        OnEnable();
     }
 
 
-    // Changes the color of the attack point preview
+    // Changes the color of the attack point preview when the frame is active
     void Update()
     {
         float normalizedTime = _previewAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
@@ -43,6 +42,7 @@ public class AttackPointManager : MonoBehaviour
     }
 
 
+    // Updates the indicator when turned on
     private void OnEnable()
     {
         OnCoordSliderChange();
@@ -50,12 +50,14 @@ public class AttackPointManager : MonoBehaviour
     }
 
 
+    // Callback for changing the position of the attack point
     public void OnCoordSliderChange()
     {
         transform.position = new Vector3(_attackXSlider.value, _attackYSlider.value, 0);
     }
 
 
+    // Callback for changing the size of the attack point
     public void OnSizeSliderChange()
     {
         transform.localScale = new Vector3(_attackSizeSlider.value, _attackSizeSlider.value, 1);

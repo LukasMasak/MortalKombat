@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Custom scrollable list manager for characters menu
 public class CharacterListManager : MonoBehaviour
 {
     [SerializeField] private MenuManager _menuManager;

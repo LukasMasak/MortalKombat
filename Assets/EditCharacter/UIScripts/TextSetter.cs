@@ -10,12 +10,14 @@ public class TextSetter : MonoBehaviour
 
     private Slider _slider;
 
+
     // Check all possible setter configs to set initial value
     private void Start()
     {
         _slider = GetComponent<Slider>();
         if (_slider != null) SetSliderValue();
     }
+
 
     // Sets the value of the text based on slider
     public void SetSliderValue()

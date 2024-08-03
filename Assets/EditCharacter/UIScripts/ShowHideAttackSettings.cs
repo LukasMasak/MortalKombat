@@ -16,6 +16,8 @@ public class ShowHideAttackSettings : MonoBehaviour
         GetComponent<TMP_Dropdown>().onValueChanged.AddListener(SetVisibility);
     }
 
+
+    // Callback to make the attack setting and attack point visible/invisible
     void SetVisibility(int value)
     {
         if (value == 1) _attackSetting.SetActive(true);

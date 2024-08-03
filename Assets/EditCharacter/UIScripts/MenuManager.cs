@@ -14,7 +14,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider _spdSlider;
     [SerializeField] private Slider _dmgSlider;
     [SerializeField] private Slider _jmpSlider;
-
     [SerializeField] private Slider _atkSizeSlider;
     [SerializeField] private Slider _atkXSlider;
     [SerializeField] private Slider _atkYSlider;
@@ -56,12 +55,10 @@ public class MenuManager : MonoBehaviour
         _dmgSlider.value = _selectedCharacter.damage;
         _jmpSlider.value = _selectedCharacter.jump;
         _atkSizeSlider.value = _selectedCharacter.attackSize;
-        Debug.Log(_selectedCharacter.attackSize);
         _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
         _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
         _atkFrameSlider.maxValue = (int)(_selectedCharacter.attackAnim.length * CharacterLoader.FRAMERATE);
-
     }
 
 
