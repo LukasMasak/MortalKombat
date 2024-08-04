@@ -77,9 +77,9 @@ public class MenuManager : MonoBehaviour
     {
         int charIdx = GlobalState.AllCharacters.IndexOf(_selectedCharacter);
 
-        _selectedCharacter.health = (uint)_hpSlider.value;
+        _selectedCharacter.health = (int)_hpSlider.value;
         _selectedCharacter.speed = _spdSlider.value;
-        _selectedCharacter.damage = (uint)_dmgSlider.value;
+        _selectedCharacter.damage = (int)_dmgSlider.value;
         _selectedCharacter.jump = _jmpSlider.value;
         _selectedCharacter.attackSize = _atkSizeSlider.value;
         _selectedCharacter.attackPointOffset.x = _atkXSlider.value;

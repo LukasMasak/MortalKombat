@@ -71,7 +71,7 @@ public class ChooseCharacter : MonoBehaviour
         if (Input.GetButtonDown("Player1Accept"))
         {
             characterBubbles[_player1Choice].GetChosen();
-            GlobalState.Player1Character = (GlobalState.Characters)_player1Choice;
+            GlobalState.Player1Character = GlobalState.GetCharacterForDebug();// TODO (GlobalState.Characters)_player1Choice;
             _hasChosenPlayer1 = true;
         }
 
@@ -95,7 +95,7 @@ public class ChooseCharacter : MonoBehaviour
         if (Input.GetButtonDown("Player2Accept"))
         {
             characterBubbles[_player2Choice].GetChosen();
-            GlobalState.Player2Character = (GlobalState.Characters)_player2Choice;
+            GlobalState.Player2Character = GlobalState.GetCharacterForDebug();// TODO (GlobalState.Characters)_player2Choice;
             _hasChosenPlayer2 = true;
         }
 

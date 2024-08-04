@@ -5,19 +5,10 @@ using UnityEngine;
 public class GlobalState
 {
     static public List<CharacterData> AllCharacters = new List<CharacterData>();
-    static public Characters Player1Character;
-    static public Characters Player2Character;
+    static public CharacterData Player1Character;
+    static public CharacterData Player2Character;
 
     static public Maps Map;
-
-    // TODO to be obsolete
-    public enum Characters
-    {
-        Ruďoch,
-        Tuan,
-        Žaba,
-        Týpek
-    }
 
     // All the maps in game
     public enum Maps
@@ -51,5 +42,11 @@ public class GlobalState
             if (AllCharacters[i].name == name) return i;
         }
         return -1;
+    }
+
+    public static CharacterData GetCharacterForDebug()
+    {
+        if (AllCharacters.Count == 0) CharacterLoader.LoadAllCharacters(AllCharacters);
+        return AllCharacters[0];
     }
 }

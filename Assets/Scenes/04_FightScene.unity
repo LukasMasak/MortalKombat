@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 118855664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1279,11 +1279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32216a4ed617046c389d24a7c6c51a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefabs:
-  - {fileID: 3869327454628122331, guid: c8e4e8db80f7c435ebce9cba06135652, type: 3}
-  - {fileID: 7338588057921598052, guid: 0fc1f602a0c0c490c9f7606a8324d13f, type: 3}
-  - {fileID: 7338588057921598052, guid: 7cd7654fbaf3f4c1696593c1b7560cd8, type: 3}
-  - {fileID: 3869327454628122331, guid: dad17dff86b9a4941a109ba692b935fc, type: 3}
+  _universalPlayerPrefabs: {fileID: 1532495548692532185, guid: e1f3a983623f8ad45952743cda7a368e,
+    type: 3}
   _leftSpawnTransform: {fileID: 118855665}
   _rightSpawnTransform: {fileID: 1007820115}
   _sliderLeft: {fileID: 746985860}
@@ -1964,7 +1961,7 @@ Transform:
   m_GameObject: {fileID: 1007820114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.94, y: 0, z: 0}
+  m_LocalPosition: {x: 2.94, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

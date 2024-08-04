@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    // TODO obselete
-    [SerializeField] private GameObject[] _playerPrefabs;
+    [SerializeField] private GameObject _universalPlayerPrefabs;
     
     // The spawn points of the players
     [SerializeField] private Transform _leftSpawnTransform;
@@ -22,19 +21,19 @@ public class SpawnPlayers : MonoBehaviour
     private void Start()
     {
         // Create two player instances form prefabs
-        var leftPlayer = Instantiate(_playerPrefabs[(int)GlobalState.Player1Character], _leftSpawnTransform);
-        var rightPlayer = Instantiate(_playerPrefabs[(int)GlobalState.Player2Character], _rightSpawnTransform);
+        GameObject leftPlayer = Instantiate(_universalPlayerPrefabs, _leftSpawnTransform);
+        GameObject rightPlayer = Instantiate(_universalPlayerPrefabs, _rightSpawnTransform);
         
         // Flip the left player
-        Vector3 _leftScale = leftPlayer.transform.localScale;
-        _leftScale.x *= -1;
-        leftPlayer.transform.localScale = _leftScale;
+        Vector3 rightScale = rightPlayer.transform.localScale;
+        rightScale.x *= -1;
+        rightPlayer.transform.localScale = rightScale;
 
         // Get necessary components
-        var lefthealth = leftPlayer.GetComponent<Health>();
-        var leftMovement = leftPlayer.GetComponent<PlayerController>();
-        var righthealth = rightPlayer.GetComponent<Health>();
-        var rightMovement = rightPlayer.GetComponent<PlayerController>();
+        Health lefthealth = leftPlayer.GetComponent<Health>();
+        PlayerController leftMovement = leftPlayer.GetComponent<PlayerController>();
+        Health righthealth = rightPlayer.GetComponent<Health>();
+        PlayerController rightMovement = rightPlayer.GetComponent<PlayerController>();
 
         // Set the health bar references
         lefthealth.slider = _sliderLeft;
@@ -52,13 +51,10 @@ public class SpawnPlayers : MonoBehaviour
         rightPlayer.layer = LayerMask.NameToLayer("Player2");
         rightPlayer.tag = "Player2";
 
-
         // Set targets to MultipleTargetCamera
         MultipleTargetCamera multipleTargetCamera = Camera.main.GetComponent<MultipleTargetCamera>();
         multipleTargetCamera.targets.Add(leftPlayer.transform);
         multipleTargetCamera.targets.Add(rightPlayer.transform);
-
-
     }
 
 }

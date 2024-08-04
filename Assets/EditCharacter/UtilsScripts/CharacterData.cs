@@ -10,8 +10,8 @@ public struct CharacterData
     public string name;
     public float speed;
     public float jump;
-    public uint health;
-    public uint damage;
+    public int health;
+    public int damage;
     public Vector2 attackPointOffset;
     public uint attackFrameIdx;
     public float attackSize;

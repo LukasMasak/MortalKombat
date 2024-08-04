@@ -338,7 +338,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_HP_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_HP_NAME.Length + 1);
-                if (uint.TryParse(valueSubstring, out uint value))
+                if (int.TryParse(valueSubstring, out int value))
                 {
                     data.health = value;
                 }
@@ -353,7 +353,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_DMG_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_DMG_NAME.Length + 1);
-                if (uint.TryParse(valueSubstring, out uint value))
+                if (int.TryParse(valueSubstring, out int value))
                 {
                     data.damage = value;
                 }
@@ -510,7 +510,14 @@ public static class CharacterLoader
         AnimationClip animationClip = new AnimationClip();
         animationClip.name = animName;
         animationClip.frameRate = FRAMERATE;
-        
+
+        if (animName == IDLE_ANIM_NAME)
+        {
+            AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(animationClip);
+            settings.loopTime = true;
+            AnimationUtility.SetAnimationClipSettings(animationClip, settings);
+        }
+
         // Load all found sprites
         List<Sprite> sprites = new List<Sprite>();
         List<string> allFiles = Directory.GetFiles(path).ToList();
@@ -622,6 +629,6 @@ public static class CharacterLoader
         {
             tex.filterMode = FilterMode.Point;
         }
-        return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+        return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), tex.width);
     }
 }

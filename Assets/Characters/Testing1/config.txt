@@ -1,5 +1,5 @@
-speed=5
-jump=0,4952164
+speed=500
+jump=5
 health=300
 damage=15
 attackDistance=-5,151601|-5

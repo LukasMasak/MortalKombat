@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     private InputAction move;
     private InputAction block;
     private Health health;
-    private Animator animator;
+    private Animator animator;  // TODO delete
+    private PlayerAnimationController animationController;
     private Rigidbody rb;
 
     // Private vars
@@ -32,21 +33,25 @@ public class PlayerController : MonoBehaviour
     private Vector3 _currentForce = Vector3.zero;
     private bool _isGrounded;
     private LayerMask _enemyMask;
-    private int _attackDamage = 20; // TODO use character data
-    private float _movementForce = 80f; // TODO use character data
-    private float _jumpForce = 20f; // TODO use character data
-    private float _attackPointSize; // TODO use character data
-
 
 
     // Initializes the character controller with needed data
-    public void Initialize(GlobalState.Player whichPlayer, bool facingRight, int enemyMask) // TODO add CharacterData
+    public void Initialize(GlobalState.Player whichPlayer, bool facingRight, int enemyMask)
     {
         _whichPlayer = whichPlayer;
         _facingRight = facingRight;
         _enemyMask = enemyMask;
-        // TODO _characterData = CharacterData;
-        // TODO init animations
+        _characterData = (whichPlayer == GlobalState.Player.one)? GlobalState.Player1Character : GlobalState.Player2Character;
+
+        // DEBUG
+        if (!_characterData.isValid)
+        {
+            Debug.Log("Invalid character added, getting default");
+            _characterData = GlobalState.GetCharacterForDebug();
+        }
+
+        if (animationController == null) animationController = GetComponent<PlayerAnimationController>();
+        animationController.InitializeAnimations(ref _characterData);
     }
 
 
@@ -57,8 +62,8 @@ public class PlayerController : MonoBehaviour
         _attackPoint.SetActive(false);
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        animationController = GetComponent<PlayerAnimationController>();
         health = GetComponent<Health>();
-
         InitializeInputSystem();
     }
     
@@ -129,7 +134,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-        CheckForFlip();        
+        CheckForFlip();
+        Debug.Log(_characterData.name);      
     }
 
 
@@ -167,8 +173,8 @@ public class PlayerController : MonoBehaviour
 
         // Get current input values
         Vector2 moveInput = move.ReadValue<Vector2>();
-        _currentForce += moveInput.x * _movementForce * GetCameraRight() * Time.fixedDeltaTime;
-        _currentForce += moveInput.y * GetCameraForward() * _movementForce * Time.fixedDeltaTime;
+        _currentForce += moveInput.x * _characterData.speed * GetCameraRight() * Time.fixedDeltaTime;
+        _currentForce += moveInput.y * GetCameraForward() * _characterData.speed * Time.fixedDeltaTime;
         
         // Add force and reset
         rb.AddForce(_currentForce, ForceMode.Impulse);
@@ -245,7 +251,7 @@ public class PlayerController : MonoBehaviour
     {
         //yield return new WaitForSeconds(_characterData.attackframe * CharacterLoader.FRAME_DELAY); // TODO + Ienurator
         _attackPoint.SetActive(true);
-        Collider[] hitEnemy = Physics.OverlapSphere(_attackPoint.transform.position, _attackPointSize, _enemyMask);
+        Collider[] hitEnemy = Physics.OverlapSphere(_attackPoint.transform.position, _characterData.attackSize, _enemyMask);
         foreach (Collider enemy in hitEnemy)
         {
             if(enemy.gameObject == this)
@@ -255,7 +261,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("hit " + enemy.name);
 
             Health enemyHealth = enemy.GetComponent<Health>();
-            if(enemyHealth != null) enemyHealth.TakeDamage(_attackDamage);
+            if(enemyHealth != null) enemyHealth.TakeDamage(_characterData.damage);
         }
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
         isAttacking = false;    // TODO remove
@@ -268,12 +274,12 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
     }
 
-    // Metoda pro vykreslení bodu útoku ve scéně
+    // Debug method for drawing the overlap attack sphere
     private void OnDrawGizmosSelected()
     {
         if (_attackPoint == null)
             return;
-        Gizmos.DrawWireSphere(_attackPoint.transform.position, _attackPointSize);
+        Gizmos.DrawWireSphere(_attackPoint.transform.position, _characterData.attackSize);
     }
 
     public void End()
@@ -293,7 +299,7 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = false;
             animator.SetTrigger("Jump");    // TODO put in anim controller
-            _currentForce += Vector3.up * _jumpForce;
+            _currentForce += Vector3.up * _characterData.jump;
         }
     }
 
