@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private InputAction block;
     private Health health;
     private Animator animator;  // TODO delete
-    private PlayerAnimationController animationController;
+    private FajtovPlayerAnimator fajtovAnimator;
     private Rigidbody rb;
 
     // Private vars
@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
             _characterData = GlobalState.GetCharacterForDebug();
         }
 
-        if (animationController == null) animationController = GetComponent<PlayerAnimationController>();
-        animationController.InitializeAnimations(ref _characterData);
+        if (fajtovAnimator == null) fajtovAnimator = GetComponent<FajtovPlayerAnimator>();
+        fajtovAnimator.Initialize(ref _characterData);
     }
 
 
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         _attackPoint.SetActive(false);
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        animationController = GetComponent<PlayerAnimationController>();
+        fajtovAnimator = GetComponent<FajtovPlayerAnimator>();
         health = GetComponent<Health>();
         InitializeInputSystem();
     }
@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator WaitForEndAttack()
     {
-        yield return new WaitForSeconds(_characterData.attackAnim.length);
+        yield return new WaitForSeconds(_characterData.attackAnim.frames.Length * CharacterLoader.FRAME_DELAY);
         isAttacking = false;
     }
 

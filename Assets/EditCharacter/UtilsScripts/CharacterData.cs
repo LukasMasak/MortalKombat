@@ -19,11 +19,11 @@ public struct CharacterData
     // --------------Character-Sprites/Animations--------------
     public Sprite preview;
     public Sprite bubbleIcon;
-    public AnimationClip idleAnim;
-    public AnimationClip attackAnim;
-    public AnimationClip walkAnim;
-    public AnimationClip blockAnim;
-    public AnimationClip jumpAnim;
-    public AnimationClip deathAnim;
-    public AnimationClip hurtAnim;
+    public FajtovAnimationClip idleAnim;
+    public FajtovAnimationClip attackAnim;
+    public FajtovAnimationClip walkAnim;
+    public FajtovAnimationClip blockAnim;
+    public FajtovAnimationClip jumpAnim;
+    public FajtovAnimationClip deathAnim;
+    public FajtovAnimationClip hurtAnim;
 }

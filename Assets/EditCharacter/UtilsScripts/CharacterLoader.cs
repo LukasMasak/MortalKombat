@@ -505,17 +505,29 @@ public static class CharacterLoader
 
 
     // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
-    private static AnimationClip LoadAnimationFromPath(string path, string animName)
+    private static FajtovAnimationClip LoadAnimationFromPath(string path, string animName)
     {
-        AnimationClip animationClip = new AnimationClip();
-        animationClip.name = animName;
-        animationClip.frameRate = FRAMERATE;
+        //AnimationClip animationClip = new AnimationClip();
+        //animationClip.name = animName;
+        //animationClip.frameRate = FRAMERATE;
 
+        FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip();
+
+        // Set variables of animations
         if (animName == IDLE_ANIM_NAME)
         {
-            AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(animationClip);
-            settings.loopTime = true;
-            AnimationUtility.SetAnimationClipSettings(animationClip, settings);
+            fajtovAnimationClip.isLooping = true;
+        }
+        else if (animName == ATTACK_ANIM_NAME || 
+                 animName == WALK_ANIM_NAME || 
+                 animName == JUMP_ANIM_NAME)
+        {
+            fajtovAnimationClip.canBeInterupted = true;
+        }
+        else if (animName == WALK_ANIM_NAME)
+        {
+            fajtovAnimationClip.canBeInterupted = true;
+            fajtovAnimationClip.isLooping = true;
         }
 
         // Load all found sprites
@@ -540,7 +552,7 @@ public static class CharacterLoader
             return aNum.CompareTo(bNum);
         });
         
-        // Add all sprites to an array
+        // Add all sprites to an list
         foreach (string file in allFiles)
         {
             if (file.EndsWith(".png")
@@ -555,22 +567,24 @@ public static class CharacterLoader
             }
         }
 
-        // Create an animation curve of the found sprites
-        EditorCurveBinding spriteBinding = new EditorCurveBinding();
-        spriteBinding.type = typeof(SpriteRenderer);
-        spriteBinding.path = "";
-        spriteBinding.propertyName = "m_Sprite"; 
+        fajtovAnimationClip.frames = sprites.ToArray();
+        
+        // // Create an animation curve of the found sprites
+        // EditorCurveBinding spriteBinding = new EditorCurveBinding();
+        // spriteBinding.type = typeof(SpriteRenderer);
+        // spriteBinding.path = "";
+        // spriteBinding.propertyName = "m_Sprite"; 
 
-        // Setup the animation keys from the sprites
-        ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Count];
-        for(int i = 0; i < (sprites.Count); i++) {
-            spriteKeyFrames[i] = new ObjectReferenceKeyframe();
-            spriteKeyFrames[i].time = i * FRAME_DELAY;
-            spriteKeyFrames[i].value = sprites[i];
-        }
-        AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
+        // // Setup the animation keys from the sprites
+        // ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Count];
+        // for(int i = 0; i < (sprites.Count); i++) {
+        //     spriteKeyFrames[i] = new ObjectReferenceKeyframe();
+        //     spriteKeyFrames[i].time = i * FRAME_DELAY;
+        //     spriteKeyFrames[i].value = sprites[i];
+        // }
+        // AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
 
-        return animationClip;
+        return fajtovAnimationClip;
     }
 
 

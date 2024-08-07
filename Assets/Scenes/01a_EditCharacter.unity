@@ -890,8 +890,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1750259518}
-        m_TargetAssemblyTypeName: ToggleAnimatorPreview, Assembly-CSharp
+      - m_Target: {fileID: 8417139167998497541}
+        m_TargetAssemblyTypeName: FajtovPlayerAnimator, Assembly-CSharp
         m_MethodName: PrevFrame
         m_Mode: 1
         m_Arguments:
@@ -1024,10 +1024,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8610575885535300240}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 3
+      - m_Target: {fileID: 8417139167998497541}
+        m_TargetAssemblyTypeName: FajtovPlayerAnimator, Assembly-CSharp
+        m_MethodName: ReplayAnimation
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2734,8 +2734,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1750259518}
-        m_TargetAssemblyTypeName: ToggleAnimatorPreview, Assembly-CSharp
+      - m_Target: {fileID: 8417139167998497541}
+        m_TargetAssemblyTypeName: FajtovPlayerAnimator, Assembly-CSharp
         m_MethodName: NextFrame
         m_Mode: 1
         m_Arguments:
@@ -6164,7 +6164,7 @@ MonoBehaviour:
   _atkXSlider: {fileID: 1948901192}
   _atkYSlider: {fileID: 2038733208}
   _atkFrameSlider: {fileID: 654156518}
-  _previewAnimator: {fileID: 8610575885535300240}
+  _previewAnimator: {fileID: 8417139167998497541}
   _animationSelectDropdown: {fileID: 234689934}
   _characterNameInput: {fileID: 762959369}
 --- !u!1 &974996066
@@ -9678,10 +9678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a776759107e5f41b53a60de22b6b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 8610575885535300240}
-  _playToggle: {fileID: 1950514839}
-  _playOnGraphic: {fileID: 1897609022}
-  _playOffGraphic: {fileID: 1795106485}
+  _animator: {fileID: 8417139167998497541}
+  _playButton: {fileID: 0}
+  _playOnGraphic: {fileID: 1795106485}
+  _playOffGraphic: {fileID: 1897609022}
 --- !u!1 &1795106485
 GameObject:
   m_ObjectHideFlags: 0
@@ -9699,7 +9699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1795106486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10146,7 +10146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1897609023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10604,7 +10604,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1950514833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -10635,16 +10635,13 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1897609024}
-  toggleTransition: 1
-  graphic: {fileID: 0}
-  m_Group: {fileID: 0}
-  onValueChanged:
+  m_TargetGraphic: {fileID: 1950514837}
+  m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1750259518}
         m_TargetAssemblyTypeName: ToggleAnimatorPreview, Assembly-CSharp
-        m_MethodName: TogglePlay
+        m_MethodName: TogglePlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10654,7 +10651,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
 --- !u!1 &1958836594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11540,122 +11536,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2189515712152709541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7338588058449194754}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd5f0d8e5bad4ec6830cf0c544bd7c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PunchSound:
-  - {fileID: 8300000, guid: c7e1f1f5d985044b0aec2d510bfd824c, type: 3}
-  - {fileID: 8300000, guid: 10d1a39776fb04a51b9aa9e6d6cdc7b2, type: 3}
-  - {fileID: 8300000, guid: 6b70f6ae1ee4c4f2190c8a47af001f01, type: 3}
-  JumpStartSound: {fileID: 0}
-  JumpEndSound: {fileID: 0}
-  DieSound: {fileID: 8300000, guid: 809eef587dd86438a9c00c01f11f1abe, type: 3}
-  _randomSound: {fileID: 0}
---- !u!82 &3022519994210524458
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7338588058449194754}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!212 &5636222327870828686
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11819,7 +11699,7 @@ MonoBehaviour:
   _attackXSlider: {fileID: 1948901192}
   _attackYSlider: {fileID: 2038733208}
   _attackFrameSlider: {fileID: 654156518}
-  _previewAnimator: {fileID: 8610575885535300240}
+  _previewAnimator: {fileID: 8417139167998497541}
   _imageOnColor: {r: 1, g: 0, b: 0, a: 0.9019608}
   _imageOffColor: {r: 0, g: 1, b: 0, a: 0.5019608}
 --- !u!1 &7338588058449194754
@@ -11832,10 +11712,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8417139167998497540}
   - component: {fileID: 5636222327870828686}
-  - component: {fileID: 8610575885535300240}
   - component: {fileID: 5647845126189655609}
-  - component: {fileID: 3022519994210524458}
-  - component: {fileID: 2189515712152709541}
+  - component: {fileID: 8417139167998497541}
   m_Layer: 8
   m_Name: CharacterPreview
   m_TagString: Player
@@ -11981,27 +11859,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &8610575885535300240
-Animator:
-  serializedVersion: 5
+--- !u!114 &8417139167998497541
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338588058449194754}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d018986eed86085408c70cd473d86ecc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae6a0b0b062649d8b8f52a3ccf0c52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1750259518}
+        m_TargetAssemblyTypeName: ToggleAnimatorPreview, Assembly-CSharp
+        m_MethodName: UpdateToggleAnimStarted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _animationLooped:
+    m_PersistentCalls:
+      m_Calls: []
+  _animationEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1750259518}
+        m_TargetAssemblyTypeName: ToggleAnimatorPreview, Assembly-CSharp
+        m_MethodName: UpdateToggleAnimEnded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

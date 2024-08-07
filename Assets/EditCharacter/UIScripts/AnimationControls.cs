@@ -5,45 +5,42 @@ using UnityEngine.UI;
 
 public class ToggleAnimatorPreview : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
-    [SerializeField] private Toggle _playToggle;
+    [SerializeField] private FajtovPlayerAnimator _animator;
+    [SerializeField] private Button _playButton;
     [SerializeField] private GameObject _playOnGraphic;
     [SerializeField] private GameObject _playOffGraphic;
 
+    private bool _isPlayButtonOn = false;
+
 
     // Toggles the animations on/off and changes the button graphic
-    public void TogglePlay()
+    public void TogglePlayButton()
     {
-        _playOnGraphic.SetActive(_playToggle.isOn);
-        _playOffGraphic.SetActive(!_playToggle.isOn);
-
-        if (_playToggle.isOn)
+        if (!_isPlayButtonOn)
         {
-            _animator.speed = 1;
+            _animator.ContinueAnimation();
+            UpdateToggleAnimStarted();
         }
         else
         {
-            _animator.speed = 0;
+            _animator.StopAnimation();
+            UpdateToggleAnimEnded();
         }
     }
 
-
-    // Moves the animation one frame forward
-    public void NextFrame()
+    public void UpdateToggleAnimStarted()
     {
-        float normalizedTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        float oneFrameLength = CharacterLoader.FRAME_DELAY / _animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        float newTime =  Mathf.Min(normalizedTime + oneFrameLength, 0.99f);
-        _animator.Play("Preview", 0, newTime);
+        _isPlayButtonOn = true;  
+
+        _playOnGraphic.SetActive(_isPlayButtonOn);
+        _playOffGraphic.SetActive(!_isPlayButtonOn);
     }
 
-
-    // Moves the animation one frame backwards
-    public void PrevFrame()
+    public void UpdateToggleAnimEnded()
     {
-        float normalizedTime = _animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        float oneFrameLength = CharacterLoader.FRAME_DELAY / _animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        float newTime =  Mathf.Max(0, normalizedTime - oneFrameLength);
-        _animator.Play("Preview", 0, newTime);
+        _isPlayButtonOn = false;
+
+        _playOnGraphic.SetActive(_isPlayButtonOn);
+        _playOffGraphic.SetActive(!_isPlayButtonOn);
     }
 }

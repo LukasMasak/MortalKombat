@@ -10,7 +10,7 @@ public class AttackPointManager : MonoBehaviour
     [SerializeField] private Slider _attackXSlider;
     [SerializeField] private Slider _attackYSlider;
     [SerializeField] private Slider _attackFrameSlider;
-    [SerializeField] private Animator _previewAnimator;
+    [SerializeField] private FajtovPlayerAnimator _previewAnimator;
     [SerializeField]private Color _imageOnColor;
     [SerializeField]private Color _imageOffColor;
 
@@ -28,9 +28,7 @@ public class AttackPointManager : MonoBehaviour
     // Changes the color of the attack point preview when the frame is active
     void Update()
     {
-        float normalizedTime = _previewAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        float length = _previewAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        int frameNum = (int)((normalizedTime * length) * CharacterLoader.FRAMERATE) + 1;
+        int frameNum = _previewAnimator.GetCurrentFrameNum();
         if (frameNum == _attackFrameSlider.value)
         {
             _attackPointSpriteRenderer.color = _imageOnColor;

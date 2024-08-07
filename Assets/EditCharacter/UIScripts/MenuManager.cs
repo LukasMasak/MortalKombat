@@ -19,18 +19,18 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider _atkYSlider;
     [SerializeField] private Slider _atkFrameSlider;
 
-    [SerializeField] private Animator _previewAnimator;
+    [SerializeField] private FajtovPlayerAnimator _previewAnimator;
 
     [SerializeField] private TMP_Dropdown _animationSelectDropdown;
     [SerializeField] private TMP_InputField _characterNameInput;
 
-    public enum AnimationIndexes {
+    public enum DropdownAnimationIdxs {
         Idle = 0,
         Attack,
         Move,
         Block,
         Jump,
-        Hit,
+        Hurt,
         Death,
         Icon,
         Preview
@@ -58,7 +58,7 @@ public class MenuManager : MonoBehaviour
         _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
         _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
-        _atkFrameSlider.maxValue = (int)(_selectedCharacter.attackAnim.length * CharacterLoader.FRAMERATE);
+        _atkFrameSlider.maxValue = (int)(_selectedCharacter.attackAnim.frames.Length * CharacterLoader.FRAMERATE);
     }
 
 
@@ -67,6 +67,7 @@ public class MenuManager : MonoBehaviour
     {
         CharacterLoader.LoadAllCharacters(GlobalState.AllCharacters);
         _selectedCharacter = GlobalState.AllCharacters[0];
+        _previewAnimator.Initialize(ref _selectedCharacter);
         UpdateStatsWithSelectedCharacter();
         SwitchPreviewAnimation(0);
     }
@@ -126,53 +127,41 @@ public class MenuManager : MonoBehaviour
     // Switch the preview animation based on given animation index
     private void SwitchPreviewAnimation(int idx)
     {
-        AnimatorOverrideController overrideController = new AnimatorOverrideController(_previewAnimator.runtimeAnimatorController);
-        _previewAnimator.runtimeAnimatorController = overrideController;
-
-        if (idx == (int)AnimationIndexes.Idle)
+        if (idx == (int)DropdownAnimationIdxs.Idle)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.idleAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle, true);
         }
-        else if (idx == (int)AnimationIndexes.Attack)
+        else if (idx == (int)DropdownAnimationIdxs.Attack)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.attackAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Attack, true);
         }
-        else if (idx == (int)AnimationIndexes.Move)
+        else if (idx == (int)DropdownAnimationIdxs.Move)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.walkAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Move, true);
         }
-        else if (idx == (int)AnimationIndexes.Block)
+        else if (idx == (int)DropdownAnimationIdxs.Block)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.blockAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Block, true);
         }
-        else if (idx == (int)AnimationIndexes.Jump)
+        else if (idx == (int)DropdownAnimationIdxs.Jump)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.jumpAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Jump, true);
         }
-        else if (idx == (int)AnimationIndexes.Hit)
+        else if (idx == (int)DropdownAnimationIdxs.Hurt)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.hurtAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Hurt, true);
         }
-        else if (idx == (int)AnimationIndexes.Death)
+        else if (idx == (int)DropdownAnimationIdxs.Death)
         {
-            _previewAnimator.enabled = true;
-            overrideController["EmptyClip"] = _selectedCharacter.deathAnim;
+            _previewAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Death, true);
         }
-        else if (idx == (int)AnimationIndexes.Icon)
+        else if (idx == (int)DropdownAnimationIdxs.Icon)
         {
-            _previewAnimator.enabled = false;
-            _previewAnimator.GetComponent<SpriteRenderer>().sprite = _selectedCharacter.bubbleIcon;
+            _previewAnimator.ShowBubbleIcon();
         }
-        else if (idx == (int)AnimationIndexes.Preview)
+        else if (idx == (int)DropdownAnimationIdxs.Preview)
         {
-            _previewAnimator.enabled = false;
-            _previewAnimator.GetComponent<SpriteRenderer>().sprite = _selectedCharacter.preview;
+            _previewAnimator.ShowPreviewIcon();
         }
 
         _animationSelectDropdown.value = idx;
