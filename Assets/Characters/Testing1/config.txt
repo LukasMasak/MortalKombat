@@ -1,7 +1,7 @@
-speed=500
-jump=5
+speed=200
+jump=30
 health=300
 damage=15
-attackDistance=-5,151601|-5
+attackDistance=0,3264731|-0,1686321
 attackFrame=2
-attackPointSize=0,3990816
+attackPointSize=0,4967464

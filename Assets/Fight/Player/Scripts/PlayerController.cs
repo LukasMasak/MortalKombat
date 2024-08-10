@@ -19,9 +19,7 @@ public class PlayerController : MonoBehaviour
     // References
     private InputSystem inputSystemActions;
     private InputAction move;
-    private InputAction block;
     private Health health;
-    private Animator animator;  // TODO delete
     private FajtovPlayerAnimator fajtovAnimator;
     private Rigidbody rb;
 
@@ -43,6 +41,10 @@ public class PlayerController : MonoBehaviour
         _enemyMask = enemyMask;
         _characterData = (whichPlayer == GlobalState.Player.one)? GlobalState.Player1Character : GlobalState.Player2Character;
 
+        // Get attack point and set it up
+        _attackPoint = transform.GetChild(0).gameObject;
+        _attackPoint.transform.localPosition = new Vector3(_characterData.attackPointOffset.x, _characterData.attackPointOffset.y, 0); 
+
         // DEBUG
         if (!_characterData.isValid)
         {
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour
         _attackPoint = transform.GetChild(0).gameObject;
         _attackPoint.SetActive(false);
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
         fajtovAnimator = GetComponent<FajtovPlayerAnimator>();
         health = GetComponent<Health>();
         InitializeInputSystem();
@@ -81,7 +82,6 @@ public class PlayerController : MonoBehaviour
             inputSystemActions.PlayerRight.Block.started += BlockCB;
             inputSystemActions.PlayerRight.Block.canceled += BlockCB;
             move = inputSystemActions.PlayerRight.Move;
-            block = inputSystemActions.PlayerRight.Block;
             inputSystemActions.PlayerRight.Enable();
         }
 
@@ -93,7 +93,6 @@ public class PlayerController : MonoBehaviour
             inputSystemActions.PlayerLeft.Block.started += BlockCB;
             inputSystemActions.PlayerLeft.Block.canceled += BlockCB;
             move = inputSystemActions.PlayerLeft.Move;
-            block = inputSystemActions.PlayerLeft.Block;
             inputSystemActions.PlayerLeft.Enable();
         }
         else
@@ -164,11 +163,13 @@ public class PlayerController : MonoBehaviour
         float _move = rb.velocity.magnitude / MAX_SPEED;
         if (_move > 0.01f && _isGrounded)
         {
-            animator.SetBool("Move", true);
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Move);
+            //animator.SetBool("Move", true);
         }
         else
         {
-            animator.SetBool("Move", false);
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
+            //animator.SetBool("Move", false);
         }
 
         // Get current input values
@@ -195,25 +196,23 @@ public class PlayerController : MonoBehaviour
     {
         if (isAttacking)
         {
-            animator.SetBool("Block", false); // TODO put in anim controller
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
+            //animator.SetBool("Block", false); // TODO put in anim controller
             isBlocking = false;
-            health.DeactivateBlocking();
-
             return;
         }
 
         if (obj.started)
         {
-            animator.SetBool("Block", true); // TODO put in anim controller
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Block);
+            //animator.SetBool("Block", true); // TODO put in anim controller
             isBlocking = true;
-            health.IsBlocking();
         }
         else 
         { 
-            animator.SetBool("Block", false); // TODO put in anim controller
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
+            //animator.SetBool("Block", false); // TODO put in anim controller
             isBlocking = false;
-            health.DeactivateBlocking();
-
         }
     }
 
@@ -238,19 +237,20 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAttacking && !isBlocking)
         {
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
             isAttacking = true;
-            
-            animator.SetTrigger("Attack"); // TODO put in anim controller
-            //DoAttack(); // TODO
-            //WaitForEndAttack(); // TODO
+            FreezePlayer();
+
+            //animator.SetTrigger("Attack"); // TODO put in anim controller
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Attack);
+            StartCoroutine(DoAttack());
+            StartCoroutine(WaitForEndAttack());
         }
     }
 
-    public void DoAttack() // TODO remove from anim callback
+    public IEnumerator DoAttack()
     {
-        //yield return new WaitForSeconds(_characterData.attackframe * CharacterLoader.FRAME_DELAY); // TODO + Ienurator
-        _attackPoint.SetActive(true);
+        yield return new WaitForSeconds(_characterData.attackFrameIdx * CharacterLoader.FRAME_DELAY);
+        
         Collider[] hitEnemy = Physics.OverlapSphere(_attackPoint.transform.position, _characterData.attackSize, _enemyMask);
         foreach (Collider enemy in hitEnemy)
         {
@@ -260,11 +260,9 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log("hit " + enemy.name);
 
-            Health enemyHealth = enemy.GetComponent<Health>();
-            if(enemyHealth != null) enemyHealth.TakeDamage(_characterData.damage);
+            PlayerController enemyPlayer = enemy.GetComponent<PlayerController>();
+            if(enemyPlayer != null) enemyPlayer.TakeDamage(_characterData.damage);
         }
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
-        isAttacking = false;    // TODO remove
     }
 
 
@@ -272,6 +270,24 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(_characterData.attackAnim.frames.Length * CharacterLoader.FRAME_DELAY);
         isAttacking = false;
+        UnFreezePlayer();
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        if (isBlocking) return;
+        health.TakeDamage(damage);
+    }
+
+    public void FreezePlayer()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+    }
+
+    public void UnFreezePlayer()
+    {
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
     }
 
     // Debug method for drawing the overlap attack sphere
@@ -282,13 +298,9 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(_attackPoint.transform.position, _characterData.attackSize);
     }
 
-    public void End()
+    public GlobalState.Player GetWhichPlayer()
     {
-        FightManager.Instance.ShowWinUI(_whichPlayer);
-    }
-
-    public void ResetAnim() // TODO delete
-    {
+        return _whichPlayer;
     }
 
 
@@ -298,7 +310,8 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded)
         {
             _isGrounded = false;
-            animator.SetTrigger("Jump");    // TODO put in anim controller
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Jump);
+            //animator.SetTrigger("Jump");    // TODO put in anim controller
             _currentForce += Vector3.up * _characterData.jump;
         }
     }
@@ -312,6 +325,7 @@ public class PlayerController : MonoBehaviour
             _isGrounded = true;
         }
     }
+
 
     // Check the floor upon exit
     private void OnCollisionExit(Collision collision)

@@ -5,76 +5,73 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public Animator animator;
-    public int maxHealth = 100;
-    int currentHealth;
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
-    private Rigidbody rb;
-    private Vector3 velocity;
+    [SerializeField] private float invincibilityTime = 0.2f;
+    [SerializeField] private Gradient hpSliderGradient;
 
-    private bool BlockingBool = false;
+    // private vars
+    private int _maxHealth = 100;
+    private int _currentHealth;
+    private bool _canTakeDamage = true;
 
-    public PlayerController playerMovement;
+    // References
+    private PlayerController playerController;
+    private FajtovPlayerAnimator fajtovAnimator;
+    private Slider _hpSlider;
+    private Image _hpSliderfill;
 
     
     private void Start()
     {
-        playerMovement = GetComponent<PlayerController>();
-        rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
-        slider.value = currentHealth;
-        fill.color = gradient.Evaluate(1f);
+        playerController = GetComponent<PlayerController>();
+        fajtovAnimator = GetComponent<FajtovPlayerAnimator>();
     }
 
-    public void IsBlocking()
+    public void Initialize(Slider hpSlider, Image hpSliderFill, int maxHealth)
     {
-        CheckReferences();
-        BlockingBool = true;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
-    }
-    public void DeactivateBlocking()
-    {
-        CheckReferences();
-        BlockingBool = false;
-        playerMovement.isAttacking = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+        _maxHealth = maxHealth;
+        _currentHealth = _maxHealth;
+        _hpSlider = hpSlider;
+        _hpSliderfill = hpSliderFill;
+        _hpSlider.value = _currentHealth / (float)_maxHealth;
+        _hpSliderfill.color = hpSliderGradient.Evaluate(0f);
     }
 
     public void TakeDamage(int damage)
     {
-        if (!BlockingBool && currentHealth > 0)
+        if (!_canTakeDamage) return;
+
+        if (_currentHealth > 0)
         {
-            currentHealth -= damage;
-            slider.value = currentHealth;
-            fill.color = gradient.Evaluate(slider.normalizedValue);
+            _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+            _hpSlider.value = _hpSlider.value = _currentHealth / (float)_maxHealth;;
+            _hpSliderfill.color = hpSliderGradient.Evaluate(1-_hpSlider.value);
 
-            animator.SetTrigger("Hurt");
-            playerMovement.isAttacking = false;
-            playerMovement.isBlocking = false;
-
-            if (currentHealth <= 0)
+            if (_currentHealth <= 0)
             {
                 Die();
+                return;
             }
+
+            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Hurt);
+            _canTakeDamage = false;
+            StartCoroutine(InvincibilityAfterHit());
         }
     }
 
-    private void CheckReferences()
+    private IEnumerator InvincibilityAfterHit()
     {
-        if (rb == null) rb = GetComponent<Rigidbody>();
-        if (playerMovement == null) playerMovement = GetComponent<PlayerController>();
-        if (animator == null) animator = GetComponent<Animator>();
+        playerController.FreezePlayer();
+        yield return new WaitForSeconds(invincibilityTime);
+        _canTakeDamage = true;
+        playerController.UnFreezePlayer();
     }
 
     public void Die()
     {
-        animator.SetTrigger("Death");
-        this.enabled = false;
-        this.GetComponent<PlayerController>().enabled = false;
-        // TODO FightManager.Instance.ShowWinUI(_whichPlayer);
+        fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Death);
+        playerController.enabled = false;
+        FightManager.Instance.ShowWinUI(playerController.GetWhichPlayer());
+        enabled = false;
     }
     
 }

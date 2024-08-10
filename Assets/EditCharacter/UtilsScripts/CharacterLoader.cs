@@ -512,22 +512,14 @@ public static class CharacterLoader
         //animationClip.frameRate = FRAMERATE;
 
         FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip();
+        fajtovAnimationClip.name = animName;
 
         // Set variables of animations
-        if (animName == IDLE_ANIM_NAME)
+        if (animName == IDLE_ANIM_NAME ||
+            animName == WALK_ANIM_NAME)
         {
             fajtovAnimationClip.isLooping = true;
-        }
-        else if (animName == ATTACK_ANIM_NAME || 
-                 animName == WALK_ANIM_NAME || 
-                 animName == JUMP_ANIM_NAME)
-        {
             fajtovAnimationClip.canBeInterupted = true;
-        }
-        else if (animName == WALK_ANIM_NAME)
-        {
-            fajtovAnimationClip.canBeInterupted = true;
-            fajtovAnimationClip.isLooping = true;
         }
 
         // Load all found sprites

@@ -24,7 +24,7 @@ public class SpawnPlayers : MonoBehaviour
         GameObject leftPlayer = Instantiate(_universalPlayerPrefabs, _leftSpawnTransform);
         GameObject rightPlayer = Instantiate(_universalPlayerPrefabs, _rightSpawnTransform);
         
-        // Flip the left player
+        // Flip the right player
         Vector3 rightScale = rightPlayer.transform.localScale;
         rightScale.x *= -1;
         rightPlayer.transform.localScale = rightScale;
@@ -36,10 +36,8 @@ public class SpawnPlayers : MonoBehaviour
         PlayerController rightMovement = rightPlayer.GetComponent<PlayerController>();
 
         // Set the health bar references
-        lefthealth.slider = _sliderLeft;
-        lefthealth.fill = _fillLeft;
-        righthealth.slider = _sliderRight;
-        righthealth.fill = _fillRight;
+        lefthealth.Initialize(_sliderLeft, _fillLeft, GlobalState.Player1Character.health);
+        righthealth.Initialize(_sliderRight, _fillRight, GlobalState.Player2Character.health);
 
         // Initialize the characters
         leftMovement.Initialize(GlobalState.Player.one, true, LayerMask.GetMask("Player2"));
@@ -50,6 +48,9 @@ public class SpawnPlayers : MonoBehaviour
         leftPlayer.tag = "Player1";
         rightPlayer.layer = LayerMask.NameToLayer("Player2");
         rightPlayer.tag = "Player2";
+
+        // Make second player in front of the first on to reduce z-fighting
+        rightPlayer.GetComponent<SpriteRenderer>().sortingOrder = 3;
 
         // Set targets to MultipleTargetCamera
         MultipleTargetCamera multipleTargetCamera = Camera.main.GetComponent<MultipleTargetCamera>();

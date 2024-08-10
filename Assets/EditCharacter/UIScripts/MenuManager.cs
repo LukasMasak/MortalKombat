@@ -55,8 +55,8 @@ public class MenuManager : MonoBehaviour
         _dmgSlider.value = _selectedCharacter.damage;
         _jmpSlider.value = _selectedCharacter.jump;
         _atkSizeSlider.value = _selectedCharacter.attackSize;
-        _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
-        _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
+        _atkXSlider.value = _selectedCharacter.attackPointOffset.x * 10;
+        _atkYSlider.value = _selectedCharacter.attackPointOffset.y * 10;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
         _atkFrameSlider.maxValue = (int)(_selectedCharacter.attackAnim.frames.Length * CharacterLoader.FRAMERATE);
     }
@@ -83,8 +83,8 @@ public class MenuManager : MonoBehaviour
         _selectedCharacter.damage = (int)_dmgSlider.value;
         _selectedCharacter.jump = _jmpSlider.value;
         _selectedCharacter.attackSize = _atkSizeSlider.value;
-        _selectedCharacter.attackPointOffset.x = _atkXSlider.value;
-        _selectedCharacter.attackPointOffset.y = _atkYSlider.value;
+        _selectedCharacter.attackPointOffset.x = _atkXSlider.value / 10f;
+        _selectedCharacter.attackPointOffset.y = _atkYSlider.value / 10f;
         _selectedCharacter.attackFrameIdx = (uint)_atkFrameSlider.value;
 
         GlobalState.AllCharacters[charIdx] = _selectedCharacter;
