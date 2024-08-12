@@ -9679,7 +9679,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8417139167998497541}
-  _playButton: {fileID: 0}
   _playOnGraphic: {fileID: 1795106485}
   _playOffGraphic: {fileID: 1897609022}
 --- !u!1 &1795106485
@@ -11673,7 +11672,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
     type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 0.5019608}
+  m_Color: {r: 0, g: 1, b: 0, a: 0.36078432}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -11871,7 +11870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae6a0b0b062649d8b8f52a3ccf0c52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationStarted:
+  _defaultSprite: {fileID: 21300000, guid: f6a7ef17fbece7c408ed17c4077e97e3, type: 3}
+  animationStarted:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1750259518}
@@ -11886,10 +11886,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _animationLooped:
+  animationLooped:
     m_PersistentCalls:
       m_Calls: []
-  _animationEnded:
+  animationEnded:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1750259518}

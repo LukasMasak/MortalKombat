@@ -544,12 +544,22 @@ public static class CharacterLoader
             return aNum.CompareTo(bNum);
         });
         
-        // Add all sprites to an list
+        // Check and add all found sprites
         foreach (string file in allFiles)
         {
-            if (file.EndsWith(".png")
-             || file.EndsWith(".jpg")
-             || file.EndsWith(".jpeg")) 
+            // Check if sprite is valid file type
+            bool isFileTypeValid = false;
+            foreach (string fileType in SPRITE_FILE_TYPES)
+            {
+                if (file.EndsWith(fileType))
+                {
+                    isFileTypeValid = true;
+                    break;
+                }
+            }
+
+            // Add sprite to list
+            if (isFileTypeValid) 
             {
                 sprites.Add(LoadSprite(file));
             }
@@ -629,6 +639,7 @@ public static class CharacterLoader
         byte[] fileData = File.ReadAllBytes(path);
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(fileData);
+        tex.alphaIsTransparency = true;
 
         // Case of default icon and preview
         if (tex.width == 16)

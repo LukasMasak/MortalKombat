@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 
 public class FajtovPlayerAnimator : MonoBehaviour
 {
-    [SerializeField] public UnityEvent _animationStarted;
-    [SerializeField] public UnityEvent _animationLooped;
-    [SerializeField] public UnityEvent _animationEnded;
+    [SerializeField] private Sprite _defaultSprite;
+    [SerializeField] public UnityEvent animationStarted;
+    [SerializeField] public UnityEvent animationLooped;
+    [SerializeField] public UnityEvent animationEnded;
 
     public enum FajtovAnimationStates 
     {
@@ -37,11 +38,11 @@ public class FajtovPlayerAnimator : MonoBehaviour
         {true,  true,  true,  false, true,  true,  true}, // Atk
         {true,  false, true,  true,  false, true,  true}, // Block
         {true,  false, true,  true,  true,  false, true}, // Hurt
-        {false, false, false, false, false, false, false}, // Death
+        {false, false, false, false, false, false, false},// Death
 
     };
-    private bool isMoving = false;
-    private bool isBlocking = false;
+    //private bool isMoving = false;
+    //private bool isBlocking = false;
 
     private FajtovAnimationStates _currentState = FajtovAnimationStates.Idle;
     private FajtovAnimationClip _currentAnim;
@@ -61,28 +62,21 @@ public class FajtovPlayerAnimator : MonoBehaviour
     {
         if (_spriteRenderer == null) Start();
         _characterData = characterData;
+        if (_runningCoroutine != null) StopCoroutine(_runningCoroutine);    
         ChangeState(FajtovAnimationStates.Idle, true);        
     }
 
 
-    public void ChangeState(FajtovAnimationStates newState,  bool forceChange = false)
+    public void ChangeState(FajtovAnimationStates newState, bool forceChange = false)
     {
-        Debug.Log("Going from " + _currentState.ToString() + " to state " + newState.ToString());
-        Debug.Log(_characterData.idleAnim.canBeInterupted + " interupt idle");
-        Debug.Log(_currentAnim.name + " name of curr");
-
         // Check if state can be changed
         if (!forceChange)
         {
-            Debug.Log("matrix check " + animTransMatrix[(int)_currentState, (int)newState]);
             if (!animTransMatrix[(int)_currentState, (int)newState]) return;
-            Debug.Log("same state check");
             if (newState == _currentState) return;
-            Debug.Log("complete check, complete " + _currentAnimComplete + ", can interupted " + _currentAnim.canBeInterupted);
             if (!_currentAnimComplete && !_currentAnim.canBeInterupted) return;
         }
 
-        Debug.Log("Success");
         _animationDisabled = false;
         _currentState = newState;
         _currentAnimComplete = false;
@@ -165,10 +159,17 @@ public class FajtovPlayerAnimator : MonoBehaviour
 
     private IEnumerator PlayAnimation(int startFrame = 0)
     {
-        _animationStarted.Invoke();
-
         _currentAnim = GetAnimationBasedOnState();
         _currentFrameNum = startFrame;
+
+        // Check if anim exists
+        if (_currentAnim.frames == null || _currentAnim.frames.Length == 0) 
+        {
+            _spriteRenderer.sprite = _defaultSprite;
+            yield return null;
+        }
+        animationStarted.Invoke();
+        
         for (int i = startFrame; i < _currentAnim.frames.Length; i++)
         {
             Sprite frame = _currentAnim.frames[i];
@@ -181,11 +182,11 @@ public class FajtovPlayerAnimator : MonoBehaviour
         if (_currentAnim.isLooping)
         {
             _runningCoroutine = StartCoroutine(PlayAnimation());
-            _animationLooped.Invoke();
+            animationLooped.Invoke();
         }
         else
         {
-            _animationEnded.Invoke();
+            animationEnded.Invoke();
         }
     }
 

@@ -58,7 +58,7 @@ public class MenuManager : MonoBehaviour
         _atkXSlider.value = _selectedCharacter.attackPointOffset.x * 10;
         _atkYSlider.value = _selectedCharacter.attackPointOffset.y * 10;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
-        _atkFrameSlider.maxValue = (int)(_selectedCharacter.attackAnim.frames.Length * CharacterLoader.FRAMERATE);
+        _atkFrameSlider.maxValue = _selectedCharacter.attackAnim.frames != null ? _selectedCharacter.attackAnim.frames.Length : 1;
     }
 
 
@@ -112,6 +112,7 @@ public class MenuManager : MonoBehaviour
         }
 
         _selectedCharacter = GlobalState.AllCharacters[characterIdx];
+        _previewAnimator.Initialize(ref _selectedCharacter);
         UpdateStatsWithSelectedCharacter();
         SwitchPreviewAnimation(0);
     }

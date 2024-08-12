@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ToggleAnimatorPreview : MonoBehaviour
 {
     [SerializeField] private FajtovPlayerAnimator _animator;
-    [SerializeField] private Button _playButton;
     [SerializeField] private GameObject _playOnGraphic;
     [SerializeField] private GameObject _playOffGraphic;
 
