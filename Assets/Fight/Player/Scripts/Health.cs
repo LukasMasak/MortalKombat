@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Death);
+        fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Death, true);
         playerController.enabled = false;
         FightManager.Instance.ShowWinUI(playerController.GetWhichPlayer());
         enabled = false;
