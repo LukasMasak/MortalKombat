@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
         _attackPoint = transform.GetChild(0).gameObject;
         _attackPoint.transform.localPosition = new Vector3(_characterData.attackPointOffset.x, _characterData.attackPointOffset.y, 0); 
 
+        // Setup the collider
+        CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
+        capsuleCollider.height = _characterData.colliderHeight;
+        capsuleCollider.radius = _characterData.colliderWidth;
+        capsuleCollider.center = new Vector3(_characterData.colliderOffset.x, _characterData.colliderOffset.y, 0);
+
         // DEBUG
         if (!_characterData.isValid)
         {

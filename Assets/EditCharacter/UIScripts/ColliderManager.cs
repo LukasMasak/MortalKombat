@@ -15,7 +15,8 @@ public class ColliderManager : MonoBehaviour
     private float _offsetX = 0;
     private float _offsetY = 0;
 
-    const float SCALE_MULT = 0.285f;
+    const float SCALE_MULT = 1.96f;
+    const float OFFSET_MULT = 14f;
 
 
     public void SetWidth(Slider widthSlider)
@@ -63,6 +64,8 @@ public class ColliderManager : MonoBehaviour
 
         _middleSquare.localScale = new Vector2(pixelWidth, _squareHeight);
 
-        transform.position = new Vector3(_offsetX, _offsetY, 0) * 10;
+        transform.position = new Vector3(_offsetX * OFFSET_MULT, _offsetY * OFFSET_MULT, -7) ;
+
+        Debug.Log(_width + " width, " + _height + " height, " + _offsetX + ", " + _offsetY + " offset");
     }
 }

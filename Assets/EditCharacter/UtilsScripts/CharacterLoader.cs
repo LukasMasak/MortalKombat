@@ -278,12 +278,12 @@ public static class CharacterLoader
             jump = 20,
             health = 100,
             damage = 20,
-            attackPointOffset = new Vector2(0.1f,0.1f),
+            attackPointOffset = new Vector2(0.01f,0.01f),
             attackFrameIdx = 0,
-            attackSize = 0.1f,
+            attackSize = 0.2f,
             colliderHeight = 4,
             colliderWidth = 1,
-            colliderOffset = new Vector2(0.1f,0.1f),
+            colliderOffset = new Vector2(0.01f,0.01f),
         };
     }
 
@@ -469,7 +469,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_COL_WIDTH_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_COL_WIDTH_NAME.Length + 1);
-                if (uint.TryParse(valueSubstring, out uint value))
+                if (float.TryParse(valueSubstring, out float value))
                 {
                     data.colliderWidth = value;
                 }
