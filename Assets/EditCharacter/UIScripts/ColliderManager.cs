@@ -1,61 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [ExecuteInEditMode]
 public class ColliderManager : MonoBehaviour
 {
-    [SerializeField] private bool update = false;
-    [SerializeField] private RectTransform topSemiCircle;
-    [SerializeField] private RectTransform bottomSemiCircle;
-    [SerializeField] private RectTransform middleSquare;
+    [SerializeField] private RectTransform _topSemiCircle;
+    [SerializeField] private RectTransform _bottomSemiCircle;
+    [SerializeField] private RectTransform _middleSquare;
 
-    [SerializeField] private float width;
-    [SerializeField] private float height;
-    [SerializeField] private float mult;
+    private float _width = 1;
+    private float _height = 4;
+    private float _offsetX = 0;
+    private float _offsetY = 0;
 
-
-    private SpriteRenderer _topSemiCircleRenderer;
-    private SpriteRenderer _bottomSemiCircleRenderer;
-    private SpriteRenderer _middleSquareRenderer;
+    const float SCALE_MULT = 0.285f;
 
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetWidth(Slider widthSlider)
     {
-        _topSemiCircleRenderer = topSemiCircle.GetComponent<SpriteRenderer>();
-        _bottomSemiCircleRenderer = bottomSemiCircle.GetComponent<SpriteRenderer>();
-        _middleSquareRenderer = middleSquare.GetComponent<SpriteRenderer>();
-
+        _width = widthSlider.value;
+        UpdateGraphic();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHeight(Slider heightSlider)
     {
-        if (update) UpdateGraphic();
+        _height = heightSlider.value;
+        UpdateGraphic();
+    }
+
+    public void SetOffsetX(Slider offsetXSlider)
+    {
+        _offsetX = offsetXSlider.value;
+        UpdateGraphic();
+    }
+
+    public void SetOffsetY(Slider offsetYSlider)
+    {
+        _offsetY = offsetYSlider.value;
+        UpdateGraphic();
     }
 
     private void UpdateGraphic()
     {
-        if (_topSemiCircleRenderer == null) Start();
+        if (_height < _width * 2) _height = _width * 2;
 
-        if (height < width * 2) height = width * 2;
+        float pixelWidth = _width * SCALE_MULT;
+        float pixelHeight = _height * SCALE_MULT;
 
-        float pixelWidth = width * mult;
-        float pixelHeight = height * mult;
+        float _squareHeight = (pixelHeight - (pixelWidth * 2))/2.0f;
 
-        float _squareHeight = pixelHeight - (pixelWidth * 2);
+        _topSemiCircle.localScale = new Vector2(pixelWidth, pixelWidth);
+        Vector3 topSemiCirclePos = _topSemiCircle.anchoredPosition;
+        topSemiCirclePos.y = 600 * _squareHeight/2.0f;
+        _topSemiCircle.anchoredPosition = topSemiCirclePos;
 
-        _topSemiCircleRenderer.size = new Vector2(pixelWidth, pixelWidth);
-        Vector3 topSemiCirclePos = topSemiCircle.anchoredPosition;
-        topSemiCirclePos.y = _squareHeight/2;
-        topSemiCircle.anchoredPosition = topSemiCirclePos;
+        _bottomSemiCircle.localScale = new Vector2(pixelWidth, pixelWidth);
+        Vector3 bottomSemiCirclePos = _bottomSemiCircle.anchoredPosition;
+        bottomSemiCirclePos.y = 600 * -_squareHeight/2.0f;
+        _bottomSemiCircle.anchoredPosition = bottomSemiCirclePos;
 
-        _bottomSemiCircleRenderer.size = new Vector2(pixelWidth, pixelWidth);
-        Vector3 bottomSemiCirclePos = bottomSemiCircle.anchoredPosition;
-        bottomSemiCirclePos.y = -_squareHeight/2;
-        bottomSemiCircle.anchoredPosition = bottomSemiCirclePos;
+        _middleSquare.localScale = new Vector2(pixelWidth, _squareHeight);
 
-        _middleSquareRenderer.size = new Vector2(pixelWidth, _squareHeight);
+        transform.position = new Vector3(_offsetX, _offsetY, 0) * 10;
     }
 }

@@ -51,7 +51,7 @@ public class AttackPointManager : MonoBehaviour
     // Callback for changing the position of the attack point
     public void OnCoordSliderChange()
     {
-        transform.position = new Vector3(_attackXSlider.value, _attackYSlider.value, 0);
+        transform.position = new Vector3(_attackXSlider.value, _attackYSlider.value, 0) * 10;
     }
 
 

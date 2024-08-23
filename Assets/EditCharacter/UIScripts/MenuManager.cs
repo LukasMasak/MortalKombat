@@ -18,6 +18,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider _atkXSlider;
     [SerializeField] private Slider _atkYSlider;
     [SerializeField] private Slider _atkFrameSlider;
+    [SerializeField] private Slider _colliderWidthSlider;
+    [SerializeField] private Slider _colliderHeightSlider;
+    [SerializeField] private Slider _colliderOffsetXSlider;
+    [SerializeField] private Slider _colliderOffsetYSlider;
 
     [SerializeField] private FajtovPlayerAnimator _previewAnimator;
 
@@ -55,10 +59,14 @@ public class MenuManager : MonoBehaviour
         _dmgSlider.value = _selectedCharacter.damage;
         _jmpSlider.value = _selectedCharacter.jump;
         _atkSizeSlider.value = _selectedCharacter.attackSize;
-        _atkXSlider.value = _selectedCharacter.attackPointOffset.x * 10;
-        _atkYSlider.value = _selectedCharacter.attackPointOffset.y * 10;
+        _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
+        _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
         _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
         _atkFrameSlider.maxValue = _selectedCharacter.attackAnim.frames != null ? _selectedCharacter.attackAnim.frames.Length : 1;
+        _colliderWidthSlider.value = _selectedCharacter.colliderWidth;
+        _colliderHeightSlider.value = _selectedCharacter.colliderHeight;
+        _colliderOffsetXSlider.value = _selectedCharacter.colliderOffset.x;
+        _colliderOffsetYSlider.value = _selectedCharacter.colliderOffset.y;
     }
 
 
@@ -66,10 +74,14 @@ public class MenuManager : MonoBehaviour
     public void ReloadAllCharacters()
     {
         CharacterLoader.LoadAllCharacters(GlobalState.AllCharacters);
-        _selectedCharacter = GlobalState.AllCharacters[0];
-        _previewAnimator.Initialize(ref _selectedCharacter);
-        UpdateStatsWithSelectedCharacter();
-        SwitchPreviewAnimation(0);
+
+        if (GlobalState.AllCharacters.Count > 0)
+        {
+            _selectedCharacter = GlobalState.AllCharacters[0];
+            _previewAnimator.Initialize(ref _selectedCharacter);
+            UpdateStatsWithSelectedCharacter();
+            SwitchPreviewAnimation(0);
+        }
     }
 
 
@@ -83,9 +95,13 @@ public class MenuManager : MonoBehaviour
         _selectedCharacter.damage = (int)_dmgSlider.value;
         _selectedCharacter.jump = _jmpSlider.value;
         _selectedCharacter.attackSize = _atkSizeSlider.value;
-        _selectedCharacter.attackPointOffset.x = _atkXSlider.value / 10f;
-        _selectedCharacter.attackPointOffset.y = _atkYSlider.value / 10f;
+        _selectedCharacter.attackPointOffset.x = _atkXSlider.value;
+        _selectedCharacter.attackPointOffset.y = _atkYSlider.value;
         _selectedCharacter.attackFrameIdx = (uint)_atkFrameSlider.value;
+        _selectedCharacter.colliderWidth = _colliderWidthSlider.value;
+        _selectedCharacter.colliderHeight = _colliderHeightSlider.value;
+        _selectedCharacter.colliderOffset.x = _colliderOffsetXSlider.value;
+        _selectedCharacter.colliderOffset.y =_colliderOffsetYSlider.value;
 
         GlobalState.AllCharacters[charIdx] = _selectedCharacter;
         CharacterLoader.SaveConfigOfCharacter(_selectedCharacter);
