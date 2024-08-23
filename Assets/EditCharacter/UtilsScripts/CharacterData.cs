@@ -15,6 +15,11 @@ public struct CharacterData
     public Vector2 attackPointOffset;
     public uint attackFrameIdx;
     public float attackSize;
+    public float colliderWidth;
+    public float colliderHeight;
+
+    public Vector2 colliderOffset;
+
 
     // --------------Character-Sprites/Animations--------------
     public Sprite preview;

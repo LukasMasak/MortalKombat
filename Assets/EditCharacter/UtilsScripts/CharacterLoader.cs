@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using System.Linq;
+using System;
 
 public static class CharacterLoader
 {
@@ -31,6 +32,9 @@ public static class CharacterLoader
     private const string CONFIG_ATK_FRAME_NAME = "attackFrame";
     private const string CONFIG_ATK_POINT_NAME = "attackDistance";
     private const string CONFIG_ATK_SIZE_NAME = "attackPointSize";
+    private const string CONFIG_COL_WIDTH_NAME = "colliderWidth";
+    private const string CONFIG_COL_HEIGHT_NAME = "colliderHeight";
+    private const string CONFIG_COL_OFFSET_NAME = "colliderOffset";
 
     private const string BUBBLE_ICON_FILE = "/icon";
     private const string PREVIEW_FILE = "/preview";
@@ -270,18 +274,21 @@ public static class CharacterLoader
         return new CharacterData
         {
             name = characterName,
-            speed = 5,
-            jump = 2,
+            speed = 100,
+            jump = 20,
             health = 100,
             damage = 20,
-            attackPointOffset = new Vector2(1,0),
+            attackPointOffset = new Vector2(0.1f,0.1f),
             attackFrameIdx = 0,
-            attackSize = 1,
+            attackSize = 0.1f,
+            colliderHeight = 4,
+            colliderWidth = 1,
+            colliderOffset = new Vector2(0.1f,0.1f),
         };
     }
 
 
-    // Generates the config string from CharacterData
+    // Generates the config string from CharacterData TODOODDOODODODODOODODODO
     private static string GenerateConfigString(CharacterData data)
     {
         string configString = "";
@@ -293,11 +300,15 @@ public static class CharacterLoader
                                              + "|" + data.attackPointOffset.y + "\n";
         configString += CONFIG_ATK_FRAME_NAME + "=" + data.attackFrameIdx + "\n";
         configString += CONFIG_ATK_SIZE_NAME + "=" + data.attackSize + "\n";
+        configString += CONFIG_COL_OFFSET_NAME + "=" + data.colliderOffset.x
+                                             + "|" + data.colliderOffset.y + "\n";
+        configString += CONFIG_COL_WIDTH_NAME + "=" + data.colliderWidth + "\n";
+        configString += CONFIG_COL_HEIGHT_NAME + "=" + data.colliderHeight + "\n";
         return configString;
     }
 
 
-    // Parse data from config file and returns if config was valid
+    // Parse data from config file and returns if config was valid TODOODDOODODODODOODODODO
     private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
     {
         string errorString = "";
@@ -424,6 +435,66 @@ public static class CharacterLoader
                 }
             }
 
+            // Parse the collider offset
+            else if (line.StartsWith(CONFIG_COL_OFFSET_NAME))
+            {
+                int separatorIdx = line.IndexOf('|');
+                string valueSubstringX = line.Substring(CONFIG_COL_OFFSET_NAME.Length + 1, separatorIdx - CONFIG_COL_OFFSET_NAME.Length - 1);
+                float x, y;
+                if (float.TryParse(valueSubstringX, out float valueX))
+                {
+                    x = valueX;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of collider offset X from config file! Value found= " + valueSubstringX;
+                    break;
+                }
+
+                string valueSubstringY = line.Substring(separatorIdx + 1);
+                if (float.TryParse(valueSubstringY, out float valueY))
+                {
+                    y = valueY;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of collider offset Y from config file! Value found= " + valueSubstringY;
+                    break;
+                }
+
+                data.colliderOffset = new Vector2(x, y);
+            }
+
+            // Parse collider width
+            else if (line.StartsWith(CONFIG_COL_WIDTH_NAME))
+            {
+                string valueSubstring = line.Substring(CONFIG_COL_WIDTH_NAME.Length + 1);
+                if (uint.TryParse(valueSubstring, out uint value))
+                {
+                    data.colliderWidth = value;
+                }
+                else
+                {
+                    errorString = "Could not parse uint value of collider width from config file! Value found= " + valueSubstring;
+                    break;
+                }
+            }
+            
+            // Parse the collider height
+            else if (line.StartsWith(CONFIG_COL_HEIGHT_NAME))
+            {
+                string valueSubstring = line.Substring(CONFIG_COL_HEIGHT_NAME.Length + 1);
+                if (float.TryParse(valueSubstring, out float value))
+                {
+                    data.colliderHeight = value;
+                }
+                else
+                {
+                    errorString = "Could not parse float value of collider height size from config file! Value found= " + valueSubstring;
+                    break;
+                }
+            }
+
             // Unknown 
             else 
             {
@@ -511,8 +582,11 @@ public static class CharacterLoader
         //animationClip.name = animName;
         //animationClip.frameRate = FRAMERATE;
 
-        FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip();
-        fajtovAnimationClip.name = animName;
+        FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip
+        {
+            name = animName,
+            frames = new Sprite[1]
+        };
 
         // Set variables of animations
         if (animName == IDLE_ANIM_NAME ||

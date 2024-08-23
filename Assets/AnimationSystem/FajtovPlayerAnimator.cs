@@ -170,12 +170,15 @@ public class FajtovPlayerAnimator : MonoBehaviour
         }
         animationStarted.Invoke();
         
-        for (int i = startFrame; i < _currentAnim.frames.Length; i++)
+        if (_currentAnim.frames != null)
         {
-            Sprite frame = _currentAnim.frames[i];
-            _spriteRenderer.sprite = frame;
-            _currentFrameNum = i;
-            yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
+            for (int i = startFrame; i < _currentAnim.frames.Length; i++)
+            {
+                Sprite frame = _currentAnim.frames[i];
+                _spriteRenderer.sprite = frame;
+                _currentFrameNum = i;
+                yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
+            }
         }
 
         _currentAnimComplete = true;

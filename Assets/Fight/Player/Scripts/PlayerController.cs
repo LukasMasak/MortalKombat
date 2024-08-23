@@ -134,7 +134,6 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         CheckForFlip();
-        Debug.Log(_characterData.name);      
     }
 
 
