@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ApplyActiveState : MonoBehaviour
 {
@@ -20,5 +21,11 @@ public class ApplyActiveState : MonoBehaviour
         {
             obj.SetActive(false);
         }
+    }
+
+    public void Override(Toggle toggle)
+    {
+        if (toggle.isOn) OnEnable();
+        else OnDisable();
     }
 }

@@ -11,6 +11,8 @@ public class FajtovPlayerAnimator : MonoBehaviour
     [SerializeField] public UnityEvent animationStarted;
     [SerializeField] public UnityEvent animationLooped;
     [SerializeField] public UnityEvent animationEnded;
+    [SerializeField] public UnityEvent frameChanged;
+
 
     public enum FajtovAnimationStates 
     {
@@ -137,6 +139,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         _currentFrameNum = Mathf.Min(_currentFrameNum + 1, _currentAnim.frames.Length - 1);
         Sprite frame = _currentAnim.frames[_currentFrameNum];
         _spriteRenderer.sprite = frame;
+        frameChanged.Invoke();
     }
 
 
@@ -147,6 +150,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         _currentFrameNum = Mathf.Max(_currentFrameNum - 1, 0);
         Sprite frame = _currentAnim.frames[_currentFrameNum];
         _spriteRenderer.sprite = frame;
+        frameChanged.Invoke();
     }
 
 
@@ -177,6 +181,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
                 Sprite frame = _currentAnim.frames[i];
                 _spriteRenderer.sprite = frame;
                 _currentFrameNum = i;
+                frameChanged.Invoke();
                 yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
             }
         }

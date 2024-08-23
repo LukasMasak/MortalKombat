@@ -17,13 +17,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider _atkSizeSlider;
     [SerializeField] private Slider _atkXSlider;
     [SerializeField] private Slider _atkYSlider;
-    [SerializeField] private Slider _atkFrameSlider;
+    [SerializeField] private Toggle _atkFrameToggle;
     [SerializeField] private Slider _colliderWidthSlider;
     [SerializeField] private Slider _colliderHeightSlider;
     [SerializeField] private Slider _colliderOffsetXSlider;
     [SerializeField] private Slider _colliderOffsetYSlider;
 
     [SerializeField] private FajtovPlayerAnimator _previewAnimator;
+    [SerializeField] private AttackPointManager _attackPointManager;
 
     [SerializeField] private TMP_Dropdown _animationSelectDropdown;
     [SerializeField] private TMP_InputField _characterNameInput;
@@ -41,7 +42,7 @@ public class MenuManager : MonoBehaviour
     }
 
     private CharacterData _selectedCharacter;
-    
+    private int _atkFrameNum = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -61,8 +62,7 @@ public class MenuManager : MonoBehaviour
         _atkSizeSlider.value = _selectedCharacter.attackSize;
         _atkXSlider.value = _selectedCharacter.attackPointOffset.x;
         _atkYSlider.value = _selectedCharacter.attackPointOffset.y;
-        _atkFrameSlider.value = _selectedCharacter.attackFrameIdx;
-        _atkFrameSlider.maxValue = _selectedCharacter.attackAnim.frames != null ? _selectedCharacter.attackAnim.frames.Length : 1;
+        _attackPointManager.SetAttackFrame((int)_selectedCharacter.attackFrameIdx);
         _colliderWidthSlider.value = _selectedCharacter.colliderWidth;
         _colliderHeightSlider.value = _selectedCharacter.colliderHeight;
         _colliderOffsetXSlider.value = _selectedCharacter.colliderOffset.x;
@@ -97,7 +97,7 @@ public class MenuManager : MonoBehaviour
         _selectedCharacter.attackSize = _atkSizeSlider.value;
         _selectedCharacter.attackPointOffset.x = _atkXSlider.value;
         _selectedCharacter.attackPointOffset.y = _atkYSlider.value;
-        _selectedCharacter.attackFrameIdx = (uint)_atkFrameSlider.value;
+        _selectedCharacter.attackFrameIdx = (uint)_atkFrameNum;
         _selectedCharacter.colliderWidth = _colliderWidthSlider.value;
         _selectedCharacter.colliderHeight = _colliderHeightSlider.value;
         _selectedCharacter.colliderOffset.x = _colliderOffsetXSlider.value;
@@ -182,5 +182,14 @@ public class MenuManager : MonoBehaviour
         }
 
         _animationSelectDropdown.value = idx;
+    }
+
+
+    // Callback for caching the value of attack frame idx
+    public void OnAttackFrameToggleChange()
+    {
+        if (!_atkFrameToggle.isOn) return;
+
+        _atkFrameNum = _previewAnimator.GetCurrentFrameNum();
     }
 }

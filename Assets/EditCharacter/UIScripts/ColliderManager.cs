@@ -19,30 +19,36 @@ public class ColliderManager : MonoBehaviour
     const float OFFSET_MULT = 14f;
 
 
+    // Callback for width slider
     public void SetWidth(Slider widthSlider)
     {
         _width = widthSlider.value;
         UpdateGraphic();
     }
 
+    // Callback for height slider
     public void SetHeight(Slider heightSlider)
     {
         _height = heightSlider.value;
         UpdateGraphic();
     }
 
+
+    // Callback for offset X slider
     public void SetOffsetX(Slider offsetXSlider)
     {
         _offsetX = offsetXSlider.value;
         UpdateGraphic();
     }
 
+    // Callback for offset Y slider
     public void SetOffsetY(Slider offsetYSlider)
     {
         _offsetY = offsetYSlider.value;
         UpdateGraphic();
     }
 
+    // Updates the preview based on the private vars
     private void UpdateGraphic()
     {
         if (_height < _width * 2) _height = _width * 2;
@@ -65,7 +71,5 @@ public class ColliderManager : MonoBehaviour
         _middleSquare.localScale = new Vector2(pixelWidth, _squareHeight);
 
         transform.position = new Vector3(_offsetX * OFFSET_MULT, _offsetY * OFFSET_MULT, -7) ;
-
-        Debug.Log(_width + " width, " + _height + " height, " + _offsetX + ", " + _offsetY + " offset");
     }
 }

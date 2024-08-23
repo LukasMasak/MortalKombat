@@ -9,12 +9,13 @@ public class AttackPointManager : MonoBehaviour
     [SerializeField] private Slider _attackSizeSlider;
     [SerializeField] private Slider _attackXSlider;
     [SerializeField] private Slider _attackYSlider;
-    [SerializeField] private Slider _attackFrameSlider;
+    [SerializeField] private Toggle _attackFrameToggle;
     [SerializeField] private FajtovPlayerAnimator _previewAnimator;
     [SerializeField]private Color _imageOnColor;
     [SerializeField]private Color _imageOffColor;
 
     private SpriteRenderer _attackPointSpriteRenderer;
+    private int _attackFrameNum = 0;
 
 
     // Start is called before the first frame update
@@ -25,18 +26,9 @@ public class AttackPointManager : MonoBehaviour
     }
 
 
-    // Changes the color of the attack point preview when the frame is active
-    void Update()
+    public void SetAttackFrame(int value)
     {
-        int frameNum = _previewAnimator.GetCurrentFrameNum();
-        if (frameNum == _attackFrameSlider.value)
-        {
-            _attackPointSpriteRenderer.color = _imageOnColor;
-        }
-        else 
-        {
-            _attackPointSpriteRenderer.color = _imageOffColor;
-        }
+        _attackFrameNum = value;
     }
 
 
@@ -59,5 +51,30 @@ public class AttackPointManager : MonoBehaviour
     public void OnSizeSliderChange()
     {
         transform.localScale = new Vector3(_attackSizeSlider.value, _attackSizeSlider.value, 1);
+    }
+
+    public void OnAttackFrameToggleChange()
+    {
+        if (!_attackFrameToggle.isOn) return;
+
+        _attackFrameNum = _previewAnimator.GetCurrentFrameNum();
+        OnFrameChange();
+    }
+
+    public void OnFrameChange()
+    {
+        if (_attackPointSpriteRenderer == null) Start();
+
+        int frameNum = _previewAnimator.GetCurrentFrameNum();
+        if (frameNum == _attackFrameNum)
+        {
+            _attackPointSpriteRenderer.color = _imageOnColor;
+            _attackFrameToggle.isOn = true;
+        }
+        else 
+        {
+            _attackPointSpriteRenderer.color = _imageOffColor;
+            _attackFrameToggle.isOn = false;
+        }
     }
 }
