@@ -1,0 +1,52 @@
+#pragma kernel CSMain
+
+#define MAX_DISTANCE 100
+
+// Input and output textures
+Texture2D<float4> _sourceTex;
+RWTexture2D<float4> _resultTex;
+
+int _distance;
+
+[numthreads(16, 16, 1)]
+void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
+{
+    uint2 texSize;
+    _sourceTex.GetDimensions(texSize.x, texSize.y);
+
+    uint2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);
+    if (coords.x >= texSize.x) return;
+    if (coords.y >= texSize.y) return;
+
+
+    float minDistance = _distance * 10;
+
+    for (int yRect = - _distance; yRect <= _distance; yRect++)
+    {
+        if (yRect + coords.y < 0 || yRect + coords.y > texSize.y - 1) continue;
+
+        for (int xRect = - _distance; xRect <= _distance; xRect++)
+        {
+            if (xRect + coords.x < 0 || xRect + coords.x > texSize.x - 1) continue;
+
+            int2 currCoords = coords + int2(xRect, yRect);
+            
+            // Found the edge
+            if (_sourceTex[currCoords].a <= 0.1)
+            {
+                float distance = length(float2(xRect, yRect));
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                }
+            }
+        }
+    }
+
+
+    float heightValue = 1 - clamp(minDistance / _distance, 0, 1);
+    float4 heightColor = float4(heightValue, heightValue, heightValue, 1);
+
+    if (_sourceTex[coords].a <= 0.1) heightColor = float4(1, 1, 1, 1);
+    _resultTex[coords] = pow(abs(heightColor), 0.449);
+}
