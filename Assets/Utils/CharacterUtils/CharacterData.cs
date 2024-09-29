@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct CharacterData
+public class CharacterData
 {
     public bool isValid;
 
@@ -23,6 +23,7 @@ public struct CharacterData
 
     // --------------Character-Sprites/Animations--------------
     public Sprite preview;
+    public Texture2D previewNormalMap;
     public Sprite bubbleIcon;
     public FajtovAnimationClip idleAnim;
     public FajtovAnimationClip attackAnim;

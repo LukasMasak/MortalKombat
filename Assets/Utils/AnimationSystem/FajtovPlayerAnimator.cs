@@ -60,7 +60,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
     }
 
 
-    public void Initialize(ref CharacterData characterData)
+    public void Initialize(CharacterData characterData)
     {
         if (_spriteRenderer == null) Start();
         _characterData = characterData;
@@ -95,11 +95,21 @@ public class FajtovPlayerAnimator : MonoBehaviour
     }
 
 
-    public void ShowPreviewIcon()
+    public void ShowPreviewIcon(bool previewNormal = false)
     {
         StopAnimation();
         _animationDisabled = true;
-        _spriteRenderer.sprite = _characterData.preview;
+        if (previewNormal)
+        {
+            Texture2D tex = _characterData.previewNormalMap;
+            _spriteRenderer.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+            _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", null);
+        }
+        else 
+        {
+            _spriteRenderer.sprite = _characterData.preview;
+            _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", _characterData.previewNormalMap);
+        }
     }
 
 
@@ -178,8 +188,13 @@ public class FajtovPlayerAnimator : MonoBehaviour
         {
             for (int i = startFrame; i < _currentAnim.frames.Length; i++)
             {
-                Sprite frame = _currentAnim.frames[i];
-                _spriteRenderer.sprite = frame;
+                if (_currentAnim.normalMapframes.Length < i)
+                {
+                    _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
+                }
+                else {
+                    _spriteRenderer.sprite = _currentAnim.frames[i];
+                }
                 _currentFrameNum = i;
                 frameChanged.Invoke();
                 yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);

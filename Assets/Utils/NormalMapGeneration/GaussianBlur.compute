@@ -7,25 +7,25 @@ Buffer<float> _gaussianKernel;
 
 uint _blurRadius;
 
-[numthreads(16, 16, 1)]
+[numthreads(32, 32, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
     if (dispatchThreadID.x >= texSize.x) return;
+    if (dispatchThreadID.x < 0) return;
     if (dispatchThreadID.y >= texSize.y) return;
+    if (dispatchThreadID.y < 0) return;
 
     float3 color = float3(0, 0, 0);
     float weightSum = 0.0;
     uint halfRadius = _blurRadius / 2;
 
-    for (uint y = 0; y < _blurRadius; y++)
+    for (uint y = 0; y <= _blurRadius; y++)
     {
-        for (uint x = 0; x < _blurRadius; x++)
+        for (uint x = 0; x <= _blurRadius; x++)
         {
-            if (x == halfRadius-1 && y == halfRadius-1) continue;
-
             uint2 texCoord = uint2(dispatchThreadID.x + x - halfRadius, dispatchThreadID.y + y - halfRadius);
 
             texCoord.x = min(max(texCoord.x, 0), texSize.x - 1);
@@ -44,6 +44,5 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 
     // Output the final pixel
     float4 finalPixel = float4(color, _sourceTex[dispatchThreadID.xy].w);
-    _resultTex[dispatchThreadID.xy - float2(1,0)] = pow(abs(finalPixel), 0.449);
-
+    _resultTex[dispatchThreadID.xy] = pow(abs(finalPixel), 0.449);
 }

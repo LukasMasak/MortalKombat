@@ -78,7 +78,7 @@ public class MenuManager : MonoBehaviour
         if (GlobalState.AllCharacters.Count > 0)
         {
             _selectedCharacter = GlobalState.AllCharacters[0];
-            _previewAnimator.Initialize(ref _selectedCharacter);
+            _previewAnimator.Initialize(_selectedCharacter);
             UpdateStatsWithSelectedCharacter();
             SwitchPreviewAnimation(0);
         }
@@ -103,6 +103,7 @@ public class MenuManager : MonoBehaviour
         _selectedCharacter.colliderOffset.x = _colliderOffsetXSlider.value;
         _selectedCharacter.colliderOffset.y =_colliderOffsetYSlider.value;
 
+        // May not be needed?? TODO test (characters are classes so passed by ref)
         GlobalState.AllCharacters[charIdx] = _selectedCharacter;
         CharacterLoader.SaveConfigOfCharacter(_selectedCharacter);
     }
@@ -128,7 +129,7 @@ public class MenuManager : MonoBehaviour
         }
 
         _selectedCharacter = GlobalState.AllCharacters[characterIdx];
-        _previewAnimator.Initialize(ref _selectedCharacter);
+        _previewAnimator.Initialize(_selectedCharacter);
         UpdateStatsWithSelectedCharacter();
         SwitchPreviewAnimation(0);
     }

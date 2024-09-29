@@ -22,7 +22,9 @@ public class TextSetter : MonoBehaviour
     // Sets the value of the text based on slider
     public void SetSliderValue()
     {
-        _textMeshProUGUI.text = _slider?.value.ToString();
+        if (_slider == null) return;
+        
+        _textMeshProUGUI.text = (Mathf.Round(_slider.value * 100) / 100).ToString();
     }
 
 }

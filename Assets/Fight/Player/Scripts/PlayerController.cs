@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (fajtovAnimator == null) fajtovAnimator = GetComponent<FajtovPlayerAnimator>();
-        fajtovAnimator.Initialize(ref _characterData);
+        fajtovAnimator.Initialize(_characterData);
     }
 
 

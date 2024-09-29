@@ -6,127 +6,114 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class NormalMapGenerator : MonoBehaviour
 {
-    [SerializeField] private ComputeShader _gaussianShader;
+    [SerializeField]private ComputeShader _gaussianShader;
     [SerializeField] private ComputeShader _distanceShader;
+    [SerializeField]private ComputeShader _normalMapShader;
+
 
     [SerializeField] private Texture2D sourceTexture; // Input texture
-    [SerializeField] private float normalStrength = 100.0f; // Controls the steepness of slopes
-    [SerializeField] [Range(0, 10)] private int blurEdges = 4; // Controls the width of the edges (larger value means wider edges)
+    [SerializeField] private float normalStrength = 20.0f; // Controls the steepness of slopes
+    [SerializeField] [Range(0, 10)] private int blurEdges = 5; // Controls the width of the edges (larger value means wider edges)
 
-    [SerializeField] private float bumpHeight = 100.0f; // Controls the height of the bump effect
-    [SerializeField] [Range(0, 10)] private int blurBump = 4; // Controls the width of the edges (larger value means wider edges)
-    [SerializeField] private int slopeDistance = 40; // Controls the distance over which the slope extends inward
+    [SerializeField] private float bumpHeight = 80.0f; // Controls the height of the bump effect
+    [SerializeField] [Range(1, 10)] private int blurBump = 5; // Controls the width of the edges (larger value means wider edges)
+    [SerializeField] [Range(1f, 10f)] private float blurSoften = 1;
 
-    [SerializeField] [Range(0, 10)] private int finalBlur = 4; // Controls the width of the edges (larger value means wider edges)
+    [SerializeField] [Range(0f, 1f)]private float slopeDistance = 0.1f; // Controls the distance over which the slope extends inward
 
-    public bool update = false;
+    [SerializeField] [Range(0, 10)] private int finalBlur = 5; // Controls the width of the edges (larger value means wider edges)
 
-    public float GAUSSIAN_WEIGHT = 20.0f; 
+    private SpriteRenderer _spriteRenderer;
+
+    public float GAUSSIAN_WEIGHT = 10f; 
+
+
+    public bool _update = false;
 
     private void Update()
     {
-        if (update)
+        if (_update)
         {
-            update = false;
-            GenerateNormalMap();
+            _update = false;
+            Texture2D test = GenerateNormalMap(sourceTexture, normalStrength, blurEdges, bumpHeight, blurBump, blurSoften, slopeDistance, finalBlur);
+            _spriteRenderer.sprite = Sprite.Create(test, new Rect(0, 0, test.width, test.height), new Vector2(0.5f, 0.5f));
         }
     }
 
-    void GenerateNormalMap()
+    private void Start()
     {
-        int width = sourceTexture.width;
-        int height = sourceTexture.height;
-        Texture2D normalMap = new Texture2D(width, height);
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+
+    public Texture2D GenerateNormalMap(Texture2D sourceTexture, float normalStrength, int blurEdges, float bumpHeight, int blurBump, float softenBump, float slopePercentage, int finalBlur)
+    {
+        Debug.Log("Called with " + normalStrength + " strenght edge " + blurEdges + " edge blur");
 
         // Apply Gaussian blur to the normal map
         Texture2D blurredTexture = ApplyGaussianBlur(sourceTexture, blurEdges * 2);
 
         // Generate a height map with the "puffed-up" effect
-        Texture2D heightMap = GenerateHeightMapWithSlope(sourceTexture);
-
+        Texture2D heightMap = GenerateHeightMap(sourceTexture, Mathf.RoundToInt((sourceTexture.width / 4f) * slopePercentage));
         heightMap = ApplyGaussianBlur(heightMap, blurBump * 2);
-        heightMap.filterMode = FilterMode.Point;
-        
-        
-        //ApplyNormalMapToChild(heightMap);
-
+        //return heightMap;
         // Generate the normal map with the bump effect
-        for (int x = 1; x < width - 1; x++)
-        {
-            for (int y = 1; y < height - 1; y++)
-            {
-                Color heightPixel = heightMap.GetPixel(x, y);
-                Color leftHeightPixel = heightMap.GetPixel(x - 1, y);
-                Color rightHeightPixel = heightMap.GetPixel(x + 1, y);
-                Color downHeightPixel = heightMap.GetPixel(x, y - 1);
-                Color upHeightPixel = heightMap.GetPixel(x, y + 1);
-
-                float heightCurr = heightPixel.r;
-                float heightL = 1 - leftHeightPixel.r * leftHeightPixel.a;
-                float heightR = 1 - rightHeightPixel.r  * rightHeightPixel.a;
-                float heightD = 1 - downHeightPixel.r * downHeightPixel.a;
-                float heightU = 1 - upHeightPixel.r * upHeightPixel.a;
-
-                //Debug.Log(heightCurr);
-                // Compute gradients (normal)
-                float distanceX = (heightL - heightR) * bumpHeight;
-                float distanceY = (heightD - heightU) * bumpHeight;
-
-                distanceX *= Mathf.Pow(heightCurr, blurBump);
-                distanceY *= Mathf.Pow(heightCurr, blurBump);
-
-
-                Color blurPixel = blurredTexture.GetPixel(x, y);
-                Color leftBlurPixel = blurredTexture.GetPixel(x - 1, y);
-                Color rightBlurPixel = blurredTexture.GetPixel(x + 1, y);
-                Color downBlurPixel = blurredTexture.GetPixel(x, y - 1);
-                Color upBlurPixel = blurredTexture.GetPixel(x, y + 1);
-
-                float blurCurr = 1 - (blurPixel.r + blurPixel.g + blurPixel.b) / 3f * blurPixel.a;
-                float blurL = 1 - (leftBlurPixel.r + leftBlurPixel.g + leftBlurPixel.b) / 3f * leftBlurPixel.a;
-                float blurR = 1 - (rightBlurPixel.r + rightBlurPixel.g + rightBlurPixel.b) / 3f * rightBlurPixel.a;
-                float blurD = 1 - (downBlurPixel.r + downBlurPixel.g + downBlurPixel.b) / 3f * downBlurPixel.a;
-                float blurU = 1 - (upBlurPixel.r + upBlurPixel.g + upBlurPixel.b) / 3f * upBlurPixel.a;
-
-                // Compute gradients (normal)
-                float embossX = (blurR - blurL) * blurCurr * normalStrength;
-                float embossY = (blurU - blurD) * blurCurr * normalStrength;
-
-
-                float normalR = embossX * 3f/2f + distanceX * 3f/2f;
-                float normalG = embossY * 3f/2f + distanceY * 3f/2f;
-                float normalB = 1f;
-
-                Vector3 normal = new Vector3(normalR, normalG, normalB).normalized;
-
-                Color normalColor = new Color(
-                    normal.x * 0.5f + 0.5f,
-                    normal.y * 0.5f + 0.5f,
-                    normal.z * 0.5f + 0.5f);
-
-                // if (leftBlurPixel.a == 0 &&
-                //     rightBlurPixel.a == 0 &&
-                //     downBlurPixel.a == 0 &&
-                //     upBlurPixel.a == 0) normalColor = new Color(0.5f,0.5f,1f);
-
-                normalMap.SetPixel(x, y, normalColor);
-            }
-        }
-        normalMap.Apply();
+        Texture2D normalMap = ApplyBlurredSourceAndHeightMap(blurredTexture, heightMap, normalStrength, bumpHeight, blurBump, softenBump);
+        
 
         // Apply Gaussian blur to the normal map
         Texture2D blurredNormalMap = ApplyGaussianBlur(normalMap, finalBlur*2);
-        blurredNormalMap.filterMode = FilterMode.Point;
 
-        byte[] _bytes = blurredNormalMap.EncodeToPNG();
-        File.WriteAllBytes(Application.dataPath  + "/Characters" + "/test.png" , _bytes);
+        // byte[] _bytes = blurredNormalMap.EncodeToPNG();
+        // File.WriteAllBytes(Application.dataPath  + "/Characters" + "/test.png" , _bytes);
 
-        ApplyNormalMapToChild(blurredNormalMap);
+        //if (transform.childCount > 0) ApplyNormalMapToChild(blurredNormalMap);
 
-        ApplyNormalMap(blurredNormalMap);
+        return blurredNormalMap;
+        //ApplyNormalMap(blurredNormalMap);
     }
 
-    Texture2D GenerateHeightMapWithSlope(Texture2D source)
+
+    private Texture2D ApplyBlurredSourceAndHeightMap(Texture2D source, Texture2D heightMap,
+                                                     float normalStrength, float bumpHeight, int bumpBlur, float softenBump)
+    {
+        int width = source.width;
+        int height = source.height;
+
+        RenderTexture renderTexture = new RenderTexture(width, height, 0, RenderTextureFormat.ARGBFloat);
+        renderTexture.enableRandomWrite = true;
+        renderTexture.Create();
+
+        // Pass buffers and textures
+        int kernelHandle = _normalMapShader.FindKernel("CSMain");
+        _normalMapShader.SetTexture(kernelHandle, "_sourceTex", source);
+        _normalMapShader.SetTexture(kernelHandle, "_heightMapTex", heightMap);
+        _normalMapShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
+        _normalMapShader.SetFloat("_normalStrength", normalStrength);
+        _normalMapShader.SetFloat("_bumpStrength", bumpHeight);
+        _normalMapShader.SetInt("_bumpBlur", bumpBlur);
+        _normalMapShader.SetFloat("_softenBump", softenBump);
+
+        // Start the shader up
+        _normalMapShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
+        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
+        _normalMapShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+
+        // Get data
+        RenderTexture.active = renderTexture;
+        Texture2D normalTexture = new Texture2D(width, height);
+        normalTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        normalTexture.Apply();
+        
+        // Cleanup
+        RenderTexture.active = null;
+
+        return normalTexture;
+    }
+
+
+    private Texture2D GenerateHeightMap(Texture2D source, int slopeDistance)
     {
         int width = source.width;
         int height = source.height;
@@ -136,6 +123,7 @@ public class NormalMapGenerator : MonoBehaviour
         renderTexture.Create();
 
         // Pass the Gaussian size to the compute shader
+        Debug.Log("slope dist " + slopeDistance);
         _distanceShader.SetInt("_distance", slopeDistance);
 
         // Pass buffers and textures
@@ -145,8 +133,8 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Start the shader up
         _distanceShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(sourceTexture.width / groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(sourceTexture.height / groupSizeY);
+        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
         _distanceShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
@@ -314,7 +302,8 @@ public class NormalMapGenerator : MonoBehaviour
         */
     }
 
-    Texture2D ApplyGaussianBlur(Texture2D source, int radius)
+
+    private Texture2D ApplyGaussianBlur(Texture2D source, int radius)
     {
         int width = source.width;
         int height = source.height;
@@ -346,8 +335,8 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Start the shader up
         _gaussianShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(sourceTexture.width / groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(sourceTexture.height / groupSizeY);
+        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
         _gaussianShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
@@ -363,7 +352,8 @@ public class NormalMapGenerator : MonoBehaviour
         return blurredTexture;
     }
 
-    public static float[] GetGaussianKernel(int length, float weight)
+
+    private static float[] GetGaussianKernel(int length, float weight)
     {
         float[] kernel = new float[length * length];
         float sumTotal = 0;
@@ -373,7 +363,7 @@ public class NormalMapGenerator : MonoBehaviour
 
         for (int filterY = 0; filterY < length; filterY++)
         {
-            for (int filterX = 0; filterX < kernelRadius; filterX++)
+            for (int filterX = 0; filterX < length; filterX++)
             {
                 int filterXOffset = filterX - kernelRadius;
                 int filterYOffset = filterY - kernelRadius;
@@ -397,17 +387,17 @@ public class NormalMapGenerator : MonoBehaviour
         return kernel;
     }
 
-    void ApplyNormalMap(Texture2D normalMap)
-    {
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        //renderer.sprite = Sprite.Create(normalMap, new Rect(0, 0, normalMap.width, normalMap.height), new Vector2(0.5f, 0.5f));
-        renderer.sharedMaterial.SetTexture("_NormalMap", normalMap);
-    }
+    // void ApplyNormalMap(Texture2D normalMap)
+    // {
+    //     SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+    //     renderer.sprite = Sprite.Create(normalMap, new Rect(0, 0, normalMap.width, normalMap.height), new Vector2(0.5f, 0.5f));
+    //     //renderer.sharedMaterial.SetTexture("_NormalMap", normalMap);
+    // }
 
-    void ApplyNormalMapToChild(Texture2D normalMap)
-    {
-        SpriteRenderer renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        renderer.sprite = Sprite.Create(normalMap, new Rect(0, 0, normalMap.width, normalMap.height), new Vector2(0.5f, 0.5f));
-        //renderer.sharedMaterial.SetTexture("_NormalMap", normalMap);
-    }
+    // void ApplyNormalMapToChild(Texture2D normalMap)
+    // {
+    //     SpriteRenderer renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+    //     renderer.sprite = Sprite.Create(normalMap, new Rect(0, 0, normalMap.width, normalMap.height), new Vector2(0.5f, 0.5f));
+    //     //renderer.sharedMaterial.SetTexture("_NormalMap", normalMap);
+    // }
 }

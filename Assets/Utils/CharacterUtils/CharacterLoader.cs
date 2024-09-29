@@ -578,10 +578,7 @@ public static class CharacterLoader
     // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
     private static FajtovAnimationClip LoadAnimationFromPath(string path, string animName)
     {
-        //AnimationClip animationClip = new AnimationClip();
-        //animationClip.name = animName;
-        //animationClip.frameRate = FRAMERATE;
-
+        // TODO load normal maps
         FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip
         {
             name = animName,
@@ -645,21 +642,9 @@ public static class CharacterLoader
 
         fajtovAnimationClip.frames = sprites.ToArray();
         
-        // // Create an animation curve of the found sprites
-        // EditorCurveBinding spriteBinding = new EditorCurveBinding();
-        // spriteBinding.type = typeof(SpriteRenderer);
-        // spriteBinding.path = "";
-        // spriteBinding.propertyName = "m_Sprite"; 
-
-        // // Setup the animation keys from the sprites
-        // ObjectReferenceKeyframe[] spriteKeyFrames = new ObjectReferenceKeyframe[sprites.Count];
-        // for(int i = 0; i < (sprites.Count); i++) {
-        //     spriteKeyFrames[i] = new ObjectReferenceKeyframe();
-        //     spriteKeyFrames[i].time = i * FRAME_DELAY;
-        //     spriteKeyFrames[i].value = sprites[i];
-        // }
-        // AnimationUtility.SetObjectReferenceCurve(animationClip, spriteBinding, spriteKeyFrames);
-
+        // TODO remove
+        fajtovAnimationClip.normalMapframes = new Texture2D[0];
+        
         return fajtovAnimationClip;
     }
 
