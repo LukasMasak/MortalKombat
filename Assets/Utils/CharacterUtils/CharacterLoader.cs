@@ -696,15 +696,19 @@ public static class CharacterLoader
     private static Sprite LoadSprite(string path)
     {
         byte[] fileData = File.ReadAllBytes(path);
-        Texture2D tex = new Texture2D(2, 2);
+        Texture2D tex = new Texture2D(32, 32);
         tex.LoadImage(fileData);
         tex.alphaIsTransparency = true;
+        tex.wrapMode = TextureWrapMode.Clamp;
 
         // Case of default icon and preview
         if (tex.width == 16)
         {
             tex.filterMode = FilterMode.Point;
         }
-        return Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), tex.width);
+
+        Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100);
+        
+        return sprite;
     }
 }

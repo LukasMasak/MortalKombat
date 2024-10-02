@@ -102,7 +102,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         if (previewNormal)
         {
             Texture2D tex = _characterData.previewNormalMap;
-            _spriteRenderer.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+            _spriteRenderer.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
             _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", null);
         }
         else 

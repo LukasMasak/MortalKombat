@@ -48,7 +48,15 @@ public class NormalMapGenerator : MonoBehaviour
 
     public Texture2D GenerateNormalMap(Texture2D sourceTexture, float normalStrength, int blurEdges, float bumpHeight, int blurBump, float softenBump, float slopePercentage, int finalBlur)
     {
-        Debug.Log("Called with " + normalStrength + " strenght edge " + blurEdges + " edge blur");
+        //Debug.Log("Called with " + sourceTexture.name + " tex name, " + normalStrength + " strenght edge, " + blurEdges + " edge blur " + bumpHeight + " bump height, " + blurBump + " blur bump, " + softenBump + " soften bump, " + slopePercentage + " slope percentagem, " + finalBlur + " final blur");
+
+        //Debug.Log("texture " + sourceTexture.mipmapLimitGroup + " mipmaplimitgroup, " + sourceTexture.requestedMipmapLevel + " requstedmipmaplevel, " + sourceTexture.streamingMipmaps + " streamingmipmaps, " + sourceTexture.hideFlags + " hide flags, " + sourceTexture.streamingMipmapsPriority + " streamingmipmapspriority, " + sourceTexture.imageContentsHash + " image content hash, " + sourceTexture.updateCount + " updatecount, " + sourceTexture.minimumMipmapLevel + " minimummipmap, " + sourceTexture.mipMapBias + " mipmap bias, " + sourceTexture.mipmapCount + " mipmapcount");
+
+
+        FilterMode filterMode = sourceTexture.filterMode;
+        sourceTexture.filterMode = FilterMode.Point;
+
+        //return sourceTexture;
 
         // Apply Gaussian blur to the normal map
         Texture2D blurredTexture = ApplyGaussianBlur(sourceTexture, blurEdges * 2);
@@ -56,11 +64,10 @@ public class NormalMapGenerator : MonoBehaviour
         // Generate a height map with the "puffed-up" effect
         Texture2D heightMap = GenerateHeightMap(sourceTexture, Mathf.RoundToInt((sourceTexture.width / 4f) * slopePercentage));
         heightMap = ApplyGaussianBlur(heightMap, blurBump * 2);
-        //return heightMap;
+        
         // Generate the normal map with the bump effect
         Texture2D normalMap = ApplyBlurredSourceAndHeightMap(blurredTexture, heightMap, normalStrength, bumpHeight, blurBump, softenBump);
         
-
         // Apply Gaussian blur to the normal map
         Texture2D blurredNormalMap = ApplyGaussianBlur(normalMap, finalBlur*2);
 
@@ -68,6 +75,8 @@ public class NormalMapGenerator : MonoBehaviour
         // File.WriteAllBytes(Application.dataPath  + "/Characters" + "/test.png" , _bytes);
 
         //if (transform.childCount > 0) ApplyNormalMapToChild(blurredNormalMap);
+
+        sourceTexture.filterMode = filterMode;
 
         return blurredNormalMap;
         //ApplyNormalMap(blurredNormalMap);
@@ -123,7 +132,6 @@ public class NormalMapGenerator : MonoBehaviour
         renderTexture.Create();
 
         // Pass the Gaussian size to the compute shader
-        Debug.Log("slope dist " + slopeDistance);
         _distanceShader.SetInt("_distance", slopeDistance);
 
         // Pass buffers and textures
