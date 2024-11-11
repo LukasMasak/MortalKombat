@@ -47,16 +47,18 @@ public class NormalMapManager : MonoBehaviour
         _previewAnimator.Initialize(_selectedCharacter);
         _previewAnimator.ShowPreviewIcon();
 
-
+        // Update the normal toggle
+        OnShowNormalMapToggle();
     }
 
 
+    // Callback for the showNormalMap toggle button
     public void OnShowNormalMapToggle()
     {
         if (_showNormalMapToggle.isOn) 
         {
-            _previewAnimator.Initialize(_selectedCharacter);
-            _previewAnimator.ShowPreviewIcon(previewNormal: true);
+            if (_selectedCharacter.previewNormalMap == null) OnGeneratePreviewButtonDown();
+            else _previewAnimator.ShowPreviewIcon(previewNormal: true);
         }
         else
         {
@@ -65,11 +67,14 @@ public class NormalMapManager : MonoBehaviour
     }
 
 
+    // Callback for any parameter change
     public void OnSliderChange()
     {
         if (_autoGenerateToggle.isOn) OnGeneratePreviewButtonDown();
     }
 
+
+    // Callback for generate preview button
     public void OnGeneratePreviewButtonDown()
     {
         Debug.Log("Calling with " + _edgesStrengthSlider.value + " strenght edge " + (int)_edgeBlurSlider.value + " edge blur");
@@ -78,6 +83,7 @@ public class NormalMapManager : MonoBehaviour
         _selectedCharacter.previewNormalMap = texture;                                     
         OnShowNormalMapToggle();
     }
+
 
     // Saves and generates all normal maps for a character
     public void OnGenerateAndSaveButtonDown()
@@ -95,6 +101,7 @@ public class NormalMapManager : MonoBehaviour
         GlobalState.AllCharacters[charIdx] = _selectedCharacter;
         CharacterLoader.SaveConfigOfCharacter(_selectedCharacter);
     }
+
 
     private void GenerateNormalMapsForAnimation(List<Texture2D> resultList, ref FajtovAnimationClip anim)
     {
