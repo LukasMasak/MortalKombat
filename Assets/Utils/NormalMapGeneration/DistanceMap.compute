@@ -50,6 +50,5 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     float heightValue = 1 - clamp(minDistance / divider, 0, 1);
     float4 heightColor = float4(heightValue, heightValue, heightValue, 1);
 
-    if (_sourceTex[coords].a <= 0.1) heightColor = float4(1, 1, 1, 0);
     _resultTex[coords] = pow(abs(heightColor), 0.449);
 }

@@ -31,11 +31,11 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     float4 downHeightPixel = _heightMapTex[coords + uint2(0, -1)];
     float4 upHeightPixel = _heightMapTex[coords + uint2(0, 1)];
 
-    float heightCurr = heightPixel.r * heightPixel.a;
-    float heightL = 1 - leftHeightPixel.r * leftHeightPixel.a;
-    float heightR = 1 - rightHeightPixel.r * rightHeightPixel.a;
-    float heightD = 1 - downHeightPixel.r * downHeightPixel.a;
-    float heightU = 1 - upHeightPixel.r * upHeightPixel.a;
+    float heightCurr = heightPixel.r;
+    float heightL = 1 - leftHeightPixel.r;
+    float heightR = 1 - rightHeightPixel.r;
+    float heightD = 1 - downHeightPixel.r;
+    float heightU = 1 - upHeightPixel.r;
 
     // Compute gradients (normal)
     float distanceX = (heightL - heightR) * _bumpStrength * _softenBump;
@@ -53,10 +53,10 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     float4 upBlurPixel = _sourceTex[coords + uint2(0, 1)];
 
     float blurCurr = 1 - ((blurPixel.r + blurPixel.g + blurPixel.b) / 3.0) * blurPixel.a;
-    float blurL = 1 - ((leftBlurPixel.r + leftBlurPixel.g + leftBlurPixel.b)) / 3.0 * leftBlurPixel.a;
-    float blurR = 1 - ((rightBlurPixel.r + rightBlurPixel.g + rightBlurPixel.b)) / 3.0 * rightBlurPixel.a;
-    float blurD = 1 - ((downBlurPixel.r + downBlurPixel.g + downBlurPixel.b)) / 3.0 * downBlurPixel.a;
-    float blurU = 1 - ((upBlurPixel.r + upBlurPixel.g + upBlurPixel.b)) / 3.0 * upBlurPixel.a;
+    float blurL = 1 - ((leftBlurPixel.r + leftBlurPixel.g + leftBlurPixel.b) / 3.0) * leftBlurPixel.a;
+    float blurR = 1 - ((rightBlurPixel.r + rightBlurPixel.g + rightBlurPixel.b) / 3.0) * rightBlurPixel.a;
+    float blurD = 1 - ((downBlurPixel.r + downBlurPixel.g + downBlurPixel.b) / 3.0) * downBlurPixel.a;
+    float blurU = 1 - ((upBlurPixel.r + upBlurPixel.g + upBlurPixel.b) / 3.0) * upBlurPixel.a;
 
     // Compute gradients (normal)
     float embossX = (blurR - blurL) * blurCurr * _normalStrength;
@@ -65,8 +65,8 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 
 
     // Final normal generation -----------------------------------------------------------------------------
-    float normalR = embossX * 3.0/2.0 + distanceX * 3.0/2.0;
-    float normalG = embossY * 3.0/2.0 + distanceY * 3.0/2.0;
+    float normalR = embossX * 1.0/2.0 + distanceX * 1.0/2.0;
+    float normalG = embossY * 1.0/2.0 + distanceY * 1.0/2.0;
     float normalB = 1.0;
 
     float3 normal = normalize(float3(normalR, normalG, normalB));
