@@ -170,7 +170,6 @@ public class FajtovPlayerAnimator : MonoBehaviour
     }
     //--------------------Edit character menu functions end--------------------
 
-
     private IEnumerator PlayAnimation(int startFrame = 0)
     {
         _currentAnim = GetAnimationBasedOnState();
@@ -188,7 +187,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         {
             for (int i = startFrame; i < _currentAnim.frames.Length; i++)
             {
-                if (_currentAnim.normalMapframes.Length < i)
+                if (i < _currentAnim.normalMapframes.Length)
                 {
                     _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
                 }
