@@ -176,7 +176,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         _currentFrameNum = startFrame;
 
         // Check if anim exists
-        if (_currentAnim.frames == null || _currentAnim.frames.Length == 0) 
+        if (_currentAnim == null || _currentAnim.frames == null || _currentAnim.frames.Length == 0) 
         {
             _spriteRenderer.sprite = _defaultSprite;
             yield return null;
