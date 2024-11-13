@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct FajtovAnimationClip
+public class FajtovAnimationClip
 {
     public string name;
     public Sprite[] frames;

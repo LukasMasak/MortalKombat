@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using System.Linq;
 using System;
+using UnityEngine.UIElements;
 
 public static class CharacterLoader
 {
@@ -19,6 +20,7 @@ public static class CharacterLoader
     private const string JUMP_ANIM_FOLDER = "/JumpAnim";
     private const string HURT_ANIM_FOLDER = "/HurtAnim";
     private const string DEATH_ANIM_FOLDER = "/DeathAnim";
+    private const string NORMAL_MAP_SUFFIX = "_n";
 
     private const string README_FILE = "/README.txt";
     private const string README_CONTENT =
@@ -41,7 +43,7 @@ public static class CharacterLoader
 
     private static readonly string[] SPRITE_FILE_TYPES = {".jpg", ".jpeg", ".png"};
 
-    private static readonly float[] ICON_SPRITE =
+    private static readonly float[] DEFAULT_ICON_SPRITE =
     {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
      0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
      0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
@@ -62,7 +64,7 @@ public static class CharacterLoader
      0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
      0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,};
 
-    private static readonly float[] PREVIEW_SPRITE =
+    private static readonly float[] DEFAULT_PREVIEW_SPRITE =
     {
      0,0,0,0, 1,1,0,0, 0,1,1,0, 0,0,0,0,
      0,0,0,0, 0,1,0,0, 0,1,0,0, 0,0,0,0,
@@ -166,14 +168,14 @@ public static class CharacterLoader
 
         // Create a temp icon
         Texture2D tempIcon = new Texture2D(16, 16, TextureFormat.RFloat, false);
-        tempIcon.SetPixelData(ICON_SPRITE, 0);
+        tempIcon.SetPixelData(DEFAULT_ICON_SPRITE, 0);
         tempIcon.filterMode = FilterMode.Point;
         SaveTextureAsPNG(tempIcon, basePath + BUBBLE_ICON_FILE + ".png");
         characterData.bubbleIcon = LoadSprite(basePath + BUBBLE_ICON_FILE + ".png");
 
         // Create a preview icon
         Texture2D tempPreview = new Texture2D(16, 16, TextureFormat.RFloat, false);
-        tempPreview.SetPixelData(PREVIEW_SPRITE, 0);
+        tempPreview.SetPixelData(DEFAULT_PREVIEW_SPRITE, 0);
         tempPreview.filterMode = FilterMode.Point;
         SaveTextureAsPNG(tempPreview, basePath + PREVIEW_FILE + ".png");
         characterData.preview = LoadSprite(basePath + PREVIEW_FILE + ".png");
@@ -220,6 +222,98 @@ public static class CharacterLoader
     }
 
 
+    // Saves the generated normal maps of a character
+    public static void SaveCharacterNormalMaps(CharacterData data)
+    {
+        string basePath = Application.dataPath  + CHARACTER_FOLDER + "/" + data.name;
+
+        // Save animations
+        var animFolderNames = GetAnimFolderNamesEnumerator();
+        var animEnumerator = data.GetAnimationEnumerator();
+        while(animEnumerator.MoveNext() && animFolderNames.MoveNext())
+        {
+            FajtovAnimationClip anim = animEnumerator.Current;
+            for(int frameIdx = 0; frameIdx < anim.frames.Length; frameIdx++)
+            {
+                if (frameIdx >= anim.normalMapframes.Length) continue;
+                SaveTextureAsPNG(anim.normalMapframes[frameIdx], basePath + animFolderNames.Current + "/" + anim.name + (frameIdx + 1) + NORMAL_MAP_SUFFIX + ".png");
+            }
+        }
+
+        // Save icon and preview
+        SaveTextureAsPNG(data.bubbleIcon.texture, basePath + PREVIEW_FILE + NORMAL_MAP_SUFFIX + ".png");
+        SaveTextureAsPNG(data.preview.texture, basePath + BUBBLE_ICON_FILE + NORMAL_MAP_SUFFIX + ".png");
+    }
+
+
+    // Deletes all saved generated normal maps
+    public static void DeleteCharacterNormalMaps(CharacterData data)
+    {
+        string basePath = Application.dataPath  + CHARACTER_FOLDER + "/" + data.name;
+
+        // Delete animation normal maps
+        var animFolderEnumerator = GetAnimFolderNamesEnumerator();
+        var animEnumerator = data.GetAnimationEnumerator();
+        while (animFolderEnumerator.MoveNext() && animEnumerator.MoveNext())
+        {
+            List<string> allFiles = Directory.GetFiles(basePath + animFolderEnumerator.Current).ToList();
+            foreach(string file in allFiles)
+            {
+                string fileNameNoExt = file;
+
+                // Double the extension to also remove .meta files
+                if (file.EndsWith(".meta")) fileNameNoExt = Path.GetFileNameWithoutExtension(fileNameNoExt);
+                fileNameNoExt = Path.GetFileNameWithoutExtension(fileNameNoExt);
+                if(fileNameNoExt.EndsWith(NORMAL_MAP_SUFFIX))
+                {
+                    File.Delete(file);
+                }
+            }
+
+            animEnumerator.Current.normalMapframes = null;
+        }
+
+        // Delete preview and icon normal map
+        string previewPath = basePath + PREVIEW_FILE + NORMAL_MAP_SUFFIX + ".png";
+        if (File.Exists(previewPath))
+        {
+            File.Delete(previewPath);
+
+            // Also delete meta file
+            previewPath += ".meta";
+            if (File.Exists(previewPath)) File.Delete(previewPath);
+
+            data.previewNormalMap = null;
+        }
+    }
+
+
+    // Return and enumerable with the names of animations
+    public static IEnumerator<string> GetAnimNamesEnumerator()
+    {
+        yield return IDLE_ANIM_NAME;
+        yield return ATTACK_ANIM_NAME;
+        yield return WALK_ANIM_NAME;
+        yield return BLOCK_ANIM_NAME;
+        yield return JUMP_ANIM_NAME;
+        yield return DEATH_ANIM_NAME;
+        yield return HURT_ANIM_NAME;
+    }
+
+
+    // Return and enumerable with the folder names of animations
+    public static IEnumerator<string> GetAnimFolderNamesEnumerator()
+    {
+        yield return IDLE_ANIM_FOLDER;
+        yield return ATTACK_ANIM_FOLDER;
+        yield return WALK_ANIM_FOLDER;
+        yield return BLOCK_ANIM_FOLDER;
+        yield return JUMP_ANIM_FOLDER;
+        yield return DEATH_ANIM_FOLDER;
+        yield return HURT_ANIM_FOLDER;
+    }
+
+
     // Loads CharacterData from the character folder using the name of the character
     // When the character is not present, creates a new one by that name
     private static CharacterData LoadFromFolder(string characterFolderPath)
@@ -261,10 +355,14 @@ public static class CharacterLoader
 
 
     // Saves a given texture a given full path
-    private static void SaveTextureAsPNG(Texture2D _texture, string _fullPath)
+    private static void SaveTextureAsPNG(Texture2D texture, string fullPath)
     {
-        byte[] _bytes =_texture.EncodeToPNG();
-        File.WriteAllBytes(_fullPath, _bytes);
+        if (!fullPath.EndsWith(".png"))
+        {
+            fullPath += ".png";
+        }
+        byte[] _bytes = texture.EncodeToPNG();
+        File.WriteAllBytes(fullPath, _bytes);
     }
 
 
@@ -288,7 +386,7 @@ public static class CharacterLoader
     }
 
 
-    // Generates the config string from CharacterData TODOODDOODODODODOODODODO
+    // Generates the config string from CharacterData
     private static string GenerateConfigString(CharacterData data)
     {
         string configString = "";
@@ -308,7 +406,7 @@ public static class CharacterLoader
     }
 
 
-    // Parse data from config file and returns if config was valid TODOODDOODODODODOODODODO
+    // Parse data from config file and returns if config was valid
     private static bool TryParseLinesFromConfig(ref string[] configLines, ref CharacterData data)
     {
         string errorString = "";
@@ -578,11 +676,11 @@ public static class CharacterLoader
     // Loads all sprites (png, jpg, jpeg files) in a folder and creates an AnimationClip from them
     private static FajtovAnimationClip LoadAnimationFromPath(string path, string animName)
     {
-        // TODO load normal maps
         FajtovAnimationClip fajtovAnimationClip = new FajtovAnimationClip
         {
             name = animName,
-            frames = new Sprite[1]
+            frames = new Sprite[1],
+            normalMapframes = new Texture2D[1]
         };
 
         // Set variables of animations
@@ -595,19 +693,30 @@ public static class CharacterLoader
 
         // Load all found sprites
         List<Sprite> sprites = new List<Sprite>();
+        List<Texture2D> spritesNormal = new List<Texture2D>();
         List<string> allFiles = Directory.GetFiles(path).ToList();
 
         // Sort all frames by the number at the end
         allFiles.Sort((a,b) => {
-            string aFileNameOnly = a.Substring(a.LastIndexOf("\\") + 1).Split('.')[0];
-            string bFileNameOnly = b.Substring(b.LastIndexOf("\\") + 1).Split('.')[0];
+            Debug.Log(a + " aaaaaaaaaaaa");
+            string aFileNameOnly = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(a));   // Case of meta files
+            Debug.Log(aFileNameOnly + " file name only double remove");
+
+            string bFileNameOnly = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(b));   // Case of meta files
+
+            // Remove the normal map suffix
+            if (aFileNameOnly.EndsWith(NORMAL_MAP_SUFFIX)) aFileNameOnly = aFileNameOnly.Substring(0, aFileNameOnly.Length - NORMAL_MAP_SUFFIX.Length);
+            if (bFileNameOnly.EndsWith(NORMAL_MAP_SUFFIX)) bFileNameOnly = bFileNameOnly.Substring(0, bFileNameOnly.Length - NORMAL_MAP_SUFFIX.Length);
+
+            Debug.Log(aFileNameOnly + " suffxi remove");
+
 
             if (!int.TryParse(aFileNameOnly.Substring(aFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int aNum))
             {
                 Debug.LogError("Could not parse animation frame number of file: " + a + "\n" + "Animation will likely be incorrect!");
             }
 
-            if (!int.TryParse(bFileNameOnly.Substring(aFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int bNum))
+            if (!int.TryParse(bFileNameOnly.Substring(bFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int bNum))
             {
                 Debug.LogError("Could not parse animation frame number of file: " + b + "\n" + "Animation will likely be incorrect!");
             }
@@ -632,7 +741,16 @@ public static class CharacterLoader
             // Add sprite to list
             if (isFileTypeValid) 
             {
-                sprites.Add(LoadSprite(file));
+                // Load normal map
+                if (Path.GetFileNameWithoutExtension(file).EndsWith(NORMAL_MAP_SUFFIX))
+                {
+                    spritesNormal.Add(LoadTexture(file));
+                }
+                // Load sprite
+                else
+                {
+                    sprites.Add(LoadSprite(file));
+                }
             }
             else if (!file.EndsWith(".meta"))
             {
@@ -640,10 +758,9 @@ public static class CharacterLoader
             }
         }
 
+        // Pack it up and ship it
         fajtovAnimationClip.frames = sprites.ToArray();
-        
-        // TODO remove
-        fajtovAnimationClip.normalMapframes = new Texture2D[0];
+        fajtovAnimationClip.normalMapframes = spritesNormal.ToArray();
         
         return fajtovAnimationClip;
     }
@@ -692,8 +809,8 @@ public static class CharacterLoader
     }
 
 
-    // Load a single sprite from a file (no integrity checks are done)
-    private static Sprite LoadSprite(string path)
+    // Load a single texture from a file (no integrity checks are done)
+    private static Texture2D LoadTexture(string path)
     {
         byte[] fileData = File.ReadAllBytes(path);
         Texture2D tex = new Texture2D(32, 32);
@@ -706,6 +823,15 @@ public static class CharacterLoader
         {
             tex.filterMode = FilterMode.Point;
         }
+
+        return tex;
+    }
+
+
+    // Uses LoadTexture to load a single texture and create a sprite from it (no integrity checks are done)
+    private static Sprite LoadSprite(string path)
+    {
+        Texture2D tex = LoadTexture(path);
 
         Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100);
         

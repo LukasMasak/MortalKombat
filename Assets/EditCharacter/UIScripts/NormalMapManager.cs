@@ -14,15 +14,15 @@ public class NormalMapManager : MonoBehaviour
     [SerializeField] private Slider _borderStrengthSlider;
     [SerializeField] private Slider _borderBlurSlider;
     [SerializeField] private Slider _borderSoftenSlider;
-
     [SerializeField] private Slider _borderSlopePercentageSlider;
     [SerializeField] private Slider _finalBlurSlider;
-    [SerializeField] private Toggle _autoGenerateToggle;
 
+    [SerializeField] private Toggle _autoGenerateToggle;
     [SerializeField] private Toggle _showNormalMapToggle;
 
     [SerializeField] private FajtovPlayerAnimator _previewAnimator;
-    [SerializeField] private TMP_Dropdown _animationSelectDropdown;
+    [SerializeField] private GameObject _popUpPrefab;
+    
 
     private NormalMapGenerator _normalMapGenerator;
     private CharacterData _selectedCharacter;
@@ -88,29 +88,44 @@ public class NormalMapManager : MonoBehaviour
     // Saves and generates all normal maps for a character
     public void OnGenerateAndSaveButtonDown()
     {
-        List<Texture2D> normalMaps = new List<Texture2D>();
+        // TODO Use this for async generation 
+        //PopUpWindow popUpWindow = Instantiate(_popUpPrefab).GetComponent<PopUpWindow>();
+        //popUpWindow.Initialize("Generating all normal maps...");
 
-        GenerateNormalMapsForAnimation(normalMaps, ref _selectedCharacter.attackAnim);
-        _selectedCharacter.attackAnim.normalMapframes = normalMaps.ToArray();
-        normalMaps.Clear();
-        // TODO generate all normal maps and set
-
+        // Generate all normal maps for all animations
+        var animEnumerator = _selectedCharacter.GetAnimationEnumerator();
+        while(animEnumerator.MoveNext())
+        {
+            GenerateNormalMapsForAnimation(animEnumerator.Current);
+        }
 
         int charIdx = GlobalState.AllCharacters.IndexOf(_selectedCharacter);
 
+        // TODO test if next line needed
         GlobalState.AllCharacters[charIdx] = _selectedCharacter;
-        CharacterLoader.SaveConfigOfCharacter(_selectedCharacter);
+
+        CharacterLoader.SaveCharacterNormalMaps(_selectedCharacter);
+
+        PopUpWindow popUpWindow = Instantiate(_popUpPrefab).GetComponent<PopUpWindow>();
+        popUpWindow.Initialize("Normal maps generated!");
     }
 
 
-    private void GenerateNormalMapsForAnimation(List<Texture2D> resultList, ref FajtovAnimationClip anim)
+    private void GenerateNormalMapsForAnimation(FajtovAnimationClip anim)
     {
+        List<Texture2D> normalMaps = new List<Texture2D>();
+
         foreach (Sprite sprite in anim.frames)
         {
-            Texture2D texture = _normalMapGenerator.GenerateNormalMap(sprite.texture, _edgesStrengthSlider.value, (int)_edgeBlurSlider.value,
-                            _borderStrengthSlider.value, (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value, _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
-            resultList.Add(texture);                                                        
+            Texture2D texture = _normalMapGenerator.GenerateNormalMap(sprite.texture, _edgesStrengthSlider.value,
+                (int)_edgeBlurSlider.value, _borderStrengthSlider.value,
+                (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value,
+                _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
+            
+            normalMaps.Add(texture);                                                        
         }
+
+        anim.normalMapframes = normalMaps.ToArray();
     }
 
 
@@ -124,8 +139,10 @@ public class NormalMapManager : MonoBehaviour
         _selectedCharacter.blockAnim.normalMapframes = null;
         _selectedCharacter.deathAnim.normalMapframes = null;
 
-        // TODO
-        //CharacterLoader.DeleteNormalMaps(_selectedCharacter.name);
+        CharacterLoader.DeleteCharacterNormalMaps(_selectedCharacter);
+
+        PopUpWindow popUpWindow = Instantiate(_popUpPrefab).GetComponent<PopUpWindow>();
+        popUpWindow.Initialize("Normal maps deleted!");
     }
 
     public void OnBackButtonDown()

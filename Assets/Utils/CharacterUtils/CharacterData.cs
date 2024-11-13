@@ -32,4 +32,16 @@ public class CharacterData
     public FajtovAnimationClip jumpAnim;
     public FajtovAnimationClip deathAnim;
     public FajtovAnimationClip hurtAnim;
+
+    // Return an enumerator over all animations
+    public IEnumerator<FajtovAnimationClip> GetAnimationEnumerator()
+    {
+        yield return idleAnim;      
+        yield return attackAnim;
+        yield return walkAnim;
+        yield return blockAnim;
+        yield return jumpAnim;
+        yield return deathAnim;
+        yield return hurtAnim;
+    }
 }

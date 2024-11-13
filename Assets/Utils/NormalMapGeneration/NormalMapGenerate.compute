@@ -21,6 +21,11 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     if (dispatchThreadID.y >= texSize.y - 1) return;
     if (dispatchThreadID.y < 0) return;
 
+    if (dispatchThreadID.x > texSize.x - 50 && dispatchThreadID.y > texSize.y - 50)
+    {
+        _resultTex[uint2(dispatchThreadID.x, dispatchThreadID.y)] = float4(1, 0, 0, 1);
+        return;
+    }
 
     // Bump generation -----------------------------------------------------------------------------
     uint2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);
@@ -76,7 +81,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
         normal.y * 0.5 + 0.5,
         normal.z * 0.5 + 0.5, 1);
 
-    if (blurPixel.a < 0.1f) normalColor = float4(0.5, 0.5, 1, 0);
+    if (blurPixel.a < 0.1) normalColor = float4(0.5, 0.5, 1, 1);
 
     // Output the final pixel
     _resultTex[coords] = normalColor;
