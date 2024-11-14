@@ -77,8 +77,7 @@ public class NormalMapManager : MonoBehaviour
     // Callback for generate preview button
     public void OnGeneratePreviewButtonDown()
     {
-        Debug.Log("Calling with " + _edgesStrengthSlider.value + " strenght edge " + (int)_edgeBlurSlider.value + " edge blur");
-        Texture2D texture = _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture, _edgesStrengthSlider.value, (int)_edgeBlurSlider.value,
+        Texture2D texture = _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture , _edgesStrengthSlider.value, (int)_edgeBlurSlider.value,
                             _borderStrengthSlider.value, (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value, _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
         _selectedCharacter.previewNormalMap = texture;                                     
         OnShowNormalMapToggle();
@@ -98,6 +97,11 @@ public class NormalMapManager : MonoBehaviour
         {
             GenerateNormalMapsForAnimation(animEnumerator.Current);
         }
+        _selectedCharacter.previewNormalMap = 
+        _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture, _edgesStrengthSlider.value,
+                (int)_edgeBlurSlider.value, _borderStrengthSlider.value,
+                (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value,
+                _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
 
         int charIdx = GlobalState.AllCharacters.IndexOf(_selectedCharacter);
 

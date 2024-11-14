@@ -16,16 +16,10 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
-    if (dispatchThreadID.x >= texSize.x - 1) return;
+    if (dispatchThreadID.x >= texSize.x) return;
     if (dispatchThreadID.x < 0) return;
-    if (dispatchThreadID.y >= texSize.y - 1) return;
+    if (dispatchThreadID.y >= texSize.y) return;
     if (dispatchThreadID.y < 0) return;
-
-    if (dispatchThreadID.x > texSize.x - 50 && dispatchThreadID.y > texSize.y - 50)
-    {
-        _resultTex[uint2(dispatchThreadID.x, dispatchThreadID.y)] = float4(1, 0, 0, 1);
-        return;
-    }
 
     // Bump generation -----------------------------------------------------------------------------
     uint2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);

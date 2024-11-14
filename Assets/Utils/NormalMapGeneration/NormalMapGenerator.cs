@@ -51,35 +51,22 @@ public class NormalMapGenerator : MonoBehaviour
         //Debug.Log("Called with " + sourceTexture.name + " tex name, " + normalStrength + " strenght edge, " + blurEdges + " edge blur " + bumpHeight + " bump height, " + blurBump + " blur bump, " + softenBump + " soften bump, " + slopePercentage + " slope percentagem, " + finalBlur + " final blur");
 
         //Debug.Log("texture " + sourceTexture.mipmapLimitGroup + " mipmaplimitgroup, " + sourceTexture.requestedMipmapLevel + " requstedmipmaplevel, " + sourceTexture.streamingMipmaps + " streamingmipmaps, " + sourceTexture.hideFlags + " hide flags, " + sourceTexture.streamingMipmapsPriority + " streamingmipmapspriority, " + sourceTexture.imageContentsHash + " image content hash, " + sourceTexture.updateCount + " updatecount, " + sourceTexture.minimumMipmapLevel + " minimummipmap, " + sourceTexture.mipMapBias + " mipmap bias, " + sourceTexture.mipmapCount + " mipmapcount");
-
-
-        FilterMode filterMode = sourceTexture.filterMode;
-        sourceTexture.filterMode = FilterMode.Point;
-
-        //return sourceTexture;
-
+        
         // Apply Gaussian blur to the normal map
         Texture2D blurredTexture = ApplyGaussianBlur(sourceTexture, blurEdges * 2);
 
         // Generate a height map with the "puffed-up" effect
         Texture2D heightMap = GenerateHeightMap(sourceTexture, Mathf.RoundToInt((sourceTexture.width / 4f) * slopePercentage));
         heightMap = ApplyGaussianBlur(heightMap, blurBump * 2);
-        
+
         // Generate the normal map with the bump effect
         Texture2D normalMap = ApplyBlurredSourceAndHeightMap(blurredTexture, heightMap, normalStrength, bumpHeight, blurBump, softenBump);
         
         // Apply Gaussian blur to the normal map
         Texture2D blurredNormalMap = ApplyGaussianBlur(normalMap, finalBlur*2);
 
-        // byte[] _bytes = blurredNormalMap.EncodeToPNG();
-        // File.WriteAllBytes(Application.dataPath  + "/Characters" + "/test.png" , _bytes);
-
-        //if (transform.childCount > 0) ApplyNormalMapToChild(blurredNormalMap);
-
-        sourceTexture.filterMode = filterMode;
 
         return blurredNormalMap;
-        //ApplyNormalMap(blurredNormalMap);
     }
 
 
@@ -105,8 +92,8 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Start the shader up
         _normalMapShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
+        int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
         _normalMapShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
@@ -141,8 +128,8 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Start the shader up
         _distanceShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
+        int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
         _distanceShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
@@ -190,8 +177,8 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Start the shader up
         _gaussianShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(width / groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(height / groupSizeY);
+        int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+        int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
         _gaussianShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data

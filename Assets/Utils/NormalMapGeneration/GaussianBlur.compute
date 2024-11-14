@@ -13,10 +13,11 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
-    if (dispatchThreadID.x >= texSize.x) return;
-    if (dispatchThreadID.x < 0) return;
-    if (dispatchThreadID.y >= texSize.y) return;
-    if (dispatchThreadID.y < 0) return;
+    uint2 coords = dispatchThreadID.xy;
+    if (coords.x >= texSize.x) return;
+    if (coords.x < 0) return;
+    if (coords.y >= texSize.y) return;
+    if (coords.y < 0) return;
 
     float3 color = float3(0, 0, 0);
     float weightSum = 0.0;
@@ -26,7 +27,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     {
         for (uint x = 0; x <= _blurRadius; x++)
         {
-            uint2 texCoord = uint2(dispatchThreadID.x + x - halfRadius, dispatchThreadID.y + y - halfRadius);
+            uint2 texCoord = coords + uint2(x - halfRadius, y - halfRadius);
 
             texCoord.x = min(max(texCoord.x, 0), texSize.x - 1);
             texCoord.y = min(max(texCoord.y, 0), texSize.y - 1);
@@ -44,7 +45,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     color = color / weightSum;
 
     // Output the final pixel
-    float4 finalPixel = float4(color, _sourceTex[dispatchThreadID.xy].w);
-    if (_sourceTex[dispatchThreadID.xy].a <= 0.1) finalPixel = float4(0, 0, 0, 0);
-    _resultTex[dispatchThreadID.xy] = pow(abs(finalPixel), 0.449);
+    float4 finalPixel = float4(color, _sourceTex[coords].w);
+    if (_sourceTex[coords].a <= 0.1) finalPixel = float4(0, 0, 0, 0);
+    _resultTex[coords] = pow(abs(finalPixel), 0.449);
 }

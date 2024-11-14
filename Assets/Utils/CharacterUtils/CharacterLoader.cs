@@ -241,8 +241,7 @@ public static class CharacterLoader
         }
 
         // Save icon and preview
-        SaveTextureAsPNG(data.bubbleIcon.texture, basePath + PREVIEW_FILE + NORMAL_MAP_SUFFIX + ".png");
-        SaveTextureAsPNG(data.preview.texture, basePath + BUBBLE_ICON_FILE + NORMAL_MAP_SUFFIX + ".png");
+        SaveTextureAsPNG(data.previewNormalMap, basePath + PREVIEW_FILE + NORMAL_MAP_SUFFIX + ".png");
     }
 
 
@@ -698,17 +697,12 @@ public static class CharacterLoader
 
         // Sort all frames by the number at the end
         allFiles.Sort((a,b) => {
-            Debug.Log(a + " aaaaaaaaaaaa");
             string aFileNameOnly = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(a));   // Case of meta files
-            Debug.Log(aFileNameOnly + " file name only double remove");
-
             string bFileNameOnly = Path.GetFileNameWithoutExtension(Path.GetFileNameWithoutExtension(b));   // Case of meta files
 
             // Remove the normal map suffix
             if (aFileNameOnly.EndsWith(NORMAL_MAP_SUFFIX)) aFileNameOnly = aFileNameOnly.Substring(0, aFileNameOnly.Length - NORMAL_MAP_SUFFIX.Length);
             if (bFileNameOnly.EndsWith(NORMAL_MAP_SUFFIX)) bFileNameOnly = bFileNameOnly.Substring(0, bFileNameOnly.Length - NORMAL_MAP_SUFFIX.Length);
-
-            Debug.Log(aFileNameOnly + " suffxi remove");
 
 
             if (!int.TryParse(aFileNameOnly.Substring(aFileNameOnly.IndexOfAny("0123456789".ToCharArray())), out int aNum))
