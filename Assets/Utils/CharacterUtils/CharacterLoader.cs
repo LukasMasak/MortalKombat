@@ -806,18 +806,18 @@ public static class CharacterLoader
     // Load a single texture from a file (no integrity checks are done)
     private static Texture2D LoadTexture(string path)
     {
+        Texture2D tex = new Texture2D(32, 32, TextureFormat.RGBA32, true);
+
         byte[] fileData = File.ReadAllBytes(path);
-        Texture2D tex = new Texture2D(32, 32);
         tex.LoadImage(fileData);
-        tex.alphaIsTransparency = true;
-        tex.wrapMode = TextureWrapMode.Clamp;
+        tex.name = Path.GetFileNameWithoutExtension(path);
 
         // Case of default icon and preview
         if (tex.width == 16)
         {
             tex.filterMode = FilterMode.Point;
         }
-
+        
         return tex;
     }
 
@@ -827,8 +827,8 @@ public static class CharacterLoader
     {
         Texture2D tex = LoadTexture(path);
 
-        Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100);
-        
+        Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100, 1, SpriteMeshType.Tight);
+        sprite.name = tex.name + "_sprite";
         return sprite;
     }
 }

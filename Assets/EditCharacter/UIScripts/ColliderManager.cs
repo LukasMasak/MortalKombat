@@ -15,8 +15,8 @@ public class ColliderManager : MonoBehaviour
     private float _offsetX = 0;
     private float _offsetY = 0;
 
-    const float SCALE_MULT = 1.96f;
-    const float OFFSET_MULT = 14f;
+    const float SCALE_MULT = 1.96f / 5f;
+    const float OFFSET_MULT = 14f / 5f;
 
 
     // Callback for width slider

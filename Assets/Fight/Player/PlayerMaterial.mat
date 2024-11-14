@@ -128,6 +128,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NormalStrenght: 1
+    - _NormalStrength: 0.5
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0

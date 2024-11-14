@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6960645151484460810}
   - component: {fileID: 7824969178651381514}
-  - component: {fileID: 5060507943425560587}
   - component: {fileID: 9018495794926370708}
   - component: {fileID: 3031233036276562723}
   - component: {fileID: 3225629824120941482}
@@ -35,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8612006618989754727}
@@ -82,38 +81,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1ce924c7550189448832841a7347311a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 600, y: 600}
+  m_DrawMode: 1
+  m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5060507943425560587
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1532495548692532185}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!54 &9018495794926370708
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -176,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae6a0b0b062649d8b8f52a3ccf0c52a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultSprite: {fileID: 0}
+  _defaultSprite: {fileID: 21300000, guid: f6a7ef17fbece7c408ed17c4077e97e3, type: 3}
   animationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -184,6 +162,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   animationEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  frameChanged:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6499922225238721566

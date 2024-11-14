@@ -32,8 +32,10 @@ public class SpawnPlayers : MonoBehaviour
         // Get necessary components
         Health lefthealth = leftPlayer.GetComponent<Health>();
         PlayerController leftMovement = leftPlayer.GetComponent<PlayerController>();
+        FajtovPlayerAnimator leftAnimator = leftPlayer.GetComponent<FajtovPlayerAnimator>();
         Health righthealth = rightPlayer.GetComponent<Health>();
         PlayerController rightMovement = rightPlayer.GetComponent<PlayerController>();
+        FajtovPlayerAnimator rightAnimator = rightPlayer.GetComponent<FajtovPlayerAnimator>();
 
         // Set the health bar references
         lefthealth.Initialize(_sliderLeft, _fillLeft, GlobalState.Player1Character.health);
@@ -42,6 +44,10 @@ public class SpawnPlayers : MonoBehaviour
         // Initialize the characters
         leftMovement.Initialize(GlobalState.Player.one, true, LayerMask.GetMask("Player2"));
         rightMovement.Initialize(GlobalState.Player.two, false, LayerMask.GetMask("Player1"));
+
+        // Initialize the animators
+        leftAnimator.Initialize(GlobalState.Player1Character);
+        leftAnimator.Initialize(GlobalState.Player2Character);
 
         // Set the tags and layers of players
         leftPlayer.layer = LayerMask.NameToLayer("Player1");

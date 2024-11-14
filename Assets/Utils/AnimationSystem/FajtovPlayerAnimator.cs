@@ -179,7 +179,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         if (_currentAnim == null || _currentAnim.frames == null || _currentAnim.frames.Length == 0) 
         {
             _spriteRenderer.sprite = _defaultSprite;
-            yield return null;
+            yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
         }
         animationStarted.Invoke();
         
@@ -187,13 +187,12 @@ public class FajtovPlayerAnimator : MonoBehaviour
         {
             for (int i = startFrame; i < _currentAnim.frames.Length; i++)
             {
-                if (i < _currentAnim.normalMapframes.Length)
+                if (_currentAnim.frames.Length == _currentAnim.normalMapframes.Length)
                 {
-                    _spriteRenderer.sharedMaterial.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
+                    _spriteRenderer.material.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
                 }
-                else {
-                    _spriteRenderer.sprite = _currentAnim.frames[i];
-                }
+                
+                _spriteRenderer.sprite = _currentAnim.frames[i];
                 _currentFrameNum = i;
                 frameChanged.Invoke();
                 yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
@@ -203,6 +202,7 @@ public class FajtovPlayerAnimator : MonoBehaviour
         _currentAnimComplete = true;
         if (_currentAnim.isLooping)
         {
+            StopAnimation();
             _runningCoroutine = StartCoroutine(PlayAnimation());
             animationLooped.Invoke();
         }

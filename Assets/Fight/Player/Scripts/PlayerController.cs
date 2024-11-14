@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _attackPoint;
     private bool _facingRight = true;
     private Vector3 _currentForce = Vector3.zero;
-    private bool _isGrounded;
+    private bool _isGrounded = true;
     private LayerMask _enemyMask;
 
 
@@ -312,8 +312,10 @@ public class PlayerController : MonoBehaviour
     // Jump callback for the inputAction
     private void JumpCB(InputAction.CallbackContext obj)
     {
+        Debug.Log("jump try");
         if (_isGrounded)
         {
+            Debug.Log("jump yes");
             _isGrounded = false;
             fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Jump);
             //animator.SetTrigger("Jump");    // TODO put in anim controller

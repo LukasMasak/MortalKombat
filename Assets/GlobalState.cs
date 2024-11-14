@@ -9,7 +9,7 @@ public class GlobalState
     {
         get 
         { 
-            if (!_Player1Character.isValid) 
+            if (_Player1Character == null || !_Player1Character.isValid) 
             {
                 _Player1Character = GlobalState.GetCharacterForDebug();
                 Debug.Log("Using P1 as Debug Character");
@@ -25,7 +25,7 @@ public class GlobalState
     {
         get 
         { 
-            if (!_Player2Character.isValid) 
+            if (_Player2Character == null ||!_Player2Character.isValid) 
             {
                 _Player2Character = GlobalState.GetCharacterForDebug();
                 Debug.Log("Using P1 as Debug Character");
