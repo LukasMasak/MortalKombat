@@ -12,7 +12,7 @@ public class GlobalState
             if (_Player1Character == null || !_Player1Character.isValid) 
             {
                 _Player1Character = GlobalState.GetCharacterForDebug();
-                Debug.Log("Using P1 as Debug Character");
+                Debug.Log("Using Debug Character for P1");
             }
 
             return _Player1Character;
@@ -28,7 +28,7 @@ public class GlobalState
             if (_Player2Character == null ||!_Player2Character.isValid) 
             {
                 _Player2Character = GlobalState.GetCharacterForDebug();
-                Debug.Log("Using P1 as Debug Character");
+                Debug.Log("Using Debug Character for P2");
             }
 
             return _Player2Character;
@@ -67,6 +67,8 @@ public class GlobalState
     // Returns the index of the character in the AllCharacters list or -1
     public static int GetCharacterIndexFromName(string name)
     {
+        if (AllCharacters.Count == 0) CharacterLoader.LoadAllCharacters(AllCharacters);
+
         for (int i = 0; i < AllCharacters.Count; i++)
         {
             if (AllCharacters[i].name == name) return i;
@@ -74,6 +76,19 @@ public class GlobalState
         return -1;
     }
 
+    // Returns the Character data by name from the AllCharacters list or null
+    public static CharacterData GetCharacterDataFromName(string name)
+    {
+        if (AllCharacters.Count == 0) CharacterLoader.LoadAllCharacters(AllCharacters);
+
+        for (int i = 0; i < AllCharacters.Count; i++)
+        {
+            if (AllCharacters[i].name == name) return AllCharacters[i];
+        }
+        return null;
+    }
+
+    // Returns the first character
     public static CharacterData GetCharacterForDebug()
     {
         if (AllCharacters.Count == 0) CharacterLoader.LoadAllCharacters(AllCharacters);

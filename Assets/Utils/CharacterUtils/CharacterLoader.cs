@@ -287,6 +287,21 @@ public static class CharacterLoader
     }
 
 
+    // Looks for all folders with possible characters
+    public static List<string> GetAllPossibleCharacters()
+    {
+        List<string> possibleCharacters = new List<string>();
+
+        string basePath = Application.dataPath  + CHARACTER_FOLDER;
+        foreach (string dir in Directory.GetDirectories(basePath))
+        {
+            possibleCharacters.Add(Path.GetFileNameWithoutExtension(dir));
+        }
+
+        return possibleCharacters;
+    }
+
+
     // Return and enumerable with the names of animations
     public static IEnumerator<string> GetAnimNamesEnumerator()
     {
@@ -324,6 +339,15 @@ public static class CharacterLoader
 
         string characterName = characterFolderPath.Substring(usedIdx + 1);
         CharacterData characterData = new CharacterData{name = characterName};
+        characterData.isValid = true;
+
+        // Check if config exists
+        if (!File.Exists(characterFolderPath + CONFIG_FILE))
+        {
+            characterData.isValid = false;
+            Debug.LogError("Config file for character " + characterName + " does not exist! Character will not be loaded!");
+            return characterData;
+        }
 
         // Load config
         string[] configFileLines = File.ReadAllLines(characterFolderPath + CONFIG_FILE);
@@ -334,7 +358,6 @@ public static class CharacterLoader
             characterData.isValid = false;
             return characterData;
         }
-        characterData.isValid = true;
         
         // Check if animation folders exist
         if (!DoAnimationFoldersExist(characterName))

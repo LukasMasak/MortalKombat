@@ -179,24 +179,21 @@ public class FajtovPlayerAnimator : MonoBehaviour
         if (_currentAnim == null || _currentAnim.frames == null || _currentAnim.frames.Length == 0) 
         {
             _spriteRenderer.sprite = _defaultSprite;
-            yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
+            yield break;
         }
         animationStarted.Invoke();
         
-        if (_currentAnim.frames != null)
+        for (int i = startFrame; i < _currentAnim.frames.Length; i++)
         {
-            for (int i = startFrame; i < _currentAnim.frames.Length; i++)
+            if (_currentAnim.frames.Length == _currentAnim.normalMapframes.Length)
             {
-                if (_currentAnim.frames.Length == _currentAnim.normalMapframes.Length)
-                {
-                    _spriteRenderer.material.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
-                }
-                
-                _spriteRenderer.sprite = _currentAnim.frames[i];
-                _currentFrameNum = i;
-                frameChanged.Invoke();
-                yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
+                _spriteRenderer.material.SetTexture("_NormalMap", _currentAnim.normalMapframes[i]);
             }
+
+            _spriteRenderer.sprite = _currentAnim.frames[i];
+            _currentFrameNum = i;
+            frameChanged.Invoke();
+            yield return new WaitForSeconds(CharacterLoader.FRAME_DELAY);
         }
 
         _currentAnimComplete = true;

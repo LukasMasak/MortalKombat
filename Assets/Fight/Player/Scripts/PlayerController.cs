@@ -312,10 +312,8 @@ public class PlayerController : MonoBehaviour
     // Jump callback for the inputAction
     private void JumpCB(InputAction.CallbackContext obj)
     {
-        Debug.Log("jump try");
         if (_isGrounded)
         {
-            Debug.Log("jump yes");
             _isGrounded = false;
             fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Jump);
             //animator.SetTrigger("Jump");    // TODO put in anim controller

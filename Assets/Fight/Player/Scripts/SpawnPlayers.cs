@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SpawnPlayers : MonoBehaviour
 {
+    [SerializeField] private bool _spawnImmediately = true;
     [SerializeField] private GameObject _universalPlayerPrefabs;
     
     // The spawn points of the players
@@ -19,6 +20,13 @@ public class SpawnPlayers : MonoBehaviour
     [SerializeField] private Image _fillRight;
 
     private void Start()
+    {
+        if (!_spawnImmediately) return;
+
+        Spawn();
+    }
+
+    public void Spawn()
     {
         // Create two player instances form prefabs
         GameObject leftPlayer = Instantiate(_universalPlayerPrefabs, _leftSpawnTransform);
@@ -47,7 +55,7 @@ public class SpawnPlayers : MonoBehaviour
 
         // Initialize the animators
         leftAnimator.Initialize(GlobalState.Player1Character);
-        leftAnimator.Initialize(GlobalState.Player2Character);
+        rightAnimator.Initialize(GlobalState.Player2Character);
 
         // Set the tags and layers of players
         leftPlayer.layer = LayerMask.NameToLayer("Player1");
