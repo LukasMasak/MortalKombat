@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1935615, g: 0.053302154, b: 0.0014599201, a: 1}
+  m_IndirectSpecularColor: {r: 0.19356084, g: 0.0533019, b: 0.0014599212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1822,8 +1822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2e7bfaae841024da9eb8a6424a8059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chosenCharacter1: tfsa
-  _chosenCharacter2: Fishmain
+  _chosenCharacter1: kosmos
+  _chosenCharacter2: kosmos
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

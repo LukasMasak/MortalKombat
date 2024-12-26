@@ -1,0 +1,10 @@
+speed=100
+jump=20
+health=100
+damage=20
+attackDistance=0.5220003|0.2126667
+attackFrame=1
+attackPointSize=0.32
+colliderOffset=-0.4100007|-0.05000004
+colliderWidth=0.6992
+colliderHeight=3.888401
