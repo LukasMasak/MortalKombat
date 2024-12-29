@@ -8,6 +8,7 @@ using UnityEditor;
 using System.Linq;
 using System;
 using UnityEngine.UIElements;
+using System.Globalization;
 
 public static class CharacterLoader
 {
@@ -439,7 +440,7 @@ public static class CharacterLoader
             if (line.StartsWith(CONFIG_SPD_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_SPD_NAME.Length + 1);
-                if (float.TryParse(valueSubstring, out float value))
+                if (float.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out float value))
                 {
                     data.speed = value;
                 }
@@ -454,7 +455,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_JMP_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_JMP_NAME.Length + 1);
-                if (float.TryParse(valueSubstring, out float value))
+                if (float.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out float value))
                 {
                     data.jump = value;
                 }
@@ -469,7 +470,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_HP_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_HP_NAME.Length + 1);
-                if (int.TryParse(valueSubstring, out int value))
+                if (int.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out int value))
                 {
                     data.health = value;
                 }
@@ -484,7 +485,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_DMG_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_DMG_NAME.Length + 1);
-                if (int.TryParse(valueSubstring, out int value))
+                if (int.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out int value))
                 {
                     data.damage = value;
                 }
@@ -501,7 +502,7 @@ public static class CharacterLoader
                 int separatorIdx = line.IndexOf('|');
                 string valueSubstringX = line.Substring(CONFIG_ATK_POINT_NAME.Length + 1, separatorIdx - CONFIG_ATK_POINT_NAME.Length - 1);
                 float x, y;
-                if (float.TryParse(valueSubstringX, out float valueX))
+                if (float.TryParse(valueSubstringX, NumberStyles.Any, CultureInfo.InvariantCulture,  out float valueX))
                 {
                     x = valueX;
                 }
@@ -512,7 +513,7 @@ public static class CharacterLoader
                 }
 
                 string valueSubstringY = line.Substring(separatorIdx + 1);
-                if (float.TryParse(valueSubstringY, out float valueY))
+                if (float.TryParse(valueSubstringY, NumberStyles.Any, CultureInfo.InvariantCulture, out float valueY))
                 {
                     y = valueY;
                 }
@@ -529,7 +530,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_ATK_FRAME_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_ATK_FRAME_NAME.Length + 1);
-                if (uint.TryParse(valueSubstring, out uint value))
+                if (uint.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out uint value))
                 {
                     data.attackFrameIdx = value;
                 }
@@ -544,7 +545,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_ATK_SIZE_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_ATK_SIZE_NAME.Length + 1);
-                if (float.TryParse(valueSubstring, out float value))
+                if (float.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out float value))
                 {
                     data.attackSize = value;
                 }
@@ -561,7 +562,7 @@ public static class CharacterLoader
                 int separatorIdx = line.IndexOf('|');
                 string valueSubstringX = line.Substring(CONFIG_COL_OFFSET_NAME.Length + 1, separatorIdx - CONFIG_COL_OFFSET_NAME.Length - 1);
                 float x, y;
-                if (float.TryParse(valueSubstringX, out float valueX))
+                if (float.TryParse(valueSubstringX, NumberStyles.Any, CultureInfo.InvariantCulture, out float valueX))
                 {
                     x = valueX;
                 }
@@ -572,7 +573,7 @@ public static class CharacterLoader
                 }
 
                 string valueSubstringY = line.Substring(separatorIdx + 1);
-                if (float.TryParse(valueSubstringY, out float valueY))
+                if (float.TryParse(valueSubstringY, NumberStyles.Any, CultureInfo.InvariantCulture, out float valueY))
                 {
                     y = valueY;
                 }
@@ -589,7 +590,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_COL_WIDTH_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_COL_WIDTH_NAME.Length + 1);
-                if (float.TryParse(valueSubstring, out float value))
+                if (float.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out float value))
                 {
                     data.colliderWidth = value;
                 }
@@ -604,7 +605,7 @@ public static class CharacterLoader
             else if (line.StartsWith(CONFIG_COL_HEIGHT_NAME))
             {
                 string valueSubstring = line.Substring(CONFIG_COL_HEIGHT_NAME.Length + 1);
-                if (float.TryParse(valueSubstring, out float value))
+                if (float.TryParse(valueSubstring, NumberStyles.Any, CultureInfo.InvariantCulture, out float value))
                 {
                     data.colliderHeight = value;
                 }

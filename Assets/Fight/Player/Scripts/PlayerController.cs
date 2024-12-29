@@ -108,34 +108,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // // Odebrání akcí při zakázání objektu
-    // private void OnDisable()
-    // {
-    //     if (_whichPlayer == GlobalState.Player.two)
-    //     {
-    //         // Odpojení akcí skoku a útoku
-    //         inputSystemActions.PlayerRight.Jump.started -= Jump;
-    //         inputSystemActions.PlayerRight.Attack.started -= Attacking;
-
-    //         // Zakázání akcí hráče
-    //         inputSystemActions.PlayerRight.Disable();
-    //     }
-    //     else if (_whichPlayer == GlobalState.Player.one)
-    //     {
-    //         // Odpojení akcí skoku a útoku
-    //         inputSystemActions.PlayerLeft.Jump.started -= Jump;
-    //         inputSystemActions.PlayerLeft.Attack.started -= Attacking;
-
-    //         // Zakázání akcí hráče
-    //         inputSystemActions.PlayerLeft.Disable();
-    //     }
-    //     else
-    //     {
-    //         return;
-    //     }
-    // }
-
-
     private void FixedUpdate()
     {
         Movement();
@@ -164,19 +136,24 @@ public class PlayerController : MonoBehaviour
     // Moves the player based on velocity, limits and input
     private void Movement()
     {
+        if (isBlocking || isAttacking) return;
+
         // TODO put in anim controller
         float _move = rb.velocity.magnitude / MAX_SPEED;
-        if (_move > 0.01f && _isGrounded)
+        if (_isGrounded)
         {
-            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Move);
-            //animator.SetBool("Move", true);
+            if (_move > 0.01f)
+            {
+                fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Move);
+                //animator.SetBool("Move", true);
+            }
+            else
+            {
+                fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
+                //animator.SetBool("Move", false);
+            }
         }
-        else
-        {
-            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
-            //animator.SetBool("Move", false);
-        }
-
+        
         // Get current input values
         Vector2 moveInput = move.ReadValue<Vector2>();
         _currentForce += moveInput.x * _characterData.speed * GetCameraRight() * Time.fixedDeltaTime;
@@ -207,6 +184,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+
         if (obj.started)
         {
             fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Block);
@@ -215,10 +193,14 @@ public class PlayerController : MonoBehaviour
         }
         else 
         { 
-            fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
+            //fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Idle);
             //animator.SetBool("Block", false); // TODO put in anim controller
             isBlocking = false;
         }
+
+        Debug.Log(obj.started + " block started");
+        Debug.Log(isBlocking + " is blockingd");
+
     }
 
 
@@ -243,7 +225,7 @@ public class PlayerController : MonoBehaviour
         if (!isAttacking && !isBlocking)
         {
             isAttacking = true;
-            FreezePlayer();
+            //FreezePlayer();
 
             //animator.SetTrigger("Attack"); // TODO put in anim controller
             fajtovAnimator.ChangeState(FajtovPlayerAnimator.FajtovAnimationStates.Attack);
@@ -275,7 +257,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(_characterData.attackAnim.frames.Length * CharacterLoader.FRAME_DELAY);
         isAttacking = false;
-        UnFreezePlayer();
+        //UnFreezePlayer();
     }
 
 
