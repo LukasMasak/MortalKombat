@@ -62,7 +62,6 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     float embossY = (blurU - blurD) * blurCurr * _normalStrength;
 
 
-
     // Final normal generation -----------------------------------------------------------------------------
     float normalR = embossX * 1.0/2.0 + distanceX * 1.0/2.0;
     float normalG = embossY * 1.0/2.0 + distanceY * 1.0/2.0;

@@ -78,7 +78,8 @@ public class NormalMapManager : MonoBehaviour
     public void OnGeneratePreviewButtonDown()
     {
         Texture2D texture = _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture , _edgesStrengthSlider.value, (int)_edgeBlurSlider.value,
-                            _borderStrengthSlider.value, (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value, _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
+                            _borderStrengthSlider.value, (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value, _borderSlopePercentageSlider.value,
+                            (int)_finalBlurSlider.value);
         _selectedCharacter.previewNormalMap = texture;                                     
         OnShowNormalMapToggle();
     }

@@ -51,20 +51,36 @@ public class NormalMapGenerator : MonoBehaviour
         //Debug.Log("Called with " + sourceTexture.name + " tex name, " + normalStrength + " strenght edge, " + blurEdges + " edge blur " + bumpHeight + " bump height, " + blurBump + " blur bump, " + softenBump + " soften bump, " + slopePercentage + " slope percentagem, " + finalBlur + " final blur");
 
         //Debug.Log("texture " + sourceTexture.mipmapLimitGroup + " mipmaplimitgroup, " + sourceTexture.requestedMipmapLevel + " requstedmipmaplevel, " + sourceTexture.streamingMipmaps + " streamingmipmaps, " + sourceTexture.hideFlags + " hide flags, " + sourceTexture.streamingMipmapsPriority + " streamingmipmapspriority, " + sourceTexture.imageContentsHash + " image content hash, " + sourceTexture.updateCount + " updatecount, " + sourceTexture.minimumMipmapLevel + " minimummipmap, " + sourceTexture.mipMapBias + " mipmap bias, " + sourceTexture.mipmapCount + " mipmapcount");
-        
+
+        double startTime = Time.realtimeSinceStartupAsDouble;
+        Debug.Log(startTime + " before gaussian");
         // Apply Gaussian blur to the normal map
         Texture2D blurredTexture = ApplyGaussianBlur(sourceTexture, blurEdges * 2);
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " after gaussian");
 
+
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " before height map");
         // Generate a height map with the "puffed-up" effect
         Texture2D heightMap = GenerateHeightMap(sourceTexture, Mathf.RoundToInt((sourceTexture.width / 4f) * slopePercentage));
-        heightMap = ApplyGaussianBlur(heightMap, blurBump * 2);
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " after height map");
 
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " before blur height map");
+        heightMap = ApplyGaussianBlur(heightMap, blurBump * 2);
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " after blur height map");
+
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " before normal calc");
         // Generate the normal map with the bump effect
         Texture2D normalMap = ApplyBlurredSourceAndHeightMap(blurredTexture, heightMap, normalStrength, bumpHeight, blurBump, softenBump);
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " after normal calc");
         
+        Debug.Log(Time.realtimeSinceStartupAsDouble + " before final blur");
         // Apply Gaussian blur to the normal map
         Texture2D blurredNormalMap = ApplyGaussianBlur(normalMap, finalBlur*2);
+        double endTime = Time.realtimeSinceStartupAsDouble;
 
+        Debug.Log(endTime + " after final blur");
+
+        Debug.Log("Took " + (endTime - startTime) * 1000 + " ms");
 
         return blurredNormalMap;
     }
@@ -159,7 +175,7 @@ public class NormalMapGenerator : MonoBehaviour
         renderTexture.enableRandomWrite = true;
         renderTexture.Create();
 
-        // Create kernel
+        // Create gaussian kernel
         float[] kernelAlt = GetGaussianKernel(radius, GAUSSIAN_WEIGHT);
 
         // Create buffer
@@ -201,6 +217,8 @@ public class NormalMapGenerator : MonoBehaviour
         float sumTotal = 0;
 
         int kernelRadius = length / 2;
+
+        // G(x, y) = (1 / 2πσ²) * exp(-(x² + y²) / 2σ²)
         float calculatedEuler = 1.0f / (2.0f * Mathf.PI * Mathf.Pow(weight, 2));
 
         for (int filterY = 0; filterY < length; filterY++)
@@ -210,7 +228,7 @@ public class NormalMapGenerator : MonoBehaviour
                 int filterXOffset = filterX - kernelRadius;
                 int filterYOffset = filterY - kernelRadius;
 
-                float distance = ((filterXOffset * filterXOffset) + (filterYOffset * filterYOffset)) / (2 * (weight * weight));
+                float distance = ((filterXOffset * filterXOffset) + (filterYOffset * filterYOffset)) / (2f * (weight * weight));
 
                 kernel[filterY * length + filterX] = calculatedEuler * Mathf.Exp(-distance);
 
@@ -218,6 +236,7 @@ public class NormalMapGenerator : MonoBehaviour
             }
         }
 
+        // Normalize
         for (int y = 0; y < length; y++)
         {
             for (int x = 0; x < length; x++)
