@@ -9,6 +9,10 @@ using UnityEngine.UI;
 
 public class NormalMapManager : MonoBehaviour
 {
+    [Header("Manual Testing")]
+    [SerializeField] private int charIdxToUse;
+
+    [Header("Refs")]
     [SerializeField] private Slider _edgesStrengthSlider;
     [SerializeField] private Slider _edgeBlurSlider;
     [SerializeField] private Slider _borderStrengthSlider;
@@ -36,7 +40,14 @@ public class NormalMapManager : MonoBehaviour
 
         // TODO remove
         if (GlobalState.AllCharacters.Count == 0) CharacterLoader.LoadAllCharacters(GlobalState.AllCharacters);
-        InitializeMenu(GlobalState.AllCharacters[0]);
+
+        int charIdx = charIdxToUse;
+        if (charIdxToUse >= GlobalState.AllCharacters.Count)
+        {
+            Debug.LogWarning("Wrong character index! There are only " + GlobalState.AllCharacters.Count + " characters.");
+            charIdx = 0;
+        }
+        InitializeMenu(GlobalState.AllCharacters[charIdx]);
     }
 
 
@@ -77,9 +88,18 @@ public class NormalMapManager : MonoBehaviour
     // Callback for generate preview button
     public void OnGeneratePreviewButtonDown()
     {
-        Texture2D texture = _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture , _edgesStrengthSlider.value, (int)_edgeBlurSlider.value,
-                            _borderStrengthSlider.value, (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value, _borderSlopePercentageSlider.value,
-                            (int)_finalBlurSlider.value);
+        NormalMapSettings settings = new NormalMapSettings();
+        settings.sourceTexture = _selectedCharacter.preview.texture;
+        settings.strengthEdges = _edgesStrengthSlider.value;
+        settings.blurEdgesRadius = (int)_edgeBlurSlider.value;
+        settings.strengthBorder = _borderStrengthSlider.value;
+        settings.blurBorderRadius = (int)_borderBlurSlider.value;
+        settings.softenBorder = (int)_borderSoftenSlider.value;
+        settings.slopePercentageBorder = _borderSlopePercentageSlider.value;
+        settings.finalBlurRadius = (int)_finalBlurSlider.value;
+
+
+        Texture2D texture = _normalMapGenerator.GenerateNormalMap(settings);
         _selectedCharacter.previewNormalMap = texture;                                     
         OnShowNormalMapToggle();
     }
@@ -98,11 +118,9 @@ public class NormalMapManager : MonoBehaviour
         {
             GenerateNormalMapsForAnimation(animEnumerator.Current);
         }
-        _selectedCharacter.previewNormalMap = 
-        _normalMapGenerator.GenerateNormalMap(_selectedCharacter.preview.texture, _edgesStrengthSlider.value,
-                (int)_edgeBlurSlider.value, _borderStrengthSlider.value,
-                (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value,
-                _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
+
+        // Show the normal map
+        OnGeneratePreviewButtonDown();
 
         int charIdx = GlobalState.AllCharacters.IndexOf(_selectedCharacter);
 
@@ -118,14 +136,22 @@ public class NormalMapManager : MonoBehaviour
 
     private void GenerateNormalMapsForAnimation(FajtovAnimationClip anim)
     {
+        NormalMapSettings settings = new NormalMapSettings();
+        settings.sourceTexture = _selectedCharacter.preview.texture;
+        settings.strengthEdges = _edgesStrengthSlider.value;
+        settings.blurEdgesRadius = (int)_edgeBlurSlider.value;
+        settings.strengthBorder = _borderStrengthSlider.value;
+        settings.blurBorderRadius = (int)_borderBlurSlider.value;
+        settings.softenBorder = (int)_borderSoftenSlider.value;
+        settings.slopePercentageBorder = _borderSlopePercentageSlider.value;
+        settings.finalBlurRadius = (int)_finalBlurSlider.value;
+
         List<Texture2D> normalMaps = new List<Texture2D>();
 
         foreach (Sprite sprite in anim.frames)
         {
-            Texture2D texture = _normalMapGenerator.GenerateNormalMap(sprite.texture, _edgesStrengthSlider.value,
-                (int)_edgeBlurSlider.value, _borderStrengthSlider.value,
-                (int)_borderBlurSlider.value, (int)_borderSoftenSlider.value,
-                _borderSlopePercentageSlider.value, (int)_finalBlurSlider.value);
+            settings.sourceTexture = sprite.texture;
+            Texture2D texture = _normalMapGenerator.GenerateNormalMap(settings);
             
             normalMaps.Add(texture);                                                        
         }

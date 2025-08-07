@@ -10,6 +10,11 @@ float _bumpStrength;
 int _bumpBlur;
 int _softenBump;
 
+inline float grayscale(float3 pixel)
+{
+    return dot(pixel.rgb, float3(0.2126, 0.7152, 0.0722));
+}
+
 [numthreads(32, 32, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
@@ -51,20 +56,20 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     float4 downBlurPixel = _sourceTex[coords + uint2(0, -1)];
     float4 upBlurPixel = _sourceTex[coords + uint2(0, 1)];
 
-    float blurCurr = 1 - ((blurPixel.r + blurPixel.g + blurPixel.b) / 3.0) * blurPixel.a;
-    float blurL = 1 - ((leftBlurPixel.r + leftBlurPixel.g + leftBlurPixel.b) / 3.0) * leftBlurPixel.a;
-    float blurR = 1 - ((rightBlurPixel.r + rightBlurPixel.g + rightBlurPixel.b) / 3.0) * rightBlurPixel.a;
-    float blurD = 1 - ((downBlurPixel.r + downBlurPixel.g + downBlurPixel.b) / 3.0) * downBlurPixel.a;
-    float blurU = 1 - ((upBlurPixel.r + upBlurPixel.g + upBlurPixel.b) / 3.0) * upBlurPixel.a;
+    float blurCurr = 1 - grayscale(blurPixel.rgb) * blurPixel.a;
+    float blurL = grayscale(leftBlurPixel.rgb);
+    float blurR = grayscale(rightBlurPixel.rgb);
+    float blurD = grayscale(downBlurPixel.rgb);
+    float blurU = grayscale(upBlurPixel.rgb);
 
     // Compute gradients (normal)
-    float embossX = (blurR - blurL) * blurCurr * _normalStrength;
-    float embossY = (blurU - blurD) * blurCurr * _normalStrength;
+    float embossX = (blurL - blurR) * blurCurr * _normalStrength;
+    float embossY = (blurD - blurU) * blurCurr * _normalStrength;
 
 
     // Final normal generation -----------------------------------------------------------------------------
-    float normalR = embossX * 1.0/2.0 + distanceX * 1.0/2.0;
-    float normalG = embossY * 1.0/2.0 + distanceY * 1.0/2.0;
+    float normalR = embossX * 0.5 + distanceX * 0.5;
+    float normalG = embossY * 0.5 + distanceY * 0.5;
     float normalB = 1.0;
 
     float3 normal = normalize(float3(normalR, normalG, normalB));

@@ -1,13 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
-using UnityEditor;
 using System.Linq;
-using System;
-using UnityEngine.UIElements;
 using System.Globalization;
 
 public static class CharacterLoader
@@ -830,7 +825,7 @@ public static class CharacterLoader
     // Load a single texture from a file (no integrity checks are done)
     private static Texture2D LoadTexture(string path)
     {
-        Texture2D tex = new Texture2D(32, 32, TextureFormat.RGBA32, true);
+        Texture2D tex = new Texture2D(32, 32, TextureFormat.RGBA32, true, false);
 
         byte[] fileData = File.ReadAllBytes(path);
         tex.LoadImage(fileData);

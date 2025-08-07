@@ -9761,6 +9761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc50e4aa566d0c4aa6d4a952da677d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charIdxToUse: 1
   _edgesStrengthSlider: {fileID: 911454925}
   _edgeBlurSlider: {fileID: 1373322785}
   _borderStrengthSlider: {fileID: 20735949}
@@ -9809,7 +9810,10 @@ MonoBehaviour:
   _gaussianShader: {fileID: 7200000, guid: d2248fe09a2d96d4c8484e768ea6e275, type: 3}
   _distanceShader: {fileID: 7200000, guid: 7b8b9a9e127bdbb4caefbe281c780cf3, type: 3}
   _normalMapShader: {fileID: 7200000, guid: df9942c44250ed64abbe186f44b46618, type: 3}
-  sourceTexture: {fileID: 0}
+  _allInOneShader: {fileID: 7200000, guid: eada491ea8d5ae44ba8746a47730d2e8, type: 3}
+  useAllInOne: 1
+  spriteRenderer: {fileID: 5636222327870828686}
+  sourceTexture: {fileID: 2800000, guid: c2a58c821f70c4a68bc3e5978ef7006f, type: 3}
   normalStrength: 20
   blurEdges: 5
   bumpHeight: 80
@@ -11308,7 +11312,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1286759750}
   m_HandleRect: {fileID: 1534051531}
   m_Direction: 0
-  m_MinValue: 1
+  m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 4
@@ -15430,7 +15434,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 944925129}
   m_HandleRect: {fileID: 261865545}
   m_Direction: 0
-  m_MinValue: 1
+  m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 1
@@ -18286,6 +18290,9 @@ MonoBehaviour:
   _gaussianShader: {fileID: 7200000, guid: d2248fe09a2d96d4c8484e768ea6e275, type: 3}
   _distanceShader: {fileID: 7200000, guid: 7b8b9a9e127bdbb4caefbe281c780cf3, type: 3}
   _normalMapShader: {fileID: 7200000, guid: df9942c44250ed64abbe186f44b46618, type: 3}
+  _allInOneShader: {fileID: 0}
+  useAllInOne: 1
+  spriteRenderer: {fileID: 0}
   sourceTexture: {fileID: 2800000, guid: 32afff0bbdea7d8468dbb695369145c7, type: 3}
   normalStrength: 20
   blurEdges: 4

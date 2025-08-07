@@ -1,0 +1,148 @@
+#pragma kernel CSMain
+
+#define MAX_DISTANCE 100
+
+
+// Input and output textures
+Texture2D<float4> _sourceTex;
+RWTexture2D<float4> _srcBlurTex;
+RWTexture2D<float4> _distTex;
+RWTexture2D<float4> _resultTex;
+
+Buffer<float> _gaussKernelEdge;
+Buffer<float> _gaussKernelBorder;
+Buffer<float> _gaussKernelFinal;
+
+float _strengthEdges;
+int _blurEdgesRadius;
+float _strengthBorder;
+int _blurBorderRadius;
+float _softenBorder;
+float _slopePercentageBorder;
+int _finalBlurRadius;
+
+// Converts from linear color space to SRGB
+float3 LinearToSRGB(float3 linearCol)
+{
+    float3 srgbLo  = linearCol * 12.92;
+    float3 srgbHi = 1.055 * pow(abs(linearCol), 1.0/2.4) - 0.055;
+    float3 result = lerp(srgbLo, srgbHi, step(0.0031308, linearCol));
+    return result;
+}
+
+// Blurs a given srcTex and writes result to destTex
+void GaussianBlurTexture(uint3 id : SV_DispatchThreadID, RWTexture2D<float4> srcTex, RWTexture2D<float4> destTex,
+    Buffer<float> kernel, uint blurRadius, bool gammaCorrect)
+{
+    // Get bounds
+    int2 texSize;
+    _sourceTex.GetDimensions(texSize.x, texSize.y);
+    
+    // Setup vars
+    int2 coords = id.xy;
+    float3 color = float3(0, 0, 0);
+    float weightSum = 0.0;
+    int kernelLineLength = blurRadius + 1;
+
+    // Calculate bounds
+    int yMin = max(0, coords.y - blurRadius);
+    int yMax = min(texSize.y - 1, coords.y + blurRadius);
+    int xMin = max(0, coords.x - blurRadius);
+    int xMax = min(texSize.x - 1, coords.x + blurRadius);
+
+    // Sample neighbors and with Gaussian kernel weight
+    for (int y = yMin; y <= yMax; y++)
+    {
+        for (int x = xMin; x <= xMax; x++)
+        {
+            int2 texCoord = int2(x, y);
+            float4 sample = srcTex[texCoord];
+            if (sample.w <= 0.1) continue;
+
+            int offsetY = y - (coords.y - blurRadius);
+            int offsetX = x - (coords.x - blurRadius);
+            float weight = kernel[offsetY * kernelLineLength + offsetX];
+
+            color += sample.xyz * weight;
+            weightSum += weight;
+        }
+    }
+    color = color / weightSum;
+
+    // Output the final pixel
+    if (srcTex[coords].a <= 0.1) color = float3(0, 0, 0);
+    if (gammaCorrect)
+    {
+        color = LinearToSRGB(color);
+    }
+
+    destTex[coords] = float4(color, srcTex[coords].w);
+}
+
+// Blurs the _sourceTex buffer and writes result to destTex
+void GaussianBlurSourceTexture(uint3 id : SV_DispatchThreadID, RWTexture2D<float4> destTex,
+    Buffer<float> kernel, uint blurRadius, bool gammaCorrect)
+{
+    // Get bounds
+    int2 texSize;
+    _sourceTex.GetDimensions(texSize.x, texSize.y);
+    
+    // Setup vars
+    int2 coords = id.xy;
+    float3 color = float3(0, 0, 0);
+    float weightSum = 0.0;
+    int kernelLineLength = blurRadius + 1;
+
+    // Calculate bounds
+    int yMin = max(0, coords.y - blurRadius);
+    int yMax = min(texSize.y - 1, coords.y + blurRadius);
+    int xMin = max(0, coords.x - blurRadius);
+    int xMax = min(texSize.x - 1, coords.x + blurRadius);
+
+    // Sample neighbors and with Gaussian kernel weight
+    for (int y = yMin; y <= yMax; y++)
+    {
+        for (int x = xMin; x <= xMax; x++)
+        {
+            int2 texCoord = int2(x, y);
+            float4 sample = _sourceTex[texCoord];
+            if (sample.w <= 0.1) continue;
+
+            int offsetY = y - (coords.y - blurRadius);
+            int offsetX = x - (coords.x - blurRadius);
+            float weight = kernel[offsetY * kernelLineLength + offsetX];
+
+            color += sample.xyz * weight;
+            weightSum += weight;
+        }
+    }
+    color = color / weightSum;
+
+    // Output the final pixel
+    if (_sourceTex[coords].a <= 0.1) color = float3(0, 0, 0);
+    if (gammaCorrect)
+    {
+        color = LinearToSRGB(color);
+    }
+
+    destTex[coords] = float4(color, _sourceTex[coords].w);
+}
+
+
+
+
+[numthreads(16,16,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    uint2 texSize;
+    _sourceTex.GetDimensions(texSize.x, texSize.y);
+
+    if (id.x >= texSize.x) return;
+    if (id.x < 0) return;
+    if (id.y >= texSize.y) return;
+    if (id.y < 0) return;
+
+    GaussianBlurSourceTexture(id, _srcBlurTex, _gaussKernelEdge, _blurEdgesRadius, false);
+    GroupMemoryBarrierWithGroupSync();
+    GaussianBlurTexture(id, _srcBlurTex, _resultTex, _gaussKernelFinal, _finalBlurRadius, true);
+}

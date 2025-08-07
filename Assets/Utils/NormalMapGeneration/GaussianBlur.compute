@@ -7,6 +7,14 @@ Buffer<float> _gaussianKernel;
 
 uint _blurRadius;
 
+float3 LinearToSRGB(float3 linearCol)
+{
+    float3 srgbLo  = linearCol * 12.92;
+    float3 srgbHi = 1.055 * pow(abs(linearCol), 1.0/2.4) - 0.055;
+    float3 result = lerp(srgbLo, srgbHi, step(0.0031308, linearCol));
+    return result;
+}
+
 [numthreads(32, 32, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
@@ -21,31 +29,35 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 
     float3 color = float3(0, 0, 0);
     float weightSum = 0.0;
-    uint halfRadius = _blurRadius / 2;
+    int kernelLineLength = _blurRadius + 1;
 
-    for (uint y = 0; y <= _blurRadius; y++)
+    // Calculate bounds
+    int yMin = max(0, coords.y - _blurRadius);
+    int yMax = min(texSize.y - 1, coords.y + _blurRadius);
+    int xMin = max(0, coords.x - _blurRadius);
+    int xMax = min(texSize.x - 1, coords.x + _blurRadius);
+
+    // Sample neighbors and with Gaussian kernel weight
+    for (int y = yMin; y <= yMax; y++)
     {
-        for (uint x = 0; x <= _blurRadius; x++)
+        for (int x = xMin; x <= xMax; x++)
         {
-            uint2 texCoord = coords + uint2(x - halfRadius, y - halfRadius);
-
-            texCoord.x = min(max(texCoord.x, 0), texSize.x - 1);
-            texCoord.y = min(max(texCoord.y, 0), texSize.y - 1);
-
+            int2 texCoord = int2(x, y);
             float4 sample = _sourceTex[texCoord];
             if (sample.w <= 0.1) continue;
 
-            float weight = _gaussianKernel[y * _blurRadius + x];
+            int offsetY = y - (coords.y - _blurRadius);
+            int offsetX = x - (coords.x - _blurRadius);
+            float weight = _gaussianKernel[offsetY * kernelLineLength + offsetX];
 
             color += sample.xyz * weight;
             weightSum += weight;
         }
     }
-
     color = color / weightSum;
 
     // Output the final pixel
-    float4 finalPixel = float4(color, _sourceTex[coords].w);
-    if (_sourceTex[coords].a <= 0.1) finalPixel = float4(0, 0, 0, 0);
-    _resultTex[coords] = pow(abs(finalPixel), 0.449);
+    if (_sourceTex[coords].a <= 0.1) color = float3(0, 0, 0);
+    color = LinearToSRGB(color);
+    _resultTex[coords] = float4(color, _sourceTex[coords].w);
 }
