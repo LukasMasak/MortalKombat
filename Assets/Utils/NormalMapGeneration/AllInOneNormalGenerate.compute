@@ -128,7 +128,42 @@ void GaussianBlurSourceTexture(uint3 id : SV_DispatchThreadID, RWTexture2D<float
     destTex[coords] = float4(color, _sourceTex[coords].w);
 }
 
+void DistanceTexture(uint3 id : SV_DispatchThreadID, RWTexture2D<float4> destTex)
+{
+    uint2 texSize;
+    _sourceTex.GetDimensions(texSize.x, texSize.y);
 
+    int2 coords = id.xy;
+    int pixelDistance = round((texSize.x / 2.0) * _slopePercentageBorder);
+    if (pixelDistance < 1) pixelDistance = 1;
+    float minDistance = pixelDistance * 3;
+
+    int minX = max(0, coords.x - pixelDistance);
+    int maxX = min(texSize.x, coords.x + pixelDistance);
+    int minY = max(0, coords.y - pixelDistance);
+    int maxY = min(texSize.y, coords.y + pixelDistance);
+    for (int yRect = minY; yRect <= maxY; yRect++)
+    {
+        for (int xRect = minX; xRect <= maxX; xRect++)
+        {
+            int2 currCoords = int2(xRect, yRect);
+
+            // Found the edge
+            if (_sourceTex[currCoords].a < 0.1)
+            {
+                float dist = distance(currCoords, coords);
+                minDistance = min(minDistance, dist);
+            }
+        }
+    }
+
+    float divider = min(pixelDistance, min(texSize.x/2, texSize.y/2));
+
+    float heightValue = 1 - clamp(minDistance / divider, 0, 1);
+    float4 heightColor = float4(heightValue, heightValue, heightValue, 1);
+
+    destTex[coords] = heightColor;
+}
 
 
 [numthreads(16,16,1)]
@@ -137,12 +172,27 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
+    // Skip pixels out of range
     if (id.x >= texSize.x) return;
     if (id.x < 0) return;
     if (id.y >= texSize.y) return;
     if (id.y < 0) return;
 
-    GaussianBlurSourceTexture(id, _srcBlurTex, _gaussKernelEdge, _blurEdgesRadius, false);
+    // Skip pixels with low alpha
+    // if (_sourceTex[id.xy].a < 0.1)
+    // {
+    //     _resultTex[id.xy] = float4(_sourceTex[id.xy].rgb, 0);
+    //     return;
+    // }
+
+    //GaussianBlurSourceTexture(id, _srcBlurTex, _gaussKernelEdge, _blurEdgesRadius, false);
+    DistanceTexture(id, _distTex);
+    
+    //if (id.x % 100 <= 10 && id.y % 100 <= 10) _distTex[id.xy] = float4(1,0,0,1);
+    //else _distTex[id.xy] = _sourceTex[id.xy];
+    //_distTex[id.xy] = float4(id.x/5000.0,id.y/5000.0,0,1);
     GroupMemoryBarrierWithGroupSync();
-    GaussianBlurTexture(id, _srcBlurTex, _resultTex, _gaussKernelFinal, _finalBlurRadius, true);
+    GaussianBlurTexture(id, _distTex, _resultTex, _gaussKernelBorder, _blurBorderRadius, false);
+
+    //GaussianBlurTexture(id, _srcBlurTex, _resultTex, _gaussKernelFinal, _finalBlurRadius, true);
 }

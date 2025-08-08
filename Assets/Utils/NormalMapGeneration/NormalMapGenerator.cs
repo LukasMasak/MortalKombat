@@ -71,17 +71,17 @@ public class NormalMapGenerator : MonoBehaviour
         else
         {
             // Apply Gaussian blur to the normal map
-            Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
+            //Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
 
             // Generate a height map with the "puffed-up" effect
-            Texture2D heightMap = CSGenerateHeightMap(settings.sourceTexture, Mathf.RoundToInt((settings.sourceTexture.width / 4f) * settings.slopePercentageBorder));
+            Texture2D heightMap = CSGenerateHeightMap(settings.sourceTexture, Mathf.RoundToInt((settings.sourceTexture.width / 2f) * settings.slopePercentageBorder));
             heightMap = CSApplyGaussianBlur(heightMap, settings.blurBorderRadius);
 
             // Generate the normal map with the bump effect
-            Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
+            //Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
 
             // Apply Gaussian blur to the normal map
-            result = CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
+            result = heightMap;//CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
         }
 
         double endTime = Time.realtimeSinceStartupAsDouble;

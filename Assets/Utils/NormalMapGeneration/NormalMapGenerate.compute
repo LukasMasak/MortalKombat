@@ -15,7 +15,7 @@ inline float grayscale(float3 pixel)
     return dot(pixel.rgb, float3(0.2126, 0.7152, 0.0722));
 }
 
-[numthreads(32, 32, 1)]
+[numthreads(16, 16, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
     uint2 texSize;

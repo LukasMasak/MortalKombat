@@ -15,7 +15,7 @@ float3 LinearToSRGB(float3 linearCol)
     return result;
 }
 
-[numthreads(32, 32, 1)]
+[numthreads(16, 16, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
     uint2 texSize;
@@ -26,6 +26,12 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     if (coords.x < 0) return;
     if (coords.y >= texSize.y) return;
     if (coords.y < 0) return;
+
+    if (_sourceTex[coords.xy].a < 0.1)
+    {
+        _resultTex[coords.xy] = float4(_sourceTex[coords.xy].rgb, 0);
+        return;
+    }
 
     float3 color = float3(0, 0, 0);
     float weightSum = 0.0;

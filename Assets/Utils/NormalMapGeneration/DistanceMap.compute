@@ -1,14 +1,12 @@
 #pragma kernel CSMain
 
-#define MAX_DISTANCE 100
-
 // Input and output textures
 Texture2D<float4> _sourceTex;
 RWTexture2D<float4> _resultTex;
 
 int _distance;
 
-[numthreads(32, 32, 1)]
+[numthreads(16, 16, 1)]
 void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 {
     uint2 texSize;
@@ -20,35 +18,39 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     if (dispatchThreadID.y < 0) return;
 
 
-    uint2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);
-    float minDistance = _distance * 10;
-
-    for (int yRect = - _distance; yRect <= _distance; yRect++)
+    int2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);
+    if (_sourceTex[coords].a < 0.1)
     {
-        for (int xRect = - _distance; xRect <= _distance; xRect++)
+        _resultTex[coords] = float4(1, 1, 1, 1);
+        return;
+    }
+
+    if (_distance < 0.1) _distance = 1;
+    float minDistance = _distance * 100000;
+
+    int minX = max(0, coords.x - _distance);
+    int maxX = min(texSize.x, coords.x + _distance);
+    int minY = max(0, coords.y - _distance);
+    int maxY = min(texSize.y, coords.y + _distance);
+    for (int yRect = minY; yRect <= maxY; yRect++)
+    {
+        for (int xRect = minX; xRect <= maxX; xRect++)
         {
-            uint2 currCoords = coords + int2(xRect, yRect);
+            int2 currCoords = int2(xRect, yRect);
 
-            if (currCoords.y < 0 || currCoords.y >= texSize.y ||
-                currCoords.x < 0 || currCoords.x >= texSize.x) continue;
-
-            
             // Found the edge
-            if (_sourceTex[currCoords].a <= 0.1)
+            if (_sourceTex[currCoords].a < 0.1)
             {
-                float distance = length(float2(xRect, yRect));
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                }
+                float dist = distance(currCoords, coords);
+                minDistance = min(minDistance, dist);
             }
         }
     }
 
-    float divider = min(_distance, min(texSize.x/4, texSize.y/4));
+    float divider = min(_distance, min(texSize.x/2, texSize.y/2));
 
     float heightValue = 1 - clamp(minDistance / divider, 0, 1);
     float4 heightColor = float4(heightValue, heightValue, heightValue, 1);
 
-    _resultTex[coords] = pow(abs(heightColor), 0.449);
+    _resultTex[coords] = heightColor;
 }
