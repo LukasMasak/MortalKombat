@@ -5,7 +5,7 @@ Texture2D<float4> _sourceTex;
 RWTexture2D<float4> _resultTex;
 Buffer<float> _gaussianKernel;
 
-uint _blurRadius;
+int _blurRadius;
 
 float3 LinearToSRGB(float3 linearCol)
 {
@@ -21,46 +21,38 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
-    uint2 coords = dispatchThreadID.xy;
+    int2 coords = dispatchThreadID.xy;
     if (coords.x >= texSize.x) return;
     if (coords.x < 0) return;
     if (coords.y >= texSize.y) return;
     if (coords.y < 0) return;
 
-    if (_sourceTex[coords.xy].a < 0.1)
-    {
-        _resultTex[coords.xy] = float4(_sourceTex[coords.xy].rgb, 0);
-        return;
-    }
-
     float3 color = float3(0, 0, 0);
     float weightSum = 0.0;
     int kernelLineLength = _blurRadius + 1;
 
-    // Calculate bounds
-    int yMin = max(0, coords.y - _blurRadius);
-    int yMax = min(texSize.y - 1, coords.y + _blurRadius);
-    int xMin = max(0, coords.x - _blurRadius);
-    int xMax = min(texSize.x - 1, coords.x + _blurRadius);
-
     // Sample neighbors and with Gaussian kernel weight
-    for (int y = yMin; y <= yMax; y++)
+    for (int y = -_blurRadius; y <= _blurRadius; y++)
     {
-        for (int x = xMin; x <= xMax; x++)
+        for (int x = -_blurRadius; x <= _blurRadius; x++)
         {
-            int2 texCoord = int2(x, y);
+            int2 texCoord = coords + int2(x, y);
+            
+            if (texCoord.x < 0 || texCoord.x >= texSize.x ||
+                texCoord.y < 0 || texCoord.y >= texSize.y)
+            {
+                continue;   
+            }
+            
             float4 sample = _sourceTex[texCoord];
-            if (sample.w <= 0.1) continue;
 
-            int offsetY = y - (coords.y - _blurRadius);
-            int offsetX = x - (coords.x - _blurRadius);
-            float weight = _gaussianKernel[offsetY * kernelLineLength + offsetX];
-
-            color += sample.xyz * weight;
+            float weight = _gaussianKernel[(y + _blurRadius) * kernelLineLength + (x + _blurRadius)];
+            color += sample.rgb * weight;
             weightSum += weight;
         }
     }
     color = color / weightSum;
+
 
     // Output the final pixel
     if (_sourceTex[coords].a <= 0.1) color = float3(0, 0, 0);

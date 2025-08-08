@@ -12,7 +12,7 @@ public class NormalMapGenerator : MonoBehaviour
     [SerializeField] private ComputeShader _normalMapShader;
 
     [SerializeField] private ComputeShader _allInOneShader;
-    [SerializeField] private bool useAllInOne = true;
+    [SerializeField] private bool useOptimized = false;
 
 
     [Header("Manual Debugs")]
@@ -64,24 +64,24 @@ public class NormalMapGenerator : MonoBehaviour
 
         double startTime = Time.realtimeSinceStartupAsDouble;
 
-        if (useAllInOne)
+        if (useOptimized)
         {
             result = CSAllInOne(settings);
         }
         else
         {
             // Apply Gaussian blur to the normal map
-            //Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
+            Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
 
             // Generate a height map with the "puffed-up" effect
             Texture2D heightMap = CSGenerateHeightMap(settings.sourceTexture, Mathf.RoundToInt((settings.sourceTexture.width / 2f) * settings.slopePercentageBorder));
-            heightMap = CSApplyGaussianBlur(heightMap, settings.blurBorderRadius);
+            //heightMap = CSApplyGaussianBlur(heightMap, settings.blurBorderRadius);
 
             // Generate the normal map with the bump effect
-            //Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
+            Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
 
             // Apply Gaussian blur to the normal map
-            result = heightMap;//CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
+            result = CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
         }
 
         double endTime = Time.realtimeSinceStartupAsDouble;
@@ -212,6 +212,7 @@ public class NormalMapGenerator : MonoBehaviour
         // Cleanup
         gaussianKernelBuffer.Dispose();
         RenderTexture.active = null;
+        renderTexture.Release();
 
         return blurredTexture;
     }
