@@ -45,6 +45,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
             }
             
             float4 sample = _sourceTex[texCoord];
+            if (sample.w <= 0.1) continue;
 
             float weight = _gaussianKernel[(y + _blurRadius) * kernelLineLength + (x + _blurRadius)];
             color += sample.rgb * weight;

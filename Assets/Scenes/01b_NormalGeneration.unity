@@ -9807,10 +9807,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd64897ac8f5bf45805ad292a440466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gaussianShader: {fileID: 7200000, guid: d2248fe09a2d96d4c8484e768ea6e275, type: 3}
-  _distanceShader: {fileID: 7200000, guid: 7b8b9a9e127bdbb4caefbe281c780cf3, type: 3}
-  _normalMapShader: {fileID: 7200000, guid: df9942c44250ed64abbe186f44b46618, type: 3}
-  _allInOneShader: {fileID: 7200000, guid: eada491ea8d5ae44ba8746a47730d2e8, type: 3}
+  _slowGaussianShader: {fileID: 7200000, guid: d2248fe09a2d96d4c8484e768ea6e275, type: 3}
+  _slowDistanceShader: {fileID: 7200000, guid: 7b8b9a9e127bdbb4caefbe281c780cf3, type: 3}
+  _slowNormalMapShader: {fileID: 7200000, guid: df9942c44250ed64abbe186f44b46618,
+    type: 3}
+  S1BlurSource: 1
+  S2DistMap: 1
+  S3NormalMap: 0
+  S4FinalBlur: 0
+  _fastBlurDistShader: {fileID: 7200000, guid: 398861b21eb255c438ee1a67dbb14e6f, type: 3}
+  _fastGaussianShader: {fileID: 7200000, guid: 4827cf5b931438d408df128ea82d1baf, type: 3}
+  _fastNormalMapShader: {fileID: 7200000, guid: c428034816a3e3c40bc18e883c9c0eb4,
+    type: 3}
   useOptimized: 0
   spriteRenderer: {fileID: 5636222327870828686}
   sourceTexture: {fileID: 2800000, guid: c2a58c821f70c4a68bc3e5978ef7006f, type: 3}
@@ -9818,7 +9826,7 @@ MonoBehaviour:
   blurEdges: 5
   bumpHeight: 80
   blurBump: 5
-  blurSoften: 5
+  blurSoften: 1
   slopeDistance: 1
   finalBlur: 5
   GAUSSIAN_WEIGHT: 10
@@ -18287,16 +18295,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd64897ac8f5bf45805ad292a440466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gaussianShader: {fileID: 7200000, guid: d2248fe09a2d96d4c8484e768ea6e275, type: 3}
-  _distanceShader: {fileID: 7200000, guid: 7b8b9a9e127bdbb4caefbe281c780cf3, type: 3}
-  _normalMapShader: {fileID: 7200000, guid: df9942c44250ed64abbe186f44b46618, type: 3}
-  _allInOneShader: {fileID: 0}
+  _slowGaussianShader: {fileID: 0}
+  _slowDistanceShader: {fileID: 0}
+  _slowNormalMapShader: {fileID: 0}
+  S1BlurSource: 0
+  S2DistMap: 0
+  S3NormalMap: 0
+  S4FinalBlur: 0
+  _fastBlurDistShader: {fileID: 0}
+  _fastGaussianShader: {fileID: 0}
+  _fastNormalMapShader: {fileID: 0}
   useOptimized: 0
   spriteRenderer: {fileID: 0}
   sourceTexture: {fileID: 2800000, guid: 32afff0bbdea7d8468dbb695369145c7, type: 3}
   normalStrength: 20
   blurEdges: 4
-  bumpHeight: 30
+  bumpHeight: 80
   blurBump: 4
   blurSoften: 1
   slopeDistance: 0.3

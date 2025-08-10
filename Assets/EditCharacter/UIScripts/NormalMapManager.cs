@@ -90,9 +90,9 @@ public class NormalMapManager : MonoBehaviour
     {
         NormalMapSettings settings = new NormalMapSettings();
         settings.sourceTexture = _selectedCharacter.preview.texture;
-        settings.strengthEdges = _edgesStrengthSlider.value;
+        settings.strengthEdges = (int)_edgesStrengthSlider.value;
         settings.blurEdgesRadius = (int)_edgeBlurSlider.value;
-        settings.strengthBorder = _borderStrengthSlider.value;
+        settings.strengthBorder = (int)_borderStrengthSlider.value;
         settings.blurBorderRadius = (int)_borderBlurSlider.value;
         settings.softenBorder = (int)_borderSoftenSlider.value;
         settings.slopePercentageBorder = _borderSlopePercentageSlider.value;
@@ -138,9 +138,9 @@ public class NormalMapManager : MonoBehaviour
     {
         NormalMapSettings settings = new NormalMapSettings();
         settings.sourceTexture = _selectedCharacter.preview.texture;
-        settings.strengthEdges = _edgesStrengthSlider.value;
+        settings.strengthEdges = (int)_edgesStrengthSlider.value;
         settings.blurEdgesRadius = (int)_edgeBlurSlider.value;
-        settings.strengthBorder = _borderStrengthSlider.value;
+        settings.strengthBorder = (int)_borderStrengthSlider.value;
         settings.blurBorderRadius = (int)_borderBlurSlider.value;
         settings.softenBorder = (int)_borderSoftenSlider.value;
         settings.slopePercentageBorder = _borderSlopePercentageSlider.value;

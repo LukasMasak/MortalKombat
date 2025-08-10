@@ -7,23 +7,31 @@ using UnityEngine;
 public class NormalMapGenerator : MonoBehaviour
 {
     [Header("Shaders")]
-    [SerializeField] private ComputeShader _gaussianShader;
-    [SerializeField] private ComputeShader _distanceShader;
-    [SerializeField] private ComputeShader _normalMapShader;
+    [SerializeField] private ComputeShader _slowGaussianShader;
+    [SerializeField] private ComputeShader _slowDistanceShader;
+    [SerializeField] private ComputeShader _slowNormalMapShader;
+    [SerializeField] private bool S1BlurSource = false;
+    [SerializeField] private bool S2DistMap = false;
+    [SerializeField] private bool S3NormalMap = false;
+    [SerializeField] private bool S4FinalBlur = false;
 
-    [SerializeField] private ComputeShader _allInOneShader;
+
+    [SerializeField] private ComputeShader _fastBlurDistShader;
+    [SerializeField] private ComputeShader _fastGaussianShader;
+    [SerializeField] private ComputeShader _fastNormalMapShader;
+
     [SerializeField] private bool useOptimized = false;
 
 
     [Header("Manual Debugs")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Texture2D sourceTexture; // Input texture
-    [SerializeField] private float normalStrength = 20.0f; // Controls the steepness of slopes
+    [SerializeField] private int normalStrength = 20; // Controls the steepness of slopes
     [SerializeField][Range(0, 10)] private int blurEdges = 5; // Controls the width of the edges (larger value means wider edges)
 
-    [SerializeField] private float bumpHeight = 80.0f; // Controls the height of the bump effect
+    [SerializeField] private int bumpHeight = 80; // Controls the height of the bump effect
     [SerializeField][Range(1, 10)] private int blurBump = 5; // Controls the width of the edges (larger value means wider edges)
-    [SerializeField][Range(1f, 10f)] private float blurSoften = 1;
+    [SerializeField][Range(1f, 10f)] private int blurSoften = 1;
 
     [SerializeField][Range(0f, 1f)] private float slopeDistance = 0.1f; // Controls the distance over which the slope extends inward
 
@@ -70,18 +78,38 @@ public class NormalMapGenerator : MonoBehaviour
         }
         else
         {
-            // Apply Gaussian blur to the normal map
-            Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
+            Texture2D lastResult = settings.sourceTexture;
 
-            // Generate a height map with the "puffed-up" effect
-            Texture2D heightMap = CSGenerateHeightMap(settings.sourceTexture, Mathf.RoundToInt((settings.sourceTexture.width / 2f) * settings.slopePercentageBorder));
-            //heightMap = CSApplyGaussianBlur(heightMap, settings.blurBorderRadius);
+            if (S1BlurSource)
+            {
+                // Apply Gaussian blur to the normal map
+                Texture2D blurredTexture = CSApplyGaussianBlur(settings.sourceTexture, settings.blurEdgesRadius);
+                lastResult = blurredTexture;
 
-            // Generate the normal map with the bump effect
-            Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
+                if (S2DistMap)
+                {
+                    // Generate a height map with the "puffed-up" effect
+                    Texture2D heightMap = CSGenerateHeightMap(blurredTexture, Mathf.RoundToInt(settings.sourceTexture.width * settings.slopePercentageBorder));
+                    //heightMap = CSApplyGaussianBlur(heightMap, settings.blurBorderRadius);
+                    lastResult = heightMap;
 
-            // Apply Gaussian blur to the normal map
-            result = CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
+                    if (S3NormalMap)
+                    {
+                        // Generate the normal map with the bump effect
+                        Texture2D normalMap = CSApplySourceAndHeightMap(blurredTexture, heightMap, settings.strengthEdges, settings.strengthBorder, settings.blurBorderRadius, settings.softenBorder);
+                        lastResult = normalMap;
+
+                        if (S4FinalBlur)
+                        {
+                            // Apply Gaussian blur to the normal map
+                            Texture2D finalBlur = CSApplyGaussianBlur(normalMap, settings.finalBlurRadius);
+                            lastResult = finalBlur;
+                        }
+                    }
+                }
+            }
+
+            result = lastResult;
         }
 
         double endTime = Time.realtimeSinceStartupAsDouble;
@@ -103,20 +131,20 @@ public class NormalMapGenerator : MonoBehaviour
         renderTexture.Create();
 
         // Pass buffers and textures
-        int kernelHandle = _normalMapShader.FindKernel("CSMain");
-        _normalMapShader.SetTexture(kernelHandle, "_sourceTex", source);
-        _normalMapShader.SetTexture(kernelHandle, "_heightMapTex", heightMap);
-        _normalMapShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
-        _normalMapShader.SetFloat("_normalStrength", normalStrength);
-        _normalMapShader.SetFloat("_bumpStrength", bumpHeight);
-        _normalMapShader.SetInt("_bumpBlur", bumpBlur);
-        _normalMapShader.SetFloat("_softenBump", softenBump);
+        int kernelHandle = _slowNormalMapShader.FindKernel("CSMain");
+        _slowNormalMapShader.SetTexture(kernelHandle, "_sourceTex", source);
+        _slowNormalMapShader.SetTexture(kernelHandle, "_heightMapTex", heightMap);
+        _slowNormalMapShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
+        _slowNormalMapShader.SetFloat("_normalStrength", normalStrength);
+        _slowNormalMapShader.SetFloat("_bumpStrength", bumpHeight);
+        _slowNormalMapShader.SetInt("_bumpBlur", bumpBlur);
+        _slowNormalMapShader.SetFloat("_softenBump", softenBump);
 
         // Start the shader up
-        _normalMapShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
+        _slowNormalMapShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
         int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
         int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
-        _normalMapShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+        _slowNormalMapShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
         RenderTexture.active = renderTexture;
@@ -141,18 +169,18 @@ public class NormalMapGenerator : MonoBehaviour
         renderTexture.Create();
 
         // Pass the Gaussian size to the compute shader
-        _distanceShader.SetInt("_distance", slopeDistance);
+        _slowDistanceShader.SetInt("_distance", slopeDistance);
 
         // Pass buffers and textures
-        int kernelHandle = _distanceShader.FindKernel("CSMain");
-        _distanceShader.SetTexture(kernelHandle, "_sourceTex", source);
-        _distanceShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
+        int kernelHandle = _slowDistanceShader.FindKernel("CSMain");
+        _slowDistanceShader.SetTexture(kernelHandle, "_sourceTex", source);
+        _slowDistanceShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
 
         // Start the shader up
-        _distanceShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
+        _slowDistanceShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
         int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
         int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
-        _distanceShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+        _slowDistanceShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
         RenderTexture.active = renderTexture;
@@ -189,19 +217,19 @@ public class NormalMapGenerator : MonoBehaviour
         gaussianKernelBuffer.SetData(kernelAlt);
 
         // Pass the Gaussian size to the compute shader
-        _gaussianShader.SetInt("_blurRadius", radius);
+        _slowGaussianShader.SetInt("_blurRadius", radius);
 
         // Pass buffers and textures
-        int kernelHandle = _gaussianShader.FindKernel("CSMain");
-        _gaussianShader.SetTexture(kernelHandle, "_sourceTex", source);
-        _gaussianShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
-        _gaussianShader.SetBuffer(kernelHandle, "_gaussianKernel", gaussianKernelBuffer);
+        int kernelHandle = _slowGaussianShader.FindKernel("CSMain");
+        _slowGaussianShader.SetTexture(kernelHandle, "_sourceTex", source);
+        _slowGaussianShader.SetTexture(kernelHandle, "_resultTex", renderTexture);
+        _slowGaussianShader.SetBuffer(kernelHandle, "_gaussianKernel", gaussianKernelBuffer);
 
         // Start the shader up
-        _gaussianShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
+        _slowGaussianShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
         int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
         int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
-        _gaussianShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+        _slowGaussianShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
 
         // Get data
         RenderTexture.active = renderTexture;
@@ -269,58 +297,103 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Result and temp texture
         RenderTexture resultRendTex = new RenderTexture(rendTexDesc);
-        resultRendTex.enableRandomWrite = true;
         resultRendTex.Create();
         RenderTexture srcBlurRendTex = RenderTexture.GetTemporary(rendTexDesc);
-        srcBlurRendTex.enableRandomWrite = true;
         srcBlurRendTex.Create();
         RenderTexture distRendTex = RenderTexture.GetTemporary(rendTexDesc);
-        distRendTex.enableRandomWrite = true;
         distRendTex.Create();
+        RenderTexture normRendTex = RenderTexture.GetTemporary(rendTexDesc);
+        normRendTex.Create();
 
+        // ------------------------------------BLUR-SETUP------------------------------------
         // Create gaussian kernels
         float[] kernelEdge = GetGaussianKernel(settings.blurEdgesRadius, GAUSSIAN_WEIGHT);
-        float[] kernelBorder = GetGaussianKernel(settings.blurBorderRadius, GAUSSIAN_WEIGHT);
+        //float[] kernelBorder = GetGaussianKernel(settings.blurBorderRadius, GAUSSIAN_WEIGHT);
         float[] kernelFinal = GetGaussianKernel(settings.finalBlurRadius, GAUSSIAN_WEIGHT);
 
-        // Create gauss kernel buffers
+        // Create gauss kernel buffers and set data
         ComputeBuffer kernelEdgeBlurBuffer = new ComputeBuffer(kernelEdge.Length, sizeof(float));
         kernelEdgeBlurBuffer.SetData(kernelEdge);
-        ComputeBuffer kernelBorderBlurBuffer = new ComputeBuffer(kernelBorder.Length, sizeof(float));
-        kernelBorderBlurBuffer.SetData(kernelBorder);
+        //ComputeBuffer kernelBorderBlurBuffer = new ComputeBuffer(kernelBorder.Length, sizeof(float));
+        //kernelBorderBlurBuffer.SetData(kernelBorder);
         ComputeBuffer kernelFinalBlurBuffer = new ComputeBuffer(kernelFinal.Length, sizeof(float));
         kernelFinalBlurBuffer.SetData(kernelFinal);
 
-        // Pass the normal map parameters to the compute shader
-        _allInOneShader.SetFloat("_strengthEdges", settings.strengthEdges);
-        _allInOneShader.SetInt("_blurEdgesRadius", settings.blurEdgesRadius);
-        _allInOneShader.SetFloat("_strengthBorder", settings.strengthBorder);
-        _allInOneShader.SetInt("_blurBorderRadius", settings.blurBorderRadius);
-        _allInOneShader.SetFloat("_softenBorder", settings.softenBorder);
-        _allInOneShader.SetFloat("_slopePercentageBorder", settings.slopePercentageBorder);
-        _allInOneShader.SetInt("_finalBlurRadius", settings.finalBlurRadius);
 
-        // Pass buffers and textures
-        int kernelHandle = _allInOneShader.FindKernel("CSMain");
-        _allInOneShader.SetTexture(kernelHandle, "_sourceTex", settings.sourceTexture);
-        _allInOneShader.SetTexture(kernelHandle, "_srcBlurTex", srcBlurRendTex);
-        _allInOneShader.SetTexture(kernelHandle, "_distTex", distRendTex);
-        _allInOneShader.SetTexture(kernelHandle, "_resultTex", resultRendTex);
-        _allInOneShader.SetBuffer(kernelHandle, "_gaussKernelEdge", kernelEdgeBlurBuffer);
-        _allInOneShader.SetBuffer(kernelHandle, "_gaussKernelBorder", kernelBorderBlurBuffer);
-        _allInOneShader.SetBuffer(kernelHandle, "_gaussKernelFinal", kernelFinalBlurBuffer);
+        // ------------------------------------S1+S2-BLUR-DIST-STAGES------------------------------------
+        RenderTexture lastResult = resultRendTex;
 
-        // Calculate kernels group size
-        _allInOneShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
-        int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
-        int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
+        if (S1BlurSource || S2DistMap)
+        {
+            // Pass params
+            _fastBlurDistShader.SetInt("_blurRadius", settings.blurEdgesRadius);
+            _fastBlurDistShader.SetFloat("_slopePercentageBorder", settings.slopePercentageBorder);
+            _fastBlurDistShader.SetBool("_doSourceBlur", S1BlurSource);
+            _fastBlurDistShader.SetBool("_doDistMap", S2DistMap);
 
-        // Start the shader up
-        GL.sRGBWrite = true;
-        _allInOneShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+            // Pass buffers and textures
+            int kernelHandle = _fastBlurDistShader.FindKernel("CSMain");
+            _fastBlurDistShader.SetTexture(kernelHandle, "_sourceTex", settings.sourceTexture);
+            _fastBlurDistShader.SetTexture(kernelHandle, "_srcBlurTex", srcBlurRendTex);
+            _fastBlurDistShader.SetTexture(kernelHandle, "_distTex", distRendTex);
+            _fastBlurDistShader.SetBuffer(kernelHandle, "_gaussianKernel", kernelEdgeBlurBuffer);
+
+            // Calculate kernels group size
+            _fastBlurDistShader.GetKernelThreadGroupSizes(kernelHandle, out uint groupSizeX, out uint groupSizeY, out _);
+            int threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+            int threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
+
+            _fastBlurDistShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+
+            if (S1BlurSource) lastResult = srcBlurRendTex;
+            if (S2DistMap) lastResult = distRendTex;
+
+            // ------------------------------------S3-NORMAL-MAP-STAGE------------------------------------
+            if (S3NormalMap)
+            {
+                // Pass buffers and textures
+                kernelHandle = _fastNormalMapShader.FindKernel("CSMain");
+                _fastNormalMapShader.SetTexture(kernelHandle, "_srcBlurTex", srcBlurRendTex);
+                _fastNormalMapShader.SetTexture(kernelHandle, "_distMapTex", distRendTex);
+                _fastNormalMapShader.SetTexture(kernelHandle, "_resultTex", normRendTex);
+                _fastNormalMapShader.SetInt("_edgeStrength", settings.strengthEdges);
+                _fastNormalMapShader.SetInt("_borderStrength", settings.strengthBorder);
+                _fastNormalMapShader.SetInt("_borderSoften", settings.softenBorder);
+
+                // Start the shader up
+                _fastNormalMapShader.GetKernelThreadGroupSizes(kernelHandle, out groupSizeX, out groupSizeY, out _);
+                threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+                threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
+                _fastNormalMapShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+
+                lastResult = normRendTex;
+
+                // ------------------------------------FINAL-BLUR-STAGE------------------------------------
+                if (S4FinalBlur)
+                {
+                    // Pass the Gaussian size to the compute shader
+                    _fastGaussianShader.SetInt("_blurRadius", settings.finalBlurRadius);
+
+                    // Pass buffers and textures
+                    kernelHandle = _fastGaussianShader.FindKernel("CSMain");
+                    _fastGaussianShader.SetTexture(kernelHandle, "_sourceTex", normRendTex);
+                    _fastGaussianShader.SetTexture(kernelHandle, "_resultTex", resultRendTex);
+                    _fastGaussianShader.SetBuffer(kernelHandle, "_gaussianKernel", kernelFinalBlurBuffer);
+
+                    // Calculate kernels group size
+                    _fastGaussianShader.GetKernelThreadGroupSizes(kernelHandle, out groupSizeX, out groupSizeY, out _);
+                    threadGroupsX = Mathf.CeilToInt(width / (float)groupSizeX);
+                    threadGroupsY = Mathf.CeilToInt(height / (float)groupSizeY);
+
+                    _fastGaussianShader.Dispatch(kernelHandle, threadGroupsX, threadGroupsY, 1);
+
+                    lastResult = resultRendTex;
+                }
+            }
+        }
 
         // Get data
-        RenderTexture.active = resultRendTex;
+        RenderTexture.active = lastResult;
         Texture2D finalTexture = new Texture2D(width, height, TextureFormat.RGBA32, true, false);
         finalTexture.ReadPixels(new Rect(0, 0, width, height), 0, 0);
         finalTexture.Apply();
@@ -332,7 +405,7 @@ public class NormalMapGenerator : MonoBehaviour
         distRendTex.Release();
         resultRendTex.Release();
         kernelEdgeBlurBuffer.Dispose();
-        kernelBorderBlurBuffer.Dispose();
+        // kernelBorderBlurBuffer.Dispose();
         kernelFinalBlurBuffer.Dispose();
 
 
