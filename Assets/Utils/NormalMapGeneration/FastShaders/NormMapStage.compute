@@ -18,6 +18,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
 
     uint2 coords = uint2(dispatchThreadID.x, dispatchThreadID.y);
 
+    // Only draw to pixels in range of texture (just in case check)
     if (coords.x >= texSize.x) return;
     if (coords.x < 0) return;
     if (coords.y >= texSize.y) return;

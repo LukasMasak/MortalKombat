@@ -24,7 +24,10 @@ void DistanceTexture(uint3 id : SV_DispatchThreadID, Texture2D<float4> srcTex, R
     if (pixelDistance < 1) pixelDistance = 1.0;
     float minDistance = pixelDistance * 3.0;
 
+    // Adaptive stepsize - in large textures sampling every pixel is costly with diminishing returns
     int stepSize = clamp(round(texSize.x / 768.0), 1, 10);
+
+    // Precalculate bounds to avoid branching
     int minX = max(0, coords.x - pixelDistance);
     int maxX = min(texSize.x - 1, coords.x + pixelDistance);
     int minY = max(0, coords.y - pixelDistance);
@@ -42,12 +45,15 @@ void DistanceTexture(uint3 id : SV_DispatchThreadID, Texture2D<float4> srcTex, R
                 minDistance = min(minDistance, dist);
             }
         }
+
+        // Break early if this we are on the edge
         if (minDistance < 1.5)
         {
             break;
         }
     }
 
+    // Get the color
     float heightValue = 1 - clamp(minDistance / pixelDistance, 0, 1);
     float4 heightColor = float4(heightValue, heightValue, heightValue, 1);
 
@@ -60,6 +66,7 @@ void CSMain (uint3 id : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
+    // Only draw to pixels in range of texture (just in case check)
     if (id.x >= texSize.x) return;
     if (id.x < 0) return;
     if (id.y >= texSize.y) return;
@@ -73,6 +80,7 @@ void CSMain (uint3 id : SV_DispatchThreadID)
         return;
     } 
 
+    // _doSourceBlur and doDistMap present only for stage testing
     if (_doSourceBlur) GaussianBlurTexture(id, _sourceTex, _srcBlurTex, _gaussianKernel, _blurRadius, true);
     if (_doDistMap) DistanceTexture(id, _sourceTex, _distTex);
 }

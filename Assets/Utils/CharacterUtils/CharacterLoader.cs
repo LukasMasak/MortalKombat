@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Globalization;
+using System;
 
 public static class CharacterLoader
 {
@@ -103,10 +104,12 @@ public static class CharacterLoader
 
         foreach (string folderPath in allPossibleCharacters)
         {
+            double startTime = Time.realtimeSinceStartupAsDouble;
             CharacterData loadedCharacter = LoadFromFolder(folderPath);
-            if (loadedCharacter.isValid) 
+            double endTime = Time.realtimeSinceStartupAsDouble;
+            if (loadedCharacter.isValid)
             {
-                Debug.Log("Character " + loadedCharacter.name + " successfully loaded!");
+                Debug.Log("Character " + loadedCharacter.name + " successfully loaded! Took: " + Math.Round((endTime - startTime) * 1000, 2) + " ms.");
                 characters.Add(loadedCharacter);
             }
         }

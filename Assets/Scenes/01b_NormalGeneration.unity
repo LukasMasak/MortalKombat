@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 452431663}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 0.45
+  m_MaxValue: 0.5
   m_WholeNumbers: 0
   m_Value: 0.15
   m_OnValueChanged:
@@ -9762,6 +9762,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charIdxToUse: 1
+  repeatsPerSlope: 2
+  slopeStart: 0
+  slopeEnd: 0.2
+  slopeStep: 0.05
+  file: test.txt
+  useOptimized: 1
+  TEST: 0
   _edgesStrengthSlider: {fileID: 911454925}
   _edgeBlurSlider: {fileID: 1373322785}
   _borderStrengthSlider: {fileID: 20735949}
@@ -9819,7 +9826,7 @@ MonoBehaviour:
   _fastGaussianShader: {fileID: 7200000, guid: 4827cf5b931438d408df128ea82d1baf, type: 3}
   _fastNormalMapShader: {fileID: 7200000, guid: c428034816a3e3c40bc18e883c9c0eb4,
     type: 3}
-  useOptimized: 0
+  useOptimized: 1
   spriteRenderer: {fileID: 5636222327870828686}
   sourceTexture: {fileID: 2800000, guid: c2a58c821f70c4a68bc3e5978ef7006f, type: 3}
   normalStrength: 20

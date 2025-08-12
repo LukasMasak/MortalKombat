@@ -10,6 +10,7 @@ float _bumpStrength;
 int _bumpBlur;
 int _softenBump;
 
+// Gets the grayscale of the pixel
 inline float grayscale(float3 pixel)
 {
     return dot(pixel.rgb, float3(0.2126, 0.7152, 0.0722));
@@ -21,6 +22,7 @@ void CSMain (uint3 dispatchThreadID : SV_DispatchThreadID)
     uint2 texSize;
     _sourceTex.GetDimensions(texSize.x, texSize.y);
 
+    // Only draw to pixels in range of texture (just in case check)
     if (dispatchThreadID.x >= texSize.x) return;
     if (dispatchThreadID.x < 0) return;
     if (dispatchThreadID.y >= texSize.y) return;

@@ -20,7 +20,7 @@ public class NormalMapGenerator : MonoBehaviour
     [SerializeField] private ComputeShader _fastGaussianShader;
     [SerializeField] private ComputeShader _fastNormalMapShader;
 
-    [SerializeField] private bool useOptimized = false;
+    [SerializeField] public bool useOptimized = false;
 
 
     [Header("Manual Debugs")]
@@ -65,12 +65,9 @@ public class NormalMapGenerator : MonoBehaviour
 
     public Texture2D GenerateNormalMap(NormalMapSettings settings)
     {
-        //Debug.Log("Called with " + sourceTexture.name + " tex name, " + normalStrength + " strenght edge, " + blurEdges + " edge blur " + bumpHeight + " bump height, " + blurBump + " blur bump, " + softenBump + " soften bump, " + slopePercentage + " slope percentagem, " + finalBlur + " final blur");
-
-        //Debug.Log("texture " + sourceTexture.mipmapLimitGroup + " mipmaplimitgroup, " + sourceTexture.requestedMipmapLevel + " requstedmipmaplevel, " + sourceTexture.streamingMipmaps + " streamingmipmaps, " + sourceTexture.hideFlags + " hide flags, " + sourceTexture.streamingMipmapsPriority + " streamingmipmapspriority, " + sourceTexture.imageContentsHash + " image content hash, " + sourceTexture.updateCount + " updatecount, " + sourceTexture.minimumMipmapLevel + " minimummipmap, " + sourceTexture.mipMapBias + " mipmap bias, " + sourceTexture.mipmapCount + " mipmapcount");
         Texture2D result;
 
-        double startTime = Time.realtimeSinceStartupAsDouble;
+        //double startTime = Time.realtimeSinceStartupAsDouble;
 
         if (useOptimized)
         {
@@ -112,9 +109,9 @@ public class NormalMapGenerator : MonoBehaviour
             result = lastResult;
         }
 
-        double endTime = Time.realtimeSinceStartupAsDouble;
+        //double endTime = Time.realtimeSinceStartupAsDouble;
 
-        Debug.Log("Took " + (endTime - startTime) * 1000 + " ms");
+        //Debug.Log("Took " + (endTime - startTime) * 1000 + " ms");
 
         return result;
     }

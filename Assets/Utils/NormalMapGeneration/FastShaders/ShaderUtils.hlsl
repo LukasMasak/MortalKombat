@@ -1,4 +1,4 @@
-
+// Applies gamma correction from Linear to sRGB color space
 float3 LinearToSRGB(float3 linearCol)
 {
     float3 srgbLo  = linearCol * 12.92;
@@ -7,6 +7,7 @@ float3 LinearToSRGB(float3 linearCol)
     return result;
 }
 
+// Gets the grayscale of the pixel
 inline float grayscale(float3 pixel)
 {
     return dot(pixel.rgb, float3(0.2126, 0.7152, 0.0722));
@@ -45,13 +46,17 @@ void GaussianBlurTexture(uint3 id : SV_DispatchThreadID, Texture2D<float4> srcTe
         for (int y = yMin; y <= yMax; y++)
         {
             int2 texCoord = int2(x, y);
+
+            // Get sample and use it only if high alpha
             float4 sample = srcTex[texCoord];
             if (sample.w <= 0.01) continue;
 
+            // Get coords in gauss kernel
             int offsetY = y - (coords.y - blurRadius);
             int offsetX = x - (coords.x - blurRadius);
-            float weight = kernel[offsetY * kernelLineLength + offsetX];
 
+            // Get gaussian weight and sum the color and weight
+            float weight = kernel[offsetY * kernelLineLength + offsetX];
             color += sample.xyz * weight;
             weightSum += weight;
         }
