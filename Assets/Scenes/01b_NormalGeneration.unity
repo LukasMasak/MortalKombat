@@ -9845,12 +9845,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc50e4aa566d0c4aa6d4a952da677d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charIdxToUse: 2
-  repeatsPerSlope: 2
+  charIdxToUse: 1
+  repeatsPerSlope: 15
   slopeStart: 0
-  slopeEnd: 0.2
+  slopeEnd: 0.3
   slopeStep: 0.05
-  file: test.txt
+  file: old_1024.txt
   useOptimized: 1
   TEST: 0
   _edgesStrengthSlider: {fileID: 911454925}

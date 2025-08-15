@@ -109,9 +109,13 @@ public class NormalMapManager : MonoBehaviour
                 {
                     for (int repeat = 0; repeat < repeatsPerSlope; repeat++)
                     {
-                        writer.WriteLine(currSlope.ToString("F2", System.Globalization.CultureInfo.InvariantCulture)
-                        + ","
-                        + times[timesIdx].ToString("F3", System.Globalization.CultureInfo.InvariantCulture));
+                        string stage = _normalMapGenerator.S4FinalBlur ? "S4" : _normalMapGenerator.S3NormalMap ? "S3" : _normalMapGenerator.S2DistMap ? "S2" : "S1";
+
+                        writer.WriteLine(
+                        currSlope.ToString("F4", System.Globalization.CultureInfo.InvariantCulture)
+                        //stage
+                        +","
+                        + times[timesIdx].ToString("F4", System.Globalization.CultureInfo.InvariantCulture));
 
                         timesIdx++;
                     }

@@ -10,10 +10,10 @@ public class NormalMapGenerator : MonoBehaviour
     [SerializeField] private ComputeShader _slowGaussianShader;
     [SerializeField] private ComputeShader _slowDistanceShader;
     [SerializeField] private ComputeShader _slowNormalMapShader;
-    [SerializeField] private bool S1BlurSource = false;
-    [SerializeField] private bool S2DistMap = false;
-    [SerializeField] private bool S3NormalMap = false;
-    [SerializeField] private bool S4FinalBlur = false;
+    [SerializeField] public bool S1BlurSource = false;
+    [SerializeField] public bool S2DistMap = false;
+    [SerializeField] public bool S3NormalMap = false;
+    [SerializeField] public bool S4FinalBlur = false;
 
 
     [SerializeField] private ComputeShader _fastBlurDistShader;
@@ -151,6 +151,7 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Cleanup
         RenderTexture.active = null;
+        renderTexture.Release();
 
         return normalTexture;
     }
@@ -187,6 +188,7 @@ public class NormalMapGenerator : MonoBehaviour
 
         // Cleanup
         RenderTexture.active = null;
+        renderTexture.Release();
 
         return heightMap;
     }
