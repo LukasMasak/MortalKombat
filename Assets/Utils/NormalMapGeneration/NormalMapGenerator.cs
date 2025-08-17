@@ -58,7 +58,12 @@ public class NormalMapGenerator : MonoBehaviour
             settings.slopePercentageBorder = slopeDistance;
             settings.finalBlurRadius = finalBlur;
 
+            double startTime = Time.realtimeSinceStartupAsDouble;
             Texture2D test = GenerateNormalMap(settings);
+            double endTime = Time.realtimeSinceStartupAsDouble;
+
+            Debug.Log("Took " + (endTime - startTime) * 1000 + " ms");
+
             spriteRenderer.sprite = Sprite.Create(test, new Rect(0, 0, test.width, test.height), new Vector2(0.5f, 0.5f));
         }
     }

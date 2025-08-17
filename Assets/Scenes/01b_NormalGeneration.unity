@@ -9847,10 +9847,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charIdxToUse: 1
   repeatsPerSlope: 15
-  slopeStart: 0
-  slopeEnd: 0.3
+  slopeStart: 0.55
+  slopeEnd: 1
   slopeStep: 0.05
-  file: old_1024.txt
+  file: opt_1024.txt
   useOptimized: 1
   TEST: 0
   _edgesStrengthSlider: {fileID: 911454925}
